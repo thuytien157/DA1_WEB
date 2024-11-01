@@ -1,0 +1,8 @@
+.nav-item:hover{
+    color: var(--main-color) ;
+}
+
+/* màu chữ trang chủ  */
+.home {
+    color: var(--main-color);
+}
