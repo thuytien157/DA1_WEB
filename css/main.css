@@ -1,11 +1,20 @@
+/* vị trí  */
+.btn-mid {
 
-/* MENU*/
-/*Trang chủ*/
+    margin : 20px auto;
+} /* ở giữa*/
+
+.mg-top60 {
+    margin-top:60px;
+}
+
+/* thanh nav  */
 .navbar-light {
     background-color: #F8F4E1;
 }
 
 .nav-link:hover {
+    color: var(--main-color);
     color: var(--main-color);
 }
 .nav-link {
@@ -13,9 +22,50 @@
     margin-right: 8px;
     color: black;
 }
-.dropdown-item:hover {
-    color: #C9B8AC;
+/* nút trang chủ mang màu chủ đạo  */
+.home {
+    color: var(--main-color);
 }
+
+/* Ẩn menu con mặc định */
+.nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white; /* Đổi màu nền nếu cần */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng cho menu */
+}
+
+/* Hiển thị menu con khi hover */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Định dạng các mục menu con */
+.dropdown-menu li a {
+    padding: 10px 30px;
+    display: block;
+    color: var(--main-color); /* Đổi màu chữ nếu cần */
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--main-color); /* Đổi màu nền khi hover */
+    color:white;
+}
+
+.arrow{
+    display: inline-block;
+    margin-left: 5px; /* Khoảng cách giữa chữ và mũi tên */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.nav-item:hover .arrow {
+    transform: rotate(180deg) !important; /* Xoay mũi tên 180 độ */
+}
+
 
 /* Thanh tìm kiếm */
 .d-flex {
@@ -35,10 +85,13 @@
     top: 50%;
     transform: translateY(-50%);
     color: var(--main-color);
+    color: var(--main-color);
 }
 
 /* Nút giỏ hàng */
 .cart-button {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
     background-color: var(--main-color);
     border-color: var(--main-color);
     color: #F8F4E1;
@@ -55,10 +108,13 @@
 .account-button {
     color: var(--main-color);
     border-color: var(--main-color);
+    color: var(--main-color);
+    border-color: var(--main-color);
     font-size: 14px;
 }
 
 .account-button:hover {
+    background-color: var(--main-color);
     background-color: var(--main-color);
     color: #F8F4E1;
 }
@@ -71,11 +127,143 @@
 .dropdown-item {
     font-size: 14px;
     color: var(--main-color);
+    color: var(--main-color);
 }
 
 .dropdown-item:hover {
-    background-color: #C9B8AC;
-    color: #F8F4E1;
+    background-color: var(--main-color);
+    color: white;
+}
+
+/* xong thanh nav  */
+
+/* banner  */
+.banner{
+    width: 100%;
+}
+
+/* main */
+
+main {
+    margin-top: 100px;
+}
+
+.title-hot{
+    margin: 0 auto;
+    color: var(--main-color);
+    padding-bottom: 20px;
+}
+
+/* product  */
+.product-row{
+    width: 95%;
+    height: auto;
+    margin: 10px auto;
+}
+
+
+.col {
+    width: calc((100%/4) - 10px);
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
+    overflow: hidden;
+}
+.product-img {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+/* group các loại giá  */
+.product-price{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    padding-top: 20px;
+    align-items: center;
+    margin-left: 25px;
+}
+
+/* giá bán sản phẩm  */
+.product-price-sale{
+    color:red;
+    font-size: 16px;
+
+}
+
+/* giá gốc và làm mờ  */
+.product-price-opacity{
+    padding: 0 7px;
+    font-size: 18px;
+    opacity: .4;
+    font-size: 13px;
+    text-decoration: line-through;
+    line-height: 30px;
+    vertical-align: middle; /* Căn giữa theo chiều dọc */
+}
+
+/* phần trăm giảm giá  */
+.product-price-percent {
+    padding: 3px;
+    border: red 1px solid;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+}
+/* chỉnh sủa các btn  */
+.btn-group{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px;
+}
+.button{
+    margin-right: 10px;
+    padding: 5px 12px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    font-size: 13px;
+}
+
+
+/* danh mục trang chủ */
+.box-category{
+    position: relative;
+}
+
+.title-category{
+    position: absolute;
+    left: 50%; /* Đặt vị trí nút ở giữa */
+    top: 20px; /* Cách đáy hình một khoảng */
+    transform: translateX(-50%); /* Đẩy nút về bên trái nửa chiều rộng của nó để căn giữa */
+    padding: 7px 15px;
+    color: #F5F5DC;
+    font-size: 36px;
+    font-weight: bold;
+}
+.img-category{
+    width: 150%; /* Đặt chiều rộng hình ảnh phóng to hơn khung */
+    height: 420px; /* Tự động điều chỉnh chiều cao theo tỷ lệ */
+    margin-left: -25%; /* Đẩy hình ảnh sang trái để giữa khung */
+    /* transition: transform 0.3s ease; Thêm hiệu ứng chuyển tiếp nếu cần */
+}
+.button-category {
+    position: absolute;
+    left: 50%; /* Đặt vị trí nút ở giữa */
+    bottom: 20px; /* Cách đáy hình một khoảng */
+    transform: translateX(-50%); /* Đẩy nút về bên trái nửa chiều rộng của nó để căn giữa */
+    padding: 7px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+
 }
 /* end menu*/
 
@@ -95,6 +283,10 @@
 .list-group{
     width: 300px;
 }
+.list-group-item{
+    border: none;
+
+}
 .form-check-label{
     font-size: 13px;
 }
@@ -109,6 +301,57 @@ h5{
     margin-top: 20px;
     gap: 20px;
     padding: 20px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    border-right: 1px solid rgb(218, 212, 212);
+    height: 1600px;
+}
+.sanpham {
+    max-width: 800px; /* Giới hạn chiều rộng tối đa */
+    display: flex; /* Sử dụng Flexbox */
+    flex-direction: row; /* Hướng sắp xếp là hàng */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    position: absolute;
+    right: 8%;
+    margin-top: 18px;
 }
 
+.col {
+    flex: 1 1 230px; /* Chiều rộng tối thiểu là 300px và có thể mở rộng */
+    box-sizing: border-box; /* Đảm bảo padding và border được tính vào chiều rộng */
+}
+.product-name{
+    font-size: 18px;
+    text-align: center;
+}
+.rating{
+    font-size: 13px;
+    text-align: center;
+}
+.button{
+    margin-right: 0;
+}
+.chuyentrang{
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: -187%;
+    left: 59%;
+}
+.chuyentrang .item1{
+    padding: 2px 10px;
+    border: 1px solid var(--main-color);
+}
+.anh img{
+    width: 334px;
+    height: 258px;
+}
+.tgnoitieng{
+    display: flex;
+    width: 800px;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: absolute;
+    left: 300px;
+    flex: 1 1 300px;
+    bottom: -260%;
+}
