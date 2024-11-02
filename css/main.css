@@ -1,3 +1,14 @@
+/* vị trí  */
+.btn-mid {
+
+    margin : 20px auto;
+} /* ở giữa*/
+
+.mg-top60 {
+    margin-top:60px;
+}
+
+/* thanh nav  */
 .navbar-light {
     background-color: #F8F4E1;
 }
@@ -47,12 +58,12 @@
 
 .arrow{
     display: inline-block;
-    transition: transform 0.3s ease;
+    margin-left: 5px; /* Khoảng cách giữa chữ và mũi tên */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
 }
 
-.arrow:hover{
-
-    transform: rotate(180deg);
+.nav-item:hover .arrow {
+    transform: rotate(180deg) !important; /* Xoay mũi tên 180 độ */
 }
 
 
@@ -117,6 +128,8 @@
     color: white;
 }
 
+/* xong thanh nav  */
+
 /* banner  */
 .banner{
     width: 100%;
@@ -138,15 +151,16 @@ main {
 .product-row{
     width: 95%;
     height: auto;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 
 .col {
     width: calc((100%/4) - 10px);
-
-    border: var(--main-color) 1px solid;
+    border-radius: 5px;
     margin: 5px;
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
+    overflow: hidden;
 }
 .product-img {
     padding-top: 10px;
@@ -207,5 +221,48 @@ main {
     background-color: var(--main-color);
     color: white;
     border: none;
+}
+
+
+/* danh mục trang chủ */
+
+.box-category{
+
+    position: relative;
+
+}
+
+.title-category{
+
+    position: absolute;
+    left: 50%; /* Đặt vị trí nút ở giữa */
+    top: 20px; /* Cách đáy hình một khoảng */
+    transform: translateX(-50%); /* Đẩy nút về bên trái nửa chiều rộng của nó để căn giữa */
+    padding: 7px 15px;
+    color: #F5F5DC;
+    font-size: 36px;
+    font-weight: bold;
+
+
+}
+
+.img-category{
+
+    width: 150%; /* Đặt chiều rộng hình ảnh phóng to hơn khung */
+    height: 420px; /* Tự động điều chỉnh chiều cao theo tỷ lệ */
+    margin-left: -25%; /* Đẩy hình ảnh sang trái để giữa khung */
+
+    /* transition: transform 0.3s ease; Thêm hiệu ứng chuyển tiếp nếu cần */
+}
+.button-category {
+    position: absolute;
+    left: 50%; /* Đặt vị trí nút ở giữa */
+    bottom: 20px; /* Cách đáy hình một khoảng */
+    transform: translateX(-50%); /* Đẩy nút về bên trái nửa chiều rộng của nó để căn giữa */
+    padding: 7px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+
 }
 
