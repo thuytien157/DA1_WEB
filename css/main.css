@@ -1,8 +1,77 @@
-.nav-item:hover{
-    color: var(--main-color) ;
+.navbar-light {
+    background-color: #F8F4E1;
 }
 
-/* màu chữ trang chủ  */
-.home {
-    color: var(--main-color);
+.nav-link:hover {
+    color: #8B4513;
+}
+
+.nav-link {
+    padding: 5px 12px;
+    margin-right: 8px;
+    color: black;
+}
+.dropdown-item:hover {
+    color: #C9B8AC;
+}
+
+/* Thanh tìm kiếm */
+.d-flex {
+    position: relative;
+    max-width: 400px;
+}
+
+.search-input {
+    width: 300px;
+    padding-right: 35px;
+    height: 36px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8B4513;
+}
+
+/* Nút giỏ hàng */
+.cart-button {
+    background-color: #8B4513;
+    border-color: #8B4513;
+    color: #F8F4E1;
+    height: 36px;
+    font-size: 14px;
+}
+
+.cart-button:hover {
+    background-color: #C9B8AC;
+    border-color: #C9B8AC;
+}
+
+/* Tài khoản */
+.account-button {
+    color: #8B4513;
+    border-color: #8B4513;
+    font-size: 14px;
+}
+
+.account-button:hover {
+    background-color: #8B4513;
+    color: #F8F4E1;
+}
+
+/* Dropdown đăng ký/đăng nhập */
+.dropdown-menu {
+    min-width: 100px;
+}
+
+.dropdown-item {
+    font-size: 14px;
+    color: #8B4513;
+}
+
+.dropdown-item:hover {
+    background-color: #C9B8AC;
+    color: #F8F4E1;
 }
