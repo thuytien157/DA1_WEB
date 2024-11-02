@@ -45,6 +45,17 @@
     color:white;
 }
 
+.arrow{
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow:hover{
+
+    transform: rotate(180deg);
+}
+
+
 /* Thanh tìm kiếm */
 .d-flex {
     position: relative;
@@ -105,3 +116,96 @@
     background-color: var(--main-color);
     color: white;
 }
+
+/* banner  */
+.banner{
+    width: 100%;
+}
+
+/* main */
+
+main {
+    margin-top: 100px;
+}
+
+.title-hot{
+    margin: 0 auto;
+    color: var(--main-color);
+    padding-bottom: 20px;
+}
+
+/* product  */
+.product-row{
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+.col {
+    width: calc((100%/4) - 10px);
+
+    border: var(--main-color) 1px solid;
+    margin: 5px;
+}
+.product-img {
+    padding-top: 10px;
+
+}
+
+.img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+/* group các loại giá  */
+.product-price{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    padding-top:20px;
+    align-items: center;
+
+}
+
+/* giá bán sản phẩm  */
+.product-price-sale{
+    padding: 0 7px;
+    color:red;
+}
+
+/* giá gốc và làm mờ  */
+.product-price-opacity{
+    padding: 0 7px;
+    font-size: 18px;
+    opacity: .4;
+    text-decoration: line-through;
+    line-height: 30px;
+    vertical-align: middle; /* Căn giữa theo chiều dọc */
+}
+
+/* phần trăm giảm giá  */
+.product-price-percent {
+    padding: 3px;
+    border: red 1px solid;
+    border-radius: 6px;
+    font-size: 18px;
+    background-color: red;
+    color: white;
+}
+
+/* chỉnh sủa các btn  */
+.btn-group{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px;
+}
+
+.button{
+    padding: 7px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+}
+
