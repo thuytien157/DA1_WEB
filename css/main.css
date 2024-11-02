@@ -3,7 +3,7 @@
 }
 
 .nav-link:hover {
-    color: #8B4513;
+    color: var(--main-color);
 }
 
 .nav-link {
@@ -11,8 +11,38 @@
     margin-right: 8px;
     color: black;
 }
-.dropdown-item:hover {
-    color: #C9B8AC;
+/* nút trang chủ mang màu chủ đạo  */
+.home {
+    color: var(--main-color);
+}
+
+/* Ẩn menu con mặc định */
+.nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white; /* Đổi màu nền nếu cần */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng cho menu */
+}
+
+/* Hiển thị menu con khi hover */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Định dạng các mục menu con */
+.dropdown-menu li a {
+    padding: 10px 30px;
+    display: block;
+    color: var(--main-color); /* Đổi màu chữ nếu cần */
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--main-color); /* Đổi màu nền khi hover */
+    color:white;
 }
 
 /* Thanh tìm kiếm */
@@ -32,13 +62,13 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: #8B4513;
+    color: var(--main-color);
 }
 
 /* Nút giỏ hàng */
 .cart-button {
-    background-color: #8B4513;
-    border-color: #8B4513;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
     color: #F8F4E1;
     height: 36px;
     font-size: 14px;
@@ -51,13 +81,13 @@
 
 /* Tài khoản */
 .account-button {
-    color: #8B4513;
-    border-color: #8B4513;
+    color: var(--main-color);
+    border-color: var(--main-color);
     font-size: 14px;
 }
 
 .account-button:hover {
-    background-color: #8B4513;
+    background-color: var(--main-color);
     color: #F8F4E1;
 }
 
@@ -68,10 +98,10 @@
 
 .dropdown-item {
     font-size: 14px;
-    color: #8B4513;
+    color: var(--main-color);
 }
 
 .dropdown-item:hover {
-    background-color: #C9B8AC;
-    color: #F8F4E1;
+    background-color: var(--main-color);
+    color: white;
 }
