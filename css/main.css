@@ -1,11 +1,13 @@
+
+/* MENU*/
+/*Trang chủ*/
 .navbar-light {
     background-color: #F8F4E1;
 }
 
 .nav-link:hover {
-    color: #8B4513;
+    color: var(--main-color);
 }
-
 .nav-link {
     padding: 5px 12px;
     margin-right: 8px;
@@ -32,13 +34,13 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: #8B4513;
+    color: var(--main-color);
 }
 
 /* Nút giỏ hàng */
 .cart-button {
-    background-color: #8B4513;
-    border-color: #8B4513;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
     color: #F8F4E1;
     height: 36px;
     font-size: 14px;
@@ -51,13 +53,13 @@
 
 /* Tài khoản */
 .account-button {
-    color: #8B4513;
-    border-color: #8B4513;
+    color: var(--main-color);
+    border-color: var(--main-color);
     font-size: 14px;
 }
 
 .account-button:hover {
-    background-color: #8B4513;
+    background-color: var(--main-color);
     color: #F8F4E1;
 }
 
@@ -68,10 +70,45 @@
 
 .dropdown-item {
     font-size: 14px;
-    color: #8B4513;
+    color: var(--main-color);
 }
 
 .dropdown-item:hover {
     background-color: #C9B8AC;
     color: #F8F4E1;
 }
+/* end menu*/
+
+
+/*Trang sản phẩm*/
+
+.dieuhuong{
+    padding: 10px 10px;
+}
+.dieuhuong a{
+    text-decoration: none;
+    color: black;
+}
+#back{
+    color: var(--main-color);
+}
+.list-group{
+    width: 300px;
+}
+.form-check-label{
+    font-size: 13px;
+}
+h5{
+    color: var(--main-color);
+}
+.filter {
+    display: flex;
+    flex-direction: column; 
+    position: absolute;
+    left: 50px;
+    margin-top: 20px;
+    gap: 20px;
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
