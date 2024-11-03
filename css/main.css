@@ -370,6 +370,7 @@ main {
 /* end tác giả  */
 
 /* footer  */
+
 footer {
     margin-top: 100px;
     background-color: #F8F4E1;
@@ -724,14 +725,11 @@ h5{
     height: 1600px;
 }
 .sanpham {
-    max-width: 800px; /* Giới hạn chiều rộng tối đa */
+    margin-left: 300px;
+    max-width: 900px; /* Giới hạn chiều rộng tối đa */
     display: flex; /* Sử dụng Flexbox */
     flex-direction: row; /* Hướng sắp xếp là hàng */
     flex-wrap: wrap; /* Cho phép các phần tử xuống dòng */
-    gap: 20px; /* Khoảng cách giữa các phần tử */
-    position: absolute;
-    right: 8%;
-    margin-top: 18px;
 }
 
 .col {
@@ -755,7 +753,7 @@ h5{
     gap: 5px;
     position: absolute;
     bottom: -187%;
-    left: 59%;
+    left: 57%;
 }
 .chuyentrang .item1{
     padding: 2px 10px;
