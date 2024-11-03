@@ -15,6 +15,13 @@ body {
 }
 
 /* thanh nav  */
+
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+
+}
 .navbar-light {
     background-color: #F8F4E1;
 }
@@ -170,7 +177,7 @@ main {
 
 
 .col {
-    width: calc((100%/4) - 40px) ;
+
     border-radius: 5px;
     margin: 20px;
     box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
@@ -867,7 +874,7 @@ h5{
     color: #9e9999;
     font-size: 20px;
     top: 165px;
-    right: 465px;    
+    right: 465px;
 }
 .avatar{
     display: flex;
