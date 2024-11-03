@@ -11,10 +11,10 @@
 </head>
 
 <body>
-<header>
 
+<header>
      <!-- MENU-START -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo bên trái -->
             <a class="navbar-brand" href="index.html">Logo</a>
@@ -35,13 +35,13 @@
                         <a class="nav-link" href="sanpham.html">Sản Phẩm <i class="fa-solid fa-angle-down arrow"></i> </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="#">thêm sau</a></li>
-                            <li><a href="#">thêm sau</a></li>
-                            <li><a href="#">thêm sau</a></li>
+                            <li><a class="dropdown-item" href="#">Sản Phẩm Mới</a></li>
+                            <li><a class="dropdown-item" href="#">Sản Phẩm Bán Chạy</a></li>
+                            <li><a class="dropdown-item" href="#">Sản Phẩm Khuyến Mãi & Ưu Đãi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Giới Thiệu</a>
+                        <a class="nav-link" href="gioithieu.html">Giới Thiệu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="lienhe.html">Liên Hệ</a>
@@ -62,7 +62,7 @@
                     </li>
                     <!-- Nút giỏ hàng -->
                     <li class="nav-item">
-                        <button type="button" class="btn btn-primary cart-button">Giỏ hàng <i class="fa-solid fa-cart-shopping"></i></button>
+                        <button type="button" class="btn btn-primary cart-button"> <a style="text-decoration: none; color: white;" href="giohang.html"> Giỏ hàng</a><i class="fa-solid fa-cart-shopping"></i></button>
                     </li>
                     <!-- Tài khoản và các nút đăng nhập/đăng ký -->
                     <li class="nav-item dropdown ms-3">
@@ -79,9 +79,9 @@
             </div>
         </div>
     </nav>
-    </header>
+    <!-- MENU - END -->
+</header>
     <!-- end menu -->
-
     <main class="wrap">
     <div class="dieuhuong">
         <a href="sanpham.html" >Sản phẩm</a> /
@@ -107,7 +107,7 @@
                     <img src="img/IMG_DA1/san pham/chitiet3.webp" class="img-thumbnail" alt="...">
                 </div>
             </div>
-            <!-- end anhchitietsanpham -->  
+            <!-- end anhchitietsanpham -->
              <div class="chinhsachuudai">
                 <h6 style="color: #8B4513;" id="textttct">Chính sách ưu đãi</h6>
                 <div class="time">
@@ -123,7 +123,7 @@
                     <div>Thế giới sách nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống cửa hàng trên toàn quốc.</div>
                     Nếu cần hỗ trợ thêm bất kì thông tin nào, cửa hàng nhờ quý khách liên hệ trực tiếp qua hotline  để được hỗ trợ nhanh chóng.
                 </div>
-             </div> 
+             </div>
         </div>
         <!-- end anhchitiet -->
 
@@ -138,7 +138,7 @@
                 <div>Hình thức bìa: Bìa Mềm</div>
             </div>
             <div class="yeuthich">
-            <i class="fa-regular fa-heart"></i> 
+            <i class="fa-regular fa-heart"></i>
             <span style="color: #8B4513;">Thêm vào yêu thích</span>
             </div>
             <div class="rating1">
@@ -152,7 +152,7 @@
             <div class="giachitiet">
                 <h5 class="gia">42.500đ <del class="gia_sale">85.000đ</del></h5>
                 <div class="chiase">
-                    Chia sẽ 
+                    Chia sẽ
                     <i class="fa-brands fa-facebook f1"></i>
                     <i class="fa-brands fa-youtube y1"></i>
                     <i class="fa-brands fa-telegram t1"></i>
@@ -163,8 +163,8 @@
             <div class="sl-btn">
                 <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
                 <div class="btn-group1">
-                    <button class="button1">Mua ngay</button>
-                    <button class="button1">Thêm vào giỏ hàng</button>
+                    <button class="button1"><a href="thanhtoan.html">Mua ngay</a></button>
+                    <button class="button1"><a href="giohang.html">Thêm vào giỏ hàng</a></button>
                 </div>
             </div>
             <h5 id="textttct">Thông tin chi tiết</h5>
@@ -227,7 +227,7 @@
                 <div style="color: #AF7F5D;">Chính sách khuyến mãi trên thế giới sách không áp dụng cho Hệ thống Nhà sách trên toàn quốc</div>
             </div>
           </div>
-        
+
     </div>
     <div class="motasanpham">
         <h5 id="mota">Mô tả sản phẩm</h5>
@@ -259,7 +259,7 @@
             </div>
           </div>
           <!-- END - BOX SANPHAM -->
-        
+
 
           <div class="col">
             <div class="product-img">
@@ -323,6 +323,7 @@
             </div>
           </div>
         </div>
+
     </main>
     <footer>
         <!-- các icon và dịch vụ footer  -->
@@ -378,13 +379,13 @@
                 <!-- liên kết  -->
                 <div class="footer-infor">
                     <div class="service-title">Links</div>
-                    <a class="service-link" href="">Giới thiệu</a>
+                    <a class="service-link" href="#">Giới thiệu</a>
                     <br>
-                    <a class="service-link" href="">Liên Hệ</a>
+                    <a class="service-link" href="lienhe.html">Liên Hệ</a>
                     <br>
                     <a class="service-link" href="">Bài viết</a>
                     <br>
-                    <a class="service-link" href="">Sản phẩm</a>
+                    <a class="service-link" href="sanpham.html">Sản phẩm</a>
                 </div>
                 <div class="footer-infor">
                     <div class="service-title">Danh mục</div>
@@ -405,9 +406,10 @@
                     <div class="service-follow">
                         <div class="service-title">Theo dõi</div>
                         <!-- icon các mạng xã hội  -->
-                        <a class="service-link" href=""><i class="fa-brands fa-square-facebook service-social-icon"></i></a>
-                        <a class="service-link" href=""><i class="fa-brands fa-square-youtube service-social-icon"></i></a>
-                        <a class="service-link" href=""><i class="fa-brands fa-instagram  service-social-icon"></i></a>
+                        <a class="service-link" href="#"><i class="fa-brands fa-square-facebook service-social-icon"></i></a>
+                        <a class="service-link" href="#"><i class="fa-brands fa-square-youtube service-social-icon"></i></a>
+                        <a class="service-link" href="#"><i class="fa-brands fa-telegram service-social-icon"></i></a>
+                        <a class="service-link" href="#"><i class="fa-brands fa-discord service-social-icon"></i></a>
                     </div>
                 </div>
             </div>
@@ -417,7 +419,6 @@
         </div>
 
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./css/main.js"></script>
 </body>
