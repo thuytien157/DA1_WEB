@@ -629,3 +629,168 @@ h5{
 .list-group-item{
     border-bottom: 1px solid rgb(226, 226, 226);
 }
+.taikhoan{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.icon{
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--main-color);
+}
+.listdanhsach{
+    margin-left: 50px;
+    margin-top: 20px;
+    border-right: 1px solid #a8a8a8;
+}
+.texths{
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #6D6D6D;
+}
+.inputtaikhoan{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputtaikhoan1{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputtaikhoan2{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputtaikhoan3{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputtaikhoan > div,
+.inputtaikhoan1 > div,
+.inputtaikhoan2 > div,
+.inputtaikhoan3 > div {
+    width: 80px; /* Set a fixed width for labels to align them */
+}
+#iptk{
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #6D6D6D;
+}
+
+.hoso{
+    margin-top: 20px;
+    border-right: 1px solid #a8a8a8;
+}
+.anhhoso{
+    margin-top: 20px;
+}
+.anhhoso img{
+    border-radius: 100%;
+    width: 70px;
+    margin-left: 20px;
+}
+.fa-camera{
+    position: absolute;
+    color: #9e9999;
+    font-size: 20px;
+    top: 165px;
+    right: 465px;    
+}
+.avatar{
+    display: flex;
+}
+.textavt{
+    margin-top: 20px;
+    font-size: 13px;
+    color: #6D6D6D;
+}
+.textbm{
+    margin-left: 30px;
+    margin-top: 10px;
+    color: #6D6D6D;
+}
+.inputtaikhoan4{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 10px;
+    flex-direction: row;
+    gap: 20px;
+}
+.doimklink{
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--main-color);
+    font-weight: 600;
+}
+.capnhat {
+    font-size: 12px;
+    color: var(--main-color);
+    font-weight: 600;
+    padding-right: 10px;
+
+    margin-left: 10px; /* Add some space between input and button */
+}
+.suaanh{
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+}
+.facebook_lk{
+    margin-left: 50px;
+    width: 300px;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    gap: 140px;
+    padding-bottom: 10px;
+
+}
+.google_lk{
+    margin-left: 50px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    gap: 160px;
+
+}
+.iconandtext{
+    display: flex;
+}
+#textfb{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#textgg{
+    margin-left: 10px;
+    margin-top: 8px;
+
+}
+.lk{
+    color: var(--main-color);
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.lienket{
+    font-size: 12px;
+    color: var(--main-color);
+    font-weight: 600px;
+    margin-top: 10px;
+}
+
