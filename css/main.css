@@ -2,6 +2,19 @@ body {
     margin :0;
 }
 /* vị trí  */
+/* không margin  */
+.no-mg {
+    margin-top: 0 !important;
+}
+
+.pad{
+    padding: 7px 40px !important;
+}
+
+.mid {
+    margin:0 auto !important;
+}
+/* nút ra giữa  */
 .btn-mid {
     position: absolute;
     bottom: 20;
@@ -20,10 +33,9 @@ header {
     position: sticky !important;
     top: 0 !important;
     z-index: 1000 !important;
-
 }
 .navbar-light {
-    background-color: #F8F4E1;
+    background-color: #F8F4E1 !important;
 }
 
 .nav-link:hover {
@@ -37,6 +49,7 @@ header {
 }
 /* nút trang chủ mang màu chủ đạo  */
 .home {
+    font-weight: bold;
     color: var(--main-color);
 }
 
@@ -417,7 +430,7 @@ footer {
 /* icon các mạng xã hội  */
 .service-social-icon{
     color: var(--main-color);
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .foot {
@@ -429,6 +442,249 @@ footer {
     color: white;
 }
 /* end footer  */
+
+/* trang giới thiệu  */
+.banner-about{
+    position: relative;
+    width: 100%;
+    max-height: 340px;
+    overflow: hidden;
+}
+
+.about-img {
+    width: 100%;
+    margin-top: -20%;
+    opacity: 0.4;
+}
+
+.about-blog{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.about-infor{
+    margin-top: 20px;
+}
+
+.about-infor-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/* thông tin giới thiệu thứ 1 */
+.box-about-infor-1{
+    width: 600px;
+    height: 280px;
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #6D6D6D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.blog-title{
+    font-size: 26px;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.box-about-infor-1-blog{
+    display: block;
+    margin-top: auto;
+    width: 80%; /* Phần bên phải chiếm 50% */
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.about-infor-blog{
+    margin-top: auto; /* Đẩy đoạn văn xuống dưới cùng */
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* end thông tin 1  */
+
+/* thông tin giới thiệu thứ 2 */
+.about-infor-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px
+
+}
+
+.box-about-infor-2{
+    width: 750px;
+    height: 300px;
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #6D6D6D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-about-infor-2-blog{
+    display: block;
+    margin-top: auto;
+    width: 60%;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+/* end thông tin thứ 2  */
+
+/* ảnh thông tin thứ 3  */
+.box-about-infor-3{
+    width: 95%;
+    height: 486px;
+    margin: 0 auto;
+    background-color: #6D6D6D;
+}
+
+/* thông tin thứ 3  */
+.about-infor-3{
+    width: 95%;
+
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 20px;
+}
+/* end thông tin thứ 3  */
+
+/* ảnh thứ 4  */
+.box-about-infor-4{
+    width: 100%;
+    height: 486px;
+    margin-top: 10px;
+    background-color: #6D6D6D;
+}
+
+/* end trang giới thiệu  */
+
+
+/* trang giỏ hàng  */
+
+.cart-section{
+    display: flex;
+    margin-top: 50px;
+}
+
+.cart-table {
+    width: 72%;
+    border-collapse: collapse;
+}
+
+.cart-table th{
+    background-color: #F8F4E1;
+}
+
+/* chỉnh viền bên trái bảng sản phẩm trong giỏ hàng  */
+.cart-table th:first-child, .cart-table td:first-child{
+    border-left: 1px solid #ddd;
+
+}
+
+/* chỉnh viền bên phải bảng sản phẩm trong giỏ hàng  */
+.cart-table th:last-child, .cart-table td:last-child{
+    border-right: 1px solid #ddd;
+
+}
+
+.cart-table th, .cart-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.cart-checkbox {
+    margin-left: 10px;
+}
+
+/* ảnh sản phẩm  */
+.cart-img {
+    margin-left: 10px;
+    width: 70px;
+}
+
+/* tên sản phẩm */
+.cart-product-name{
+    padding: 20px 0;
+    color: var(--main-color);
+}
+
+/* giá sản phẩm  */
+.cart-table-price{
+    color:red;
+}
+
+/* icon thùng rác  */
+.cart-trash-icon{
+    font-size: 20px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+/* cột chứa thông tin sản phẩm  */
+.cart-table-product{
+    display: flex;
+
+}
+
+/* bảng cộng giỏ hàng  */
+.cart-table-sum{
+    margin-left: 40px;
+    width: 25%;
+    height: 200px;
+    border-collapse: collapse;
+}
+
+.cart-table-sum th{
+    background-color: #F8F4E1;
+}
+
+/* chỉnh viền bên trái  */
+.cart-table-sum th:first-child,.cart-table-sum td:first-child{
+    border-left: 1px solid #ddd;
+
+}
+
+/* chỉnh viền bên phải  */
+.cart-table-sum th:last-child,.cart-table-sum td:last-child{
+    border-right: 1px solid #ddd;
+
+}
+
+.cart-table-sum th, .cart-table-sum td {
+    border-bottom: 1px solid #ddd;
+
+    padding: 8px;
+
+}
+.cart-table-sum td:last-child{
+    text-align: center;
+}
+
+.cart-table-button {
+    padding: 5px 50px;
+    border: none;
+    margin: 0 auto;
+    background-color: var(--main-color);
+    color: white;
+
+}
+
+.cart-table-button:hover{
+    opacity: 0.5;
+}
+
+
+
+
 
 
 /*Trang sản phẩm*/
@@ -662,7 +918,7 @@ h5{
     margin-left: 20px;
 }
 .noidungchitiet{
-    margin-left: 20px;
+    margin-left: 40px;
 }
 .thongtinchitiet{
     margin-top: 20px;
