@@ -955,4 +955,114 @@ h5{
     font-weight: 600px;
     margin-top: 10px;
 }
+.thanhtoan{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.thongtinthanhtoan{
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.textthanhtoan{
+    color: var(--main-color);
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(196, 196, 196);
+    width: 600px;
+}
+.formthanhtoan{
+    width: 600px;
+}
+.donhang{
+    border: 1px solid rgb(192, 192, 192);
+    margin-right: 50px;
+    border-radius: 10px;
+    height: 435px;
+    margin-top: 10px;
+}
+.textdonhang{
+    margin-left: 50px;
+    margin-top: 30px;
+    color: var(--main-color);
+    font-weight: 700;
+}
+.bangdh{
+    width: 550px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.phuongthucthanhtoan{
+    margin-left: 40px;
+}
+#pttt{
+    color: var(--main-color);
+    font-weight: 700;
+}
+#btn-thanhtoan{
+    
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    margin-top: 10px;
+    padding: 5px 50px;
+    margin-left: 250px;
+}
+.lichsumuahang {
+    margin-left: 130px;
+    width: 1100px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng cho menu */
+    margin-top: 10px;
+    display: flex; /* Sử dụng flexbox để bố trí */
+    border-radius: 8px; /* Bo góc */
+    padding: 15px; /* Khoảng cách bên trong */
+}
 
+.thongtinls {
+    flex: 1; /* Chiếm không gian còn lại */
+    margin-right: 20px; /* Khoảng cách giữa thông tin sản phẩm và trạng thái */
+}
+
+.thongtinls img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của khung */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    border-radius: 4px; /* Bo góc cho hình ảnh */
+}
+
+.gials {
+    font-weight: bold; /* Làm chữ giá đậm */
+    color: #d9534f; /* Màu đỏ cho giá */
+    margin-top: 5px; /* Khoảng cách trên của giá */
+}
+
+.trangthai {
+    flex: 0 0 200px; /* Đặt chiều rộng cố định cho phần trạng thái */
+    background-color: #e9ecef; /* Màu nền cho trạng thái */
+    border-radius: 4px; /* Bo góc cho trạng thái */
+    padding: 10px; /* Khoảng cách bên trong */
+}
+
+.trangthaivatien {
+    margin-bottom: 10px; /* Khoảng cách dưới cho phần thanh toán */
+}
+
+.payment {
+    font-weight: bold; /* Làm chữ thanh toán đậm */
+}
+
+.dathanhtoan {
+    font-size: 1.2em; /* Tăng kích thước chữ cho số tiền đã thanh toán */
+    color: #28a745; /* Màu xanh cho tiền đã thanh toán */
+}
+
+.thoigiangiaohang {
+    font-style: italic; /* Chữ nghiêng cho thời gian giao hàng */
+    color: #6c757d; /* Màu xám cho thời gian giao hàng */
+}
+.xemchitiet{
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 10px;
+}

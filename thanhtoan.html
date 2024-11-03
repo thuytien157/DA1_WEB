@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
-
-    <title>Book Store</title>
+    <title>Document</title>
 </head>
+
 <body>
-    <!-- MENU-START -->
+<header>
+
+     <!-- MENU-START -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo bên trái -->
             <a class="navbar-brand" href="index.html">Logo</a>
+
             <!-- Nút Toggle cho thiết bị di động -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <!-- Navbar nội dung -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Các mục ở giữa khi ở màn hình lớn -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Trang Chủ</a>
+                        <a class="nav-link home" href="index.html">Trang Chủ</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sản Phẩm
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sanpham.html">Sản Phẩm <i class="fa-solid fa-angle-down arrow"></i> </a>
+
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Mới</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Bán Chạy</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Khuyến Mãi & Ưu Đãi</a></li>
+                            <li><a href="#">thêm sau</a></li>
+                            <li><a href="#">thêm sau</a></li>
+                            <li><a href="#">thêm sau</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -47,6 +50,7 @@
                         <a class="nav-link" href="#">Bài Viết</a>
                     </li>
                 </ul>
+
                 <!-- Thanh tìm kiếm và các nút bên phải -->
                 <ul class="navbar-nav ms-auto align-items-center">
                     <!-- Thanh tìm kiếm -->
@@ -63,95 +67,98 @@
                     <!-- Tài khoản và các nút đăng nhập/đăng ký -->
                     <li class="nav-item dropdown ms-3">
                         <button onclick="window.location.href='taikhoan.html';" class="btn btn-outline-secondary account-button dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tài khoản <i class="fa-solid fa-user"></i> 
+                            Tài khoản <i class="fa-solid fa-user"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="accountDropdown">
                             <li><a class="dropdown-item" href="dangky.html">Đăng Ký</a></li>
                             <li><a class="dropdown-item" href="dangnhap.html">Đăng Nhập</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
     </nav>
-     <!-- MENU-END -->
-
-     <main class="wrap">
-        <div class="dieuhuong">
-        <a href="index.html" >Trang chủ</a> /
-        <a href="taikhoan.html" id="back">Tài khoản</a>
+    <!-- MENU - END -->
+</header>
+<main class="wrap">
+    <div class="dieuhuong">
+        <a href="giohang.html" >Giỏ hàng</a> /
+        <a href="thanhtoan.html" id="back">Thanh toán</a>
     </div>
-
-    <div class="taikhoan">
-        <div class="listdanhsach">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><i class="fa-solid fa-user icon"></i> Thông tin tài khoản</li>
-            <li class="list-group-item"><i class="fa-solid fa-clock-rotate-left icon"></i> Lịch sử mua hàng</li>
-            <li class="list-group-item"><i class="fa-solid fa-heart icon"></i> Yêu thích</li>
-            <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Mã giảm giá</li>
-            <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Thông báo</li>
-            <li class="list-group-item"><i class="fa-solid fa-user-minus icon"></i>Đăng xuất</li>
-          </ul>
+    
+    <div class="thanhtoan">
+        <div class="thongtinthanhtoan">
+            <h5 class="textthanhtoan">Thông tin thanh toán</h5>
+            <div class="formthanhtoan">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Họ và tên</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Địa chỉ</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Số điện thoại</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label fw-bold">Ghi chú</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </div>
+            <!-- end formthanhtoan -->
         </div>
-        
-        <div class="hoso">
-            <div class="texths">Hồ sơ của tôi</div>
-            <div class="inputtaikhoan">
-                <div style="font-size: 14px; margin-top: 2px;">Username</div>
-                <input type="text" id="iptk">
-                <a class="capnhat" href="#">Cập nhật</a>
+        <!-- end thongtinthanhtoan -->
 
-            </div>
-                <div class="inputtaikhoan1">
-                    <div style="font-size: 14px; margin-top: 2px;">Họ tên</div>
-                    <input type="text" id="iptk">
-                    <a class="capnhat" href="#">Cập nhật</a>
-                </div>
+        <div class="donhang">
+            <h5 class="textdonhang">Đơn hàng của bạn</h5>
+            <table class="table bangdh">
+                <thead>
+                  <tr>
+                    <th colspan="3">Sản phẩm</th>
+                    <th>Tạm tính</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="">Lén nhặt chuyện đời </td>
+                    <td colspan="2">x1</td>
+                    <td>42.000đ</td>
+                  </tr>
+                  <tr>
+                    <td colspan="">Sakamoto Days - Tập 3 - Mashimo</td>
+                    <td colspan="2">x1</td>
+                    <td>410.000đ</td>
+                  </tr>
+                  <tr>
+                    <th colspan="3">Tổng</th>
+                    <td>452.000đ</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="phuongthucthanhtoan">
+                <h6 id="pttt">Phương thức thanh toán</h6>
 
-                <div class="inputtaikhoan2">
-                    <div style="font-size: 14px; margin-top: 2px;">Số điện thoại</div>
-                    <input type="text" id="iptk">
-                    <a class="capnhat" href="#">Cập nhật</a>
-
-                </div>
-                <div class="inputtaikhoan3">
-                    <div style="font-size: 14px; margin-top: 2px;">Email</div>
-                    <input type="email" id="iptk">
-                    <a class="capnhat" href="#">Cập nhật</a>
-                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label style="font-size: 14px;" class="form-check-label" for="flexRadioDefault1">
+                        Chuyển khoản ngân hàng
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label style="font-size: 14px;" class="form-check-label" for="flexRadioDefault2">
+                        Thanh toán tiền mặt
+                    </label>
+                  </div>
+              </div>
+              <button id="btn-thanhtoan">Thanh toán</button>
         </div>
-
-        <div class="anhhoso">
-            <div class="avatar">
-                <img src="img/IMG_DA1/san pham/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="">
-                <div class="textavt">Dung lượng file tối đa 1 MB Định dạng:.JPEG, .PNG <br> <button class="suaanh">Sửa ảnh</button> </div>
-            </div>
-            <div class="textbm">Bảo mật</div>
-            <div class="inputtaikhoan4">
-                <div style="font-size: 14px; margin-top: 2px;">Mật khẩu</div>
-                <input type="password" id="iptk">
-                <a class="doimklink" href="doimatkhau.html">Đổi mật khẩu</a>
-            </div>
-            <div class="textbm">Liên kết tài khoản</div>
-            <div class="facebook_lk">
-            <div class="iconandtext">
-                <i class="fa-brands fa-facebook lk"></i>
-                <div id="textfb">Facebook</div>
-            </div>
-                <a class="lienket" href="#">Liên kết</a>
-            </div>
-
-            <div class="google_lk">
-                <div class="iconandtext">
-                    <i class="fa-brands fa-google lk"></i>
-                    <div id="textgg">Google</div>
-                </div>
-                    <a class="lienket" href="#">Liên kết</a>
-                </div>
-        </div>
-
     </div>
+    <!-- end div thanhtoan -->
+
 </main>
 <footer>
     <!-- các icon và dịch vụ footer  -->
@@ -248,5 +255,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
