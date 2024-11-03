@@ -357,24 +357,27 @@ h5{
 }
 
 /*Liên hệ*/
+.bannerlienhe{
+    position: relative;
+}
 .bannerlienhe img{
-    width: 1280px;
+    width: 1330px;
     height: 300px;
-    margin-left: 50px;
+    margin-left: 10px;
     opacity: .4;
     z-index: 1;
 }
 #textlienhe{
     position: absolute;
-    top: 220px;
+    top: 120px;
     left: 500px;
     font-weight: 700;
     z-index: 2;
 }
 .camket{
-    width: 1280px;
-    margin-left: 50px;
-    font-weight: 500;
+    width: 1290px;
+    margin-left: 30px;
+    font-weight: 700;
 }
 .formlh{
     width: 550px;
@@ -387,17 +390,21 @@ h5{
     padding: 2px 8px;
     margin-left: 50px;
 }
+.ggmap{
+    position: relative;
+}
 .ggmap img{
     width: 650px;
     height: 300px;
     position: absolute;
     right: 50px;
-    top: 590px;
+    top: -300px;
 }
 #textcauhoithuonggap{
     color: var(--main-color);
     text-align: center;
     margin-top: 50px;
+    font-weight: 700;
 }
 .accordion{
     width: 500px;
@@ -412,4 +419,47 @@ h5{
 }
 .caccauhoithuonggap{
     display: flex;
+}
+.wrap{
+    max-width: 1400px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.accordion-flush .accordion-item:last-child {
+    border-bottom: 1px solid #c2c3c4;
+} 
+#texttheodoi{
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 20px;
+    font-weight: 700;
+
+}
+.text-center{
+    margin-left: 80px;
+}
+.boxtheodoi{
+    padding: 20px;
+    box-shadow: none;
+}
+.fa-location-dot, .fa-phone, .fa-envelope{
+    color: var(--main-color);
+    font-size: 22px;
+    
+}
+#textboxtheodoi{
+    color: var(--main-color);
+    font-weight: 600;
+
+}
+.diachi{
+    font-size: 14px;
+    font-weight: 700;
+}
+.fa-facebook, .fa-youtube, .fa-telegram, .fa-discord{
+    font-size: 24px;
+    padding-right: 5px;
+    color: var(--main-color);
 }
