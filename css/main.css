@@ -1,6 +1,11 @@
 body {
     margin :0;
 }
+
+/* không màu nền  */
+.no-gbc {
+    background-color: white!important;
+}
 /* vị trí  */
 /* không margin  */
 .no-mg {
@@ -191,6 +196,7 @@ main {
 
 .col {
 
+
     border-radius: 5px;
     margin: 20px;
     box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
@@ -257,6 +263,10 @@ main {
     color: white;
     border: none;
     font-size: 13px;
+}
+
+.button:hover {
+    opacity: 0.5;
 }
 
 
@@ -682,6 +692,93 @@ footer {
 .cart-table-button:hover{
     opacity: 0.5;
 }
+
+
+/* trang bài viết  */
+.col-290{
+    max-width: 290px;
+    overflow: hidden;
+}
+
+
+
+
+.article-img-1{
+
+    width: 120%;
+    margin-top:-50%;
+    margin-left:-10%;
+}
+
+.article-img-2{
+    margin-top:13%;
+    transform: scale(1.4);
+}
+
+.col-blog{
+    border: none !important;
+    border-radius: 0;
+    width: 100% !important;
+    height: 230px !important;
+    overflow: hidden;
+}
+
+
+
+
+/* box các bài viết  */
+.article {
+
+    margin: 20px;
+
+    overflow: hidden;
+}
+
+/* tiêu đề bài viết  */
+.article-title{
+    font-size: 16px;
+    text-align: justify;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+/* thời gian đăng bài viết  */
+.article-time{
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #6D6D6D;
+}
+
+/* nội dung bài viết  */
+.article p {
+    margin-top: 15px;
+    text-align: justify;
+    font-size: 15px;
+}
+
+/* end trang bài viết  */
+
+
+/* form  */
+.icon-size {
+    background-color: transparent; /* Làm nền trong suốt */
+    border-top: 1 solid;
+    border-bottom: 1 solid;
+    padding: 5px; /* Loại bỏ khoảng cách trong khung */
+    color: #555; /* Màu của icon */
+  }
+
+  .input-group .form-control {
+    height: 40px; /* Đồng bộ chiều cao các ô input */
+    border-right:none;
+  }
+
+  .input-group .input-group-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 
 
@@ -1260,7 +1357,7 @@ h5{
     font-weight: 700;
 }
 #btn-thanhtoan{
-    
+
     color: white;
     background-color: var(--main-color);
     border: none;
