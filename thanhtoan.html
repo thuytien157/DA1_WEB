@@ -141,18 +141,14 @@
               <div class="phuongthucthanhtoan">
                 <h6 id="pttt">Phương thức thanh toán</h6>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label style="font-size: 14px;" class="form-check-label" for="flexRadioDefault1">
-                        Chuyển khoản ngân hàng
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label style="font-size: 14px;" class="form-check-label" for="flexRadioDefault2">
-                        Thanh toán tiền mặt
-                    </label>
-                  </div>
+                <div class="ptthanhtoan">
+                      <select class="form-select" aria-label="Default select example">
+                    <option selected>Chọn phương thức thanh toán</option>
+                    <option value="1">Chuyển khoản ngân hàng</option>
+                    <option value="2">Thanh toán bằng tiền mặt</option>
+                  </select>
+                </div>
+              
               </div>
               <button id="btn-thanhtoan">Thanh toán</button>
         </div>

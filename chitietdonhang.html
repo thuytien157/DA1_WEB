@@ -81,86 +81,55 @@
     </nav>
     <!-- MENU - END -->
 </header>
-     <!-- MENU-END -->
 
-     <main class="wrap">
+
+    <main class="wrap">
+
         <div class="dieuhuong">
-        <a href="index.html" >Trang chủ</a> /
-        <a href="taikhoan.html" id="back">Tài khoản</a>
+            <a href="lichsumuahang.html" >Lịch sử mua hàng</a> /
+            <a href="thanhtoan.html" id="back">Chi tiết đơn hàng</a>
+        </div>
+        <h5 id="textct">Chi tiết đơn hàng của bạn</h5>
+        <div class="ctdonhang">
+            <table class="table ct">
+                <tbody>
+                  <tr>
+                    <th scope="row">Sản phẩm</th>
+                    <td>Chuyển sinh thành con ngoài giá thú của gia đình danh giá</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Số lượng</th>
+                    <td>x1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">TT thanh toán</th>
+                    <td >Đã thanh toán</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">TT đơn hàng</th>
+                    <td >Đã giao hàng</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ngày giao</th>
+                    <td >12/10/2024</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Địa chỉ</th>
+                    <td >123 Đường Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ghi chú</th>
+                    <td>Khách hàng không để lại ghi chú</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <button id="back_ls"><a style="text-decoration: none; color: white;" href="lichsumuahang.html">Quay lại</a></button>
     </div>
 
-    <div class="taikhoan">
-        <div class="listdanhsach">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><i class="fa-solid fa-user icon"></i> Thông tin tài khoản</li>
-            <li class="list-group-item"><i class="fa-solid fa-clock-rotate-left icon"></i> <a style="text-decoration: none; color: black;" href="lichsumuahang.html">Lịch sử mua hàng</a></li>
-            <li class="list-group-item"><i class="fa-solid fa-heart icon"></i> Yêu thích</li>
-            <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Mã giảm giá</li>
-            <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Thông báo</li>
-            <li class="list-group-item"><i class="fa-solid fa-user-minus icon"></i>Đăng xuất</li>
-          </ul>
-        </div>
-
-        <div class="hoso">
-            <div class="texths">Hồ sơ của tôi</div>
-            <div class="inputtaikhoan">
-                <div style="font-size: 14px; margin-top: 2px;">Username</div>
-                <input type="text" id="iptk">
-                <a class="capnhat" href="#">Cập nhật</a>
-
-            </div>
-                <div class="inputtaikhoan1">
-                    <div style="font-size: 14px; margin-top: 2px;">Họ tên</div>
-                    <input type="text" id="iptk">
-                    <a class="capnhat" href="#">Cập nhật</a>
-                </div>
-
-                <div class="inputtaikhoan2">
-                    <div style="font-size: 14px; margin-top: 2px;">Số điện thoại</div>
-                    <input type="text" id="iptk">
-                    <a class="capnhat" href="#">Cập nhật</a>
-
-                </div>
-                <div class="inputtaikhoan3">
-                    <div style="font-size: 14px; margin-top: 2px;">Email</div>
-                    <input type="email" id="iptk">
-                    <a class="capnhat" href="#">Cập nhật</a>
-                </div>
-        </div>
-
-        <div class="anhhoso">
-            <div class="avatar">
-                <img src="img/IMG_DA1/san pham/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="">
-                <div class="textavt">Dung lượng file tối đa 1 MB Định dạng:.JPEG, .PNG <br> <button class="suaanh">Sửa ảnh</button> </div>
-            </div>
-            <div class="textbm">Bảo mật</div>
-            <div class="inputtaikhoan4">
-                <div style="font-size: 14px; margin-top: 2px;">Mật khẩu</div>
-                <input type="password" id="iptk">
-                <a class="doimklink" href="doimatkhau.html">Đổi mật khẩu</a>
-            </div>
-            <div class="textbm">Liên kết tài khoản</div>
-            <div class="facebook_lk">
-            <div class="iconandtext">
-                <i class="fa-brands fa-facebook lk"></i>
-                <div id="textfb">Facebook</div>
-            </div>
-                <a class="lienket" href="#">Liên kết</a>
-            </div>
-
-            <div class="google_lk">
-                <div class="iconandtext">
-                    <i class="fa-brands fa-google lk"></i>
-                    <div id="textgg">Google</div>
-                </div>
-                    <a class="lienket" href="#">Liên kết</a>
-                </div>
 
 
-        </div>
-
-    </div>
-</main>
+    </main>
 <footer>
     <!-- các icon và dịch vụ footer  -->
     <div class="container">
@@ -255,6 +224,8 @@
     </div>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

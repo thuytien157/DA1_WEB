@@ -1147,7 +1147,7 @@ h5{
     text-align: justify;
 }
 .quydinhgia{
-    width: 750px;
+    width: 700px;
     text-align: justify;
 }
 #mota ,#textsanphamkhac{
@@ -1157,7 +1157,7 @@ h5{
     color: var(--main-color);
 }
 .ndmota{
-    width: 1250px;
+    width: 1270px;
     margin-left: 30px;
     text-align: justify;
     font-size: 14px;
@@ -1296,6 +1296,12 @@ h5{
     background-color: var(--main-color);
     border: none;
 }
+.chitietsanpham{
+    margin-left: 30px;
+}
+.motasanpham{
+    margin-left: 10px;
+}
 .facebook_lk{
     margin-left: 50px;
     width: 300px;
@@ -1410,7 +1416,30 @@ h5{
     height: auto; /* Tự động điều chỉnh chiều cao */
     border-radius: 4px; /* Bo góc cho hình ảnh */
 }
-
+.ctdonhang{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.ptthanhtoan{
+    width: 300px;
+    margin-bottom: 20px;
+}
+#textct{
+    text-align: center;
+    font-weight: 700;
+}
+#back_ls{
+    background-color: var(--main-color);
+    border: none;
+    padding: 5px 10px;
+    margin-left: 275px;
+}
+.ct{
+    width: 800px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 .gials {
     font-weight: bold; /* Làm chữ giá đậm */
     color: #d9534f; /* Màu đỏ cho giá */
@@ -1449,3 +1478,38 @@ h5{
     font-size: 12px;
     margin-top: 10px;
 }
+.review-container {
+    max-width: 1250px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  #dg1{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .customer-name {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .review-date {
+    font-size: 0.9em;
+    color: #888;
+  }
+  .review-stars {
+    color: #FFD700;
+    font-size: 1.2em;
+  }
+  .review-content {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
