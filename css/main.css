@@ -769,18 +769,43 @@ footer {
     color: #555; /* Màu của icon */
   }
 
-  .input-group .form-control {
+.input-group .form-control {
     height: 40px; /* Đồng bộ chiều cao các ô input */
     border-right:none;
-  }
+}
 
-  .input-group .input-group-text {
+.input-group .input-group-text {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
+/* end form  */
+
+/* trang đánh giá  */
+.review{
+    width: 50%;
+    margin: 0 auto;
+}
+.review-section {
+
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
 
 
+
+.star-rating {
+    color: #FFD700;
+}
+.comment-card {
+    margin-top: 15px;
+    border-color: var(--main-color);
+}
+.comment-card .card-body {
+    color: var(--main-color);
+}
 
 
 
