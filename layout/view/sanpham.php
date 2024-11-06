@@ -1,88 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
-</head>
-
-<body>
-
-<header>
-     <!-- MENU-START -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <!-- Logo bên trái -->
-            <a class="navbar-brand" href="index.html">Logo</a>
-
-            <!-- Nút Toggle cho thiết bị di động -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Navbar nội dung -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Các mục ở giữa khi ở màn hình lớn -->
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link home" href="index.html">Trang Chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sanpham.html">Sản Phẩm <i class="fa-solid fa-angle-down arrow"></i> </a>
-
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Mới</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Bán Chạy</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Khuyến Mãi & Ưu Đãi</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gioithieu.html">Giới Thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lienhe.html">Liên Hệ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Bài Viết</a>
-                    </li>
-                </ul>
-
-                <!-- Thanh tìm kiếm và các nút bên phải -->
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <!-- Thanh tìm kiếm -->
-                    <li class="nav-item me-2">
-                        <form class="d-flex">
-                            <input class="form-control search-input" type="search" placeholder="Tìm kiếm" aria-label="Search">
-                            <i class="fa fa-search search-icon"></i>
-                        </form>
-                    </li>
-                    <!-- Nút giỏ hàng -->
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary cart-button"> <a style="text-decoration: none; color: white;" href="giohang.html"> Giỏ hàng</a><i class="fa-solid fa-cart-shopping"></i></button>
-                    </li>
-                    <!-- Tài khoản và các nút đăng nhập/đăng ký -->
-                    <li class="nav-item dropdown ms-3">
-                        <button onclick="window.location.href='taikhoan.html';" class="btn btn-outline-secondary account-button dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tài khoản <i class="fa-solid fa-user"></i>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                            <li><a class="dropdown-item" href="dangky.html">Đăng Ký</a></li>
-                            <li><a class="dropdown-item" href="dangnhap.html">Đăng Nhập</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- MENU - END -->
-</header>
      <!-- MENU-END -->
-<main class="wrap">
+     <main class="wrap">
     <div class="dieuhuong">
         <a href="index.html" >Trang chủ</a> /
         <a href="sanpham.html" id="back">Sản phẩm</a>
@@ -223,7 +140,7 @@
                 <!-- box san pham -->
                 <div class="col">
                     <div class="product-img">
-                        <a href="chitietsanpham.html"><img class="img" src="img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                        <a href="chitietsanpham.html"><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
                     </div>
                     <div class="product-content">
                         <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
@@ -238,13 +155,15 @@
                     <div class="btn-group">
                         <button class="button">Mua ngay</button>
                         <button class="button">Thêm vào giỏ hàng</button>
+
                     </div>
                   </div>
+
                   <!-- end box san pham -->
 
                   <div class="col">
                     <div class="product-img">
-                        <a href=""><img class="img" src="img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
                     </div>
                     <div class="product-content">
                         <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
@@ -259,11 +178,54 @@
                     <div class="btn-group">
                         <button class="button">Mua ngay</button>
                         <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
                     </div>
                   </div>
                   <div class="col">
                     <div class="product-img">
-                        <a href=""><img class="img" src="img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
                     </div>
                     <div class="product-content">
                         <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
@@ -278,9 +240,150 @@
                     <div class="btn-group">
                         <button class="button">Mua ngay</button>
                         <button class="button">Thêm vào giỏ hàng</button>
+
                     </div>
                   </div>
-            </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                  </div>
+                </div>
             <!-- end div sanpham -->
              <div class="chuyentrang">
                 <div class="item1">1</div>
@@ -288,111 +391,5 @@
                 <div class="item1">>></div>
              </div>
             </div>
-            </main>
             <!-- end div trangsanpham -->
-            <footer>
-                <!-- các icon và dịch vụ footer  -->
-                <div class="container">
-                    <div class="row row-cols-4">
-                        <div class="service">
-                            <i class="fa-solid fa-truck-fast service-icon"></i>
-                            <div class="service-infor">
-                                <p class="service-title">Free shipping</p> <br>
-                                <p class="service-st">Miễn phí vận chuyển</p>
-                                <!-- st là small text  -->
-                            </div>
-                        </div>
-                        <div class="service">
-                            <i class="fa-solid fa-square-phone service-icon"></i>
-                            <div class="service-infor">
-                                <p class="service-title">24/7 support</p> <br>
-                                <p class="service-st">Hỗ trợ 24/7</p>
-                                <!-- st là small text  -->
-                            </div>
-                        </div>
-                        <div class="service">
-                            <i class="fa-solid fa-square-check service-icon"></i>
-                            <div class="service-infor">
-                                <p class="service-title">Good quality</p> <br>
-                                <p class="service-st">Chất lượng tốt</p>
-                                <!-- st là small text  -->
-                            </div>
-                        </div>
-                        <div class="service">
-                            <i class="fa-brands fa-cc-visa service-icon"></i>
-                            <div class="service-infor">
-                                <p class="service-title">Easy payment</p> <br>
-                                <p class="service-st">Thanh toán dễ dàng</p>
-                                <!-- st là small text  -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end  các icon và dịch vụ footer  -->
-        
-                <hr>
-        
-                <!-- thông tin chi tiết ở footer  -->
-                <div class="container">
-                    <div class="row row-cols-4">
-                        <!-- logo  -->
-                        <div class="footer-infor">
-                            <p class="service-logo">logo</p>
-                        </div>
-                        <!-- end logo  -->
-        
-                        <!-- liên kết  -->
-                        <div class="footer-infor">
-                            <div class="service-title">Links</div>
-                            <a class="service-link" href="">Giới thiệu</a>
-                            <br>
-                            <a class="service-link" href="">Liên Hệ</a>
-                            <br>
-                            <a class="service-link" href="">Bài viết</a>
-                            <br>
-                            <a class="service-link" href="">Sản phẩm</a>
-                        </div>
-                        <div class="footer-infor">
-                            <div class="service-title">Danh mục</div>
-                            <a class="service-link" href="">SP mới</a>
-                            <br>
-                            <a class="service-link" href="">SP bán chạy</a>
-                            <br>
-                            <a class="service-link" href="">SP khuyến mãi và ưu đãi</a>
-                            <br>
-                        </div>
-                        <div class="footer-infor">
-                            <div class="service-title">Thông tin</div>
-                            <a class="service-link" href="">Điện thoại: 0888.303.384</a>
-                            <br>
-                            <a class="service-link" href="">Email: tiennttps39163@gmail.com</a>
-        
-                            <!-- các icon theo dõi  -->
-                            <div class="service-follow">
-                                <div class="service-title">Theo dõi</div>
-                                <!-- icon các mạng xã hội  -->
-                                <a class="service-link" href=""><i class="fa-brands fa-square-facebook service-social-icon"></i></a>
-                                <a class="service-link" href=""><i class="fa-brands fa-square-youtube service-social-icon"></i></a>
-                                <a class="service-link" href=""><i class="fa-brands fa-instagram  service-social-icon"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="foot">
-                    Copyright 2024  @ FineWines
-                </div>
-        
-            </footer>
-        </div>
-    </div>
-</div>
-</div>
-
-
-    <!-- end div trangsanpham -->
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    </main>

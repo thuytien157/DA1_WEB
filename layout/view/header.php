@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/base.css">
+    <link rel="stylesheet" href="public/css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+<header>
+     <!-- MENU-START -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo bên trái -->
+            <a class="navbar-brand" href="index.php?act=index">Logo</a>
+
+            <!-- Nút Toggle cho thiết bị di động -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar nội dung -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Các mục ở giữa khi ở màn hình lớn -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link home" href="index.php?act=index">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?act=product">Sản Phẩm <i class="fa-solid fa-angle-down arrow"></i> </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sản Phẩm Mới</a></li>
+                            <li><a class="dropdown-item" href="#">Sản Phẩm Bán Chạy</a></li>
+                            <li><a class="dropdown-item" href="#">Sản Phẩm Khuyến Mãi & Ưu Đãi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?act=about">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?act=contact">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?act=article">Bài Viết</a>
+                    </li>
+                </ul>
+
+                <!-- Thanh tìm kiếm và các nút bên phải -->
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- Thanh tìm kiếm -->
+                    <li class="nav-item me-2">
+                        <form class="d-flex">
+                            <input class="form-control search-input" type="search" placeholder="Tìm kiếm" aria-label="Search">
+                            <i class="fa fa-search search-icon"></i>
+                        </form>
+                    </li>
+                    <!-- Nút giỏ hàng -->
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary cart-button"> <a style="text-decoration: none; color: white;" href="index.php?act=cart"> Giỏ hàng</a><i class="fa-solid fa-cart-shopping"></i></button>
+                    </li>
+                    <!-- Tài khoản và các nút đăng nhập/đăng ký -->
+                    <li class="nav-item dropdown ms-3">
+                        <button onclick="window.location.href='index.php?act=acc';" class="btn btn-outline-secondary account-button dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tài khoản <i class="fa-solid fa-user"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                            <li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=login">Đăng Nhập</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- MENU - END -->
+</header>
