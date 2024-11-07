@@ -188,9 +188,195 @@
         <button class="button btn-mid">Xem thêm</button>
     </section>
 
+    <section style="margin-top: 100px; margin-bottom: 100px">
+        <div class="product-row ">
+            <!-- chia cột sản phẩm thành bốn cột  -->
+            <h2 class="title-hot">SẢN PHẨM MỚI</h2>
+            <div class="row row-cols-4">
+
+                <!-- BOX-SANPHAM -->
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href="chitietsanpham.html"><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <!-- END - BOX SANPHAM -->
+
+
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                </div>
+
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                </div>
+
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                </div>
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
+                    </div>
+
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+
+                </div>
+
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                </div>
+
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                </div>
+
+                <div class="col col-290">
+                    <div class="product-img">
+                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
+                    </div>
+
+                    <div class="product-content">
+                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="product-price">
+                            <h5 class="product-price-sale">410.000đ</h5>
+                            <h5 class="product-price-opacity">814.000đ</h5>
+                            <h5 class="product-price-percent"> -50% </h5>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="button">Mua ngay</button>
+                        <button class="button">Thêm vào giỏ hàng</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <button class="button btn-mid">Xem thêm</button>
+    </section>
+<!-- 
     <section>
-        <!-- danh mục sản phẩm  -->
-        <div class="container  mg-top60">
+        danh mục sản phẩm  -->
+        <!-- <div class="container  mg-top60">
             <h2 class="title-hot">DANH MỤC SẢN PHẨM</h2>
             <div class="row">
               <div class="col">
@@ -218,7 +404,7 @@
               </div>
             </div>
           </div>
-    </section>
+    </section>  -->
     <div class="banner-sale">
         <img class="banner-sale-img" src="./public/img/IMG_DA1/baner/baner sale.png" alt="">
     </div>
