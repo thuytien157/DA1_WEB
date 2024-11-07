@@ -11,7 +11,7 @@
                 <!-- BOX-SANPHAM -->
                 <div class="col col-290">
                     <div class="product-img">
-                        <a href="chitietsanpham.html"><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
+                        <a href="index.php?act=detail"><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
                     </div>
                     <div class="product-content">
                         <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>

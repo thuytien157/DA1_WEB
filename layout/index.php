@@ -57,6 +57,11 @@ switch ($act){
         $dangnhapController=new dangnhapController();
         break;
 
+    case 'detail':
+        include_once 'controller/chitietsanphamController.php';
+        $chitietsanphamController=new chitietsanphamController();
+        break;
+
 
 }
 
