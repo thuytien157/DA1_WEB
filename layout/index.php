@@ -21,7 +21,6 @@ switch ($act){
         $gioithieuController=new gioithieuController();
         break;
 
-
     case 'contact':
         include_once 'controller/lienheController.php';
         $lienheController=new lienheController();
@@ -43,6 +42,12 @@ switch ($act){
     case 'acc':
         include_once 'controller/taikhoanController.php';
         $taikhoanController=new taikhoanController();
+        break;
+
+    
+    case 'history':
+        include_once 'controller/lichsumuahangController.php';
+        $lichsumuahangController = new lichsumuahangController();
         break;
 
 

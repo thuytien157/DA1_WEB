@@ -10,7 +10,7 @@
         <div class="listdanhsach">
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><i class="fa-solid fa-user icon"></i> Thông tin tài khoản</li>
-            <li class="list-group-item"><i class="fa-solid fa-clock-rotate-left icon"></i> Lịch sử mua hàng</li>
+            <li class="list-group-item"><i class="fa-solid fa-clock-rotate-left icon"></i> <a href="index.php?act=lichsumuahang">Lịch sử mua hàng</a></li>
             <li class="list-group-item"><i class="fa-solid fa-heart icon"></i> Yêu thích</li>
             <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Mã giảm giá</li>
             <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Thông báo</li>
