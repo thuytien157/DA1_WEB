@@ -3,6 +3,29 @@
 <div class="container-web">
 <section>
     <div class="container">
+    <label for="category">Thể Loại:</label>
+            <select id="category">
+                <option value="">Tất cả</option>
+                <option value="phép thuật">Phép thuật</option>
+                <option value="tiểu thuyết">Tiểu thuyết</option>
+                <option value="khoa học">Khoa học</option>
+            </select>
+
+            <label for="author">Tác Giả:</label>
+            <select id="author">
+                <option value="">Tất cả</option>
+                <option value="J.K. Rowling">J.K. Rowling</option>
+                <option value="Harper Lee">Harper Lee</option>
+            </select>
+
+            <label for="year">Năm Xuất Bản:</label>
+            <select id="year">
+                <option value="">Tất cả</option>
+                <option value="1997">1997</option>
+                <option value="1960">1960</option>
+            </select>
+        </div>
+
         <div class="col3">
             <h2>Thêm Mới Sản Phẩm</h2>
             <form>
