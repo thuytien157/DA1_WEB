@@ -3,12 +3,12 @@
 include "view/header.php" ;
 
 $act=isset($_GET['act']) ? $_GET['act'] : 'index';
-
+$id=isset($_GET['id']) ? $_GET['id']:'';
 
 switch ($act){
     case 'index':
         include_once 'controller/trangchuController.php';
-        $trangchuController=new trangchuController();
+        $trangchuController=new trangchuController($id);
         break;
 
     case 'product':
@@ -20,6 +20,7 @@ switch ($act){
         include_once 'controller/gioithieuController.php';
         $gioithieuController=new gioithieuController();
         break;
+
 
     case 'contact':
         include_once 'controller/lienheController.php';
@@ -42,12 +43,6 @@ switch ($act){
     case 'acc':
         include_once 'controller/taikhoanController.php';
         $taikhoanController=new taikhoanController();
-        break;
-
-    
-    case 'history':
-        include_once 'controller/lichsumuahangController.php';
-        $lichsumuahangController = new lichsumuahangController();
         break;
 
 

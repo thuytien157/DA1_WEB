@@ -7,9 +7,9 @@
             <!-- chia cột sản phẩm thành bốn cột  -->
             <h2 class="title-hot">SẢN PHẨM BÁN CHẠY</h2>
             <div class="row row-cols-4">
-
+            <?php   phanloaisp($trangchumodel) ?>
                 <!-- BOX-SANPHAM -->
-                <div class="col col-290">
+                <!-- <div class="col col-290">
                     <div class="product-img">
                         <a href="index.php?act=detail"><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
                     </div>
@@ -26,174 +26,53 @@
                         <button class="button">Mua ngay</button>
                         <button class="button">Thêm vào giỏ hàng</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- END - BOX SANPHAM -->
-
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
-                    </div>
-
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
 
             </div>
         </div>
 
-
-
-
         <button class="button btn-mid">Xem thêm</button>
     </section>
+    <?php
+                function phanloaisp($trangchumodel){
+                    $ch='';
+                    foreach ($trangchumodel->mangsp as $key => $value){
+                    // if($value['iddm'] == $a){
+                        $ch.='
+                        <div class="col col-290">
+                            <div class="product-img">
+                                <a href="index.php?act=index&id='.$value['id'].'">
+                                <img class="img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt=""></a>
+                            </div>
+                            <div class="product-content">
+                                <h5 class="product-name">' . $value['ten_sach'] . '</h5>
+                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                                <div class="product-price">
+                                    <h5 class="product-price-sale">'.$value['gia'].'</h5>
+                                    <h5 class="product-price-opacity">814.000đ</h5>
+                                    <h5 class="product-price-percent"> '.$value['giam'].'% </h5>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="button">Mua ngay</button>
+                                <button class="button">Thêm vào giỏ hàng</button>
+                            </div>
+                        </div>
+                        ';
+                    // }
+                    
+                }
+                echo $ch;
+                }
+                ?>
 
     <section style="margin-top: 100px; margin-bottom: 100px">
         <div class="product-row ">
             <!-- chia cột sản phẩm thành bốn cột  -->
             <h2 class="title-hot">SẢN PHẨM MỚI</h2>
             <div class="row row-cols-4">
-
+            <?php   phanloaisp($trangchumodel) ?>
                 <!-- BOX-SANPHAM -->
                 <div class="col col-290">
                     <div class="product-img">
@@ -214,165 +93,12 @@
                     </div>
                 </div>
                 <!-- END - BOX SANPHAM -->
-
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
-                    </div>
-
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
-                <div class="col col-290">
-                    <div class="product-img">
-                        <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-                    </div>
-
-                    <div class="product-content">
-                        <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                        <div class="product-price">
-                            <h5 class="product-price-sale">410.000đ</h5>
-                            <h5 class="product-price-opacity">814.000đ</h5>
-                            <h5 class="product-price-percent"> -50% </h5>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button class="button">Mua ngay</button>
-                        <button class="button">Thêm vào giỏ hàng</button>
-
-                    </div>
-                </div>
-
             </div>
         </div>
 
-
-
-
         <button class="button btn-mid">Xem thêm</button>
     </section>
+
 <!-- 
     <section>
         danh mục sản phẩm  -->
