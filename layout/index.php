@@ -4,16 +4,17 @@ include "view/header.php" ;
 
 $act=isset($_GET['act']) ? $_GET['act'] : 'index';
 $id=isset($_GET['id']) ? $_GET['id']:'';
+$idtl=isset($_GET['idtl']) ? $_GET['idtl']:'';
 
 switch ($act){
     case 'index':
         include_once 'controller/trangchuController.php';
-        $trangchuController=new trangchuController($id);
+        $trangchuController=new trangchuController($id,$idtl);
         break;
 
     case 'product':
         include_once 'controller/sanphamController.php';
-        $sanphamController=new sanphamController();
+        $sanphamController=new sanphamController($idtl);
         break;
 
     case 'about':

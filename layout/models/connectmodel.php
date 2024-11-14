@@ -28,14 +28,14 @@ class ConnectModel
         return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
     }
 
-    // public function selectone($sql,$id)
-    // {
-    //     $this->ketnoi();
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->bindParam(":id",$id);
-    //     $stmt->execute();
-    //     $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
-    //     $this->conn = null; // đóng kết nối database
-    //     return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
-    // }
+    public function selectone($sql,$id)
+    {
+        $this->ketnoi();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id",$id);
+        $stmt->execute();
+        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
+        $this->conn = null; // đóng kết nối database
+        return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
+    }
 }
