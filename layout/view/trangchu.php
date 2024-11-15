@@ -22,7 +22,7 @@
                                 <img class="img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt=""></a>
                             </div>
                             <div class="product-content">
-                                <h5 class="product-name">' . $value['ten_sach'] . '</h5>
+                                <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
                                 <div class="rating">⭐⭐⭐⭐⭐</div>
                                 <div class="product-price">
                                     <h5 class="product-price-sale">'.$value['gia'].'</h5>
@@ -125,7 +125,7 @@
                                 <img class="img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt=""></a>
                             </div>
                             <div class="product-content">
-                                <h5 class="product-name">' . $value['ten_sach'] . '</h5>
+                                <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
                                 <div class="rating">⭐⭐⭐⭐⭐</div>
                                 <div class="product-price">
                                     <h5 class="product-price-sale">'.$value['gia'].'</h5>
