@@ -1,0 +1,3 @@
+•	CRUD Thể loại: Thêm, sửa, xóa, xem danh sách thể loại.
+•	CRUD Tác giả: Thêm, sửa, xóa, xem danh sách tác giả.
+•	CRUD NXB: Thêm, sửa, xóa, xem danh sách nhà xuất bản.
