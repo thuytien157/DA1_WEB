@@ -71,7 +71,7 @@
                     </label>
                   </div>
               </div>
-              <button id="btn-thanhtoan">Thanh toán</button>
+              <a href="index.php?act=cart&action=thanhtoan" id="btn-thanhtoan" class="xemchitiet text-decoration-none text-white">Thanh toán</a>
         </div>
     </div>
     <!-- end div thanhtoan -->

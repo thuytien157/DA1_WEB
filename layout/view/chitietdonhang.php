@@ -26,11 +26,24 @@
           <tr>
             <th scope="row">TT đơn hàng</th>
             <td >'.$value['tt_donhang'].'</td>
-          </tr>
-          <tr>
-            <th scope="row">Ngày giao</th>
-            <td >'.$value['ngay_giao_hang'].'</td>
-          </tr>
+          </tr>';
+          if($value['tt_donhang'] == "Hoàn thành"){
+            echo '
+            <tr>
+              <th scope="row">Ngày giao hàng</th>
+              <td >'.$value['ngay_giao_hang'].'</td>
+            </tr>
+            ';
+          }else{
+              echo '
+                <tr>
+                <th scope="row">Ngày giao hàng dự kiến</th>
+                <td >'.$value['ngay_giao_hang'].'</td>
+              </tr>
+              ';
+          };
+          
+          echo '
           <tr>
             <th scope="row">Địa chỉ</th>
             <td >'.$value['dia_chi'].'</td>
@@ -42,43 +55,12 @@
         </tbody>
           ';
         }
-      
+    
       
       ?>
-
-        <!-- <tbody>
-          <tr>
-            <th scope="row">Sản phẩm</th>
-            <td>Chuyển sinh thành con ngoài giá thú của gia đình danh giá</td>
-          </tr>
-          <tr>
-            <th scope="row">Số lượng</th>
-            <td>x1</td>
-          </tr>
-          <tr>
-            <th scope="row">TT thanh toán</th>
-            <td >Đã thanh toán</td>
-          </tr>
-          <tr>
-            <th scope="row">TT đơn hàng</th>
-            <td >Đã giao hàng</td>
-          </tr>
-          <tr>
-            <th scope="row">Ngày giao</th>
-            <td >12/10/2024</td>
-          </tr>
-          <tr>
-            <th scope="row">Địa chỉ</th>
-            <td >123 Đường Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</td>
-          </tr>
-          <tr>
-            <th scope="row">Ghi chú</th>
-            <td>Khách hàng không để lại ghi chú</td>
-          </tr>
-        </tbody> -->
       </table>
 </div>
-<button id="back_ls"><a style="text-decoration: none; color: white;" href="lichsumuahang.html">Quay lại</a></button>
+<button id="back_ls"><a style="text-decoration: none; color: white;" href="index.php?act=lichsu">Quay lại</a></button>
 </div>
 
 

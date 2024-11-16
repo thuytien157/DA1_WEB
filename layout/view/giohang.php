@@ -1,99 +1,68 @@
-<main class="container no-mg">
-        <div class="dieuhuong">
-            <a href="index.html" >Trang chủ</a> /
-            <a href="giohang.html" id="back">Giỏ hàng</a>
-        </div>
+<main class="container-xxl no-mg">
+    <div class="dieuhuong">
+        <a href="index.html">Trang chủ</a> /
+        <a href="giohang.html" id="back">Giỏ hàng</a>
+    </div>
 
+    <!-- chức năng giỏ hàng  -->
+    <section class="cart-section mt-0 me-3 ms-3">
+        <!-- bảng sản phẩm trong giỏ hàng -->
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                    foreach ($_SESSION['cart'] as $key => $value) {
+                        echo '<tr>
+                                <td class="cart-table-product">
+                                    <input class="cart-checkbox" type="checkbox" name="" id="" checked>
+                                    <img class="cart-img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
+                                    <div class="cart-product-name">'.$value['ten'].'</div>
+                                </td>
+                                <td class="cart-table-price mb-0 mt-0 pt-0 pb-0 h-25">'.$value['gia'].'đ</td>
+                                <td><input type="number" value="'.$value['sl'].'" min="1" class="cart-quantity" id="sldh"></td>
+                                <td><a href="index.php?act=cart&action=xoa&id='.$value['id'].'"><i class="fa-solid fa-trash-can cart-trash-icon"></i></a></td>
+                            </tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="4">Giỏ hàng trống!</td></tr>';
+                }
+                ?>
+            </tbody>
+        </table>
 
-        <!-- chức năng giỏ hàng  -->
-        <section class="cart-section">
-            <!-- bảng sản phẩm trong giỏ hàng -->
-
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>Sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <!-- cột chứa thông tin sản phẩm  -->
-                        <td class="cart-table-product">
-                            <input class="cart-checkbox" type="checkbox" name="" id="">
-                            <!-- ảnh sản phẩm  -->
-                            <img class="cart-img" src="public/img/IMG_DA1/san pham/TL KN-Tuổi Trẻ Đáng Giá Bao Nhiêu (Tái Bản 2021)-Rosie Nguyễn-NXB Hội Nhà Văn.webp" alt="">
-
-                            <!-- tên sản phẩm  -->
-                            <div class="cart-product-name">Lén Nhặt Chuyện Đời</div>
-                        </td>
-                        <!-- cột giá sản phẩm  -->
-                        <td class="cart-table-price">9.075.000 đ</td>
-                        <!-- cột số lượng sản phẩm  -->
-                        <td><input type="number" value="1" min="1" class="cart-quantity"></td>
-                        <td><i class="fa-solid fa-trash-can cart-trash-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <!-- cột chứa thông tin sản phẩm  -->
-                        <td class="cart-table-product">
-                            <input class="cart-checkbox" type="checkbox" name="" id="">
-                            <!-- ảnh sản phẩm  -->
-                            <img class="cart-img" src="public/img/IMG_DA1/san pham/TL KN-Tuổi Trẻ Đáng Giá Bao Nhiêu (Tái Bản 2021)-Rosie Nguyễn-NXB Hội Nhà Văn.webp" alt="">
-
-                            <!-- tên sản phẩm  -->
-                            <div class="cart-product-name">Lén Nhặt Chuyện Đời</div>
-                        </td>
-                        <!-- cột giá sản phẩm  -->
-                        <td class="cart-table-price">9.075.000 đ</td>
-                        <!-- cột số lượng sản phẩm  -->
-                        <td><input type="number" value="1" min="1" class="cart-quantity"></td>
-                        <td><i class="fa-solid fa-trash-can cart-trash-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <!-- cột chứa thông tin sản phẩm  -->
-                        <td class="cart-table-product">
-                            <input class="cart-checkbox" type="checkbox" name="" id="">
-                            <!-- ảnh sản phẩm  -->
-                            <img class="cart-img" src="public/img/IMG_DA1/san pham/TL KN-Tuổi Trẻ Đáng Giá Bao Nhiêu (Tái Bản 2021)-Rosie Nguyễn-NXB Hội Nhà Văn.webp" alt="">
-
-                            <!-- tên sản phẩm  -->
-                            <div class="cart-product-name">Lén Nhặt Chuyện Đời</div>
-                        </td>
-                        <!-- cột giá sản phẩm  -->
-                        <td class="cart-table-price">9.075.000 đ</td>
-                        <!-- cột số lượng sản phẩm  -->
-                        <td><input type="number" value="1" min="1" class="cart-quantity"></td>
-                        <td><i class="fa-solid fa-trash-can cart-trash-icon"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- bảng cộng giỏ hàng  -->
-            <table class="cart-table-sum">
-                <thead>
-                    <tr>
-                        <th>Cộng giỏ hàng</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>tạm tính</td>
-                        <td class="cart-table-price">18,150,000 đ</td>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <td>Tổng</td>
-                        <td class="cart-table-price">18,150,000 đ</td>
-                    </tr>
-                    <tr>
-                        <!-- pad là padding  -->
-                         <!-- mid chỉnh ra giữa  -->
-                        <td colspan="2"><button class="cart-table-button">Thanh Toán</button></td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </section>
-    </main>
+        <!-- bảng cộng giỏ hàng  -->
+        <table class="cart-table-sum ms-2">
+            <thead>
+                <tr>
+                    <th>Cộng giỏ hàng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td class="fw-bold">Tạm tính</td>
+            <td class="cart-table-price" id="cart-total">0 đ</td>
+        </tr>
+        <hr>
+        <tr>
+            <td class="fw-bold">Tổng</td>
+            <td class="cart-table-price" id="cart-total-final">0 đ</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="index.php?act=cart&action=thanhtoan" class="cart-table-button text-decoration-none">Thanh Toán</a>
+            </td>
+        </tr>
+    </tbody>
+        </table>
+    </section>
+</main>
+<script src="./assets/js/sldonhang.js"></script>

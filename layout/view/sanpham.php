@@ -20,7 +20,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <label class="form-check-label" for="literatureCheckbox">
-                                        <a href="index.php?act=product&idtl=' . $value['id'] . '"> ' . $value['ten_theloai'] . '</a>
+                                        <a href="index.php?act=product&idtl=' . $value['id'] . '" class="text-decoration-none text-black"> ' . $value['ten_theloai'] . '</a>
                                     </label>
                                 </li>
                             </ul>
@@ -31,7 +31,7 @@
                 </div>
                 <!-- end div thể loại -->
 
-                <div class="tacgia">
+                <div class="tacgia pt-3">
                     <section>
                         <h5>Tác giả</h5>
                         <ul class="list-group">
@@ -39,16 +39,16 @@
                                 <label class="form-check-label" for="author1Checkbox">Tác giả Mộc Trầm</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="author2Checkbox">Tác giả Han Kang</label>
+                                <label class="form-check-label pt-2" for="author2Checkbox">Tác giả Han Kang</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="author3Checkbox">Tác giả José Mauro de Vasconcelos</label>
+                                <label class="form-check-label pt-2" for="author3Checkbox">Tác giả José Mauro de Vasconcelos</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="author4Checkbox">Tác giả Dan Nicholson</label>
+                                <label class="form-check-label pt-2" for="author4Checkbox">Tác giả Dan Nicholson</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="author5Checkbox">Tác giả Margaret Atwood</label>
+                                <label class="form-check-label pt-2" for="author5Checkbox">Tác giả Margaret Atwood</label>
                             </li>
                         </ul>
                     </section>
@@ -57,22 +57,22 @@
 
                 <div class="nhaxuatban">
                     <section>
-                        <h5>Nhà xuất bản</h5>
+                        <h5 class="pt-3">Nhà xuất bản</h5>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <label class="form-check-label" for="publisher1Checkbox">NXB Giáo Dục</label>
+                                <label class="form-check-label " for="publisher1Checkbox">NXB Giáo Dục</label>
                             </li>
                             <li class="list-group-item">
-                                    <label class="form-check-label" for="publisher2Checkbox">NXB Văn Học</label>
+                                    <label class="form-check-label pt-2" for="publisher2Checkbox">NXB Văn Học</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="publisher3Checkbox">NXB Kim Đồng</label>
+                                <label class="form-check-label pt-2" for="publisher3Checkbox">NXB Kim Đồng</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="publisher4Checkbox">NXB Thanh Niên</label>
+                                <label class="form-check-label pt-2" for="publisher4Checkbox">NXB Thanh Niên</label>
                             </li>
                             <li class="list-group-item">
-                                <label class="form-check-label" for="publisher5Checkbox">NXB Hội Nhà Văn</label>
+                                <label class="form-check-label pt-2" for="publisher5Checkbox">NXB Hội Nhà Văn</label>
                             </li>
                         </ul>
                     </section>
@@ -81,7 +81,7 @@
 
                 <div class="gia">
                     <section>
-                        <h5>Giá</h5>
+                        <h5 class="pt-3">Giá</h5>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <input class="form-check-input me-1" type="checkbox" id="price1Checkbox">
@@ -117,7 +117,16 @@
                         </div>
                         <div class="btn-group">
                             <button class="buttonsp">Mua ngay</button>
-                            <button class="buttonsp">Thêm vào giỏ hàng</button>
+
+
+                             <!-- form này để thêm sản phẩm vào giỏ hàng -->
+                            <form action="index.php?act=cart&action=themvaogiohang&id='.$value['id'].'" method="post">
+                                <input type="hidden" name="ten" value="'.$value['ten_sach'].'">
+                                <input type="hidden" name="hinh" value="'.$value['hinh'].'">
+                                <input type="hidden" name="gia" value="'.$value['gia'].'">
+                                <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                                <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
+                            </form>
                         </div>
                     </div>';
                 }

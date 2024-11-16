@@ -1,10 +1,16 @@
-
 <?php
+ob_start();
+session_start();
 include "view/header.php" ;
-
 $act=isset($_GET['act']) ? $_GET['act'] : 'index';
 $id=isset($_GET['id']) ? $_GET['id']:'';
 $idtl=isset($_GET['idtl']) ? $_GET['idtl']:'';
+$action=isset($_GET['action']) ? $_GET['action']:'';
+$ten=isset($_POST['ten']) ? $_POST['ten']:'';
+$gia=isset($_POST['gia']) ? $_POST['gia']:'';
+$sl=isset($_POST['sl']) ? $_POST['sl']:'';
+$hinh=isset($_POST['hinh']) ? $_POST['hinh']:'';
+
 
 switch ($act){
     case 'index':
@@ -38,19 +44,19 @@ switch ($act){
 
     case 'cart':
         include_once 'controller/giohangController.php';
-        $giohangController=new giohangController();
+        $giohangController=new giohangController($action,$id,$ten,$gia,$sl,$hinh);
         break;
 
 
     case 'lichsu':
         include_once 'controller/donhangController.php';
-        $donhangController=new donhangController($id);
+        $donhangController=new donhangController($id,$action);
         break;
 
 
     case 'chitietlichsu':
         include_once 'controller/donhangController.php';
-        $donhangController=new donhangController($id);
+        $donhangController=new donhangController($id,$action);
         break;
 
 
@@ -75,8 +81,6 @@ switch ($act){
         include_once 'controller/chitietsanphamController.php';
         $chitietsanphamController=new chitietsanphamController();
         break;
-
-
 }
 
 include "view/footer.php" ;

@@ -32,7 +32,16 @@
                             </div>
                             <div class="btn-group">
                                 <button class="button">Mua ngay</button>
-                                <button class="button">Thêm vào giỏ hàng</button>
+                         
+                            <!-- form này để thêm sản phẩm vào giỏ hàng -->
+                            <form action="index.php?act=cart&action=themvaogiohang&id='.$value['id'].'" method="post">
+                                <input type="hidden" name="ten" value="'.$value['ten_sach'].'">
+                                <input type="hidden" name="gia" value="'.$value['gia'].'">
+                                <input type="hidden" name="hinh" value="'.$value['hinh'].'">
+                                <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                                <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
+                            </form>
+
                             </div>
                         </div>
                         ';
@@ -77,7 +86,16 @@
                             </div>
                             <div class="btn-group">
                                 <button class="button">Mua ngay</button>
-                                <button class="button">Thêm vào giỏ hàng</button>
+                                
+                            <!-- form này để thêm sản phẩm vào giỏ hàng -->
+                            <form action="index.php?act=cart&action=themvaogiohang&id='.$value['id'].'" method="post">
+                                <input type="hidden" name="ten" value="'.$value['ten_sach'].'">
+                                <input type="hidden" name="hinh" value="'.$value['hinh'].'">
+                                <input type="hidden" name="gia" value="'.$value['gia'].'">
+                                <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                                <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
+                            </form>
+
                             </div>
                         </div>
                         ';
@@ -133,12 +151,17 @@
                             </div>
                             <div class="btn-group">
                                 <button class="button">Mua ngay</button>
-                                <button class="button">Thêm vào giỏ hàng</button>
+
+                            <!-- form này để thêm sản phẩm vào giỏ hàng -->
+                            <form action="index.php?act=cart&action=themvaogiohang&id='.$value['id'].'" method="post">
+                                <input type="hidden" name="ten" value="'.$value['ten_sach'].'">
+                                <input type="hidden" name="hinh" value="'.$value['hinh'].'">
+                                <input type="hidden" name="gia" value="'.$value['gia'].'">
+                                <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                                <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
+                            </form>
                             </div>
-                        </div>
-                        ';
-                    // }
-                    
+                        </div>';                    
                     }
                     return $ch;
                 }
@@ -222,3 +245,7 @@
     </section>
     <!-- end tác giả  -->
 </main>
+
+
+
+
