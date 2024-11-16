@@ -10,6 +10,7 @@ class SanPhamModel
         $sql = 'select * from the_loai';
         $this->theloai = $dulieu->selectall($sql);
     }
+    
 
     public function dssp()
     {
@@ -18,7 +19,8 @@ class SanPhamModel
         $sql = 'select * from sach';
         $this->sp = $dulieu->selectall($sql);
     }
-    public function sdsptheotl($idtl)
+    
+    public function sptheotl($idtl)
     {
         include_once 'models/connectmodel.php';
         $dulieu = new ConnectModel();
@@ -31,4 +33,5 @@ class SanPhamModel
         $dulieu->conn = null; // đóng kết nối database
         return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
     }
+    
 }

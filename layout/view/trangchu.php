@@ -18,7 +18,7 @@
                         $ch.='
                         <div class="col col-290">
                             <div class="product-img">
-                                <a href="index.php?act=index&id='.$value['id'].'">
+                                <a href="index.php?act=index&id='.$value['id'].'&idtl='.$value['id_theloai'].'">
                                 <img class="img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt=""></a>
                             </div>
                             <div class="product-content">
@@ -59,13 +59,11 @@
                 <?php
                 function spmoi($trangchumodel){
                     $ch='';
-                    foreach ($trangchumodel->mangspmoi as $key => $value){
-                    // if($value['iddm'] == $a){
-                        
+                    foreach ($trangchumodel->mangspmoi as $key => $value){ 
                         $ch.='
                         <div class="col col-290">
                             <div class="product-img">
-                                <a href="index.php?act=index&id='.$value['id'].'">
+                                <a href="index.php?act=index&id='.$value['id'].'&idtl='.$value['id_theloai'].'">
                                 <img class="img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt=""></a>
                             </div>
                             <div class="product-content">
@@ -121,7 +119,7 @@
                         $ch.='
                         <div class="col col-290">
                             <div class="product-img">
-                                <a href="index.php?act=index&id='.$value['id'].'">
+                                <a href="index.php?act=index&id='.$value['id'].'&idtl='.$value['id_theloai'].'">
                                 <img class="img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt=""></a>
                             </div>
                             <div class="product-content">
