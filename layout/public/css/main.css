@@ -1,3 +1,64 @@
+/* Cấu trúc container tổng */
+.sanpham {
+    display: flex;
+    flex-wrap: wrap;  /* Để giữ các sản phẩm có thể xuống hàng nếu không đủ không gian */
+    gap: 10px; /* Giảm khoảng cách giữa các sản phẩm */
+}
+
+.sanpham .col {
+    flex: 1 1 calc(33.33% - 10px); /* 4 cột mỗi hàng với khoảng cách nhỏ hơn */
+    max-width: calc(33.33% - 10px); /* Giữ chiều rộng cột nhỏ hơn */
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    height: 380px; /* Cố định chiều cao box sản phẩm */
+}
+/* Chiều cao và kích thước ảnh sản phẩm */
+.product-img img {
+    width: 200px;
+    height: 200px; /* Cố định chiều cao ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+.product-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: nowrap;  /* Không cho tên xuống dòng */
+    overflow: hidden;     /* Ẩn bớt phần tên vượt quá chiều rộng */
+    text-overflow: ellipsis;  /* Thêm dấu ba chấm (...) khi tên quá dài */
+    text-align: center;   /* Căn giữa tên */
+}
+/* Phần nội dung của sản phẩm */
+.product-content {
+    flex-grow: 1;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Các nút trong nhóm */
+/* Thiết lập responsive */
+@media (max-width: 992px) {
+    .sanpham .col {
+        flex: 1 1 calc(33.33% - 10px); /* 3 cột mỗi hàng */
+        max-width: calc(33.33% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .sanpham .col {
+        flex: 1 1 calc(50% - 10px); /* 2 cột mỗi hàng */
+        max-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 576px) {
+    .sanpham .col {
+        flex: 1 1 100%; /* 1 cột mỗi hàng trên màn hình nhỏ */
+        max-width: 100%;
+    }
+}
+
 body {
     margin :0;
 }
@@ -195,12 +256,9 @@ main {
 
 
 .col {
-
-
+    margin-bottom: 10px;
     border-radius: 5px;
-    margin: 20px;
     box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
-    overflow: hidden;
 }
 .product-img {
     padding-top: 10px;
@@ -220,7 +278,7 @@ main {
     height: 30px;
     padding-top: 20px;
     align-items: center;
-    margin-left: 25px;
+    justify-content: center;
 }
 
 /* giá bán sản phẩm  */
@@ -257,15 +315,23 @@ main {
     padding: 20px 0px;
 }
 .button{
-    margin-right: 10px;
-    padding: 5px 12px;
     background-color: var(--main-color);
     color: white;
-    border: none;
-    font-size: 13px;
+    border: 1px solid var(--main-color);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+.buttonsp{
+    background-color: var(--main-color);
+    color: white;
+    border: 1px solid var(--main-color);
+    font-size: 14px;
+    padding: 5px 20px;
 }
 
-.button:hover {
+.button:hover, .buttonsp:hover {
     opacity: 0.5;
 }
 
@@ -698,6 +764,7 @@ footer {
 .col-290{
     max-width: 290px;
     overflow: hidden;
+    margin-right: 10px;
 }
 
 
@@ -835,23 +902,25 @@ footer {
 h5{
     color: var(--main-color);
 }
-.filter {
+.product-img img {
+    width: 200px;
+    height: 200px; /* Đảm bảo ảnh có chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh theo tỷ lệ giữ nguyên mà không làm méo */
+    border-radius: 8px;
+}
+.trangsanpham{
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 50px;
+}
+.filter {
+    width: 25%;
     margin-top: 20px;
-    gap: 20px;
     padding: 20px;
-    border-right: 1px solid rgb(218, 212, 212);
-    height: 1600px;
+    margin-bottom: 20px;
 }
 .sanpham {
-    margin-left: 300px;
-    max-width: 900px; /* Giới hạn chiều rộng tối đa */
+    width: 75%;
     display: flex; /* Sử dụng Flexbox */
     flex-direction: row; /* Hướng sắp xếp là hàng */
-    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng */
 }
 
 .col {

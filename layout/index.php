@@ -3,23 +3,25 @@
 include "view/header.php" ;
 
 $act=isset($_GET['act']) ? $_GET['act'] : 'index';
-
+$id=isset($_GET['id']) ? $_GET['id']:'';
+$idtl=isset($_GET['idtl']) ? $_GET['idtl']:'';
 
 switch ($act){
     case 'index':
         include_once 'controller/trangchuController.php';
-        $trangchuController=new trangchuController();
+        $trangchuController=new trangchuController($id,$idtl);
         break;
 
     case 'product':
         include_once 'controller/sanphamController.php';
-        $sanphamController=new sanphamController();
+        $sanphamController=new sanphamController($idtl);
         break;
 
     case 'about':
         include_once 'controller/gioithieuController.php';
         $gioithieuController=new gioithieuController();
         break;
+
 
     case 'contact':
         include_once 'controller/lienheController.php';
@@ -39,15 +41,15 @@ switch ($act){
         break;
 
 
+    case 'lichsu':
+        include_once 'controller/lichsumuahangController.php';
+        $lichsumuahangController=new lichsumuahangController();
+        break;
+
+
     case 'acc':
         include_once 'controller/taikhoanController.php';
         $taikhoanController=new taikhoanController();
-        break;
-
-    
-    case 'history':
-        include_once 'controller/lichsumuahangController.php';
-        $lichsumuahangController = new lichsumuahangController();
         break;
 
 
