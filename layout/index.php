@@ -41,6 +41,12 @@ switch ($act){
         break;
 
 
+    case 'lichsu':
+        include_once 'controller/lichsumuahangController.php';
+        $lichsumuahangController=new lichsumuahangController();
+        break;
+
+
     case 'acc':
         include_once 'controller/taikhoanController.php';
         $taikhoanController=new taikhoanController();
