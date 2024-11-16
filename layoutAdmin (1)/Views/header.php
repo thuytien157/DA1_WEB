@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-<!-- Thêm thư viện Chart.js từ CDN -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="../public/css/style1.css">
-<link rel="stylesheet" href="../public/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Header Redesign</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+      background-color: #F5F5F5;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      color: #4A4A4A !important;
+    }
+    .nav-link {
+      color: black !important;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: brown !important;
+    }
+    .dropdown-menu {
+      background-color: #4A4A4A;
+      border: none;
+    }
+    .dropdown-item {
+      color: #F5F5F5;
+    }
+    .dropdown-item:hover {
+      color: #FFD700;
+      background-color: transparent;
+    }
+  </style>
 </head>
 <body>
-<header>
-            <div class="top__header">
-                <div class="top__header__menu">
-                    <a href="index.php?act=home"><img src="../public/img/logo.png" alt="PJ Logo" width="28px" height="28px"></a>
-                    <div class="header__container__menu">
-                        <div class="header__finditems">
-                            <a href="#">Find a Store</a>
-                        </div>
-                        <div class="header__help">
-                            <a href="#">Help</a>
-                        </div>
-                        <div class="header__joinus">
-                            <a href="index.php?act=regester">Join Us</a>
-                        </div>
-                        <div class="header__signin">
-                            <a href="index.php?act=signin">Sign In</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mid__header">
-                <div class="mid__header__menu">
-                    <img src="../public/img/nike-logo.png" alt="Nike Logo" width="98px" height="35px">
-                    <div class="mid__header__container__menu">
-                        <div class="mot"><a href="index.php?page=home">Trang Chủ</a></div>
-                        <div class="mot"><a href="index.php?page=product">Sản phẩm</a></div>
-                        <div class="mot"><a href="index.php?page=user">Người dùng</a></div>
-                        <div class="mot"><a href="index.php?page=form">Form Cập nhật</a></div>
-                        <!-- <div class="mot"><a href="#">Sale</a></div>
-                        <div class="mot"><a href="#">Customize</a></div>
-                        <div class="mot"><a href="#">SNKRS</a></div> -->
-                    </div>
-                    <div class="icon__mid__header">
-                        <div class="find">
-                            <a href=""><i class="fas fa-search" style="color: #000000;"></i></a>
-                        </div>
-                        <div class="InputContainer">
-                            <input placeholder="Search.." id="input" class="input" name="text" type="text">
-                        </div>
-                        <div class="store">
-                            <a href=""><i class="fas fa-store" style="color: #000000;"></i></a>
-                        </div>
-                        <div class="love">
-                            <a href=""><i class="fas fa-heart" style="color: #000000;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.php?page=home">
+          <img src="../public/img/Brown_Retro_Book_Store_Logo.png" alt="Logo" width="40" height="40" class="me-2">
+          <span>AdminPanel</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?page=home">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?page=product">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?page=user">Người dùng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?page=form">Form Cập nhật</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
