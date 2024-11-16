@@ -23,7 +23,7 @@ class trangchuModel
         include_once 'models/connectmodel.php'; 
         $data = new ConnectModel(); 
         // Truy vấn để lấy các sản phẩm mới nhập, giả sử có cột 'ngay_nhap' 
-        $sql = "SELECT * FROM sach WHERE ngay_nhap >= '2024-01-07' ORDER BY ngay_nhap DESC";
+        $sql = "SELECT * FROM sach WHERE ngay_nhap >= '2024-01-06' ORDER BY ngay_nhap DESC";
         $this->mangspmoi = $data->selectall($sql); 
     }
     public function dsspSale()
