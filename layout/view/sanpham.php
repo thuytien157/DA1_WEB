@@ -5,12 +5,12 @@
         <a href="sanpham.html" id="back">Sản phẩm</a>
     </div>
     <!-- MAIN-PRODUCT -->
-    <div class="container">
+    <div class="container-xxl">
         <div class="trangsanpham">
-            <div class="filter">
+            <div class="filter ">
                 <!-- Filter Thể Loại -->
                 <div class="theloai">
-                    <section>
+
                         <h5>Thể loại</h5>
                         <?php
                         foreach ($sanphammodel->theloai as $key => $value) {
@@ -28,7 +28,6 @@
                             echo $ch;
                         }
                         ?>
-                    </section>
                 </div>
                 <!-- end div thể loại -->
 
@@ -97,42 +96,34 @@
             <!-- end div filter -->
 
             <div class="sanpham">
-                <!-- box sản phẩm -->
+                <!-- box sản phẩm 3-->
                 <?php
-                $ch = '';
                 foreach ($kq as $key => $value) {
-                    $ch .= '
+                    echo '
                     <div class="col">
                         <div class="product-img">
                             <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '">
-                                <img class="img" src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt=""></a>
+                                <img class="img" src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt="">
+                            </a>
                         </div>
                         <div class="product-content">
-                            <h5 class="product-name">' . $value['ten_sach'] . '</h5>
+                            <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
                             <div class="rating">⭐⭐⭐⭐⭐</div>
                             <div class="product-price">
                                 <h5 class="product-price-sale">' . $value['gia'] . '</h5>
                                 <h5 class="product-price-opacity">814.000đ</h5>
-                                <h5 class="product-price-percent"> ' . $value['giam'] . '% </h5>
+                                <h5 class="product-price-percent">' . $value['giam'] . '%</h5>
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button class="button">Mua ngay</button>
-                            <button class="button">Thêm vào giỏ hàng</button>
+                            <button class="buttonsp">Mua ngay</button>
+                            <button class="buttonsp">Thêm vào giỏ hàng</button>
                         </div>
-                    </div>
-                    ';
+                    </div>';
                 }
-                echo $ch;
-                ?>
+            ?>
             </div>
             <!-- end box sản phẩm -->
-
-            <div class="chuyentrang">
-                <div class="item1">1</div>
-                <div class="item1">2</div>
-                <div class="item1">>></div>
-            </div>
             <!-- end div chuyentrang -->
         </div>
         <!-- end div trangsanpham -->
@@ -140,3 +131,8 @@
     <!-- end div container -->
 </main>
 <!-- end main -->
+
+
+
+
+            
