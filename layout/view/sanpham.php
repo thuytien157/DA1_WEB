@@ -36,9 +36,20 @@
                         <h5>Tác giả</h5>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <label class="form-check-label">Tác giả Mộc Trầm</label>
+                                <label class="form-check-label" for="author1Checkbox">Tác giả Mộc Trầm</label>
                             </li>
-                            <!-- Các tác giả khác -->
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="author2Checkbox">Tác giả Han Kang</label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="author3Checkbox">Tác giả José Mauro de Vasconcelos</label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="author4Checkbox">Tác giả Dan Nicholson</label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="author5Checkbox">Tác giả Margaret Atwood</label>
+                            </li>
                         </ul>
                     </section>
                 </div>
@@ -49,9 +60,20 @@
                         <h5>Nhà xuất bản</h5>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <label class="form-check-label">NXB Giáo Dục</label>
+                                <label class="form-check-label" for="publisher1Checkbox">NXB Giáo Dục</label>
                             </li>
-                            <!-- Các nhà xuất bản khác -->
+                            <li class="list-group-item">
+                                    <label class="form-check-label" for="publisher2Checkbox">NXB Văn Học</label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="publisher3Checkbox">NXB Kim Đồng</label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="publisher4Checkbox">NXB Thanh Niên</label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="publisher5Checkbox">NXB Hội Nhà Văn</label>
+                            </li>
                         </ul>
                     </section>
                 </div>

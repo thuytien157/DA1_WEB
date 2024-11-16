@@ -5,7 +5,12 @@ class trangchuModel
     public $mangspmoi;
     public $mangspsale;
     // public $motsp;
-    // public $splienquan;
+    // public $ctsp;
+    // public $nxb;
+    // public $tacgia;
+    public $allsp;
+    public $chitietanh; 
+    public $splq;
     public function dssp()
     {
         include_once 'models/connectmodel.php';
@@ -18,7 +23,7 @@ class trangchuModel
         include_once 'models/connectmodel.php'; 
         $data = new ConnectModel(); 
         // Truy vấn để lấy các sản phẩm mới nhập, giả sử có cột 'ngay_nhap' 
-        $sql = "SELECT * FROM sach WHERE ngay_nhap >= '2024-01-07' ORDER BY ngay_nhap DESC";
+        $sql = "SELECT * FROM sach WHERE ngay_nhap >= '2024-01-06' ORDER BY ngay_nhap DESC";
         $this->mangspmoi = $data->selectall($sql); 
     }
     public function dsspSale()
@@ -29,26 +34,42 @@ class trangchuModel
         $this->mangspsale = $data->selectall($sql);
     }
     
-    public function onesp($id)
+    public function onectsp($id)
     {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "select * from sach where id=:id";
-        $this->motsp = $data->selectone($sql,$id);  
+        
+        $sql = "SELECT sach.*, chi_tiet_sach.*, nha_xuat_ban.*, tac_gia.* FROM sach 
+        LEFT JOIN chi_tiet_sach ON sach.id = chi_tiet_sach.id_sach 
+        LEFT JOIN nha_xuat_ban ON sach.id_nxb = nha_xuat_ban.id 
+        LEFT JOIN tac_gia ON sach.id_tacgia = tac_gia.id 
+        WHERE sach.id = :id";   
+        $this->allsp = $data->selectone($sql, $id);;
     }
-    public function splienquan($id,$idtl)
-    {
+    
+    public function chitietanh($id) // Lấy hình ảnh liên quan của ảnh
+    { 
+        include_once 'models/connectmodel.php'; 
+        $data = new ConnectModel(); 
+        $sql = "SELECT * FROM detail_image WHERE id_sach =:id_sach";
+        $data->ketnoi();
+        $stmt = $data->conn->prepare($sql);
+        $stmt->bindParam(":id_sach", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $this->chitietanh = $stmt->fetchAll(PDO::FETCH_ASSOC); // Lưu dữ liệu vào thuộc tính
+        $data->conn = null; // Đóng kết nối
+    }
+    public function splienquan($id, $idtl) {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "select * from sach where iddm=:iddm and id<>:id";
+        $sql = "SELECT * FROM sach WHERE id_theloai = :id_theloai AND id<>:id";
         $data->ketnoi();
-        $stmt =  $data->conn->prepare($sql);
-        $stmt->bindParam(":id",$id);
-        $stmt->bindParam(":iddm",$iddm);
+        $stmt = $data->conn->prepare($sql);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->bindParam(":id_theloai", $idtl, PDO::PARAM_INT);
         $stmt->execute();
-        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
-        $data->conn = null; // đóng kết nối database
-        $this->splienquan= $kq; // biến này chứa mãng các dòng dữ liệu trả về.
+        $this->splq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Lưu dữ liệu vào thuộc tính
+        $data->conn = null; // Đóng kết nối
     }
 }
 

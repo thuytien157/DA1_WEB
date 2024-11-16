@@ -14,7 +14,7 @@ class sanphamController{
     }else{
 
         // $ds->dsdm();
-        $kq=$sanphammodel->sdsptheotl($idtl);
+        $kq=$sanphammodel->sptheotl($idtl);
         include_once 'view/sanpham.php';
     }
 }

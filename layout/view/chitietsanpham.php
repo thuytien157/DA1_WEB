@@ -8,22 +8,36 @@
     <div class="chitietsanpham">
         <div class="anhchitiet">
             <div class="thumbnail">
-                <img src="public/img/IMG_DA1/san pham/VH-Lén Nhặt Chuyện Đời-Mộc Trầm-NXB thế giớ.webp" alt="">
+                <!-- <img src="public/img/IMG_DA1/san pham/VH-Lén Nhặt Chuyện Đời-Mộc Trầm-NXB thế giớ.webp" alt=""> -->
+                <?php
+                $ch='';
+                foreach($trangchumodel ->allsp as $key => $value){
+                  $ch.='
+                  <img src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
+                  ';
+                }
+                echo $ch;
+                ?>
             </div>
-                <div class="anhchitietsanpham">
-                <div class="thumbnail1">
-                    <img src="public/img/IMG_DA1/san pham/chitiet1.webp" class="img-thumbnail" alt="...">
-                </div>
-                <div class="thumbnail2">
-                    <img src="public/img/IMG_DA1/san pham/chitiet.webp" class="img-thumbnail" alt="...">
-                </div>
-                <div class="thumbnail3">
-                    <img src="public/img/IMG_DA1/san pham/chitiet2.webp" class="img-thumbnail" alt="...">
-                </div>
-                <div class="thumbnail4">
-                    <img src="public/img/IMG_DA1/san pham/chitiet3.webp" class="img-thumbnail" alt="...">
-                </div>
-            </div>
+            <!-- anhchitietsanpham -->
+                <?php
+                    $ch='';
+                    foreach($trangchumodel ->chitietanh as $key => $value){
+                    $ch.='
+                    <div class="anhchitietsanpham">
+                        <div class="thumbnail1">
+                            <img src="public/img/IMG_DA1/san_pham_chi_tiet/'.$value['anh'].'" class="img-thumbnail" alt="...">
+                        </div>
+                    </div>
+                    ';
+                    }
+                    echo $ch;
+                ?>
+                <?php
+                // echo '<pre>';
+                // print_r($trangchumodel->chitietanh); // Check if the data is being fetched correctly
+                // echo '</pre>';
+                ?>
             <!-- end anhchitietsanpham -->
              <div class="chinhsachuudai">
                 <h6 style="color: #8B4513;" id="textttct">Chính sách ưu đãi</h6>
@@ -45,16 +59,22 @@
         <!-- end anhchitiet -->
 
         <div class="noidungchitiet">
-            <h2 id="tenchitiet">Lén Nhặt Chuyện Đời</h2>
-            <div class="thongtinchitiet">
-                <div>Nhà cung cấp: <span style="color: #8B4513;">CÔNG TY CỔ PHẦN SBOOKS</span></div>
-                <div>Tác giả:Mộc Trầm</div>
-            </div>
-            <div class="thongtinchitiet1">
-                <div>Nhà xuất bản: Thế Giới</span></div>
-                <div>Hình thức bìa: Bìa Mềm</div>
-            </div>
-            <div class="yeuthich">
+            
+            <?php
+            $ch='';
+            foreach($trangchumodel ->allsp as $key => $value){
+                $ch .= '
+                <h2 id="tenchitiet">' . $value['ten_sach'] . '</h2>
+                
+                    <div class="thongtinchitiet">
+                        <div>Nhà cung cấp: <span style="color: #8B4513;">' . $value['nha_cung_cap'] . '</span></div>
+                        <div>Tác giả:' . $value['ten_tacgia'] . '</div>
+                    </div>
+                    <div class="thongtinchitiet1">
+                        <div>Nhà xuất bản:' . $value['ten_nxb'] . '</span></div>
+                        <div>Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
+                    </div>
+                    <div class="yeuthich">
             <i class="fa-regular fa-heart"></i>
             <span style="color: #8B4513;">Thêm vào yêu thích</span>
             </div>
@@ -67,7 +87,7 @@
                 <div class="danhgia">0 đánh giá</div>
             </div>
             <div class="giachitiet">
-                <h5 class="gia">42.500đ <del class="gia_sale">85.000đ</del></h5>
+                <h5 class="gia">'.$value['gia'].'đ <del class="gia_sale">85.000đ</del></h5>
                 <div class="chiase">
                     Chia sẽ
                     <i class="fa-brands fa-facebook f1"></i>
@@ -84,52 +104,42 @@
                     <button class="button1"><a href="giohang.html">Thêm vào giỏ hàng</a></button>
                 </div>
             </div>
+                ';
+            }
+        echo $ch;
+            ?>
             <h5 id="textttct">Thông tin chi tiết</h5>
             <div class="tablettchitiet">
                 <table class="table">
                     <thead>
-                      <tr>
-                        <td scope="col" id="cotct">Mã hàng</td>
-                        <td scope="col">9786043651591</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td id="cotct">Tên Nhà Cung Cấp</td>
-                        <td>CÔNG TY CỔ PHẦN SBOOKS</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Tác giả</td>
-                        <td>Mộc Trầm</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">NXB</td>
-                        <td>Thế Giới</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Năm XB</td>
-                        <td>2022</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Ngôn Ngữ</td>
-                        <td>Tiếng Việt</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Trọng lượng (gr)</td>
-                        <td>223</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Kích Thước Bao Bì</td>
-                        <td>20 x 13 x 1.1 cm</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Số trang</td>
-                        <td>213</td>
-                      </tr>
-                      <tr>
-                        <td id="cotct">Hình thức</td>
-                        <td>Bìa Mềm</td>
-                      </tr>
+                    <?php
+                      $ch = '';
+                      foreach($trangchumodel ->allsp as $key => $value){
+                          $ch .= '
+                          <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id_sach'] . '</td></tr>
+
+                          <tr><td id="cotct">Tên Nhà Cung Cấp</td><td>' . $value['nha_cung_cap'] . '</td></tr>
+                      
+                         <tr><td id="cotct">Tác giả</td><td>' . $value['ten_tacgia'] . '</td></tr>
+                    
+                          <tr><td id="cotct">Năm XB</td><td>' . $value['nam_xb'] . '</td></tr>
+                      
+                        <tr><td id="cotct">NXB</td><td>' . $value['ten_nxb'] . '</td></tr>
+                      
+                          <tr><td id="cotct">Ngôn Ngữ</td><td>' . $value['ngon_ngu'] . '</td></tr>
+
+                          <tr><td id="cotct">Trọng lượng (gr)</td><td>' . $value['trong_luong'] . '</td></tr>
+
+                          <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
+                          
+                          <tr><td id="cotct">Số trang</td><td>' . $value['so_trang'] . '</td></tr>
+
+                          <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
+                          ';
+                      }
+                      echo $ch;
+                    ?>
+
                       <tr>
                         <td id="cotct">Sản phẩm bán chạy nhất</td>
                         <td>Top 100 sản phẩm Tiểu thuyết bán chạy của tháng</td>
@@ -154,91 +164,46 @@
             Cảm ơn đã tìm đến sợi Pandora Lén nhặt chuyện đời, và nào, hãy cùng tôi bắt đầu đi tìm những viên charm, nhặt lên và xâu vào sợi Pandora của mình thôi! </div>
       </div>
       <h4 id="textsanphamkhac">Sản phẩm khác</h4>
-      <div class="sanphamkhac">
+    <div class="sanphamkhac">
         <div class="row row-cols-4">
         <!-- BOX-SANPHAM -->
-          <div class="col">
-            <div class="product-img">
-                <a href="chitietsanpham.html"><img class="img" src="public/img/IMG_DA1/san pham/chuyen-sinh-thanh-tieu-su.jpg" alt=""></a>
-            </div>
-            <div class="product-content">
-                <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <div class="product-price">
-                    <h5 class="product-price-sale">410.000đ</h5>
-                    <h5 class="product-price-opacity">814.000đ</h5>
-                    <h5 class="product-price-percent"> -50% </h5>
-                </div>
-            </div>
-            <div class="btn-group">
-                <button class="button">Mua ngay</button>
-                <button class="button">Thêm vào giỏ hàng</button>
-            </div>
-          </div>
+         <?php
+         echo splienquan($trangchumodel);
+         ?>
+        <?php
+            function splienquan($trangchumodel){
+            
+                $ch = '';
+                foreach ($trangchumodel->splq as $key => $value) {
+                    $ch .= '
+                    <div class="col">
+                        <div class="product-img">
+                            <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '">
+                                <img class="img" src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt=""></a>
+                        </div>
+                        <div class="product-content">
+                            <h5 class="product-name">' . $value['ten_sach'] . '</h5>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                            <div class="product-price">
+                                <h5 class="product-price-sale">' . $value['gia'] . '</h5>
+                                <h5 class="product-price-opacity">814.000đ</h5>
+                                <h5 class="product-price-percent"> ' . $value['giam'] . '% </h5>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button class="button">Mua ngay</button>
+                            <button class="button">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                    ';
+                }
+                return $ch;
+            }
+                ?>
+            
           <!-- END - BOX SANPHAM -->
 
-
-          <div class="col">
-            <div class="product-img">
-                <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-            </div>
-            <div class="product-content">
-                <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <div class="product-price">
-                    <h5 class="product-price-sale">410.000đ</h5>
-                    <h5 class="product-price-opacity">814.000đ</h5>
-                    <h5 class="product-price-percent"> -50% </h5>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button class="button">Mua ngay</button>
-                <button class="button">Thêm vào giỏ hàng</button>
-
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-img">
-                <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-            </div>
-            <div class="product-content">
-                <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <div class="product-price">
-                    <h5 class="product-price-sale">410.000đ</h5>
-                    <h5 class="product-price-opacity">814.000đ</h5>
-                    <h5 class="product-price-percent"> -50% </h5>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button class="button">Mua ngay</button>
-                <button class="button">Thêm vào giỏ hàng</button>
-
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-img">
-                <a href=""><img class="img" src="public/img/IMG_DA1/san pham/anh-hung-tro-ve.jpg" alt=""></a>
-            </div>
-            <div class="product-content">
-                <h5 class="product-name">Sakamoto Days - Tập 3 - Mashimo</h5>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <div class="product-price">
-                    <h5 class="product-price-sale">410.000đ</h5>
-                    <h5 class="product-price-opacity">814.000đ</h5>
-                    <h5 class="product-price-percent"> -50% </h5>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button class="button">Mua ngay</button>
-                <button class="button">Thêm vào giỏ hàng</button>
-            </div>
-          </div>
         </div>
+    </div>
 
     </main>
