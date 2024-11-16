@@ -17,6 +17,7 @@ switch ($act){
         $sanphamController=new sanphamController($idtl);
         break;
 
+
     case 'about':
         include_once 'controller/gioithieuController.php';
         $gioithieuController=new gioithieuController();
@@ -42,8 +43,14 @@ switch ($act){
 
 
     case 'lichsu':
-        include_once 'controller/lichsumuahangController.php';
-        $lichsumuahangController=new lichsumuahangController();
+        include_once 'controller/donhangController.php';
+        $donhangController=new donhangController($id);
+        break;
+
+
+    case 'chitietlichsu':
+        include_once 'controller/donhangController.php';
+        $donhangController=new donhangController($id);
         break;
 
 

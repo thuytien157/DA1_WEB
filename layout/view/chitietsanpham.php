@@ -132,15 +132,10 @@
 
                           <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
                           
-                          <tr><td id="cotct">Số trang</td><td>' . $value['so_trang'] . '</td></tr>
+                          <tr><td id="cotct">Số trang</td><td>' . $value['so_luong'] . '</td></tr>
 
                           <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
-                          ';
-                      }
-                      echo $ch;
-                    ?>
-
-                      <tr>
+             <tr>
                         <td id="cotct">Sản phẩm bán chạy nhất</td>
                         <td>Top 100 sản phẩm Tiểu thuyết bán chạy của tháng</td>
                       </tr>
@@ -158,11 +153,12 @@
     </div>
     <div class="motasanpham">
         <h5 id="mota">Mô tả sản phẩm</h5>
-        <div class="ndmota"><span style="font-weight: 700;">Lén Nhặt Chuyện Đời</span><br>Tại vùng ngoại ô xứ Đan Mạch xưa, người thợ kim hoàn Per Enevoldsen đã cho ra mắt một món đồ trang sức lấy ý tưởng từ Pandora - người phụ nữ đầu tiên của nhân loại mang vẻ đẹp như một ngọc nữ phù dung, kiêu sa và bí ẩn trong Thần thoại Hy Lạp. Vòng Pandora được kết hợp từ một sợi dây bằng vàng, bạc hoặc bằng da cùng với những viên charm được chế tác đa dạng, tỉ mỉ. Ý tưởng của ông, mỗi viên charm như một câu chuyện, một kỷ niệm đáng nhớ của người sở hữu chiếc vòng. Khi một viên charm được thêm vào sợi Pandora là cuộc đời lại có thêm một ký ức cần lưu lại để nhớ, để thương, để trân trọng. Lén nhặt chuyện đời ra mắt trong khoảng thời gian chông chênh nhất của bản thân, hay nói cách khác là một cậu bé mới lớn, vừa bước ra khỏi cái vỏ bọc vốn an toàn của mình. Những câu chuyện trong Lén nhặt chuyện đời là những câu chuyện tôi được nghe kể lại, hoặc vô tình bắt gặp, hoặc nhặt nhạnh ở đâu đó trong miền ký ức rời rạc của quá khứ, không theo một trình tự hay một thời gian nào nhất định. <br>
-            Mỗi một câu chuyện là một viên charm lấp lánh, kiêu kỳ, có sức hút mạnh mẽ đối với một người trẻ như tôi luôn tò mò với những điều dung dị trong cuộc sống. Tôi âm thầm nhặt những viên charm ấy về, kết thành sợi Pandora cho chính mình. Lén ở đây không phải là một cái gì đó vụng trộm, âm thầm sợ người khác phát hiện. Mà nó là lặng lẽ. Tôi lặng lẽ nghe, lặng lẽ quan sát, lặng lẽ đi tìm và lặng lẽ viết nên quyển sách này. Tôi vẫn thích dùng từ Lén hơn, vì đơn giản, tôi thấy bản thân mình trong đó. Lén nhặt chuyện đời được chia thành năm chương: chương thứ nhất nói về tình yêu của cả giới trẻ và người tu sĩ; chương thứ hai viết về gia đình; chương thứ ba dành cho những người trẻ; chương thứ tư là những câu chuyện bên đời, những bài tâm sự của người tu sĩ; chương năm là thơ và chương cuối cùng là tâm sự của bản thân khi tôi đã về già. Nếu ai nghĩ Lén nhặt chuyện đời sẽ giảng thuyết về chân lý, định hướng cho người trẻ hay chữa lành những vết thương… thì đã tìm sai chỗ, bản thân chưa bao giờ nghĩ quyển sách này sẽ làm được điều đó. <br>
-            Đây chỉ là những câu chuyện, những suy nghĩ về cuộc đời của một người trẻ đang chông chênh. Đôi khi, tôi hóa thành một ông già của năm chục năm sau kể về những ký ức thời vụng dại. Chỉ mong sao, đọc Lén nhặt chuyện đời, người ta có thể tìm được đâu đó những viên charm phù hợp với bản thân mình. Quyển sách này sẽ là dấu ấn lớn nhất đối với cuộc đời của bản thân. Mỗi bài viết là một viên charm của Pandora Lén nhặt chuyện đời và Lén nhặt chuyện đời cũng sẽ là một viên charm lấp lánh trong sợi Pandora của cuộc đời tôi. Quyển sách này, xin được nhớ về những người Thầy của tôi, về Từ Quang, về gia đình, và tất cả những ai đã hiện diện trong thời thanh xuân của tôi. Để nhắc rằng, tôi đã từng có mặt trong cuộc đời của họ, và họ có mặt trong quyển sách này của tôi.
-            Cảm ơn đã tìm đến sợi Pandora Lén nhặt chuyện đời, và nào, hãy cùng tôi bắt đầu đi tìm những viên charm, nhặt lên và xâu vào sợi Pandora của mình thôi! </div>
-      </div>
+        <div class="ndmota"><span style="font-weight: 700;">'.$value['ten_sach'].'</span><br>'.$value['mo_ta'].'</div>
+      </div>                         
+                          ';
+                      }
+                      echo $ch;
+                    ?>
       <h4 id="textsanphamkhac">Sản phẩm khác</h4>
     <div class="sanphamkhac">
         <div class="row row-cols-4">

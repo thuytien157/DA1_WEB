@@ -7,7 +7,46 @@
 <h5 id="textct">Chi tiết đơn hàng của bạn</h5>
 <div class="ctdonhang">
     <table class="table ct">
-        <tbody>
+      <?php
+        foreach ($ctdh as $key => $value) {
+          echo '
+          <tbody>
+          <tr>
+            <th scope="row">Sản phẩm</th>
+            <td>'.$value['ten_sach'].'</td>
+          </tr>
+          <tr>
+            <th scope="row">Số lượng</th>
+            <td>x'.$value['so_luong'].'</td>
+          </tr>
+          <tr>
+            <th scope="row">TT thanh toán</th>
+            <td >'.$value['tt_thanhtoan'].'</td>
+          </tr>
+          <tr>
+            <th scope="row">TT đơn hàng</th>
+            <td >'.$value['tt_donhang'].'</td>
+          </tr>
+          <tr>
+            <th scope="row">Ngày giao</th>
+            <td >'.$value['ngay_giao_hang'].'</td>
+          </tr>
+          <tr>
+            <th scope="row">Địa chỉ</th>
+            <td >'.$value['dia_chi'].'</td>
+          </tr>
+          <tr>
+            <th scope="row">Ghi chú</th>
+            <td>'.$value['ghi_chu'].'</td>
+          </tr>
+        </tbody>
+          ';
+        }
+      
+      
+      ?>
+
+        <!-- <tbody>
           <tr>
             <th scope="row">Sản phẩm</th>
             <td>Chuyển sinh thành con ngoài giá thú của gia đình danh giá</td>
@@ -36,7 +75,7 @@
             <th scope="row">Ghi chú</th>
             <td>Khách hàng không để lại ghi chú</td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
 </div>
 <button id="back_ls"><a style="text-decoration: none; color: white;" href="lichsumuahang.html">Quay lại</a></button>
