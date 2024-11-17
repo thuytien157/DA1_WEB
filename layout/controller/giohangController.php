@@ -1,7 +1,7 @@
 <?php
     class giohangController {
         public function __construct($action, $id, $ten, $gia, $sl, $hinh) {
-            if ($action == 'thanhtoan') {
+            if ($action == 'dathang') {
                 include_once 'view/thanhtoan.php';
                 } elseif ($action == 'themvaogiohang') {
                 
@@ -10,8 +10,9 @@
                     $_SESSION['cart'] = [];
                 }
 
-                // khi nút được nhấn
-                if (isset($_POST['themvaogiohang'])) {
+                include_once 'dangnhapController.php';
+                // khi nút themvaogiohang được nhấn và user đã đăng nhập
+                    if (isset($_SESSION['user']) && isset($_POST['themvaogiohang'])) {
                     $id= $_GET['id'];
                     $ten = $_POST['ten'];
                     $gia = $_POST['gia'];
@@ -45,11 +46,19 @@
                             'hinh' => $hinh
                         ];
                     }
+                // sau khi thêm thì chuyển đến trang giỏ hàng
+                header('Location: ./index.php?act=cart');
+                exit;
+
+                
+                }else{
+                    $_SESSION['thongbao'] = 'Bạn cần phải đăng nhập';
+                    header('location: ./index.php');
+                    exit;
+
                 }
 
-                    // sau khi thêm thì chuyển đến trang giỏ hàng
-                    header('Location: ./index.php?act=cart');
-                    exit;
+  
 
                 //xoá sản phẩm
                 }elseif($action == 'xoa'){

@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <a href="index.php?act=cart&action=thanhtoan" class="cart-table-button text-decoration-none">Thanh Toán</a>
+                <a href="index.php?act=cart&action=dathang" class="cart-table-button text-decoration-none">Đặt hàng</a>
             </td>
         </tr>
     </tbody>

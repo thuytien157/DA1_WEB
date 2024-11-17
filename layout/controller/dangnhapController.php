@@ -8,7 +8,7 @@ class dangnhapController {
 
         // Hiển thị trang đăng nhập
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            include_once "view/dangnhap.php"; // Đảm bảo đúng đường dẫn
+            include_once "view/dangnhap.php"; 
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->handleLogin($user, $password);
@@ -23,6 +23,7 @@ class dangnhapController {
             session_start();
             $_SESSION['user'] = $userData['username'];
             $_SESSION['vai_tro'] = $userData['vai_tro'];
+            $_SESSION['id'] = $userData['id'];
 
             if ($userData['vai_tro'] == 1) {
                 // Chuyển đến giao diện admin

@@ -3,20 +3,25 @@ class DonHangModel
 {
     public $donhang;
     public $ctdonhang;
+    public $test;
 
-    public function dsdh()
+    public function dsdh($id)
     {
         include_once 'models/connectmodel.php';
         $dulieu = new ConnectModel();
-        $sql = 'SELECT *
+        $sql = 'SELECT don_hang.id AS donhang_id, 
+                        don_hang.ngay_giao_hang, 
+                        don_hang.tt_donhang, 
+                        sach.ten_sach, 
+                        chi_tiet_don_hang.so_luong,
+                        chi_tiet_don_hang.id_donhang,
+                        sach.gia, 
+                        sach.hinh
                 FROM don_hang
-                INNER JOIN chi_tiet_don_hang
-                ON don_hang.id = chi_tiet_don_hang.id_donhang
-                INNER JOIN user
-                ON user.id = don_hang.id_khachhang
-                INNER JOIN sach
-                ON sach.id = chi_tiet_don_hang.id_sach';
-        $this->donhang = $dulieu->selectall($sql);
+                INNER JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
+                INNER JOIN sach ON sach.id = chi_tiet_don_hang.id_sach
+                WHERE don_hang.id_khachhang = :id';        
+        $this->donhang = $dulieu->selectone($sql, $id);
     }
 
     public function ctdh($id)

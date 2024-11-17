@@ -16,6 +16,18 @@ $user=isset($_POST['user']) ? $_POST['user']:'';
 $password=isset($_POST['password']) ? $_POST['password']:'';
 
 
+//thông báo cần phải đăng nhập
+
+if (isset($_SESSION['thongbao'])) {
+    echo '<script >
+            alert("' . $_SESSION['thongbao'] . '");
+          </script>';
+
+    unset($_SESSION['thongbao']);
+}
+
+
+
 switch ($act){
     case 'index':
         include_once 'controller/trangchuController.php';
@@ -58,15 +70,10 @@ switch ($act){
         break;
 
 
-    case 'chitietlichsu':
-        include_once 'controller/donhangController.php';
-        $donhangController=new donhangController($id,$action);
-        break;
-
-
     case 'acc':
         include_once 'controller/taikhoanController.php';
         $taikhoanController=new taikhoanController();
+
         break;
 
 
@@ -82,10 +89,7 @@ switch ($act){
         break;
 
     case 'logout':
-        session_unset();
-
-        // Hủy session
-        session_destroy();
+        unset($_SESSION['user']);                        
 
         // Chuyển hướng người dùng về trang đăng nhập
         header("Location: index.php?act=login");
