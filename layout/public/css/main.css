@@ -260,6 +260,8 @@ main {
     border-radius: 5px;
     box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
 }
+
+
 .product-img {
     padding-top: 10px;
     text-align: center;
@@ -762,9 +764,12 @@ footer {
 
 /* trang bài viết  */
 .col-290{
-    max-width: 290px;
+    border: solid 1px rgb(191, 191, 191);
+    width: 290px;
     overflow: hidden;
-    margin-right: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -1581,4 +1586,17 @@ h5{
     margin-top: 10px;
     font-size: 1em;
     line-height: 1.5;
+  }
+
+
+
+  .col-sanphamkhac{
+    max-width: 290px;
+  }
+
+
+  .col-baiviet{
+    max-width: 340px;
+    margin: 0 auto;
+    overflow: hidden;
   }

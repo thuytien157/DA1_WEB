@@ -59,13 +59,13 @@
         <!-- end anhchitiet -->
 
         <div class="noidungchitiet">
-            
+
             <?php
             $ch='';
             foreach($trangchumodel ->allsp as $key => $value){
                 $ch .= '
                 <h2 id="tenchitiet">' . $value['ten_sach'] . '</h2>
-                
+
                     <div class="thongtinchitiet">
                         <div>Nhà cung cấp: <span style="color: #8B4513;">' . $value['nha_cung_cap'] . '</span></div>
                         <div>Tác giả:' . $value['ten_tacgia'] . '</div>
@@ -119,19 +119,19 @@
                           <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id_sach'] . '</td></tr>
 
                           <tr><td id="cotct">Tên Nhà Cung Cấp</td><td>' . $value['nha_cung_cap'] . '</td></tr>
-                      
+
                          <tr><td id="cotct">Tác giả</td><td>' . $value['ten_tacgia'] . '</td></tr>
-                    
+
                           <tr><td id="cotct">Năm XB</td><td>' . $value['nam_xb'] . '</td></tr>
-                      
+
                         <tr><td id="cotct">NXB</td><td>' . $value['ten_nxb'] . '</td></tr>
-                      
+
                           <tr><td id="cotct">Ngôn Ngữ</td><td>' . $value['ngon_ngu'] . '</td></tr>
 
                           <tr><td id="cotct">Trọng lượng (gr)</td><td>' . $value['trong_luong'] . '</td></tr>
 
                           <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
-                          
+
                           <tr><td id="cotct">Số trang</td><td>' . $value['so_luong'] . '</td></tr>
 
                           <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
@@ -154,7 +154,7 @@
     <div class="motasanpham">
         <h5 id="mota">Mô tả sản phẩm</h5>
         <div class="ndmota"><span style="font-weight: 700;">'.$value['ten_sach'].'</span><br>'.$value['mo_ta'].'</div>
-      </div>                         
+      </div>
                           ';
                       }
                       echo $ch;
@@ -168,11 +168,11 @@
          ?>
         <?php
             function splienquan($trangchumodel){
-            
+
                 $ch = '';
                 foreach ($trangchumodel->splq as $key => $value) {
                     $ch .= '
-                    <div class="col">
+                    <div class="col col-sanphamkhac">
                         <div class="product-img">
                             <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '">
                                 <img class="img" src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt=""></a>
@@ -196,7 +196,7 @@
                 return $ch;
             }
                 ?>
-            
+
           <!-- END - BOX SANPHAM -->
 
         </div>

@@ -11,6 +11,10 @@ $gia=isset($_POST['gia']) ? $_POST['gia']:'';
 $sl=isset($_POST['sl']) ? $_POST['sl']:'';
 $hinh=isset($_POST['hinh']) ? $_POST['hinh']:'';
 
+// đăng nhập
+$user=isset($_POST['user']) ? $_POST['user']:'';
+$password=isset($_POST['password']) ? $_POST['password']:'';
+
 
 switch ($act){
     case 'index':
@@ -74,7 +78,18 @@ switch ($act){
 
     case 'login':
         include_once 'controller/dangnhapController.php';
-        $dangnhapController=new dangnhapController();
+        $dangnhapController=new dangnhapController($user,$password);
+        break;
+
+    case 'logout':
+        session_unset();
+
+        // Hủy session
+        session_destroy();
+
+        // Chuyển hướng người dùng về trang đăng nhập
+        header("Location: index.php?act=login");
+        exit();
         break;
 
     case 'detail':

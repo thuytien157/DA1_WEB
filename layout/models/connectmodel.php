@@ -1,7 +1,7 @@
 <?php
 class ConnectModel
 {
-    public $servername = "localhost:4306";
+    public $servername = "localhost";
     public $username = "root";
     public $password = "";
     public $conn;
@@ -19,7 +19,7 @@ class ConnectModel
     }
 
     public function selectall($sql)
-    {   
+    {
         $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();

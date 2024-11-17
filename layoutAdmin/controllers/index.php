@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../Views/header.php';
 include '../model/ConnectModel.php';
 require_once "../controllers/AuthorController.php";
@@ -11,6 +12,18 @@ switch ($page) {
     case 'home':
         include '../Views/index.php';
         break;
+
+    case 'logout':
+        session_unset();
+
+        // Hủy session
+        session_destroy();
+
+        // Chuyển hướng người dùng về trang đăng nhập
+        header("Location: /layout/index.php");
+        exit();
+        break;
+
     case 'category':
         include '../Views/category.php';
         break;
@@ -43,7 +56,7 @@ switch ($page) {
                 $result = $AuthorController->deleteAuthor($id);
                 header("Location: index.php?page=author");
                 break;
-break;   
+break;
     case 'publishinghouse':
         include '../Views/publishinghouse.php';
         break;

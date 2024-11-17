@@ -7,7 +7,7 @@
 
     <!-- banner với chữ về chung tôi nằm giữa banner  -->
     <div class="banner-about">
-        <img class="about-img" src="img/IMG_DA1/baner/shutterstock-413397052.webp" alt="">
+        <img class="about-img" src="public/img/IMG_DA1/baner/shutterstock-413397052.webp" alt="">
         <p class="about-blog">VỀ CHÚNG TÔI</p>
     </div>
     <!-- end banner  -->
