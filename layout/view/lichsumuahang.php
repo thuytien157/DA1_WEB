@@ -32,11 +32,40 @@
                     </button>';
 
                     if($value['tt_donhang'] == 'Chờ xử lý'){
-                        echo '  
+                        echo ' 
+                        <button class="xemchitiet" data-bs-toggle="modal" data-bs-target="#exampleModal1'.$value['id_donhang'].'">
+                            Thay đổi địa chỉ nhận hàng
+                        </button>
+
+                        <div class="modal fade" id="exampleModal1'.$value['id_donhang'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <form method="post" action="index.php?act=lichsu&action=doidiachi&id='.$value['id_donhang'].'">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nhập địa chỉ nhận hàng mới của bạn ở đây</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <textarea name="dia_chi" class="form-control" id="message-text"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="submit" class="btn btn-danger">Cập nhật địa chỉ</button>
+                            </div>
+                            </div>
+                        </div>                        
+                        </form>
+
+                        </div>
+
+
+                        
+
                         <button class="xemchitiet" data-bs-toggle="modal" data-bs-target="#exampleModal'.$value['id_donhang'].'">
                             Hủy đơn hàng
                         </button>
-                        
                         <div class="modal fade" id="exampleModal'.$value['id_donhang'].'" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">

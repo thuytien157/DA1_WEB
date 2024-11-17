@@ -3,7 +3,6 @@ class DonHangModel
 {
     public $donhang;
     public $ctdonhang;
-    public $test;
 
     public function dsdh($id)
     {
@@ -62,4 +61,21 @@ class DonHangModel
                 WHERE id = :id";
         $data->selectone($sql, $id);
     }
-}
+
+    public function capnhatdiachi($id, $dia_chi)
+    {
+        include_once 'models/connectmodel.php';
+        $data = new ConnectModel();
+        
+        // Câu SQL cần cập nhật
+        $sql = "UPDATE don_hang
+                SET dia_chi = :dia_chi
+                WHERE id = :id";
+        
+        // Tạo mảng tham số để truyền vào
+        $params = array(':dia_chi' => $dia_chi, ':id' => $id);
+        
+        // Gọi phương thức modify với mảng tham số
+        $data->modify($sql, $params);
+    }
+    }

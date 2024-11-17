@@ -40,25 +40,22 @@ class ConnectModel
     }
 
     // dùng cho thêm sửa xoá
-    public function modify($sql, $params = [])
-    {
-        try {
-            $this->ketnoi();
-            $stmt = $this->conn->prepare($sql);  // Chuẩn bị câu lệnh SQL
-            $stmt->execute($params);  // Thực thi câu lệnh với các tham số
-            return $stmt->rowCount();  // Trả về số lượng bản ghi bị ảnh hưởng
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-            return false;
-        } finally {
-            $this->conn = null;
+    public function modify($sql, $params = null) {
+        include_once 'models/connectmodel.php';
+        $connect = new ConnectModel();
+        $conn = $connect->ketnoi();
+        $stmt = $conn->prepare($sql);
+        
+        // Bind parameters nếu có
+        if (is_array($params)) {
+            foreach ($params as $key => $value) {
+                $stmt->bindParam($key, $value);
+            }
         }
+    
+        $stmt->execute($params);  
     }
-
-    public function getLastInsertId()
-{
-    return $this->conn->lastInsertId();
-}
-
+    
+    
     
 }
