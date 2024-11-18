@@ -20,24 +20,21 @@
                 ?>
             </div>
             <!-- anhchitietsanpham -->
+            <div class="anhchitietsanpham">
+
                 <?php
                     $ch='';
                     foreach($trangchumodel ->chitietanh as $key => $value){
                     $ch.='
-                    <div class="anhchitietsanpham">
                         <div class="thumbnail1">
-                            <img src="public/img/IMG_DA1/san_pham_chi_tiet/'.$value['anh'].'" class="img-thumbnail" alt="...">
+                            <img src="public/img/IMG_DA1/san_pham_chi_tiet/san_pham_chi_tiet/'.$value['anh'].'" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
                     ';
                     }
                     echo $ch;
                 ?>
-                <?php
-                // echo '<pre>';
-                // print_r($trangchumodel->chitietanh); // Check if the data is being fetched correctly
-                // echo '</pre>';
-                ?>
+                                    </div>
+
             <!-- end anhchitietsanpham -->
              <div class="chinhsachuudai">
                 <h6 style="color: #8B4513;" id="textttct">Chính sách ưu đãi</h6>
