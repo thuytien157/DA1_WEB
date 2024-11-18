@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         tamtinh.innerText = total;  
-        tong.innerText = total; 
+        tong.innerText = total;
     }
 
     ipsl.forEach(function (input) {

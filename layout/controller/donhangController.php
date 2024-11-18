@@ -1,6 +1,6 @@
 <?php
 class donhangController {
-    public function __construct($id, $action,$dia_chi) {
+    public function __construct($id, $action) {
         include_once 'dangnhapController.php';
         include_once 'models/donhangmodel.php';
         $DonHangModel = new DonHangModel();

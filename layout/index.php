@@ -10,7 +10,6 @@ $ten=isset($_POST['ten']) ? $_POST['ten']:'';
 $gia=isset($_POST['gia']) ? $_POST['gia']:'';
 $sl=isset($_POST['sl']) ? $_POST['sl']:'';
 $hinh=isset($_POST['hinh']) ? $_POST['hinh']:'';
-$dia_chi=isset($_POST['dia_chi']) ? $_POST['dia_chi']:'';
 
 // đăng nhập
 $user=isset($_POST['user']) ? $_POST['user']:'';
@@ -67,7 +66,7 @@ switch ($act){
 
     case 'lichsu':
         include_once 'controller/donhangController.php';
-        $donhangController=new donhangController($id,$action,$dia_chi);
+        $donhangController=new donhangController($id,$action);
         break;
 
 
