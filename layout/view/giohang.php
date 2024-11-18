@@ -54,7 +54,7 @@
         <hr>
         <tr>
             <td class="fw-bold">Tổng</td>
-            <td class="cart-table-price" id="cart-total-final">0 đ</td>
+            <td class="cart-table-price" id="cart-total-final"></td>
         </tr>
         <tr>
             <td colspan="2">

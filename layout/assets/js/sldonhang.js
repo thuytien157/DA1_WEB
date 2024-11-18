@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 total += gia * sl;
             }
         });
-      
+        tamtinh.innerText = total;  
+        tong.innerText = total; 
     }
 
     ipsl.forEach(function (input) {
