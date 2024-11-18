@@ -1,6 +1,6 @@
-<div class="container">
+
     <img class="banner" src="public/img/IMG_DA1/baner/ms_banner_img1.webp" alt="">
-</div>
+
 <main class="container">
     <section>
         <div class="product-row ">

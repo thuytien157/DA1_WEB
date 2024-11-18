@@ -231,16 +231,18 @@ header {
 
 /* banner  */
 .banner{
+    margin-top: 30px;
     width: 100%;
 }
 
 /* main */
 
 main {
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .title-hot{
+    margin-bottom: 30px;
     text-align: center;
     color: var(--main-color);
     font-weight: bold;
@@ -764,12 +766,11 @@ footer {
 
 /* trang bài viết  */
 .col-290{
-    border: solid 1px rgb(191, 191, 191);
     width: 290px;
     overflow: hidden;
     margin: 0 auto;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 
