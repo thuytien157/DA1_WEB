@@ -67,11 +67,19 @@
                     <!-- Tài khoản và các nút đăng nhập/đăng ký -->
                     <li class="nav-item dropdown ms-3">
                         <button onclick="window.location.href='index.php?act=acc';" class="btn btn-outline-secondary account-button dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tài khoản <i class="fa-solid fa-user"></i>
+                            <?php
+                                echo isset($_SESSION['user']) ?  $_SESSION['user'] :"Tài Khoản";
+                            ?>
+                            <i class="fa-solid fa-user"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="accountDropdown">
                             <li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>
-                            <li><a class="dropdown-item" href="index.php?act=login">Đăng Nhập</a></li>
+                            <li><a class="dropdown-item"  href="index.php?act=<?php echo trim(isset($_SESSION['user'])) ? 'logout' : 'login'; ?>">
+
+                            <?php
+                                echo isset($_SESSION['user'])?  "Đăng Xuất":"Đăng Nhập";
+                            ?>
+                            </a></li>
                         </ul>
                     </li>
 

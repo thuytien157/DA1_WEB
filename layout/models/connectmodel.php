@@ -19,7 +19,7 @@ class ConnectModel
     }
 
     public function selectall($sql)
-    {   
+    {
         $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -38,4 +38,24 @@ class ConnectModel
         $this->conn = null; // đóng kết nối database
         return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
     }
+
+    // dùng cho thêm sửa xoá
+    public function modify($sql, $params = null) {
+        include_once 'models/connectmodel.php';
+        $connect = new ConnectModel();
+        $conn = $connect->ketnoi();
+        $stmt = $conn->prepare($sql);
+
+        // Bind parameters nếu có
+        if (is_array($params)) {
+            foreach ($params as $key => $value) {
+                $stmt->bindParam($key, $value);
+            }
+        }
+
+        $stmt->execute($params);
+    }
+
+
+
 }

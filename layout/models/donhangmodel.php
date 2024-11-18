@@ -2,16 +2,80 @@
 class DonHangModel
 {
     public $donhang;
+    public $ctdonhang;
 
-    public function dsdh()
+    public function dsdh($id)
     {
         include_once 'models/connectmodel.php';
         $dulieu = new ConnectModel();
-        $sql = 'SELECT *
-FROM DonHang
-INNER JOIN ChiTietDonHang
-ON DonHang.MaDonHang = ChiTietDonHang.MaDonHang;
-';
-        $this->donhang = $dulieu->selectall($sql);
+        $sql = 'SELECT don_hang.id AS donhang_id, 
+                        don_hang.ngay_giao_hang, 
+                        don_hang.tt_donhang, 
+                        sach.ten_sach, 
+                        chi_tiet_don_hang.so_luong,
+                        chi_tiet_don_hang.id_donhang,
+                        sach.gia, 
+                        sach.hinh
+                FROM don_hang
+                INNER JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
+                INNER JOIN sach ON sach.id = chi_tiet_don_hang.id_sach
+                WHERE don_hang.id_khachhang = :id';        
+        $this->donhang = $dulieu->selectone($sql, $id);
     }
-}
+
+    public function ctdh($id)
+    {
+        include_once 'models/connectmodel.php';
+        $data = new ConnectModel();
+        
+        $sql = "SELECT 
+                don_hang.id AS donhang_id,
+                don_hang.ngay_giao_hang,
+                don_hang.dia_chi,
+                don_hang.tt_donhang,
+                don_hang.tt_thanhtoan,
+                don_hang.ghi_chu,
+                chi_tiet_don_hang.so_luong,
+                sach.id AS sach_id,
+                sach.ten_sach,
+                sach.gia,
+                sach.hinh
+                FROM don_hang
+                INNER JOIN chi_tiet_don_hang 
+                ON don_hang.id = chi_tiet_don_hang.id_donhang
+                INNER JOIN user 
+                ON user.id = don_hang.id_khachhang
+                INNER JOIN sach
+                ON sach.id = chi_tiet_don_hang.id_sach
+                WHERE don_hang.id = :id";   
+        $this->ctdonhang = $data->selectone($sql, $id);
+    }
+
+    public function huydonhang($id)
+    {
+        include_once 'models/connectmodel.php';
+        $data = new ConnectModel();
+        
+        $sql = "UPDATE don_hang
+                SET tt_donhang = 'Đã hủy'
+                WHERE id = :id";
+        $data->selectone($sql, $id);
+    }
+
+    public function capnhatdiachi($id, $dia_chi)
+    {
+        include_once 'models/connectmodel.php';
+        $data = new ConnectModel();
+        
+        // Câu SQL cần cập nhật
+        $sql = "UPDATE don_hang
+                SET dia_chi = :dia_chi
+                WHERE id = :id";
+        
+        // Tạo mảng tham số để truyền vào
+        $params = array(':dia_chi' => $dia_chi, ':id' => $id);
+        
+        // Gọi phương thức modify với mảng tham số
+        $data->modify($sql, $params);
+    }
+    }

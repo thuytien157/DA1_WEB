@@ -231,16 +231,18 @@ header {
 
 /* banner  */
 .banner{
+    margin-top: 30px;
     width: 100%;
 }
 
 /* main */
 
 main {
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .title-hot{
+    margin-bottom: 30px;
     text-align: center;
     color: var(--main-color);
     font-weight: bold;
@@ -260,6 +262,8 @@ main {
     border-radius: 5px;
     box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3) ;
 }
+
+
 .product-img {
     padding-top: 10px;
     text-align: center;
@@ -762,9 +766,11 @@ footer {
 
 /* trang bài viết  */
 .col-290{
-    max-width: 290px;
+    width: 290px;
     overflow: hidden;
-    margin-right: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -925,8 +931,7 @@ h5{
 
 .col {
     flex: 1 1 230px;
-    /* Chiều rộng tối thiểu là 300px và có thể mở rộng */
-    box-sizing: border-box; /* Đảm bảo padding và border được tính vào chiều rộng */
+    box-sizing: border-box; 
 }
 .product-name{
     font-size: 18px;
@@ -1581,4 +1586,17 @@ h5{
     margin-top: 10px;
     font-size: 1em;
     line-height: 1.5;
+  }
+
+
+
+  .col-sanphamkhac{
+    max-width: 290px;
+  }
+
+
+  .col-baiviet{
+    max-width: 340px;
+    margin: 0 auto;
+    overflow: hidden;
   }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,39 @@
     .navbar {
       background-color: #F5F5F5;
     }
+
     .navbar-brand {
       font-weight: bold;
       font-size: 24px;
       color: #4A4A4A !important;
     }
+
     .nav-link {
       color: black !important;
       font-size: 16px;
       transition: color 0.3s ease;
     }
+
     .nav-link:hover {
       color: brown !important;
     }
+
     .dropdown-menu {
       background-color: #4A4A4A;
       border: none;
     }
+
     .dropdown-item {
       color: #F5F5F5;
     }
+
     .dropdown-item:hover {
       color: #FFD700;
       background-color: transparent;
     }
   </style>
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -63,6 +71,16 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?page=form">Form Cập nhật</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""> <?php
+                                                              echo isset($_SESSION['user']) ? $_SESSION['user'] : "";
+                                                              ?></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?page=logout"> <?php
+                                                              echo isset($_SESSION['user']) ?"Đăng Xuất" : "";
+                                                              ?></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -72,4 +90,5 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

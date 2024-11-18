@@ -21,7 +21,10 @@
 
     <!-- Main Content -->
     <div class="container-fluid p-4">
-      <h2 class="mb-4">Wellcom Admin !</h2>
+      <h2 class="mb-4">Wellcom
+      <?php
+      echo isset($_SESSION['user']) ? $_SESSION['user']:"";
+      ?> !</h2>
 
       <!-- Statistics -->
       <div class="row">

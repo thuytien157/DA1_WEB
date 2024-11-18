@@ -15,22 +15,21 @@ class trangchuModel
     {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "SELECT * from sach where so_luong_ban > 1000 order by so_luong_ban desc ";
+        $sql = "SELECT * from sach where so_luong_ban order by so_luong_ban desc limit 8";
         $this->mangsp = $data->selectall($sql);
     }
     public function dsspMoi() 
     { 
         include_once 'models/connectmodel.php'; 
         $data = new ConnectModel(); 
-        // Truy vấn để lấy các sản phẩm mới nhập, giả sử có cột 'ngay_nhap' 
-        $sql = "SELECT * FROM sach WHERE ngay_nhap >= '2024-01-06' ORDER BY ngay_nhap DESC";
-        $this->mangspmoi = $data->selectall($sql); 
+        $sql = "SELECT * FROM sach WHERE ngay_nhap ORDER BY ngay_nhap DESC limit 8";
+        $this->mangspmoi = $data->selectall($sql);
     }
     public function dsspSale()
     {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "SELECT * from sach where giam > 0 order by giam desc";
+        $sql = "SELECT * from sach where giam > 0 order by giam desc limit 8";
         $this->mangspsale = $data->selectall($sql);
     }
     

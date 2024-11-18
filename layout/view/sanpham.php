@@ -21,7 +21,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <label class="form-check-label" for="literatureCheckbox">
-                                        <a href="index.php?act=product&idtl=' . $value['id'] . '"> ' . $value['ten_theloai'] . '</a>
+                                        <a href="index.php?act=product&idtl=' . $value['id'] . '" class="text-decoration-none text-black"> ' . $value['ten_theloai'] . '</a>
                                     </label>
                                 </li>
                             </ul>
@@ -32,7 +32,7 @@
                 </div>
                 <!-- end div thể loại -->
 
-                <div class="tacgia">
+                <div class="tacgia pt-3">
                     <section>
                         <h5>Tác giả</h5>
                         <?php
@@ -67,7 +67,7 @@
                             $ch.= '
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <label class="form-check-label" for="publisher1Checkbox">
+                                    <label class="form-check-label pt-2" for="publisher1Checkbox">
                                     <a href="index.php?act=product&idnxb=' . $value['id'] . '"> ' . $value['ten_nxb'] . '</a>
                                     </label>
                                     
@@ -86,7 +86,7 @@
 
                 <div class="gia">
                      <section>
-                        <h5>Giá</h5>
+                     <h5 class="pt-3">Giá</h5>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <input class="form-check-input me-1" type="checkbox" value="" id="price1Checkbox">
@@ -135,7 +135,16 @@
                         </div>
                         <div class="btn-group">
                             <button class="buttonsp">Mua ngay</button>
-                            <button class="buttonsp">Thêm vào giỏ hàng</button>
+
+
+                             <!-- form này để thêm sản phẩm vào giỏ hàng -->
+                            <form action="index.php?act=cart&action=themvaogiohang&id='.$value['id'].'" method="post">
+                                <input type="hidden" name="ten" value="'.$value['ten_sach'].'">
+                                <input type="hidden" name="hinh" value="'.$value['hinh'].'">
+                                <input type="hidden" name="gia" value="'.$value['gia'].'">
+                                <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                                <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
+                            </form>
                         </div>
                     </div>';
                 }
