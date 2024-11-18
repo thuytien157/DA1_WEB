@@ -1,15 +1,17 @@
-<main class="container no-mg">
-
-    <div class="dieuhuong">
+<div class="dieuhuong">
         <a href="index.html">Trang chủ</a> /
         <a href="#" id="back">Giới thiệu</a>
     </div>
-
-    <!-- banner với chữ về chung tôi nằm giữa banner  -->
     <div class="banner-about">
         <img class="about-img" src="public/img/IMG_DA1/baner/shutterstock-413397052.webp" alt="">
         <p class="about-blog">VỀ CHÚNG TÔI</p>
     </div>
+<main class="container-xxl no-mg">
+
+
+
+    <!-- banner với chữ về chung tôi nằm giữa banner  -->
+
     <!-- end banner  -->
 
 
@@ -18,7 +20,7 @@
         <div class="about-infor-1">
             <!-- <img class="about-infor-1-img" src="" alt=""> -->
             <!-- box tạm thời thay thế ảnh sau nội dung số 1  -->
-            <div class="box-about-infor-1"></div>
+            <div class="box-about-infor-1 mt-2"></div>
             <!-- nhóm tiêu đề và nội dung của thông tin thứ nhất  -->
             <div class="box-about-infor-1-blog">
                 <div class="blog-title">Câu chuyển của chúng tôi</div> <br>

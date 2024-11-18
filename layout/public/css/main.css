@@ -931,8 +931,7 @@ h5{
 
 .col {
     flex: 1 1 230px;
-    /* Chiều rộng tối thiểu là 300px và có thể mở rộng */
-    box-sizing: border-box; /* Đảm bảo padding và border được tính vào chiều rộng */
+    box-sizing: border-box; 
 }
 .product-name{
     font-size: 18px;
