@@ -5,6 +5,8 @@ include "view/header.php" ;
 $act=isset($_GET['act']) ? $_GET['act'] : 'index';
 $id=isset($_GET['id']) ? $_GET['id']:'';
 $idtl=isset($_GET['idtl']) ? $_GET['idtl']:'';
+$idtg=isset($_GET['idtg']) ? $_GET['idtg']:'';
+$idnxb=isset($_GET['idnxb']) ? $_GET['idnxb']:'';
 
 switch ($act){
     case 'index':
@@ -14,7 +16,7 @@ switch ($act){
 
     case 'product':
         include_once 'controller/sanphamController.php';
-        $sanphamController=new sanphamController($idtl);
+        $sanphamController=new sanphamController($idtl,$idtg,$idnxb);
         break;
 
     case 'about':
