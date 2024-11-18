@@ -10,14 +10,14 @@
                     <div class="form-group mb-3">
                         <label for="registeruserName">Tên đăng nhập</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="registeruserName" placeholder="Nhập tên đăng nhập" name="user">
+                            <input type="text" class="form-control" id="registeruserName" placeholder="Nhập tên đăng nhập" name="user" require>
                             <span class="input-group-text icon-size"><i class="fas fa-user"></i></span>
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="loginPassword">Mật Khẩu</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" name="password">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" name="password" require>
                             <span class="input-group-text">
                                 <i class="fas fa-eye-slash" onclick="togglePassword('loginPassword', this)"></i>
                             </span>

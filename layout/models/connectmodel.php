@@ -1,7 +1,7 @@
 <?php
 class ConnectModel
 {
-    public $servername = "localhost:4306";
+    public $servername = "localhost";
     public $username = "root";
     public $password = "";
     public $conn;
@@ -45,17 +45,17 @@ class ConnectModel
         $connect = new ConnectModel();
         $conn = $connect->ketnoi();
         $stmt = $conn->prepare($sql);
-        
+
         // Bind parameters nếu có
         if (is_array($params)) {
             foreach ($params as $key => $value) {
                 $stmt->bindParam($key, $value);
             }
         }
-    
-        $stmt->execute($params);  
+
+        $stmt->execute($params);
     }
-    
-    
-    
+
+
+
 }
