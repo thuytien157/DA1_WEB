@@ -72,14 +72,10 @@
               <a class="nav-link" href="index.php?page=form">Form Cập nhật</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=""> <?php
-                                                              echo isset($_SESSION['user']) ? $_SESSION['user'] : "";
-                                                              ?></a>
+              <a class="nav-link" href=""> <?php echo isset($_SESSION['user']) ? $_SESSION['user'] : "";?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?page=logout"> <?php
-                                                              echo isset($_SESSION['user']) ?"Đăng Xuất" : "";
-                                                              ?></a>
+              <a class="nav-link" href="index.php?page=logout"> <?php echo isset($_SESSION['user']) ?"Đăng Xuất" : "";?></a>
             </li>
           </ul>
         </div>
