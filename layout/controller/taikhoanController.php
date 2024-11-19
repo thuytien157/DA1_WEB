@@ -6,11 +6,18 @@ class taikhoanController {
         require "models/taikhoanModel.php";
         $this->taikhoan = new taikhoanModel();
 
+        include_once 'dangnhapController.php';
+        if(isset($_SESSION['user'])){
         // Xử lý các hành động của người dùng
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             // Hiển thị trang tài khoản
             include_once "view/taikhoan.php";
         }
+    }else{
+        $_SESSION['thongbao'] = 'Bạn cần phải đăng nhập';
+
+        header('location: ./index.php');
+    }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_GET['action'] == 'update') {

@@ -11,7 +11,6 @@ class doimkModel {
 
         if ($result && password_verify($currentPassword, $result[0]['mat_khau'])) {
             // Hash new password
-            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
             $updateSql = "UPDATE user SET mat_khau = :newPassword WHERE id = :id";
             $updateParams = [
                 ':newPassword' => $hashedPassword,

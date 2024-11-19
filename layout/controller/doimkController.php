@@ -23,7 +23,6 @@ class doimkController {
         $currentPassword = $_POST['currentPassword'] ?? '';
         $newPassword = $_POST['newPassword'] ?? '';
         $confirmPassword = $_POST['confirmNewPassword'] ?? '';
-
         // Validate current password
         if (empty($currentPassword)) {
             $_SESSION['thongbao'] = 'Mật khẩu hiện tại không được để trống!';
