@@ -1,7 +1,7 @@
 <?php
 class ConnectModel
 {
-    public $servername = "localhost:4306";
+    public $servername = "localhost";
     public $username = "root";
     public $password = "";
     public $conn;
@@ -49,9 +49,22 @@ class ConnectModel
                 $stmt->bindParam($key, $value); // gán mỗi giá trị trong mảng vào câu lệnh SQL
             }
         }
-    
+
         $stmt->execute($params);
         $this->conn = null;
+    }
+
+
+    public function selectonepass($sql, $params) {
+        $this->ketnoi();
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindParam($key, $value);
+        }
+        $stmt->execute();
+        $kq = $stmt->fetch(PDO::FETCH_ASSOC);  // Lấy một kết quả duy nhất
+        $this->conn = null;  // Đóng kết nối
+        return $kq;  // Trả về một kết quả duy nhất (mảng kết quả)
     }
 
 

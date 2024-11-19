@@ -4,8 +4,8 @@
             <div class="col-md-6">
                 <h2 class="title-hot">Đổi Mật Khẩu</h2>
 
-
-                <form method="POST" action="index.php?act=doimk">
+                <!-- Hiển thị thông báo nếu có -->
+                <form method="POST">
                     <div class="form-group mb-3">
                         <label for="currentPassword">Mật Khẩu Hiện Tại</label>
                         <div class="input-group">

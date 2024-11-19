@@ -1,63 +1,69 @@
 <?php
 class doimkController {
     public function __construct() {
-        // Check if user is logged in
-        if (isset($_SESSION['user'])) {
-            // Process POST request if present
+            // Nếu có yêu cầu POST, xử lý thay đổi mật khẩu
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $this->doimk();
             } else {
-                // Display password change form
+                // Nếu không, hiển thị form đổi mật khẩu
                 include "view/doimk.php";
             }
-        } else {
-            // Redirect to login page if user is not logged in
-            $_SESSION['thongbao'] = "Bạn phải đăng nhập để đổi mật khẩu!";
-            header("Location: index.php?act=login");
-            exit();
-        }
+
     }
 
     private function doimk() {
+<<<<<<< HEAD
+        // Lấy dữ liệu từ form
+        $currentPassword = $_POST['currentPassword'] ?? ''; // Mật khẩu hiện tại
+        $newPassword = $_POST['newPassword'] ?? ''; // Mật khẩu mới
+        $confirmPassword = $_POST['confirmNewPassword'] ?? ''; // Xác nhận mật khẩu mới
+
+        // Kiểm tra xem mật khẩu hiện tại có bị bỏ trống không
+=======
         // Get form data
         $currentPassword = $_POST['currentPassword'] ?? '';
         $newPassword = $_POST['newPassword'] ?? '';
         $confirmPassword = $_POST['confirmNewPassword'] ?? '';
         // Validate current password
+>>>>>>> 62d6acfacf094e4c16241de7b04d1caffe1d7bfa
         if (empty($currentPassword)) {
             $_SESSION['thongbao'] = 'Mật khẩu hiện tại không được để trống!';
             header("Location: index.php?act=doimk");
             exit();
         }
 
-        // Validate new password and confirmation
+        // Kiểm tra xem mật khẩu mới và mật khẩu xác nhận có trùng khớp không
         if ($newPassword !== $confirmPassword) {
             $_SESSION['thongbao'] = 'Mật khẩu mới và xác nhận mật khẩu không khớp!';
             header("Location: index.php?act=doimk");
             exit();
         }
 
-        // Check password strength (at least 8 chars, one uppercase, one digit, and special char)
+        // Kiểm tra độ mạnh của mật khẩu mới (tối thiểu 8 ký tự, có chữ hoa, số và ký tự đặc biệt)
         if (!preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/', $newPassword)) {
             $_SESSION['thongbao'] = 'Mật khẩu mới không hợp lệ! (Cần có chữ hoa, số và ký tự đặc biệt)';
             header("Location: index.php?act=doimk");
             exit();
         }
 
-        // Call the model to change password
+        // Gọi đến model để thay đổi mật khẩu
         include "models/doimkModel.php";
         $doimkModel = new doimkModel();
         $result = $doimkModel->changePassword($_SESSION['user']['id'], $currentPassword, $newPassword);
 
+        // Nếu mật khẩu thay đổi thành công
         if ($result) {
             $_SESSION['thongbao'] = 'Đổi mật khẩu thành công!';
         } else {
+            // Nếu mật khẩu hiện tại không đúng
             $_SESSION['thongbao'] = 'Mật khẩu hiện tại không đúng!';
         }
 
-        // Redirect to password change page
-        header("Location: index.php?act=doimk");
+        // Chuyển hướng lại về trang tài khoản
+        header("Location: index.php?act=acc");
         exit();
     }
 }
+
+
 ?>
