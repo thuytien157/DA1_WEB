@@ -42,7 +42,6 @@
 
 
         <!-- bảng cộng giỏ hàng  -->
-<<<<<<< HEAD
         <div class="cart-table-right">
             <table class="cart-table-sum ms-2">
                 <thead>
@@ -56,7 +55,7 @@
                         <td class="fw-bold">Tạm tính</td>
                         <td class="cart-table-price" id="cart-total">0 đ</td>
                     </tr>
-                    
+       
                     <tr>
                         <td class="fw-bold">Tổng</td>
                         <td class="cart-table-price" id="cart-total-final">0 đ</td>
@@ -70,32 +69,6 @@
             </table>
         </div>
 
-=======
-        <table class="cart-table-sum ms-2">
-            <thead>
-                <tr>
-                    <th>Cộng giỏ hàng</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-        <tr>
-            <td class="fw-bold">Tạm tính</td>
-            <td class="cart-table-price" id="cart-total">0 đ</td>
-        </tr>
-        <hr>
-        <tr>
-            <td class="fw-bold">Tổng</td>
-            <td class="cart-table-price" id="cart-total-final"></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="index.php?act=cart&action=dathang" class="cart-table-button text-decoration-none">Đặt hàng</a>
-            </td>
-        </tr>
-    </tbody>
-        </table>
->>>>>>> 778eebd0afa22767c8972c0df8520f4181cc495a
     </section>
 </main>
 <script src="./assets/js/sldonhang.js"></script>
