@@ -39,13 +39,13 @@
 
                         //check == false sp chưa được thêm vào giỏ hàng 
                         if (!$check) {
-                            $_SESSION['cart'][] = [
+                            array_push($_SESSION['cart'],[
                                 'id' => $id,
                                 'ten' => $ten,
                                 'gia' => $gia,
                                 'sl' => $sl,
                                 'hinh' => $hinh
-                            ];
+                            ]);
                         }
                         // sau khi thêm thì chuyển đến trang giỏ hàng
                         header('Location: ./index.php?act=cart');

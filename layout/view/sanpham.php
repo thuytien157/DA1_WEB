@@ -7,7 +7,7 @@
     <!-- MAIN-PRODUCT -->
     <div class="container-xxl">
         <div class="trangsanpham">
-            <div class="filter ">
+            <div class="filter border-end">
                 <!-- Filter Thể Loại -->
                 <div class="theloai">
 
@@ -44,7 +44,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <label class="form-check-label" for="author1Checkbox">
-                                        <a href="index.php?act=product&idtg=' . $value['id'] . '"> ' . $value['ten_tacgia'] . '</a>
+                                        <a href="index.php?act=product&idtg=' . $value['id'] . '" class="text-decoration-none text-black"> ' . substr($value['ten_tacgia'],10). '</a>
                                     </label>
                                 </li>
                             </ul>
@@ -58,7 +58,7 @@
                 </div>
                 <!-- end div tác giả -->
 
-                <div class="nhaxuatban">
+                <div class="nhaxuatban pt-3">
                 <h5>Nhà xuất bản</h5>
                     <section>
                         <?php
@@ -67,8 +67,8 @@
                             $ch.= '
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <label class="form-check-label pt-2" for="publisher1Checkbox">
-                                    <a href="index.php?act=product&idnxb=' . $value['id'] . '"> ' . $value['ten_nxb'] . '</a>
+                                    <label class="form-check-label" for="publisher1Checkbox">
+                                    <a href="index.php?act=product&idnxb=' . $value['id'] . '" class="text-decoration-none text-black"> ' .substr($value['ten_nxb'],4). '</a>
                                     </label>
                                     
                                 </li>
@@ -84,30 +84,7 @@
                 </div>
                 <!-- end div nhà xuất bản -->
 
-                <div class="gia">
-                     <section>
-                     <h5 class="pt-3">Giá</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" id="price1Checkbox">
-                                <label class="form-check-label" for="price1Checkbox">Dưới 100.000 VNĐ</label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" id="price2Checkbox">
-                                <label class="form-check-label" for="price2Checkbox">Từ 100.000 - 200.000 VNĐ</label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" id="price3Checkbox">
-                                <label class="form-check-label" for="price3Checkbox">Từ 200.000 - 300.000 VNĐ</label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" id="price4Checkbox">
-                                <label class="form-check-label" for="price4Checkbox">Trên 300.000 VNĐ</label>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <!-- end div gia -->
+
             </div>
             <!-- end div filter -->
 
@@ -159,8 +136,29 @@
             <!-- end box sản phẩm -->
             <!-- end div chuyentrang -->
         </div>
+
         <!-- end div trangsanpham -->
     </div>
+             <div class="chuyentrang">
+             <nav aria-label="Page navigation example text-center">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
+                <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
+                <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+            </ul>
+            </nav>
+
+             </div>
     <!-- end div container -->
 </main>
 <!-- end main -->

@@ -5,6 +5,8 @@ include "view/header.php" ;
 $act=isset($_GET['act']) ? $_GET['act'] : 'index';
 $id=isset($_GET['id']) ? $_GET['id']:'';
 $idtl=isset($_GET['idtl']) ? $_GET['idtl']:'';
+$idtg=isset($_GET['idtg']) ? $_GET['idtg']:'';
+$idnxb=isset($_GET['idnxb']) ? $_GET['idnxb']:'';
 $action=isset($_GET['action']) ? $_GET['action']:'';
 $ten=isset($_POST['ten']) ? $_POST['ten']:'';
 $gia=isset($_POST['gia']) ? $_POST['gia']:'';
@@ -48,7 +50,7 @@ switch ($act){
 
     case 'contact':
         include_once 'controller/lienheController.php';
-        $lienheController=new lienheController();
+        $lienheController=new lienheController($action);
         break;
 
 
