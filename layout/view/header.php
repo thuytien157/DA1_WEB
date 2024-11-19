@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo bên trái -->
-            <a class="navbar-brand" href="index.php?act=index">Logo</a>
+            <a class="navbar-brand" href="index.php?act=index"><img src="public/img/IMG_DA1/logo/Book Store Logo.png" alt="" class="small_img"></a>
 
             <!-- Nút Toggle cho thiết bị di động -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

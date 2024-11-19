@@ -156,7 +156,7 @@
                       }
                       echo $ch;
                     ?>
-      <h4 id="textsanphamkhac">Sản phẩm khác</h4>
+      <h4 id="textsanphamkhac">Sản phẩm liên quan</h4>
     <div class="sanphamkhac">
         <div class="row row-cols-4">
         <!-- BOX-SANPHAM -->

@@ -7,7 +7,12 @@
     margin-left: 20px;
     margin-top: 50px;
 }
-
+.small_img{
+    width: 50px;
+}
+.logo_img{
+    width: 200px;
+}
 .sanpham .col {
     flex: 1 1 calc(33.33% - 10px); /* 4 cột mỗi hàng với khoảng cách nhỏ hơn */
     max-width: calc(33.33% - 10px); /* Giữ chiều rộng cột nhỏ hơn */

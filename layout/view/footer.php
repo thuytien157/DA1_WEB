@@ -45,7 +45,7 @@
         <div class="row row-cols-4">
             <!-- logo  -->
             <div class="footer-infor">
-                <p class="service-logo">logo</p>
+                <div class="service-logo"><img src="public/img/IMG_DA1/logo/Book Store Logo.png" alt="" class="logo_img" ></div>
             </div>
             <!-- end logo  -->
 
