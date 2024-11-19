@@ -3,21 +3,28 @@ class taikhoanController {
     public $taikhoan;
 
     public function __construct() {
-        require "models/taikhoanModel.php";
-        $this->taikhoan = new taikhoanModel();
 
-        // Xử lý các hành động của người dùng
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            // Hiển thị trang tài khoản
-            include_once "view/taikhoan.php";
-        }
+        if(isset($_SESSION['user'])){
+                require "models/taikhoanModel.php";
+            $this->taikhoan = new taikhoanModel();
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_GET['action'] == 'update') {
-                // Cập nhật thông tin tài khoản
-                $this->UpdateAccount();
+            // Xử lý các hành động của người dùng
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                // Hiển thị trang tài khoản
+                include_once "view/taikhoan.php";
             }
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if ($_GET['action'] == 'update') {
+                    // Cập nhật thông tin tài khoản
+                    $this->UpdateAccount();
+                }
+            }
+        }else{
+            echo "<script>alert('Vui lòng đăng nhập'); window.location.href='index.php'</script>";
+
         }
+
     }
 
     // Xử lý cập nhật thông tin tài khoản

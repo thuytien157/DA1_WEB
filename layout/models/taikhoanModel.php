@@ -1,7 +1,9 @@
 <?php
 class taikhoanModel
 {
-    public function __construct() {}
+    public function __construct() {
+
+    }
 
     // Cập nhật thông tin tài khoản
     public function updateAccountInfo($ho_ten, $sdt, $email, $user_id)

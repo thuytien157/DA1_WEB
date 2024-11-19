@@ -5,13 +5,6 @@
                 <h2 class="title-hot">Đổi Mật Khẩu</h2>
 
                 <!-- Hiển thị thông báo nếu có -->
-                <?php if (isset($_SESSION['thongbao'])): ?>
-                    <div class="alert alert-info">
-                        <?php echo $_SESSION['thongbao']; ?>
-                        <?php unset($_SESSION['thongbao']); ?>
-                    </div>
-                <?php endif; ?>
-
                 <form method="POST">
                     <div class="form-group mb-3">
                         <label for="currentPassword">Mật Khẩu Hiện Tại</label>
