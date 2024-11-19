@@ -30,6 +30,8 @@ class donhangController {
                 include_once 'view/chitietdonhang.php';
                 $dia_chi = $_POST['dia_chi'];
                 $DonHangModel->capnhatdiachi($id, $dia_chi);
+
+                $_SESSION['thongbao'] = 'Đã đổi địa chỉ thành công';
                 header("location: ./index.php?act=lichsu&id=" . $userId);
                 exit();            
         }else{

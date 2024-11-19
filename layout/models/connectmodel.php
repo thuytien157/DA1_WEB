@@ -40,11 +40,9 @@ class ConnectModel
     }
 
     // dùng cho thêm sửa xoá
-    public function modify($sql, $params = null) {
-        include_once 'models/connectmodel.php';
-        $connect = new ConnectModel();
-        $conn = $connect->ketnoi();
-        $stmt = $conn->prepare($sql);
+    public function modify($sql, $params) {
+        $this->ketnoi();
+        $stmt = $this->conn->prepare($sql);
 
         if (is_array($params)) { // nếu $params là một mảng
             foreach ($params as $key => $value) { // duyệt mảng
@@ -53,6 +51,7 @@ class ConnectModel
         }
     
         $stmt->execute($params);
+        $this->conn = null;
     }
 
 
