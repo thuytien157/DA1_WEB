@@ -7,16 +7,17 @@
     <!-- MAIN-PRODUCT -->
     <div class="container-xxl">
         <div class="trangsanpham">
-            <div class="filter ">
+            <div class="filter border-end">
                 <!-- Filter Thể Loại -->
                 <div class="theloai">
 
-                        <h5>Thể loại</h5>
-                        <?php
-                        foreach ($sanphammodel->theloai as $key => $value) {
-                            $ch = '';
-                            // extract($value);
-                            $ch .= '
+                    <h5>Thể loại</h5>
+                    <?php
+                    $ch = '';
+                    foreach ($sanphammodel->theloai as $key => $value) {
+                        
+                        // extract($value);
+                        $ch .= '
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <label class="form-check-label" for="literatureCheckbox">
@@ -25,86 +26,80 @@
                                 </li>
                             </ul>
                             ';
-                            echo $ch;
                         }
-                        ?>
+                        echo $ch; 
+                    ?>
                 </div>
                 <!-- end div thể loại -->
 
                 <div class="tacgia pt-3">
                     <section>
                         <h5>Tác giả</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <label class="form-check-label" for="author1Checkbox">Tác giả Mộc Trầm</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="author2Checkbox">Tác giả Han Kang</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="author3Checkbox">Tác giả José Mauro de Vasconcelos</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="author4Checkbox">Tác giả Dan Nicholson</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="author5Checkbox">Tác giả Margaret Atwood</label>
-                            </li>
-                        </ul>
+                        <?php
+                        $ch = '';
+                        foreach ($sanphammodel->tacgia as $key => $value) {
+                            
+                            // extract($value);
+                            $ch .= '
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label class="form-check-label" for="author1Checkbox">
+                                        <a href="index.php?act=product&idtg=' . $value['id'] . '" class="text-decoration-none text-black"> ' . substr($value['ten_tacgia'],10). '</a>
+                                    </label>
+                                </li>
+                            </ul>
+                            ';
+                            
+                        }
+                        echo $ch;
+                        ?>
+
                     </section>
                 </div>
                 <!-- end div tác giả -->
 
-                <div class="nhaxuatban">
+                <div class="nhaxuatban pt-3">
+                <h5>Nhà xuất bản</h5>
                     <section>
-                        <h5 class="pt-3">Nhà xuất bản</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <label class="form-check-label " for="publisher1Checkbox">NXB Giáo Dục</label>
-                            </li>
-                            <li class="list-group-item">
-                                    <label class="form-check-label pt-2" for="publisher2Checkbox">NXB Văn Học</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="publisher3Checkbox">NXB Kim Đồng</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="publisher4Checkbox">NXB Thanh Niên</label>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-check-label pt-2" for="publisher5Checkbox">NXB Hội Nhà Văn</label>
-                            </li>
-                        </ul>
+                        <?php
+                        $ch='';
+                        foreach($sanphammodel->nxb as $key => $value) {
+                            $ch.= '
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label class="form-check-label" for="publisher1Checkbox">
+                                    <a href="index.php?act=product&idnxb=' . $value['id'] . '" class="text-decoration-none text-black"> ' .substr($value['ten_nxb'],4). '</a>
+                                    </label>
+                                    
+                                </li>
+                            </ul>
+                            ';
+                            
+                        }
+                        echo $ch;
+                        ?>
+
+                        
                     </section>
                 </div>
                 <!-- end div nhà xuất bản -->
 
-                <div class="gia">
-                    <section>
-                        <h5 class="pt-3">Giá</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" id="price1Checkbox">
-                                <label class="form-check-label" for="price1Checkbox">Dưới 100.000 VNĐ</label>
-                            </li>
-                            <!-- Các tùy chọn giá khác -->
-                        </ul>
-                    </section>
-                </div>
-                <!-- end div gia -->
+
             </div>
             <!-- end div filter -->
 
             <div class="sanpham">
                 <!-- box sản phẩm 3-->
                 <?php
-                foreach ($kq as $key => $value) {
-                    echo '
+                $ch='';
+                if($kq){
+                foreach ($kq as  $value) {
+                    $ch.= '
                     <div class="col">
                         <div class="product-img">
-                            <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '">
+                            <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '&idtg=' . $value['id_tacgia'] . '&idnxb=' . $value['id_nxb'] . '">
                                 <img class="img" src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt="">
-                            </a>
+                            </a> 
                         </div>
                         <div class="product-content">
                             <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
@@ -130,18 +125,40 @@
                         </div>
                     </div>';
                 }
-            ?>
+             } else {
+                echo "Không tìm thấy sách";
+             
+             }
+                echo $ch;
+
+                ?>
             </div>
             <!-- end box sản phẩm -->
             <!-- end div chuyentrang -->
         </div>
+
         <!-- end div trangsanpham -->
     </div>
+             <div class="chuyentrang">
+             <nav aria-label="Page navigation example text-center">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
+                <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
+                <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+            </ul>
+            </nav>
+
+             </div>
     <!-- end div container -->
 </main>
 <!-- end main -->
-
-
-
-
-            

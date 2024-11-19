@@ -85,7 +85,8 @@
                         </div>';
                     }
 
-                    echo '</div>';
+                    echo '</div>
+                    </div>';
             }
         } else{
             echo "<p class='text-center fs-4 me-4 fw-bold mt-2'>Không có đơn hàng nào</p>";

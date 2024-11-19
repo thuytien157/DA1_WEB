@@ -3,6 +3,9 @@
     display: flex;
     flex-wrap: wrap;  /* Để giữ các sản phẩm có thể xuống hàng nếu không đủ không gian */
     gap: 10px; /* Giảm khoảng cách giữa các sản phẩm */
+    height: 1200px;
+    margin-left: 20px;
+    margin-top: 50px;
 }
 
 .sanpham .col {
@@ -61,6 +64,7 @@
 
 body {
     margin :0;
+    font-family: Arial, sans-serif;
 }
 
 /* không màu nền  */
@@ -231,16 +235,18 @@ header {
 
 /* banner  */
 .banner{
+    margin-top: 30px;
     width: 100%;
 }
 
 /* main */
 
 main {
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .title-hot{
+    margin-bottom: 30px;
     text-align: center;
     color: var(--main-color);
     font-weight: bold;
@@ -560,9 +566,6 @@ footer {
     width: 600px;
     height: 280px;
     display: flex;
-    border: 1px solid #ccc;
-    background-color: #6D6D6D;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 .blog-title{
@@ -585,6 +588,7 @@ footer {
     margin-top: auto; /* Đẩy đoạn văn xuống dưới cùng */
     line-height: 1.5;
     text-align: justify;
+    
 }
 
 /* end thông tin 1  */
@@ -594,24 +598,23 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px
+    padding-top: 5px;
 
 }
 
 .box-about-infor-2{
-    width: 750px;
+    width: 450px;
     height: 300px;
     display: flex;
-    border: 1px solid #ccc;
-    background-color: #6D6D6D;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
 }
 
 .box-about-infor-2-blog{
     display: block;
     margin-top: auto;
-    width: 60%;
-    padding: 20px;
+    width: 70%;
+    margin-right: 30px;
+    padding-left: 20px;
     align-items: center;
     justify-content: center;
     font-size: 18px;
@@ -620,19 +623,18 @@ footer {
 
 /* ảnh thông tin thứ 3  */
 .box-about-infor-3{
-    width: 95%;
-    height: 486px;
-    margin: 0 auto;
-    background-color: #6D6D6D;
+    width: 100%;
+    height: 450px;
+    text-align: center;
+    padding-top: 20px;
 }
 
 /* thông tin thứ 3  */
 .about-infor-3{
     width: 95%;
-
-    margin: 0 auto;
+    margin-left: 40px;
     align-items: center;
-    margin-top: 20px;
+    
 }
 /* end thông tin thứ 3  */
 
@@ -640,8 +642,8 @@ footer {
 .box-about-infor-4{
     width: 100%;
     height: 486px;
-    margin-top: 10px;
-    background-color: #6D6D6D;
+    padding-top: 10px;
+    text-align: center;
 }
 
 /* end trang giới thiệu  */
@@ -780,12 +782,11 @@ footer {
 
 /* trang bài viết  */
 .col-290{
-    border: solid 1px rgb(191, 191, 191);
     width: 290px;
     overflow: hidden;
     margin: 0 auto;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -946,8 +947,7 @@ h5{
 
 .col {
     flex: 1 1 230px;
-    /* Chiều rộng tối thiểu là 300px và có thể mở rộng */
-    box-sizing: border-box; /* Đảm bảo padding và border được tính vào chiều rộng */
+    box-sizing: border-box; 
 }
 .product-name{
     font-size: 18px;
@@ -961,16 +961,12 @@ h5{
     margin-right: 0;
 }
 .chuyentrang{
-    display: flex;
-    gap: 5px;
-    position: absolute;
-    bottom: -187%;
-    left: 57%;
+   margin-left: 220px;
 }
-.chuyentrang .item1{
-    padding: 2px 10px;
-    border: 1px solid var(--main-color);
+.page-link{
+    color: var(--main-color);
 }
+
 .anh img{
     width: 334px;
     height: 258px;

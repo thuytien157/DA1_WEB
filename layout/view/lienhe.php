@@ -4,12 +4,13 @@
 <div class="dieuhuong">
     <a href="index.html" >Trang chủ</a> /
     <a href="lienhe.html" id="back">Liên hệ</a>
+    <div class="banner-about">
+        <img class="about-img" src="public/img/IMG_DA1/baner/shutterstock-413397052.webp" alt="">
+        <p class="about-blog">LIÊN HỆ VỚI CHÚNG TÔI</p>
+    </div>
 </div>
 <div class="lienhe">
-    <div class="bannerlienhe">
-        <h2 id="textlienhe">Liên hệ với chúng tôi</h2>
-        <img src="public/img/IMG_DA1/baner/shutterstock-413397052.webp" alt="">
-    </div>
+
     <div class="camket">
     <p>Chúng tôi cam kết đáp ứng nhanh chóng nhu cầu của khách hàng về sách để đọc hàng ngày, chọn sách làm quà tặng cá nhân và doanh nghiệp, quà tặng dịp lễ, Tết và mọi nhu cầu liên quan đến sách. Từ sách văn học, sách kinh doanh, sách kỹ năng, đến sách khoa học, nghệ thuật, chúng tôi đều có đầy đủ.</p>
     <p>Chúng tôi muốn lấng nghe ý kiến ​​của bạn! Hãy gửi tin nhắn cho chúng tôi qua biểu mẫu liên hệ bên dưới, qua email  hoặc qua các ứng dụng nhắn tin.</p>
@@ -17,23 +18,26 @@
     <br>
     <div class="formlh">
     <h4 style="color: #8B4513; font-weight: 700;">Form liên hệ</h4>
+    <form action="index.php?act=contact&action=guimail" method="post">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Username</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="name">
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <label for="exampleFormControlInput1" class="form-label" >Email</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" name="email">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
       </div>
     </div>
     <div class="ggmap">
         <img src="public/img/IMG_DA1/bai viet/voi-nhung-cong-cu-rat-huu-ich-ban-da-co-the-in-truc-tiep-ngay-tren-google-map.jpg" alt="">
     </div>
     <button id="lienhebtn">Gửi</button>
+    </form>
+
         <h5 id="textcauhoithuonggap">Câu hỏi thường gặp về sản phẩm!</h5>
         <div class="caccauhoithuonggap">
             <div class="caccauhoi1">
@@ -44,7 +48,7 @@
                         Sản phẩm của chúng tôi là gì?                    </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                    <div class="accordion-body">Sản phẩm của chúng tôi là sách – kho tàng tri thức vô tận dành cho tất cả mọi người. Tại GoodBook, chúng tôi cung cấp đa dạng các thể loại sách từ văn học, khoa học, kinh tế, kỹ năng sống, đến sách thiếu nhi. Chúng tôi cam kết mang đến cho bạn những cuốn sách chất lượng, giúp mở rộng kiến thức, nuôi dưỡng tâm hồn và truyền cảm hứng trong cuộc sống.</div>
                 </div>
                 </div>
                 <div class="accordion-item">
@@ -53,7 +57,7 @@
                         Giá của sản phẩm là bao nhiêu?                    </button>
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                    <div class="accordion-body">Tại GoodBook, chúng tôi cung cấp sách với mức giá đa dạng, phù hợp với mọi đối tượng khách hàng. Giá sách dao động tùy theo thể loại, nhà xuất bản và các chương trình khuyến mãi. Chúng tôi cam kết mang đến cho bạn những cuốn sách chất lượng với mức giá cạnh tranh nhất. Đừng quên theo dõi các ưu đãi đặc biệt và chương trình giảm giá trên trang web của chúng tôi!</div>
                 </div>
                 </div>
                 <div class="accordion-item">
@@ -62,7 +66,7 @@
                         Tôi có thể đặt hàng trực tuyến không?                    </button>
                 </h2>
                 <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                    <div class="accordion-body">Hoàn toàn có thể! Tại GoodBook, chúng tôi cung cấp dịch vụ đặt hàng trực tuyến tiện lợi, giúp bạn dễ dàng sở hữu những cuốn sách yêu thích mà không cần rời khỏi nhà. Chỉ với vài thao tác đơn giản, bạn có thể duyệt qua hàng ngàn tựa sách và đặt hàng ngay trên trang web. Chúng tôi hỗ trợ giao hàng tận nơi trên toàn quốc, đảm bảo nhanh chóng và an toàn.</div>
                 </div>
                 </div>
             </div>
@@ -79,7 +83,15 @@
                   </h2>
                   <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          Thời gian giao hàng tại GoodBook phụ thuộc vào địa chỉ của bạn và phương thức vận chuyển đã chọn. <br>
+                          <b>Thông thường:</b>
+                          <ul>
+                          <li>Khu vực nội thành: Giao hàng từ 1-2 ngày làm việc.</li>
+                          <li>Khu vực ngoại thành và tỉnh lân cận: Giao hàng từ 3-5 ngày làm việc.</li>
+                          <li>Khu vực xa hoặc đặc biệt: Giao hàng từ 5-7 ngày làm việc.</li>
+                          </ul>
+                          
+                          <b>Chúng tôi luôn nỗ lực để giao hàng nhanh nhất có thể. Đừng quên kiểm tra thông tin đơn hàng để theo dõi quá trình vận chuyển!</b>
                     </div>
                   </div>
                 </div>
@@ -91,7 +103,13 @@
                   </h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    Phí vận chuyển tại GoodBook được tính dựa trên địa chỉ nhận hàng và tổng giá trị đơn hàng. <br>
+                      <b>Cụ thể:</b>
+                    <ul>
+                      <li><strong>Khu vực nội thành</strong>: Phí vận chuyển từ <strong>20.000 - 30.000 VND</strong>.</li>
+                      <li><strong>Khu vực ngoại thành và tỉnh lân cận</strong>: Phí vận chuyển từ <strong>30.000 - 50.000 VND</strong>.</li>
+                      <li><strong>Miễn phí vận chuyển</strong>: Áp dụng cho đơn hàng có giá trị từ <strong>500.000 VND</strong> trở lên (tùy chương trình khuyến mãi).</li>
+                  </ul>
                     </div>
                   </div>
                 </div>
@@ -103,8 +121,13 @@
                   </h2>
                   <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
+                    <p>
+        Hoàn toàn có thể! Tại <strong>GoodBook</strong>, chúng tôi cung cấp hệ thống theo dõi đơn hàng trực tuyến, giúp bạn dễ dàng kiểm tra trạng thái đơn hàng của mình bất kỳ lúc nào. 
+    </p>
+
+    <p>
+        Nếu có bất kỳ thắc mắc nào, đừng ngần ngại liên hệ với đội ngũ hỗ trợ khách hàng của chúng tôi.
+    </p>                    </div>
                   </div>
                 </div>
               </div>

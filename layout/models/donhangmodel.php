@@ -67,7 +67,6 @@ class DonHangModel
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
         
-        // Câu SQL cần cập nhật
         $sql = "UPDATE don_hang
                 SET dia_chi = :dia_chi
                 WHERE id = :id";
@@ -75,7 +74,6 @@ class DonHangModel
         // Tạo mảng tham số để truyền vào
         $params = array(':dia_chi' => $dia_chi, ':id' => $id);
         
-        // Gọi phương thức modify với mảng tham số
         $data->modify($sql, $params);
     }
     }

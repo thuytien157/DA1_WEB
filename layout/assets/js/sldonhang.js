@@ -9,20 +9,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // duyệt qua từng hàng trong giỏ hàng
         document.querySelectorAll('.cart-table tbody tr').forEach(function (row) {
+            //console.log(row);
+            
             const checkbox = row.querySelector('.cart-checkbox');
+
             if (checkbox.checked) {  // chỉ tính khi checkbox đc chọn
                 const giaText = row.querySelector('.cart-table-price').innerText;  
                 const gia = parseInt(giaText.replace(/[^0-9]/g, '')); // loại bỏ ký tự không phải số
-                const sl = row.querySelector('.cart-quantity').value; // Lấy số lượng
+                const sl = row.querySelector('.cart-quantity').value; // lấy số lượng
 
                 total += gia * sl;
             }
         });
-      
+        tamtinh.innerText = total + 'đ';  
+        tong.innerText = total + 'đ';
     }
 
     ipsl.forEach(function (input) {
-        input.addEventListener('input', tinhTong); 
+        input.addEventListener('change', tinhTong); 
     });
 
     checkboxes.forEach(function (checkbox) {
