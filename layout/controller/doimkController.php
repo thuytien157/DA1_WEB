@@ -12,20 +12,12 @@ class doimkController {
     }
 
     private function doimk() {
-<<<<<<< HEAD
         // Lấy dữ liệu từ form
         $currentPassword = $_POST['currentPassword'] ?? ''; // Mật khẩu hiện tại
         $newPassword = $_POST['newPassword'] ?? ''; // Mật khẩu mới
         $confirmPassword = $_POST['confirmNewPassword'] ?? ''; // Xác nhận mật khẩu mới
 
         // Kiểm tra xem mật khẩu hiện tại có bị bỏ trống không
-=======
-        // Get form data
-        $currentPassword = $_POST['currentPassword'] ?? '';
-        $newPassword = $_POST['newPassword'] ?? '';
-        $confirmPassword = $_POST['confirmNewPassword'] ?? '';
-        // Validate current password
->>>>>>> 62d6acfacf094e4c16241de7b04d1caffe1d7bfa
         if (empty($currentPassword)) {
             $_SESSION['thongbao'] = 'Mật khẩu hiện tại không được để trống!';
             header("Location: index.php?act=doimk");
