@@ -32,13 +32,9 @@
                         <a class="nav-link home" href="index.php?act=index">Trang Chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?act=product">Sản Phẩm <i class="fa-solid fa-angle-down arrow"></i> </a>
+                        <a class="nav-link" href="index.php?act=product">Sản Phẩm</a>
 
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Mới</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Bán Chạy</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Khuyến Mãi & Ưu Đãi</a></li>
-                        </ul>
+                    
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?act=about">Giới Thiệu</a>
