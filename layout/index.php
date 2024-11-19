@@ -77,6 +77,12 @@ switch ($act){
         break;
 
 
+    case 'doimk':
+        include_once 'controller/doimkController.php';
+        $doimkController=new doimkController();
+        break;
+
+
     case 'register':
         include_once 'controller/dangkyController.php';
         $dangkyController=new dangkyController();
@@ -89,7 +95,7 @@ switch ($act){
         break;
 
     case 'logout':
-        unset($_SESSION['user']);                        
+        unset($_SESSION['user']);
 
         // Chuyển hướng người dùng về trang đăng nhập
         header("Location: index.php?act=login");

@@ -652,10 +652,21 @@ footer {
 .cart-section{
     display: flex;
     margin-top: 50px;
+    height: auto;
+}
+
+.cart-table-left{
+    width: 72%;
+    min-width: 200px;
+}
+
+.cart-table-right{
+    width: 26%;
+    min-width: 200px;
 }
 
 .cart-table {
-    width: 72%;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -711,14 +722,19 @@ footer {
 /* cột chứa thông tin sản phẩm  */
 .cart-table-product{
     display: flex;
+    justify-content: space-around;
 
 }
 
 /* bảng cộng giỏ hàng  */
+.box-cart-table{
+    width: 300px ;
+
+}
 .cart-table-sum{
-    margin-left: 40px;
-    width: 25%;
-    height: 200px;
+    
+    width: 100%;
+    height: 180px;
     border-collapse: collapse;
 }
 
@@ -1282,7 +1298,7 @@ h5{
     margin-top: 10px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .inputtaikhoan2{
     display: flex;
@@ -1290,7 +1306,7 @@ h5{
     margin-top: 10px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .inputtaikhoan3{
     display: flex;
@@ -1298,7 +1314,7 @@ h5{
     margin-top: 10px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .inputtaikhoan > div,
 .inputtaikhoan1 > div,
@@ -1310,6 +1326,7 @@ h5{
     width: 200px;
     border-radius: 5px;
     border: 1px solid #6D6D6D;
+    margin-right: 10px;
 }
 
 .hoso{
@@ -1362,8 +1379,9 @@ h5{
     color: var(--main-color);
     font-weight: 600;
     padding-right: 10px;
-
-    margin-left: 10px; /* Add some space between input and button */
+    background: none;
+    border:none;
+     /* Add some space between input and button */
 }
 .suaanh{
     color: white;

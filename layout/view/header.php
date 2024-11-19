@@ -68,16 +68,19 @@
                     <li class="nav-item dropdown ms-3">
                         <button onclick="window.location.href='index.php?act=acc';" class="btn btn-outline-secondary account-button dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php
-                                echo isset($_SESSION['user']) ?  $_SESSION['user'] :"Tài Khoản";
+                                echo isset($_SESSION['user']['username']) ?  $_SESSION['user']['username'] :"Tài Khoản";
                             ?>
                             <i class="fa-solid fa-user"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                            <li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>
-                            <li><a class="dropdown-item"  href="index.php?act=<?php echo trim(isset($_SESSION['user'])) ? 'logout' : 'login'; ?>">
 
                             <?php
-                                echo isset($_SESSION['user'])?  "Đăng Xuất":"Đăng Nhập";
+                                echo isset($_SESSION['user']['username'])?  "":'<li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>';
+                            ?>
+                            <li><a class="dropdown-item"  href="index.php?act=<?php echo trim(isset($_SESSION['user']['username'])) ? 'logout' : 'login'; ?>">
+
+                            <?php
+                                echo isset($_SESSION['user']['username'])?  "Đăng Xuất":"Đăng Nhập";
                             ?>
                             </a></li>
                         </ul>
@@ -89,3 +92,4 @@
     </nav>
     <!-- MENU - END -->
 </header>
+
