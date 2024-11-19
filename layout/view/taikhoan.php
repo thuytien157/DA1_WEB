@@ -59,7 +59,6 @@
                  <div class="textbm">Bảo mật</div>
                  <div class="inputtaikhoan4">
                      <div style="font-size: 14px; margin-top: 2px;">Mật khẩu</div>
-                     <input type="password" id="iptk">
                      <a class="doimklink" href="index.php?act=doimk">Đổi mật khẩu</a>
                  </div>
                  <div class="textbm">Liên kết tài khoản</div>
