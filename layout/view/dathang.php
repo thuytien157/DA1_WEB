@@ -11,7 +11,7 @@
             <form action="index.php?act=tienhanhdathang&action=dathang" method="post">
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label fw-bold">Họ và tên</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="ho_ten" required>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="ho_ten" required value="<?=$_SESSION['user']['ho_ten'];?>">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label fw-bold">Địa chỉ</label>
@@ -19,16 +19,18 @@
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label fw-bold">Số điện thoại</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="sdt" required>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="sdt" required value="<?=$_SESSION['user']['sdt'];?>">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label fw-bold">Ghi chú</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ghi_chu"></textarea>
               </div>
             </div>
-            <select name="tt_thanhtoan" class="form-select w-75">
+            <select name="pt_thanhtoan" class="form-select w-75">
                 <option value="Chuyển khoản ngân hàng">Chuyển khoản ngân hàng</option>
                 <option value="Thanh toán tiền mặt">Thanh toán tiền mặt</option>
+                <option value="Thanh toán Momo">Thanh toán Momo</option>
+                <option value="Thanh toán VNPAY">Thanh toán VNPAY</option>
             </select>
             <button type="submit" class="mt-2 xemchitiet pb-2 pt-2 ps-3 pe-3 w-25 fs-6 fw-medium rounded" name="dathang">Đặt hàng</button>
 

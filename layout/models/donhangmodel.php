@@ -14,6 +14,7 @@ class DonHangModel
                         don_hang.tt_donhang,  
                         chi_tiet_don_hang.so_luong,
                         chi_tiet_don_hang.id_donhang,
+                        chi_tiet_don_hang.pt_thanhtoan,
                         sach.gia,
                         sach.ten_sach,
                         sach.hinh
@@ -37,6 +38,7 @@ class DonHangModel
                 don_hang.tt_thanhtoan,
                 don_hang.ghi_chu,
                 chi_tiet_don_hang.so_luong,
+                chi_tiet_don_hang.pt_thanhtoan,
                 sach.id AS sach_id,
                 sach.ten_sach,
                 sach.gia

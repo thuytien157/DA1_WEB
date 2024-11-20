@@ -16,23 +16,22 @@
                     $sdt = $_POST['sdt'];
                     $dia_chi = $_POST['dia_chi'];
                     $ghi_chu = $_POST['ghi_chu'];
-                    $tt_thanhtoan = $_POST['tt_thanhtoan'];
+                    $pt_thanhtoan = $_POST['pt_thanhtoan'];
     
                     $DatHangModel->capnhat_user($userId, $ho_ten, $sdt);
-    
-                    $id_donhang = $DatHangModel->themdh($userId, $dia_chi, $tt_thanhtoan, $ghi_chu);
+                    $id_donhang = $DatHangModel->themdh($userId, $dia_chi, $ghi_chu);
     
                     if ($id_donhang) {
                         foreach ($_SESSION['cart'] as $key => $item) {
-                            $DatHangModel->themctdh($id_donhang, $item['id'], $item['sl']);
+                            $DatHangModel->themctdh($id_donhang, $item['id'], $item['sl'], $pt_thanhtoan);
                         }
-                        $_SESSION['thongbao'] = "Đặt hàng thành công. Mã đơn hàng: " . $id_donhang;
+
                     } else {
                         $_SESSION['thongbao'] = 'Đặt hàng thất bại';
                     }
                     
                     unset($_SESSION['cart']);
-                    header('location: ./index.php?act=cart');
+                    header('location: index.php?act=thanhtoan');
                     exit();
                 }
             }elseif(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){

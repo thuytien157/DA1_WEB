@@ -70,6 +70,11 @@ switch ($act){
         include_once 'controller/dathangController.php';
         $dathangController=new dathangController($action);        
         break;
+
+    case 'thanhtoan':
+        include_once 'controller/thanhtoanController.php';
+        $dathangController=new thanhtoanController();      
+        break;
     
 
     case 'lichsu':
