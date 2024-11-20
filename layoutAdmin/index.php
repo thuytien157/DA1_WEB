@@ -1,16 +1,19 @@
 <?php
 session_start();
-include '../Views/header.php';
-include '../model/ConnectModel.php';
-require_once "../controllers/AuthorController.php";
-$AuthorController = new AuthorController();
+include 'Views/header.php';
+include 'model/ConnectModel.php';
+require_once "controllers/AuthorController.php";
+require_once "controllers/CategoryController.php";
 $ConnectModel = new ConnectModel();
+$AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
+$CategoryController = new CategoryController();
+$CategoryModel = new CategoryModel();
 $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
     case 'home':
-        include '../Views/index.php';
+        include 'Views/index.php';
         break;
 
     case 'logout':
@@ -21,10 +24,37 @@ switch ($page) {
         header("Location: ../../layout/index.php");
         exit();
         break;
-
-    case 'category':
-        include '../Views/category.php';
-        break;
+        case 'category':
+            $CategoryController->listCategorys();
+            break;
+            case 'add_category':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $ten_theloai = $_POST['ten_theloai'];
+                    $result = $CategoryController->addCategory($ten_theloai);
+                    header("Location: index.php?page=category"); // Chuyển hướng về trang danh sách
+                }
+                break;
+            case 'edit_category':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $categorie = $CategoryController->getCategoryById($id);
+                    include 'Views/edit_category.php';
+                }
+                break;
+            case 'update_category':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $id = $_POST['id'];
+                    $ten_tacgia = $_POST['ten_tacgia'];
+                    $CategoryController->updateCategory($id, $ten_tacgia);
+                    }
+                break;
+            case 'delete_category':
+                    $id = $_GET['id'];
+                    $result = $CategoryController->deleteCategory($id);
+                    header("Location: index.php?page=category");
+                    break;
+    break;
+        //
     case 'author':
         $AuthorController->listAuthors();
         break;
@@ -39,7 +69,7 @@ switch ($page) {
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
                 $author = $AuthorController->getAuthorById($id);
-                include '../Views/edit_author.php';
+                include 'Views/edit_author.php';
             }
             break;
         case 'update_author':
@@ -56,7 +86,7 @@ switch ($page) {
                 break;
 break;
     case 'publishinghouse':
-        include '../Views/publishinghouse.php';
+        include 'Views/publishinghouse.php';
         break;
     case 'product':
         include 'ProductController.php';
@@ -72,4 +102,4 @@ break;
         break;
 }
 
-include '../Views/footer.php';
+include 'Views/footer.php';

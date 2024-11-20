@@ -1,5 +1,5 @@
 <?php
-require_once "../model/AuthorModel.php";
+require_once "model/AuthorModel.php";
 
 class AuthorController {
     private $authorModel;
@@ -19,7 +19,7 @@ class AuthorController {
         }
 
         // Gửi dữ liệu sang View
-        require_once "../Views/author.php";
+        require_once "Views/author.php";
     }
        // Xử lý thêm tác giả
        public function addAuthor($ten_tacgia) {
