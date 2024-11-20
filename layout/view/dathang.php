@@ -76,13 +76,6 @@
         </tr>
         </tbody>
     </table>
-    <div class="phuongthucthanhtoan">
-        <h6 id="pttt">Phương thức thanh toán</h6>
-        
-        <!-- <form action="index.php?act=tienhanhdathang&action=dathang" method="post">
-        </form> -->
-
-    </div>
     <!-- <a href="index.php?act=dathang" id="btn-thanhtoan" class="xemchitiet text-decoration-none text-white">Thanh toán</a> -->
 </div>
 
