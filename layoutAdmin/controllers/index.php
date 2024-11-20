@@ -30,33 +30,33 @@ switch ($page) {
     case 'author':
         $AuthorController->listAuthors();
         break;
-        case 'add_author':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $ten_tacgia = $_POST['ten_tacgia'];
-                $result = $AuthorController->addAuthor($ten_tacgia);
-                header("Location: index.php?page=author"); // Chuyển hướng về trang danh sách
-            }
-            break;
-        case 'edit_author':
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $author = $AuthorController->getAuthorById($id);
-                include '../Views/edit_author.php';
-            }
-            break;
-        case 'update_author':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $id = $_POST['id'];
-                $ten_tacgia = $_POST['ten_tacgia'];
-                $AuthorController->updateAuthor($id, $ten_tacgia);
-                }
-            break;
-        case 'delete_author':
-                $id = $_GET['id'];
-                $result = $AuthorController->deleteAuthor($id);
-                header("Location: index.php?page=author");
-                break;
-break;
+    case 'add_author':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ten_tacgia = $_POST['ten_tacgia'];
+            $result = $AuthorController->addAuthor($ten_tacgia);
+            header("Location: index.php?page=author"); // Chuyển hướng về trang danh sách
+        }
+        break;
+    case 'edit_author':
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $author = $AuthorController->getAuthorById($id);
+            include '../Views/edit_author.php';
+        }
+        break;
+    case 'update_author':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $ten_tacgia = $_POST['ten_tacgia'];
+            $AuthorController->updateAuthor($id, $ten_tacgia);
+        }
+        break;
+    case 'delete_author':
+        $id = $_GET['id'];
+        $result = $AuthorController->deleteAuthor($id);
+        header("Location: index.php?page=author");
+        break;
+        break;
     case 'publishinghouse':
         include '../Views/publishinghouse.php';
         break;
