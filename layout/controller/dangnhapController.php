@@ -40,7 +40,7 @@ class dangnhapController {
             // Chuyển hướng theo vai trò người dùng
             if ($userData['vai_tro'] == 1) {
                 // Chuyển đến giao diện admin
-                header("Location: ../layoutAdmin/controllers/index.php");
+                header("Location: ../layoutAdmin/index.php");
             } else {
                 // Chuyển đến giao diện người dùng
                 header("Location: index.php");
