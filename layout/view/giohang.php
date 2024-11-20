@@ -26,7 +26,7 @@
                                     <img class="cart-img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
                                     <div class="cart-product-name">'.$value['ten'].'</div>
                                 </td>
-                                <td class="cart-table-price mb-0 mt-0 pt-0 pb-0 h-25">'.$value['gia'].'đ</td>
+                                <td class="cart-table-price mb-0 mt-0 pt-0 pb-0 ">'.$value['gia'].'đ</td>
                                 <td><input type="number" value="'.$value['sl'].'" min="1" class="cart-quantity" id="sldh"></td>
                                 <td><a href="index.php?act=cart&action=xoa&id='.$value['id'].'"><i class="fa-solid fa-trash-can cart-trash-icon"></i></a></td>
                             </tr>';

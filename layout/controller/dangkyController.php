@@ -28,7 +28,7 @@ class dangkyController {
         // Hàm password_hash() trong PHP được sử dụng để mã hóa mật khẩu một cách an toàn. Kết hợp với thuật toán PASSWORD_BCRYPT, nó tạo ra một giá trị băm (hash) cho mật khẩu, đảm bảo tính bảo mật khi lưu trữ mật khẩu trong cơ sở dữ liệu.
 
 
-        $hashedPassword = password_hash($matKhau, PASSWORD_BCRYPT);
+        
         require_once "models/dangkyModel.php";
         $dangkyModel = new dangkyModel();
         $result = $dangkyModel->registerUser($hoTen, $sdt, $username, $email, $hashedPassword);
