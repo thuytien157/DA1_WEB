@@ -9,6 +9,8 @@ class trangchuController {
             $trangchumodel->chitietanh($id); // Lấy hình ảnh chi tiết
             $trangchumodel->splienquan($id,$idtl); // Lấy sản phẩm liên quan
             include_once 'view/chitietsanpham.php';
+
+            
         } else {
             $trangchumodel->dssp(); // Lấy danh sách sản phẩm bán chạy
             $trangchumodel->dsspMoi(); // Lấy danh sách sản phẩm mới

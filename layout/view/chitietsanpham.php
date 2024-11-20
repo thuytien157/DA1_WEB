@@ -1,7 +1,7 @@
-   <!-- end menu -->
-   <main class="wrap">
+<!-- end menu -->
+<main class="wrap">
     <div class="dieuhuong">
-        <a href="sanpham.html" >Sản phẩm</a> /
+        <a href="sanpham.html">Sản phẩm</a> /
         <a href="#" id="back">Chi tiết</a>
     </div>
 
@@ -10,10 +10,10 @@
             <div class="thumbnail">
                 <!-- <img src="public/img/IMG_DA1/san pham/VH-Lén Nhặt Chuyện Đời-Mộc Trầm-NXB thế giớ.webp" alt=""> -->
                 <?php
-                $ch='';
-                foreach($trangchumodel ->allsp as $key => $value){
-                  $ch.='
-                  <img src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
+                $ch = '';
+                foreach ($trangchumodel->allsp as $key => $value) {
+                    $ch .= '
+                  <img src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt="">
                   ';
                 }
                 echo $ch;
@@ -23,43 +23,48 @@
             <div class="anhchitietsanpham">
 
                 <?php
-                    $ch='';
-                    foreach($trangchumodel ->chitietanh as $key => $value){
-                    $ch.='
+                $ch = '';
+                foreach ($trangchumodel->chitietanh as $key => $value) {
+                    $ch .= '
                         <div class="thumbnail1">
-                            <img src="public/img/IMG_DA1/san_pham_chi_tiet/san_pham_chi_tiet/'.$value['anh'].'" class="img-thumbnail" alt="...">
+                            <img src="public/img/IMG_DA1/san_pham_chi_tiet/san_pham_chi_tiet/' . $value['anh'] . '" class="img-thumbnail" alt="...">
                         </div>
                     ';
-                    }
-                    echo $ch;
+                }
+                echo $ch;
                 ?>
-                                    </div>
+            </div>
 
             <!-- end anhchitietsanpham -->
-             <div class="chinhsachuudai">
+            <div class="chinhsachuudai">
                 <h6 style="color: #8B4513;" id="textttct">Chính sách ưu đãi</h6>
                 <div class="time">
-                    <i class="fa-solid fa-car"></i> <div><span style="font-weight: 600;">Thời gian giao hàng:</span> Giao nhanh và uy tín</div>
+                    <i class="fa-solid fa-car"></i>
+                    <div><span style="font-weight: 600;">Thời gian giao hàng:</span> Giao nhanh và uy tín</div>
                 </div>
                 <div class="time">
-                    <i class="fa-solid fa-rotate"></i> <div><span style="font-weight: 600;">Chính sách đổi trả:</span> Đổi trả miễn phí toàn quốc</div>
+                    <i class="fa-solid fa-rotate"></i>
+                    <div><span style="font-weight: 600;">Chính sách đổi trả:</span> Đổi trả miễn phí toàn quốc</div>
                 </div>
                 <div class="time">
-                    <i class="fa-solid fa-diagram-predecessor"></i> <div><span style="font-weight: 600;">Chính sách khách sỉ:</span> Ưu đãi khi mua số lượng lớn</div>
+                    <i class="fa-solid fa-diagram-predecessor"></i>
+                    <div><span style="font-weight: 600;">Chính sách khách sỉ:</span> Ưu đãi khi mua số lượng lớn</div>
                 </div>
                 <div class="quydinh">
-                    <div>Thế giới sách nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống cửa hàng trên toàn quốc.</div>
-                    Nếu cần hỗ trợ thêm bất kì thông tin nào, cửa hàng nhờ quý khách liên hệ trực tiếp qua hotline  để được hỗ trợ nhanh chóng.
+                    <div>Thế giới sách nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng
+                        trực tiếp tại văn phòng cũng như tất cả Hệ Thống cửa hàng trên toàn quốc.</div>
+                    Nếu cần hỗ trợ thêm bất kì thông tin nào, cửa hàng nhờ quý khách liên hệ trực tiếp qua hotline để
+                    được hỗ trợ nhanh chóng.
                 </div>
-             </div>
+            </div>
         </div>
         <!-- end anhchitiet -->
 
         <div class="noidungchitiet">
 
             <?php
-            $ch='';
-            foreach($trangchumodel ->allsp as $key => $value){
+            $ch = '';
+            foreach ($trangchumodel->allsp as $key => $value) {
                 $ch .= '
                 <h2 id="tenchitiet">' . $value['ten_sach'] . '</h2>
 
@@ -72,47 +77,47 @@
                         <div>Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
                     </div>
                     <div class="yeuthich">
-            <i class="fa-regular fa-heart"></i>
-            <span style="color: #8B4513;">Thêm vào yêu thích</span>
-            </div>
-            <div class="rating1">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <div class="danhgia">0 đánh giá</div>
-            </div>
-            <div class="giachitiet">
-                <h5 class="gia">'.$value['gia'].'đ <del class="gia_sale">85.000đ</del></h5>
-                <div class="chiase">
-                    Chia sẽ
-                    <i class="fa-brands fa-facebook f1"></i>
-                    <i class="fa-brands fa-youtube y1"></i>
-                    <i class="fa-brands fa-telegram t1"></i>
-                    <i class="fa-brands fa-discord d1"></i>
-                </div>
-            </div>
-            <hr>
-            <div class="sl-btn">
-                <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
-                <div class="btn-group1">
-                    <button class="button1"><a href="thanhtoan.html">Mua ngay</a></button>
-                    <button class="button1"><a href="giohang.html">Thêm vào giỏ hàng</a></button>
-                </div>
-            </div>
-                ';
-            }
-        echo $ch;
-            ?>
+                    <i class="fa-regular fa-heart"></i>
+                    <span style="color: #8B4513;">Thêm vào yêu thích</span>
+                    </div>
+                    <div class="rating1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <div class="danhgia">0 đánh giá</div>
+                    </div>
+                    <div class="giachitiet">
+                        <h5 class="gia">' . $value['gia'] . 'đ <del class="gia_sale">85.000đ</del></h5>
+                        <div class="chiase">
+                            Chia sẽ
+                            <i class="fa-brands fa-facebook f1"></i>
+                            <i class="fa-brands fa-youtube y1"></i>
+                            <i class="fa-brands fa-telegram t1"></i>
+                            <i class="fa-brands fa-discord d1"></i>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="sl-btn">
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
+                        <div class="btn-group1">
+                            <button class="button1"><a href="thanhtoan.html">Mua ngay</a></button>
+                            <button class="button1"><a href="giohang.html">Thêm vào giỏ hàng</a></button>
+                        </div>
+                    </div>
+                        ';
+                }
+                    echo $ch;
+                ?>
             <h5 id="textttct">Thông tin chi tiết</h5>
             <div class="tablettchitiet">
                 <table class="table">
                     <thead>
-                    <?php
-                      $ch = '';
-                      foreach($trangchumodel ->allsp as $key => $value){
-                          $ch .= '
+                        <?php
+                        $ch = '';
+                        foreach ($trangchumodel->allsp as $key => $value) {
+                            $ch .= '
                           <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id_sach'] . '</td></tr>
 
                           <tr><td id="cotct">Tên Nhà Cung Cấp</td><td>' . $value['nha_cung_cap'] . '</td></tr>
@@ -125,14 +130,14 @@
 
                           <tr><td id="cotct">Ngôn Ngữ</td><td>' . $value['ngon_ngu'] . '</td></tr>
 
-                          <tr><td id="cotct">Trọng lượng (gr)</td><td>' . $value['trong_luong'] . '</td></tr>
+                          <tr><td id="cotct">Trọng lượng (gr)</td><td>' . $value['trong_luong'] . 'g</td></tr>
 
                           <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
 
-                          <tr><td id="cotct">Số trang</td><td>' . $value['so_luong'] . '</td></tr>
+                          <tr><td id="cotct">Số trang</td><td>' . $value['so_trang'] . '</td></tr>
 
                           <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
-             <tr>
+                        <tr>
                         <td id="cotct">Sản phẩm bán chạy nhất</td>
                         <td>Top 100 sản phẩm Tiểu thuyết bán chạy của tháng</td>
                       </tr>
@@ -150,25 +155,26 @@
     </div>
     <div class="motasanpham">
         <h5 id="mota">Mô tả sản phẩm</h5>
-        <div class="ndmota"><span style="font-weight: 700;">'.$value['ten_sach'].'</span><br>'.$value['mo_ta'].'</div>
+        <div class="ndmota"><span style="font-weight: 700;">' . $value['ten_sach'] . '</span><br>' . $value['mo_ta'] . '</div>
       </div>
                           ';
-                      }
-                      echo $ch;
-                    ?>
-      <h4 id="textsanphamkhac">Sản phẩm khác</h4>
-    <div class="sanphamkhac">
-        <div class="row row-cols-4">
-        <!-- BOX-SANPHAM -->
-         <?php
-         echo splienquan($trangchumodel);
-         ?>
-        <?php
-            function splienquan($trangchumodel){
+                        }
+                        echo $ch;
+                        ?>
+                        <h4 id="textsanphamkhac">Sản phẩm khác</h4>
+                        <div class="sanphamkhac">
+                            <div class="row row-cols-4">
+                                <!-- BOX-SANPHAM -->
+                                <?php
+                                echo splienquan($trangchumodel);
+                                ?>
+                                <?php
+                                function splienquan($trangchumodel)
+                                {
 
-                $ch = '';
-                foreach ($trangchumodel->splq as $key => $value) {
-                    $ch .= '
+                                    $ch = '';
+                                    foreach ($trangchumodel->splq as $key => $value) {
+                                        $ch .= '
                     <div class="col col-sanphamkhac">
                         <div class="product-img">
                             <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '">
@@ -189,14 +195,14 @@
                         </div>
                     </div>
                     ';
-                }
-                return $ch;
-            }
-                ?>
+                                    }
+                                    return $ch;
+                                }
+                                ?>
 
-          <!-- END - BOX SANPHAM -->
+                                <!-- END - BOX SANPHAM -->
 
-        </div>
-    </div>
+                            </div>
+                        </div>
 
-    </main>
+</main>

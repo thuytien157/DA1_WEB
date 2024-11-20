@@ -115,7 +115,7 @@
                 <!-- box sản phẩm 3-->
                 <?php
                 $ch='';
-                if($kq){
+                if(!empty($kq)){
                 foreach ($kq as  $value) {
                     $ch.= '
                     <div class="col">
@@ -148,9 +148,12 @@
                         </div>
                     </div>';
                 }
-             } else {
+             } elseif (isset($message)) {
+                // Hiển thị thông báo nếu không tìm thấy sản phẩm và có thông báo
+                echo $message;
+                
+             }else{
                 echo "Không tìm thấy sách";
-             
              }
                 echo $ch;
 

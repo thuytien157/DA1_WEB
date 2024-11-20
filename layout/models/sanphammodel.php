@@ -4,6 +4,7 @@ class sanphamModel {
     public $tacgia;
     public $nxb;
     public $sp;
+    public $timkiem;
 
     // Lấy tất cả thể loại
     public function dstl() {
@@ -77,6 +78,18 @@ class sanphamModel {
         $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
         $dulieu->conn = null; // đóng kết nối database
         return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
+    }
+    public function timkiemsp($idtimkiem) // Lấy hình ảnh liên quan của ảnh
+    { 
+        include_once 'models/connectmodel.php'; 
+        $dulieu = new ConnectModel(); 
+        $sql = "SELECT * FROM sach WHERE ten_sach LIKE :idtimkiem";
+        $dulieu->ketnoi();
+        $stmt = $dulieu->conn->prepare($sql);
+        $stmt->execute(['idtimkiem' =>'%' . $idtimkiem .'%']);
+        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Lưu dữ liệu vào thuộc tính
+        $dulieu->conn = null; // Đóng kết nối
+        return $kq;
     }
 }
 ?>

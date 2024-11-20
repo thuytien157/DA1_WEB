@@ -11,6 +11,7 @@ class trangchuModel
     public $allsp;
     public $chitietanh; 
     public $splq;
+
     public function dssp()
     {
         include_once 'models/connectmodel.php';
