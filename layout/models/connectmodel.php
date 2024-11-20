@@ -1,7 +1,7 @@
 <?php
 class ConnectModel
 {
-    public $servername = "localhost";
+    public $servername = "localhost:4306";
     public $username = "root";
     public $password = "";
     public $conn;
@@ -18,16 +18,23 @@ class ConnectModel
         }
     }
 
-    public function selectall($sql)
+    public function selectall($sql, $params = [])
     {
         $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
+        
+        if (is_array($params)) {
+            foreach ($params as $key => $value) {
+                $stmt->bindParam($key, $value);
+            }
+        }
+        
         $stmt->execute();
-        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
-        $this->conn = null; // đóng kết nối database
-        return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
+        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về tất cả dòng dữ liệu
+        $this->conn = null; // Đóng kết nối
+        return $kq;
     }
-
+    
     public function selectone($sql,$id)
     {
         $this->ketnoi();
@@ -40,22 +47,35 @@ class ConnectModel
     }
 
     // dùng cho thêm sửa xoá
-    public function modify($sql, $params = null) {
-        include_once 'models/connectmodel.php';
-        $connect = new ConnectModel();
-        $conn = $connect->ketnoi();
-        $stmt = $conn->prepare($sql);
+    public function modify($sql, $params) {
+        $this->conn = $this->ketnoi();
+        $stmt = $this->conn->prepare($sql);
 
-        // Bind parameters nếu có
-        if (is_array($params)) {
-            foreach ($params as $key => $value) {
-                $stmt->bindParam($key, $value);
+        if (is_array($params)) { // nếu $params là một mảng
+            foreach ($params as $key => $value) { // duyệt mảng
+                $stmt->bindParam($key, $value); // gán mỗi giá trị trong mảng vào câu lệnh SQL
             }
         }
 
         $stmt->execute($params);
+        $this->conn = null;
+    }
+
+
+    public function selectonepass($sql, $params) {
+        $this->ketnoi();
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindParam($key, $value);
+        }
+        $stmt->execute();
+        $kq = $stmt->fetch(PDO::FETCH_ASSOC);  // Lấy một kết quả duy nhất
+        $this->conn = null;  // Đóng kết nối
+        return $kq;  // Trả về một kết quả duy nhất (mảng kết quả)
+    }
+    
     }
 
 
 
-}
+

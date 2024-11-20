@@ -70,46 +70,51 @@
 
                     <div class="thongtinchitiet">
                         <div>Nhà cung cấp: <span style="color: #8B4513;">' . $value['nha_cung_cap'] . '</span></div>
-                        <div>Tác giả:' . $value['ten_tacgia'] . '</div>
+                        <div class="tg">| Tác giả:' . $value['ten_tacgia'] . '</div>
                     </div>
                     <div class="thongtinchitiet1">
                         <div>Nhà xuất bản:' . $value['ten_nxb'] . '</span></div>
-                        <div>Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
+                        <div class="tg">| Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
                     </div>
                     <div class="yeuthich">
-                    <i class="fa-regular fa-heart"></i>
-                    <span style="color: #8B4513;">Thêm vào yêu thích</span>
-                    </div>
-                    <div class="rating1">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <div class="danhgia">0 đánh giá</div>
-                    </div>
-                    <div class="giachitiet">
-                        <h5 class="gia">' . $value['gia'] . 'đ <del class="gia_sale">85.000đ</del></h5>
-                        <div class="chiase">
-                            Chia sẽ
-                            <i class="fa-brands fa-facebook f1"></i>
-                            <i class="fa-brands fa-youtube y1"></i>
-                            <i class="fa-brands fa-telegram t1"></i>
-                            <i class="fa-brands fa-discord d1"></i>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="sl-btn">
-                        <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
-                        <div class="btn-group1">
-                            <button class="button1"><a href="thanhtoan.html">Mua ngay</a></button>
-                            <button class="button1"><a href="giohang.html">Thêm vào giỏ hàng</a></button>
-                        </div>
-                    </div>
-                        ';
-                }
-                    echo $ch;
-                ?>
+            <i class="fa-regular fa-heart"></i>
+            <span style="color: #8B4513;">Thêm vào yêu thích</span>
+            </div>
+            <div class="rating1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <div class="danhgia">0 đánh giá</div>
+            </div>
+            <div class="giachitiet">
+                <h5 class="gia">'.$value['gia'].'đ <del class="gia_sale">85.000đ</del></h5>
+                <div class="chiase">
+                    Chia sẽ
+                    <i class="fa-brands fa-facebook f1"></i>
+                    <i class="fa-brands fa-youtube y1"></i>
+                    <i class="fa-brands fa-telegram t1"></i>
+                    <i class="fa-brands fa-discord d1"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="sl-btn">
+                <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
+            </div>
+
+                <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
+                    <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
+                    <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                    <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
+                    <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                    <button type="submit" name="themvaogiohang" class="mt-2 button1">Thêm vào giỏ hàng</button>
+                </form>
+
+                ';
+            }
+        echo $ch;
+            ?>
             <h5 id="textttct">Thông tin chi tiết</h5>
             <div class="tablettchitiet">
                 <table class="table">
@@ -158,19 +163,18 @@
         <div class="ndmota"><span style="font-weight: 700;">' . $value['ten_sach'] . '</span><br>' . $value['mo_ta'] . '</div>
       </div>
                           ';
-                        }
-                        echo $ch;
-                        ?>
-                        <h4 id="textsanphamkhac">Sản phẩm khác</h4>
-                        <div class="sanphamkhac">
-                            <div class="row row-cols-4">
-                                <!-- BOX-SANPHAM -->
-                                <?php
-                                echo splienquan($trangchumodel);
-                                ?>
-                                <?php
-                                function splienquan($trangchumodel)
-                                {
+                      }
+                      echo $ch;
+                    ?>
+      <h4 id="textsanphamkhac">Sản phẩm liên quan</h4>
+    <div class="sanphamkhac">
+        <div class="row row-cols-4">
+        <!-- BOX-SANPHAM -->
+         <?php
+         echo splienquan($trangchumodel);
+         ?>
+        <?php
+            function splienquan($trangchumodel){
 
                                     $ch = '';
                                     foreach ($trangchumodel->splq as $key => $value) {
