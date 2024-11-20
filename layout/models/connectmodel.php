@@ -18,16 +18,23 @@ class ConnectModel
         }
     }
 
-    public function selectall($sql)
+    public function selectall($sql, $params = [])
     {
         $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
+        
+        if (is_array($params)) {
+            foreach ($params as $key => $value) {
+                $stmt->bindParam($key, $value);
+            }
+        }
+        
         $stmt->execute();
-        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
-        $this->conn = null; // đóng kết nối database
-        return $kq; // biến này chứa mãng các dòng dữ liệu trả về.
+        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về tất cả dòng dữ liệu
+        $this->conn = null; // Đóng kết nối
+        return $kq;
     }
-
+    
     public function selectone($sql,$id)
     {
         $this->ketnoi();
@@ -41,7 +48,7 @@ class ConnectModel
 
     // dùng cho thêm sửa xoá
     public function modify($sql, $params) {
-        $this->ketnoi();
+        $this->conn = $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
 
         if (is_array($params)) { // nếu $params là một mảng
@@ -66,10 +73,9 @@ class ConnectModel
         $this->conn = null;  // Đóng kết nối
         return $kq;  // Trả về một kết quả duy nhất (mảng kết quả)
     }
+    
+    }
 
 
 
 
-
-
-}

@@ -1,6 +1,4 @@
 <?php
-
-
 require "connectModel.php";
 class dangnhapModel {
     public $dangnhap;

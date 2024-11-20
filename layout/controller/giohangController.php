@@ -52,7 +52,7 @@
                         exit;
                     }
 
-                    //xoá sản phẩm
+                //xoá sản phẩm
                 }elseif($action == 'xoa'){
                     foreach ($_SESSION['cart'] as $key => $value) {
                         if ($value['id'] == $id) {
@@ -65,11 +65,29 @@
                         header('Location: ./index.php?act=cart');
                         exit;
 
-                }elseif($action == 'dathang'){
-                    include_once 'view/dathang.php';
+                }elseif($action == 'capnhatsoluong'){
+                
+                    //lấy số lượng từ input
+                    if (isset($_POST['sl'])) {
+                        $id = $_POST['id'];
+                        $new_quantity = $_POST['sl'];
+    
+                        //cập nhật số lượng vào session
+                        foreach ($_SESSION['cart'] as $key => $value) {
+                            if ($value['id'] == $id) {
+                                $_SESSION['cart'][$key]['sl'] = $new_quantity;
+                                break;
+                            }
+                        }
+                    }
+                    //view lại trang giỏ hàng
+                    header('Location: ./index.php?act=cart');
+                    exit;
+
+    
                 }else{
-                    include_once "view/giohang.php";
-                }            
+                    include_once 'view/giohang.php';
+                }           
             }else{
                 $_SESSION['thongbao'] = 'Bạn cần phải đăng nhập';
                 header('location: ./index.php');

@@ -66,6 +66,12 @@ switch ($act){
         break;
 
 
+    case 'tienhanhdathang':
+        include_once 'controller/dathangController.php';
+        $dathangController=new dathangController($action);        
+        break;
+    
+
     case 'lichsu':
         include_once 'controller/donhangController.php';
         $donhangController=new donhangController($id,$action);
@@ -101,11 +107,6 @@ switch ($act){
         // Chuyển hướng người dùng về trang đăng nhập
         header("Location: index.php?act=login");
         exit();
-        break;
-
-    case 'detail':
-        include_once 'controller/chitietsanphamController.php';
-        $chitietsanphamController=new chitietsanphamController();
         break;
 }
 

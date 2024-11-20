@@ -18,25 +18,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $key => $value) {
-                            echo '<tr >
-                                    <td class="cart-table-product">
-                                        <input class="cart-checkbox" type="checkbox" name="" id="" checked>
-                                        <img class="cart-img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
-                                        <div class="cart-product-name">'.$value['ten'].'</div>
-                                    </td>
-                                    <td class="cart-table-price mb-0 mt-0 pt-0 pb-0 h-25">'.$value['gia'].'đ</td>
-                                    <td><input type="number" value="'.$value['sl'].'" min="1" class="cart-quantity" id="sldh"></td>
-                                    <td><a href="index.php?act=cart&action=xoa&id='.$value['id'].'"><i class="fa-solid fa-trash-can cart-trash-icon"></i></a></td>
-                                </tr>';
-                        }
-                    } else {
-                        echo '<tr><td colspan="4">Giỏ hàng trống!</td></tr>';
-                    }
-                    ?>
-                </tbody>
+    <?php
+    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            echo '<tr>
+                    <td class="cart-table-product">
+                        <input class="cart-checkbox" type="checkbox" name="" id="" checked>
+                        <img class="cart-img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
+                        <div class="cart-product-name">'.$value['ten'].'</div>
+                    </td>
+                    <td class="cart-table-price">'.$value['gia'].'đ</td>
+                    <td>
+                        <form action="index.php?act=cart&action=capnhatsoluong" method="POST">
+                            <input type="hidden" name="id" value="'.$value['id'].'">
+                            <input type="number" name="sl" value="'.$value['sl'].'" min="1" class="cart-quantity">
+                            <button type="submit" style="display: none;">Cập nhật</button>
+                        </form>
+                    </td>
+                    <td><a href="index.php?act=cart&action=xoa&id='.$value['id'].'"><i class="fa-solid fa-trash-can cart-trash-icon"></i></a></td>
+                </tr>';
+        }
+    } else {
+        echo '<tr><td colspan="4">Giỏ hàng trống!</td></tr>';
+    }
+    ?>
+</tbody>
+
             </table>
         </div>
 
@@ -61,7 +68,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <a href="index.php?act=cart&action=dathang" class="cart-table-button text-decoration-none">Đặt hàng</a>
+                <a href="index.php?act=tienhanhdathang" class="cart-table-button text-decoration-none">Tiến hành đặt hàng</a>
             </td>
         </tr>
     </tbody>

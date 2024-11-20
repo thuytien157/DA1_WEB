@@ -23,7 +23,7 @@
     <div class="container-fluid p-4">
       <h2 class="mb-4">Wellcom
       <?php
-      echo isset($_SESSION['user']) ? $_SESSION['user']:"";
+      echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username']:"";
       ?> !</h2>
 
       <!-- Statistics -->

@@ -14,13 +14,11 @@ switch ($page) {
         break;
 
     case 'logout':
-        session_unset();
 
-        // Hủy session
-        session_destroy();
+
 
         // Chuyển hướng người dùng về trang đăng nhập
-        header("Location: /layout/index.php");
+        header("Location: ../../layout/index.php");
         exit();
         break;
 

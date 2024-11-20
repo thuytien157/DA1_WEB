@@ -73,12 +73,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href=""> <?php
-                                                              echo isset($_SESSION['user']) ? $_SESSION['user'] : "";
-                                                              ?></a>
+      echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username']:"";
+      ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.php?page=logout"> <?php
-                                                              echo isset($_SESSION['user']) ?"Đăng Xuất" : "";
+                                                              echo isset($_SESSION['user']['username']) ?"Chuyển lại trang web" : "";
                                                               ?></a>
             </li>
           </ul>

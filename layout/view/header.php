@@ -29,7 +29,7 @@
                 <!-- Các mục ở giữa khi ở màn hình lớn -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link home" href="index.php?act=index">Trang Chủ</a>
+                        <a class="nav-link" href="index.php?act=index">Trang Chủ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?act=product">Sản Phẩm</a>
