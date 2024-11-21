@@ -4,27 +4,23 @@ include 'Views/header.php';
 include 'model/ConnectModel.php';
 require_once "controllers/AuthorController.php";
 require_once "controllers/CategoryController.php";
-<<<<<<< HEAD
 require_once "controllers/PublishingHouseController.php"; 
-=======
 require_once "controllers/OrderController.php";
 require_once "controllers/UsersController.php";
->>>>>>> be27119b4ddda5d1dcaaaf66816e7c8db9f4894c
+require_once "controllers/OrderController.php";
+require_once "controllers/UsersController.php";
 $ConnectModel = new ConnectModel();
 $AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
 $CategoryController = new CategoryController();
 $CategoryModel = new CategoryModel();
-<<<<<<< HEAD
 $PublishingHouseController = new PublishingHouseController();
 $PublishingHouseModel = new PublishingHouseModel();
-=======
 $OrderController = new OrderController($action);
 $OrderModel = new OrderModel();
 $action=isset($_GET['action']) ? $_GET['action']:'';
 
 
->>>>>>> be27119b4ddda5d1dcaaaf66816e7c8db9f4894c
 $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
@@ -71,7 +67,6 @@ switch ($page) {
     case 'author':
         $AuthorController->listAuthors(); //lay listauthor hien thi cho view
         break;
-<<<<<<< HEAD
         case 'add_author':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') { //neu nguoidung gui form
                 $ten_tacgia = $_POST['ten_tacgia']; //ley ten tac gia tu form
@@ -132,7 +127,6 @@ case 'delete_publishinghouse':
         $PublishingHouseController->deletePublishingHouse($id); // Delete publishing house
     }
     break;
-=======
     case 'add_author':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ten_tacgia = $_POST['ten_tacgia'];
@@ -163,20 +157,9 @@ case 'delete_publishinghouse':
     case 'publishinghouse':
         include 'Views/publishinghouse.php';
         break;
-    case 'product':
-        include 'ProductController.php';
-        $ProductController = new ProductController();
-        break;
->>>>>>> be27119b4ddda5d1dcaaaf66816e7c8db9f4894c
     case 'user':
         include 'UsersController.php';
         $UsersController = new UsersController();
-        break;
-<<<<<<< HEAD
-=======
-    case 'form':
-        include 'UpdateProductController.php';
-        $UpdateProductController = new UpdateProductController();
         break;
     case 'order':
         $OrderController->listOrders();
@@ -196,7 +179,6 @@ case 'delete_publishinghouse':
                 
                 break;
         
->>>>>>> be27119b4ddda5d1dcaaaf66816e7c8db9f4894c
 }
 
 include 'Views/footer.php';
