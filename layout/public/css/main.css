@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;  /* Để giữ các sản phẩm có thể xuống hàng nếu không đủ không gian */
     gap: 10px; /* Giảm khoảng cách giữa các sản phẩm */
-    height: 1200px;
+    height: 200px;
     margin-left: 20px;
     margin-top: 50px;
 }
@@ -1465,14 +1465,11 @@ h5{
     width: 600px;
 }
 .donhang{
-    border: 1px solid rgb(192, 192, 192);
     margin-right: 50px;
-    border-radius: 10px;
-    height: 435px;
     margin-top: 10px;
 }
 .textdonhang{
-    margin-left: 50px;
+    margin-left: 35px;
     margin-top: 30px;
     color: var(--main-color);
     font-weight: 700;
@@ -1647,4 +1644,10 @@ h5{
     max-width: 340px;
     margin: 0 auto;
     overflow: hidden;
+  }
+
+  /* button tìm kiếm */
+  .tim{
+    border:none;
+    background-color: #fff;
   }

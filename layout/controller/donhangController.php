@@ -39,7 +39,8 @@ class donhangController {
             foreach ($dh as $key => $value) {
                 $ttdh[$value['donhang_id']]['tt'] = [
                     'ngay_giao_hang' => $value['ngay_giao_hang'],
-                    'tt_donhang' => $value['tt_donhang']
+                    'tt_donhang' => $value['tt_donhang'],
+                    'pt_thanhtoan' => $value['pt_thanhtoan'],
                 ];
 
                 $ttdh[$value['donhang_id']]['sanpham'][] = [

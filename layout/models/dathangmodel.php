@@ -11,19 +11,18 @@ class DatHangModel {
         $data->modify($sql, $params);
     }
 
-    public function themdh($id_khachhang, $dia_chi, $tt_thanhtoan, $ghi_chu) {
+    public function themdh($id_khachhang, $dia_chi, $ghi_chu) {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
         $conn = $data->ketnoi();
     
         $sql = "INSERT INTO don_hang (id_khachhang, dia_chi, tt_donhang, tt_thanhtoan, ghi_chu, ngay_giao_hang) 
-        VALUES (:id_khachhang, :dia_chi, 'Chờ xử lý', :tt_thanhtoan, :ghi_chu, NOW())";
+        VALUES (:id_khachhang, :dia_chi, 'Chờ xử lý', 'Đã thanh toán', :ghi_chu, NOW())";
         
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             ':id_khachhang' => $id_khachhang,
             ':dia_chi' => $dia_chi,
-            ':tt_thanhtoan' => $tt_thanhtoan,
             ':ghi_chu' => $ghi_chu
         ]);
     
@@ -32,23 +31,16 @@ class DatHangModel {
         
     }
          
-    public function themctdh($id_donhang, $id_sach, $so_luong)
+    public function themctdh($id_donhang, $id_sach, $so_luong, $pt_thanhtoan)
     {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
         
-        $sql = "INSERT INTO chi_tiet_don_hang (id_donhang, id_sach, so_luong) 
-                VALUES (:id_donhang, :id_sach, :so_luong)";
+        $sql = "INSERT INTO chi_tiet_don_hang (id_donhang, id_sach, so_luong, pt_thanhtoan) 
+                VALUES (:id_donhang, :id_sach, :so_luong, :pt_thanhtoan)";
         
-        $params = array(':id_donhang' => $id_donhang, ':id_sach' => $id_sach, ':so_luong' => $so_luong);
+        $params = array(':id_donhang' => $id_donhang, ':id_sach' => $id_sach, ':so_luong' => $so_luong, ':pt_thanhtoan' => $pt_thanhtoan);
         $data->modify($sql, $params);
-    }
-            
-    public function sanpham($id) {
-        include_once 'models/connectmodel.php';
-        $data = new ConnectModel();
-        $sql = "SELECT * FROM sach WHERE id = :id";
-        return $data->selectone($sql, $id); 
     }
     
 }

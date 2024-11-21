@@ -7,6 +7,7 @@ $id=isset($_GET['id']) ? $_GET['id']:'';
 $idtl=isset($_GET['idtl']) ? $_GET['idtl']:'';
 $idtg=isset($_GET['idtg']) ? $_GET['idtg']:'';
 $idnxb=isset($_GET['idnxb']) ? $_GET['idnxb']:'';
+
 $action=isset($_GET['action']) ? $_GET['action']:'';
 $ten=isset($_POST['ten']) ? $_POST['ten']:'';
 $gia=isset($_POST['gia']) ? $_POST['gia']:'';
@@ -38,7 +39,7 @@ switch ($act){
 
     case 'product':
         include_once 'controller/sanphamController.php';
-        $sanphamController=new sanphamController($idtl,$idtg,$idnxb);
+        $sanphamController=new sanphamController($idtl,$idtg,$idnxb,$idtimkiem);
         break;
 
 
@@ -69,6 +70,11 @@ switch ($act){
     case 'tienhanhdathang':
         include_once 'controller/dathangController.php';
         $dathangController=new dathangController($action);        
+        break;
+
+    case 'thanhtoan':
+        include_once 'controller/thanhtoanController.php';
+        $dathangController=new thanhtoanController();      
         break;
     
 

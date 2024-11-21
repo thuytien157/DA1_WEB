@@ -20,7 +20,8 @@
         <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
         <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
         <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>
-        <li class="nav-item"><a href="index.php?page=oder" class="nav-link text-white">Quản lý đơn hàng</a></li>
+        <li class="nav-item"><a href="index.php?page=order" class="nav-link text-white">Quản lý đơn hàng</a></li>
+        <li class="nav-item"><a href="index.php?page=users" class="nav-link text-white">Quản lý Users</a></li>
         <li class="nav-item"><a href="#" class="nav-link text-white">Thống kê</a></li>
       </ul>
     </div>

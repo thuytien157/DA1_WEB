@@ -33,6 +33,9 @@
                         <td colspan="4"><strong>Trạng thái đơn hàng:</strong> '.$ctdh[0]['tt_donhang'].'</td>
                       </tr>
                       <tr>
+                        <td colspan="4"><strong>Phương thức thanh toán:</strong> '.$ctdh[0]['pt_thanhtoan'].'</td>
+                      </tr>
+                      <tr>
                         <td colspan="4"><strong>Trạng thái thanh toán:</strong> '.$ctdh[0]['tt_thanhtoan'].'</td>
                       </tr>
                       <tr>';

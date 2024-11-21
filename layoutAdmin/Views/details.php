@@ -51,13 +51,13 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0 position-relative">
-              <h6 class="d-inline-block">Authors table</h6>
+              <h6 class="d-inline-block">Details table</h6>
               <!-- Nút Create nằm sát bên phải -->
-              <div class="header-actions">
+              <!-- <div class="header-actions">
                 <a href="#" style=" color:  #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addAuthorModal">
                   Create
                 </a>
-              </div>
+              </div> -->
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">

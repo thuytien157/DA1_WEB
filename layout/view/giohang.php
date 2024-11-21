@@ -55,7 +55,6 @@
         foreach ($_SESSION['cart'] as $key => $value) {
             echo '<tr>
                     <td class="cart-table-product">
-                        <input class="cart-checkbox" type="checkbox" name="" id="" checked>
                         <img class="cart-img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
                         <div class="cart-product-name">'.$value['ten'].'</div>
                     </td>

@@ -50,12 +50,19 @@
                 <!-- Thanh tìm kiếm và các nút bên phải -->
                 <ul class="navbar-nav ms-auto align-items-center">
                     <!-- Thanh tìm kiếm -->
+                    <?php
+                    $idtimkiem = isset($_GET['idtimkiem']) ? $_GET['idtimkiem'] : '';
+                    ?>
+                    <!-- form tìm kiếm trong header hoặc trang chủ -->
                     <li class="nav-item me-2">
                         <form class="d-flex">
-                            <input class="form-control search-input" type="search" placeholder="Tìm kiếm" aria-label="Search">
-                            <i class="fa fa-search search-icon"></i>
+                        <input type="hidden" name="act" value="product">
+                        <input class="form-control search-input" type="search" name="idtimkiem" placeholder="Tìm kiếm sách..." required>
+                        <button type="submit" class="fa fa-search search-icon tim"></button>
                         </form>
                     </li>
+                    
+                                    
                     <!-- Nút giỏ hàng -->
                     <li class="nav-item">
                         <button type="button" class="btn btn-primary cart-button"> <a style="text-decoration: none; color: white;" href="index.php?act=cart"> Giỏ hàng</a><i class="fa-solid fa-cart-shopping"></i></button>
