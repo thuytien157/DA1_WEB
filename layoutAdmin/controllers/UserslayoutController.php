@@ -1,7 +1,7 @@
 <?php
-          class ProductController{
+          class UsersController{
             public function __construct(){
-                include_once '../Views/product.php';
+                include_once '../Views/users.php';
         
             }
         

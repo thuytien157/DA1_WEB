@@ -69,14 +69,14 @@ switch ($act){
 
     case 'tienhanhdathang':
         include_once 'controller/dathangController.php';
-        $dathangController=new dathangController($action);        
+        $dathangController=new dathangController($action);
         break;
 
     case 'thanhtoan':
         include_once 'controller/thanhtoanController.php';
-        $dathangController=new thanhtoanController();      
+        $dathangController=new thanhtoanController();
         break;
-    
+
 
     case 'lichsu':
         include_once 'controller/donhangController.php';
@@ -113,6 +113,10 @@ switch ($act){
         // Chuyển hướng người dùng về trang đăng nhập
         header("Location: index.php?act=login");
         exit();
+        break;
+
+    case 'readmin':
+        header("Location: ../layoutAdmin/index.php");
         break;
 }
 

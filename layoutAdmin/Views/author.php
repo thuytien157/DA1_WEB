@@ -42,6 +42,7 @@
         <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
         <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
         <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>
+        <li class="nav-item"><a href="index.php?page=order" class="nav-link text-white">Quản lý đơn hàng</a></li>
         <li class="nav-item"><a href="#" class="nav-link text-white">Thống kê</a></li>
       </ul>
     </div>
@@ -123,7 +124,7 @@
           <form method="POST" action="index.php?page=add_author">
             <div class="mb-3">
               <label for="tenTacGia" class="form-label">Tên Tác Giả</label>
-              <input type="text" class="form-control" id="tenTacGia" name="ten_tacgia" required>
+              <input type="text" class="form-control"  name="ten_tacgia" required>
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
           </form>
