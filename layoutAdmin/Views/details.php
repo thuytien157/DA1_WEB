@@ -18,7 +18,6 @@
     .action-link + .action-link {
       margin-left: 15px; 
     }
-
     .card-header .header-actions {
       position: absolute;
       right: 15px;
@@ -29,22 +28,21 @@
             background-color: #D98C52 !important;
   }
   .card-header h6{
-    color: black !important;
+   color: black !important;
     
   }
-  
   </style>
 </head>
 
 <body>
   <div class="d-flex">
-    <!-- Sidebar -->
     <div class="bg-dark text-white p-3 sidebar">
       <ul class="nav flex-column mt-4">
         <li class="nav-item"><a href="index.php?page=home" class="nav-link text-white">Tổng quan</a></li>
         <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
         <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
         <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>
+        <li class="nav-item"><a href="index.php?page=order" class="nav-link text-white">Quản lý đơn hàng</a></li>
         <li class="nav-item"><a href="#" class="nav-link text-white">Thống kê</a></li>
       </ul>
     </div>
@@ -53,47 +51,47 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0 position-relative">
-              <h6 class="d-inline-block">Category table</h6>
+              <h6 class="d-inline-block">Details table</h6>
               <!-- Nút Create nằm sát bên phải -->
-              <div class="header-actions ms-auto">
-                <a href="#" style=" color:  #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+              <!-- <div class="header-actions">
+                <a href="#" style=" color:  #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addAuthorModal">
                   Create
                 </a>
-              </div>
+              </div> -->
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table style="color: #6c757d !important;"  class="table align-items-center mb-0">
+                <table style="color: #6c757d !important;" class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th style="color: black !important;"  class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                      <th style="color: black !important;"  class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Categories Name</th>
+                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Author Name</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acction</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php if (!empty($categories)): ?>
-                    <?php foreach ($categories as $categorie): ?>
+                    <?php if (!empty($authors)): ?>
+                    <?php foreach ($authors as $author): ?>
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6  class="mb-0 text-sm"><?php echo htmlspecialchars($categorie['id']); ?></h6>
+                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($author['id']); ?></h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <h6  class="mb-0 text-sm"><?php echo htmlspecialchars($categorie['ten_theloai']); ?></h6>
+                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($author['ten_tacgia']); ?></h6>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">2024</span>
+                        <span  class="text-secondary text-xs font-weight-bold">2024</span>
                       </td>
                       <td class="align-middle text-center">
-                        <a href="index.php?page=edit_category&id=<?php echo $categorie['id']; ?>" style=" color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">
+                        <a href="index.php?page=edit_author&id=<?php echo $author['id']; ?>" style=" color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">
                           Edit
                         </a>
-                        <a href="index.php?page=delete_category&id=<?php echo $categorie['id']; ?>" style=" color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">
+                        <a href="index.php?page=delete_author&id=<?php echo $author['id']; ?>" style=" color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">
                           Delete
                         </a>
                       </td>
@@ -101,7 +99,7 @@
                     <?php endforeach; ?>
                     <?php else: ?>
                     <tr>
-                      <td colspan="4" class="text-center">Không có tác thể loại nào.</td>
+                      <td colspan="4" class="text-center">Không có tác giả nào.</td>
                     </tr>
                     <?php endif; ?>
                   </tbody>
@@ -114,19 +112,19 @@
     </div>
   </div>
 
-  <!-- Modal thêm thể loại -->
-  <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+  <!-- Modal thêm tác giả -->
+  <div class="modal fade" id="addAuthorModal" tabindex="-1" aria-labelledby="addAuthorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addCategoryModalLabel">Thêm Thể Loại</h5>
+          <h5 class="modal-title" id="addAuthorModalLabel">Thêm Tác Giả</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form method="POST" action="index.php?page=add_category">
+          <form method="POST" action="index.php?page=add_author">
             <div class="mb-3">
-              <label for="tenTheLoai" class="form-label">Tên Thể Loại</label>
-              <input type="text" class="form-control" id="tenTheLoai" name="ten_theloai" required>
+              <label for="tenTacGia" class="form-label">Tên Tác Giả</label>
+              <input type="text" class="form-control"  name="ten_tacgia" required>
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
           </form>

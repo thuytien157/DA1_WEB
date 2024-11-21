@@ -30,7 +30,6 @@ class CategoryController {
             echo "Lỗi khi thêm tác giả.";
         }
     }
-
     // Xử lý cập nhật tác giả
     public function updateCategory($id, $ten_tacgia) {
         $result = $this->categoryModel->updateCategory($id, $ten_tacgia);
@@ -53,7 +52,5 @@ class CategoryController {
     public function getCategoryById($id) {
         return $this->categoryModel->getCategoryById($id);
     }
-    
-    
 }
 ?>
