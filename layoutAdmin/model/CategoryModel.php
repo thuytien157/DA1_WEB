@@ -20,7 +20,7 @@ class CategoryModel {
     public function addCategory($ten_theloai) {
         $stmt = $this->conn->prepare("INSERT INTO the_loai (ten_theloai) VALUES (:ten_theloai)");
         $stmt->bindParam(':ten_theloai', $ten_theloai);
-        return $stmt->execute(); // Trả về true nếu thành công
+        return $stmt->execute(); 
     }
 
     // Cập nhật tác giả
@@ -28,14 +28,14 @@ class CategoryModel {
         $stmt = $this->conn->prepare("UPDATE the_loai SET ten_theloai = :ten_theloai WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':ten_theloai', $ten_theloai);
-        return $stmt->execute(); // Trả về true nếu thành công
+        return $stmt->execute(); 
     }
 
     // Xóa tác giả
     public function deleteCategory($id) {
         $stmt = $this->conn->prepare("DELETE FROM the_loai WHERE id = :id");
         $stmt->bindParam(':id', $id);
-        return $stmt->execute(); // Trả về true nếu thành công
+        return $stmt->execute(); 
     }
     public function getCategoryById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM the_loai WHERE id = :id");
