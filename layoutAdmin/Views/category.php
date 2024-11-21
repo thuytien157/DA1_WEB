@@ -117,18 +117,7 @@
 </head>
 
 <body>
-  <div class="d-flex">
-    <div class="bg-dark text-white p-3 sidebar">
-      <ul class="nav flex-column mt-4">
-        <li class="nav-item"><a href="index.php?page=home" class="nav-link text-white">Tổng quan</a></li>
-        <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
-        <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
-        <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>
-        <li class="nav-item"><a href="index.php?page=order" class="nav-link text-white">Quản lý đơn hàng</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">Thống kê</a></li>
-      </ul>
-    </div>
-
+  <div class="container-fluid d-flex">
     <div class="container-fluid py-4 content">
       <div class="row">
         <div class="col-12">

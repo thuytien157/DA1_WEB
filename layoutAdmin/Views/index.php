@@ -55,19 +55,6 @@
 </head>
 
 <body>
-  <!-- Sidebar -->
-  <div class="d-flex">
-    <div class="sidebar text-white p-3" style="width: 250px; min-height: 100vh;">
-      <ul class="nav flex-column mt-4">
-        <li class="nav-item"><a href="#" class="nav-link text-white">Tổng quan</a></li>
-        <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
-        <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
-        <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>
-        <li class="nav-item"><a href="index.php?page=order" class="nav-link text-white">Quản lý đơn hàng</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">Thống kê</a></li>
-      </ul>
-    </div>
-
     <!-- Main Content -->
     <div class="container-fluid p-4 main-container">
       <h4 class="mb-4">Welcome

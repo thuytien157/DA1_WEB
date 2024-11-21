@@ -155,4 +155,3 @@ case 'delete_publishinghouse':
         
 }
 
-include 'Views/footer.php';
