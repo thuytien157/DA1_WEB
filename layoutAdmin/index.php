@@ -13,8 +13,7 @@ $CategoryController = new CategoryController();
 $CategoryModel = new CategoryModel();
 $OrderController = new OrderController();
 $OrderModel = new OrderModel();
-// $UsersController = new UsersController();
-// $UsersModel = new UsersModel();
+
 $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
@@ -106,72 +105,14 @@ switch ($page) {
     case 'order':
         $OrderController->listOrders();
         break;
-    case 'add_order':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id_khachhang = $_POST['id_khachhang'];
-            $ngay_giao_hang = $_POST['ngay_giao_hang'];
-            $tt_thanhtoan = $_POST['tt_thanhtoan'];
-            $tt_donhang = $_POST['tt_donhang'];
-            $dia_chi = $_POST['dia_chi'];
-            $ghi_chu = $_POST['ghi_chu'];
-            $result = $OrderController->addOrder($id_khachhang, $ngay_giao_hang, $tt_thanhtoan, $tt_donhang, $dia_chi, $ghi_chu);
-            header("Location: index.php?page=order"); // Chuyển hướng về trang danh sách
-        }
-        break;
-
-    case 'delete_order':
-        $id = $_GET['id'];
-        $result = $OrderController->deleteOrder($id);
-        header("Location: index.php?page=order");
-        break;
-    case 'update_order':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $id_khachhang = $_POST['id_khachhang'];
-            $ngay_giao_hang = $_POST['ngay_giao_hang'];
-            $tt_thanhtoan = $_POST['tt_thanhtoan'];
-            $tt_donhang = $_POST['tt_donhang'];
-            $dia_chi = $_POST['dia_chi'];
-            $ghi_chu = $_POST['ghi_chu'];
-            $OrderController->updateOrder($id, $id_khachhang, $ngay_giao_hang, $tt_thanhtoan, $tt_donhang, $dia_chi, $ghi_chu);
-        }
-        break;
-    case 'edit_order':
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $order = $OrderController->getOrderById($id);
-            include 'Views/edit_order.php';
-        }
-        break;
-
-
-    case 'details':
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $order = $OrderController->getOrderById($id);
-            include 'Views/details.php';
-        }
-        break;
-    // case 'users':
-    //     $UsersController->listUsers();
-    //     break;
-    // case 'add_users':
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $ho_ten = $_POST['ho_ten'];
-    //         $sdt = $_POST['sdt'];
-    //         $username = $_POST['username'];
-    //         $mat_khau = $_POST['mat_khau'];
-    //         $email = $_POST['email'];
-    //         $vai_tro = $_POST['vai_tro'];
-    //         $result = $UsersController->addUsers($ho_ten, $sdt, $username, $mat_khau, $email, $vai_tro);
-    //         header("Location: index.php?page=users"); // Chuyển hướng về trang danh sách
-    //     }
-    //     break;
-    //     case 'delete_users':
-    //         $id = $_GET['id'];
-    //         $result = $UsersController->deleteUsers($id);
-    //         header("Location: index.php?page=users");
-    //         break;
+        case 'update_order_status':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $id = $_POST['id'];
+                $tt_donhang = $_POST['tt_donhang'];
+                $result = $OrderController->updateOrderStatus($id,$tt_donhang);
+                header("Location: index.php?page=order"); // Chuyển hướng về trang danh sách
+            }
+            break;
         
 }
 
