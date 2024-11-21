@@ -38,13 +38,8 @@
                       <tr>
                         <td colspan="4"><strong>Trạng thái thanh toán:</strong> '.$ctdh[0]['tt_thanhtoan'].'</td>
                       </tr>
-                      <tr>';
-                      if($ctdh[0]['tt_donhang'] !== 'Hoàn thành'){
-                        echo '<td colspan="4"><strong>Ngày giao hàng dự kiến:</strong> '.$ctdh[0]['ngay_giao_hang'].'</td>';
-                      }else{
-                        echo '<td colspan="4"><strong>Ngày giao hàng:</strong> '.$ctdh[0]['ngay_giao_hang'].'</td>';
-                      }
-                      echo '
+                      <tr>
+                        <td colspan="4"><strong>Ngày mua hàng:</strong> '.$ctdh[0]['ngay_giao_hang'].'</td>
                       </tr>
                       <tr>
                         <td colspan="4"><strong>Địa chỉ:</strong> '.$ctdh[0]['dia_chi'].'</td>

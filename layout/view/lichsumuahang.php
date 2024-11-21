@@ -31,15 +31,9 @@
                 $tongtien += $sanpham['gia'] * $sanpham['so_luong'];
             }
             echo 'Tổng tiền: '.$tongtien.'.000đ</div>
-                    </div>';
-
-            if ($donhang['tt']['tt_donhang'] == "Hoàn thành") {
-                echo '<div class="thoigiangiaohang">Sản phẩm đã giao vào ngày: <strong>'.$donhang['tt']['ngay_giao_hang'].'</strong></div>';
-            } else {
-                echo '<div class="thoigiangiaohang">Sản phẩm dự kiến sẽ giao vào ngày: <br><strong>'.$donhang['tt']['ngay_giao_hang'].'</strong></div>';
-            }
-
-            echo '<button class="xemchitiet">
+                    </div>
+            <div class="thoigiangiaohang">Ngày mua hàng: <strong>'.$donhang['tt']['ngay_giao_hang'].'</strong></div>
+             <button class="xemchitiet">
                       <a href="index.php?act=lichsu&action=xemchitiet&id='.$donhang_id.'" class="text-decoration-none text-white">Xem chi tiết</a>
                   </button>';
 
