@@ -68,7 +68,8 @@
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Đơn Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa Chỉ</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ghi Chú</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hành Động</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Xem chi tiết</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -104,9 +105,8 @@
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ghi_chu']); ?></h6>
                           </td>
-                          <td class="align-middle text-center">
-                            <a href="index.php?page=edit_order&id=<?php echo $Order['id']; ?>" class="text-secondary font-weight-bold text-xs action-link">Edit</a>
-                            <a href="index.php?page=delete_order&id=<?php echo $Order['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
+                          <td>
+                           <a href="index.php?page=details&action=xemchitiet">Con mắt</a> 
                           </td>
                         </tr>
                       <?php endforeach; ?>

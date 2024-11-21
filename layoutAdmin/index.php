@@ -11,8 +11,10 @@ $AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
 $CategoryController = new CategoryController();
 $CategoryModel = new CategoryModel();
-$OrderController = new OrderController();
+$OrderController = new OrderController($action);
 $OrderModel = new OrderModel();
+$action=isset($_GET['action']) ? $_GET['action']:'';
+
 
 $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -23,7 +25,7 @@ switch ($page) {
 
     case 'logout':
         // Chuyển hướng người dùng về trang đăng nhập
-        header("Location: ../../layout/index.php");
+        header("Location: ../layout/index.php");
         exit();
         break;
     case 'category':
@@ -113,6 +115,12 @@ switch ($page) {
                 header("Location: index.php?page=order"); // Chuyển hướng về trang danh sách
             }
             break;
+
+            case 'details':
+                include 'controllers/OrderController.php';
+                $OrderController = new OrderController($action);
+                
+                break;
         
 }
 

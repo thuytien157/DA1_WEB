@@ -4,7 +4,8 @@ require_once "ConnectModel.php";
 class orderModel
 {
     private $conn;
-
+    public $donhang;
+    public $ctdonhang;
     public function __construct()
     {
         $database = new ConnectModel();
@@ -23,6 +24,32 @@ class orderModel
         $stmt->bindParam(':tt_donhang', $tt_donhang);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
+    }
+
+        public function ctdh($id)
+    {
+        include_once 'models/connectmodel.php';
+        $data = new ConnectModel();
+        
+        $sql = "SELECT 
+                don_hang.id AS donhang_id,
+                don_hang.ngay_giao_hang,
+                don_hang.dia_chi,
+                don_hang.tt_donhang,
+                don_hang.tt_thanhtoan,
+                don_hang.ghi_chu,
+                chi_tiet_don_hang.so_luong,
+                chi_tiet_don_hang.pt_thanhtoan,
+                sach.id AS sach_id,
+                sach.ten_sach,
+                sach.gia
+                FROM don_hang
+                INNER JOIN chi_tiet_don_hang 
+                ON don_hang.id = chi_tiet_don_hang.id_donhang
+                INNER JOIN sach
+                ON sach.id = chi_tiet_don_hang.id_sach
+                WHERE don_hang.id = :id";   
+        $this->ctdonhang = $data->selectall($sql, [':id' => $id]);
     }
     
 }

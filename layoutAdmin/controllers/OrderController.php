@@ -5,7 +5,8 @@ class OrderController
 {
     private $orderModel;
 
-    public function __construct()
+
+    public function __construct($action)
     {
         $this->orderModel = new orderModel();
     }
@@ -39,5 +40,15 @@ class OrderController
             }
         }
     }
+    public function xemchitiet($id,$action){
+        if($_GET['action']=='xemchitiet'){
+            include_once 'model/OrderModel.php';
+            $this -> $orderModel = new DonHangModel();
+            $this -> $orderModel->ctdh($id);
+            $ctdh = $DonHangModel->ctdonhang;
+            include_once 'view/details.php';
+        }
+    }
+   
     
 }
