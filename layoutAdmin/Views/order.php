@@ -32,7 +32,6 @@
 
     .card-header h6 {
       color: black !important;
-
     }
   </style>
 </head>
@@ -56,11 +55,6 @@
             <div class="card-header pb-0 position-relative">
               <h6 class="d-inline-block">Orders table</h6>
               <!-- Nút Create nằm sát bên phải -->
-              <div class="header-actions">
-                <a href="#" style=" color:  #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addOrderModal">
-                  Create
-                </a>
-              </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -68,14 +62,13 @@
                   <thead>
                     <tr>
                       <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mã Đơn Hàng</th>
-                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID Khách Hàng</th>
-                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên Khách Hàng</th>
+                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Khách Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày Giao Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Thanh Toán</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Đơn Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa Chỉ</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ghi Chú</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acction</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hành Động</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -86,10 +79,7 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id']); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id_khachhang']); ?></h6>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ten_khachhang']); ?></h6>
+                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id_khachhang'] . "-" . $Order['ten_khachhang']); ?></h6>
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ngay_giao_hang']); ?></h6>
@@ -98,7 +88,15 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['tt_thanhtoan']); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['tt_donhang']); ?></h6>
+                            <form method="POST" action="index.php?page=update_order_status">
+                              <input type="hidden" name="id" value="<?php echo $Order['id']; ?>">
+                              <select name="tt_donhang" class="form-select" onchange="this.form.submit()">
+                                <option value="Chờ xử lý" <?php if ($Order['tt_donhang'] == 'Chờ xử lý') echo 'selected'; ?>>Chờ xử lý</option>
+                                <option value="Đang giao" <?php if ($Order['tt_donhang'] == 'Đang giao') echo 'selected'; ?>>Đang giao</option>
+                                <option value="Đã giao" <?php if ($Order['tt_donhang'] == 'Đã giao') echo 'selected'; ?>>Đã giao</option>
+                                <option value="Hoàn thành" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Hoàn thành</option>
+                              </select>
+                            </form>
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['dia_chi']); ?></h6>
@@ -107,23 +105,14 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ghi_chu']); ?></h6>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="index.php?page=edit_order&id=<?php echo $Order['id']; ?>" style=" color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">
-                              Edit
-                            </a>
-                            <br>
-                            <a href="index.php?page=delete_order&id=<?php echo $Order['id']; ?>" style=" color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">
-                              Delete
-                            </a>
-                            <br>
-                            <a href="index.php?page=details&id=<?php echo $Order['id']; ?>" style=" color:  #000 !important" class="text-secondary font-weight-bold text-xs action-link">
-                            Xem chi tiết đơn hàng
-                            </a>
+                            <a href="index.php?page=edit_order&id=<?php echo $Order['id']; ?>" class="text-secondary font-weight-bold text-xs action-link">Edit</a>
+                            <a href="index.php?page=delete_order&id=<?php echo $Order['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
                     <?php else: ?>
                       <tr>
-                        <td colspan="4" class="text-center">Không có đơn hàng nào.</td>
+                        <td colspan="8" class="text-center">Không có đơn hàng nào.</td>
                       </tr>
                     <?php endif; ?>
                   </tbody>
@@ -131,57 +120,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal thêm tác giả -->
-  <div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addOrderModalLabel">Thêm Đơn Hàng</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form method="POST" action="index.php?page=add_order">
-            <div class="mb-3">
-              <label for="tenTacGia" class="form-label">ID Khách Hàng</label>
-              <input type="text" class="form-control" name="id_khachhang" required>
-            </div>
-            <div class="mb-3">
-              <label for="tenTacGia" class="form-label">Ngày Giao Hàng</label>
-              <input type="text" class="form-control" name="ngay_giao_hang" required>
-            </div>
-            <div class="mb-3">
-              <label for="tenTacGia" class="form-label">Trạng Thái Thanh Toán</label>
-              <select class="form-select" name="tt_khachang" required>
-              <option value="Hoàn thành">Đã thanh toán</option>
-                <option value="Chờ xử lý">Chưa thanh toán</option>
-                <option value="Đang giao">nợ</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="tenTacGia" class="form-label">Trạng Thái Đơn Hàng</label>
-              <select class="form-select" name="tt_donhang" required>
-              <option value="Hoàn thành">Đã xác nhận đâu</option>
-                <option value="Chờ xử lý">Chờ xử lý</option>
-                <option value="Đang giao">Đang giao</option>
-                <option value="Đã giao">Đã giao</option>
-                <option value="Hoàn thành">Hoàn thành</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="tenTacGia" class="form-label">Địa Chỉ</label>
-              <input type="text" class="form-control" name="dia_chi" required>
-            </div>
-            <div class="mb-3">
-              <label for="tenTacGia" class="form-label">Ghi Chú</label>
-              <input type="text" class="form-control" name="ghi_chu" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Lưu</button>
-          </form>
         </div>
       </div>
     </div>
