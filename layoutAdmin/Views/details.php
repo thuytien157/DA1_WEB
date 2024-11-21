@@ -62,45 +62,51 @@
                   <thead>
                     <tr>
                       <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mã Đơn Hàng</th>
-                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Khách Hàng</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày Giao Hàng</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Thanh Toán</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Đơn Hàng</th>
+                      <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sách</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày Mua Hàng</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">TT Thanh Toán</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">TT Đơn Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa Chỉ</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ghi Chú</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Xem chi tiết</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tổng tiền</th>
 
                     </tr>
                   </thead>
                   <tbody>
-                      <?php foreach ($ctdh as $ctdh): ?>
-                        <tr>
+                    <?php foreach ($nhomdulieu as $donhang_id => $ctdh): ?>
+                      <tr>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['id']); ?></h6>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($donhang_id); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['id_khachhang'] . "-" . $ctdh['ten_khachhang']); ?></h6>
+                              <?php foreach ($ctdh['san_pham'] as $product): ?>
+                                  <h6 class="mb-0 text-sm">
+                                      <?php echo htmlspecialchars($product['ten_sach']); ?> 
+                                      (SL: <?php echo htmlspecialchars($product['so_luong']); ?>, Giá: <?php echo htmlspecialchars($product['gia']); ?>đ)
+                                  </h6>
+                              <?php endforeach; ?>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['ngay_giao_hang']); ?></h6>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['ngay_giao_hang']); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['tt_thanhtoan']); ?></h6>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['tt_thanhtoan']); ?></h6>
                           </td>
                           <td>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['tt_donhang']); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['dia_chi']); ?></h6>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['dia_chi']); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['ghi_chu']); ?></h6>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['ghi_chu']); ?></h6>
                           </td>
                           <td>
-                           <a href="index.php?page=details&action=xemchitiet">Con mắt</a> 
+                              <h6 class="mb-0 text-sm"><?php echo $ctdh['tong_tien']*1000; ?>đ</h6>
                           </td>
-                        </tr>
-                      <?php endforeach; ?>  
-                  </tbody>
+                      </tr>
+                  <?php endforeach; ?>
+                </tbody>
                 </table>
               </div>
             </div>

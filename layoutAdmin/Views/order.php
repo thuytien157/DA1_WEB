@@ -63,7 +63,7 @@
                     <tr>
                       <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mã Đơn Hàng</th>
                       <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Khách Hàng</th>
-                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày Giao Hàng</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày Mua Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Thanh Toán</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Đơn Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa Chỉ</th>
@@ -94,7 +94,7 @@
                               <select name="tt_donhang" class="form-select" onchange="this.form.submit()">
                                 <option value="Chờ xử lý" <?php if ($Order['tt_donhang'] == 'Chờ xử lý') echo 'selected'; ?>>Chờ xử lý</option>
                                 <option value="Đang giao" <?php if ($Order['tt_donhang'] == 'Đang giao') echo 'selected'; ?>>Đang giao</option>
-                                <option value="Hoàn thành" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Đã huỷ</option>
+                                <option value="Đã huỷ" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Đã huỷ</option>
                                 <option value="Hoàn thành" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Hoàn thành</option>
                               </select>
                             </form>
@@ -106,7 +106,7 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ghi_chu']); ?></h6>
                           </td>
                           <td>
-                           <a href="index.php?page=details&action=xemchitiet">Con mắt</a> 
+                           <a href="index.php?page=details&id=<?=$Order['id']?>">Con mắt</a> 
                           </td>
                         </tr>
                       <?php endforeach; ?>

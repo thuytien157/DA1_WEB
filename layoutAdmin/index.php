@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'Views/header.php';
+
 include 'model/ConnectModel.php';
 require_once "controllers/AuthorController.php";
 require_once "controllers/CategoryController.php";
@@ -11,9 +12,8 @@ $AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
 $CategoryController = new CategoryController();
 $CategoryModel = new CategoryModel();
-$OrderController = new OrderController($action);
+$OrderController = new OrderController();
 $OrderModel = new OrderModel();
-$action=isset($_GET['action']) ? $_GET['action']:'';
 
 
 $ConnectModel->connect();
@@ -116,9 +116,15 @@ switch ($page) {
             }
             break;
 
+            
             case 'details':
-                include 'controllers/OrderController.php';
-                $OrderController = new OrderController($action);
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $OrderController->xemchitiet($id);
+                } else {
+                    echo "Không tìm thấy ID đơn hàng.";
+                }
+
                 
                 break;
         
