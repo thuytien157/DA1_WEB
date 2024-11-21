@@ -34,7 +34,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?act=product">Sản Phẩm</a>
 
-                    
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?act=about">Giới Thiệu</a>
@@ -79,6 +79,9 @@
 
                             <?php
                                 echo isset($_SESSION['user']['username'])?  "":'<li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>';
+                            ?>
+                            <?php
+                                echo isset($_SESSION['user']['username'])?  '<li><a class="dropdown-item" href="index.php?act=readmin">Đến Admin</a></li>':'';
                             ?>
                             <li><a class="dropdown-item"  href="index.php?act=<?php echo trim(isset($_SESSION['user']['username'])) ? 'logout' : 'login'; ?>">
 
