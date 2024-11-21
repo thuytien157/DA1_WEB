@@ -68,6 +68,8 @@
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Đơn Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa Chỉ</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ghi Chú</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Xem chi tiết</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -102,6 +104,9 @@
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ghi_chu']); ?></h6>
+                          </td>
+                          <td>
+                           <a href="index.php?page=details&action=xemchitiet">Con mắt</a> 
                           </td>
                         </tr>
                       <?php endforeach; ?>

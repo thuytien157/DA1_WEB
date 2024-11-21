@@ -74,9 +74,10 @@ switch ($act){
 
     case 'thanhtoan':
         include_once 'controller/thanhtoanController.php';
-        $dathangController=new thanhtoanController();      
+        $dathangController=new thanhtoanController();
         break;
     
+
 
     case 'lichsu':
         include_once 'controller/donhangController.php';
