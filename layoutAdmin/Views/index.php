@@ -6,6 +6,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<style>
+  .bg-dark{
+    background-color: #D98C52 !important;
+  }
+</style>
 <body>
   <!-- Sidebar -->
   <div class="d-flex">
@@ -15,48 +20,49 @@
         <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
         <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
         <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>
+        <li class="nav-item"><a href="index.php?page=oder" class="nav-link text-white">Quản lý đơn hàng</a></li>
         <li class="nav-item"><a href="#" class="nav-link text-white">Thống kê</a></li>
       </ul>
     </div>
 
     <!-- Main Content -->
     <div class="container-fluid p-4">
-      <h2 class="mb-4">Wellcom
+      <h4 style=" color:  #D98C52 !important" class="mb-4">Wellcom
       <?php
-      echo isset($_SESSION['user']) ? $_SESSION['user']:"";
-      ?> !</h2>
+      echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username']:"";
+      ?> !</h4>
 
       <!-- Statistics -->
       <div class="row">
         <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Sách đã bán</h5>
-              <p class="card-text fs-4">120</p>
+              <h5  class="card-title">Sách đã bán</h5>
+              <p  class="card-text fs-4">120</p>
             </div>
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Doanh thu hôm nay</h5>
-              <p class="card-text fs-4">2,000,000 VNĐ</p>
+              <h5  class="card-title">Doanh thu hôm nay</h5>
+              <p  class="card-text fs-4">2,000,000 VNĐ</p>
             </div>
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Doanh thu tháng</h5>
-              <p class="card-text fs-4">45,000,000 VNĐ</p>
+              <h5  class="card-title">Doanh thu tháng</h5>
+              <p  class="card-text fs-4">45,000,000 VNĐ</p>
             </div>
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Sách còn trong kho</h5>
-              <p class="card-text fs-4">340</p>
+              <h5  class="card-title">Sách còn trong kho</h5>
+              <p  class="card-text fs-4">340</p>
             </div>
           </div>
         </div>
@@ -67,7 +73,7 @@
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Số lượng sách đã bán</h5>
+              <h5  class="card-title">Số lượng sách đã bán</h5>
               <canvas id="salesChart"></canvas>
             </div>
           </div>
@@ -75,7 +81,7 @@
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Thể loại sách bán chạy</h5>
+              <h5  class="card-title">Thể loại sách bán chạy</h5>
               <canvas id="categoryChart"></canvas>
             </div>
           </div>
@@ -88,7 +94,7 @@
           <h5 class="card-title">Đơn hàng gần đây</h5>
           <table class="table table-striped">
             <thead>
-              <tr>
+              <tr >
                 <th>Mã đơn hàng</th>
                 <th>Tên khách hàng</th>
                 <th>Tên sách</th>

@@ -65,11 +65,11 @@
 
                     <div class="thongtinchitiet">
                         <div>Nhà cung cấp: <span style="color: #8B4513;">' . $value['nha_cung_cap'] . '</span></div>
-                        <div>Tác giả:' . $value['ten_tacgia'] . '</div>
+                        <div class="tg">| Tác giả:' . $value['ten_tacgia'] . '</div>
                     </div>
                     <div class="thongtinchitiet1">
                         <div>Nhà xuất bản:' . $value['ten_nxb'] . '</span></div>
-                        <div>Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
+                        <div class="tg">| Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
                     </div>
                     <div class="yeuthich">
             <i class="fa-regular fa-heart"></i>
@@ -96,11 +96,16 @@
             <hr>
             <div class="sl-btn">
                 <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
-                <div class="btn-group1">
-                    <button class="button1"><a href="thanhtoan.html">Mua ngay</a></button>
-                    <button class="button1"><a href="giohang.html">Thêm vào giỏ hàng</a></button>
-                </div>
             </div>
+
+                <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
+                    <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
+                    <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                    <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
+                    <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                    <button type="submit" name="themvaogiohang" class="mt-2 button1">Thêm vào giỏ hàng</button>
+                </form>
+
                 ';
             }
         echo $ch;
@@ -156,7 +161,7 @@
                       }
                       echo $ch;
                     ?>
-      <h4 id="textsanphamkhac">Sản phẩm khác</h4>
+      <h4 id="textsanphamkhac">Sản phẩm liên quan</h4>
     <div class="sanphamkhac">
         <div class="row row-cols-4">
         <!-- BOX-SANPHAM -->

@@ -1,6 +1,4 @@
 <?php
-
-
 require "connectModel.php";
 class dangnhapModel {
     public $dangnhap;
@@ -11,7 +9,7 @@ class dangnhapModel {
     }
 
     public function login($user, $password) {
-        $stmt = $this->dangnhap->prepare("SELECT id, username, vai_tro FROM user WHERE username = :user AND mat_khau = :password ");
+        $stmt = $this->dangnhap->prepare("SELECT * FROM user WHERE username = :user AND mat_khau = :password ");
         $stmt->bindParam(':user', $user);
         $stmt->bindParam(':password', $password);
         $stmt->execute();

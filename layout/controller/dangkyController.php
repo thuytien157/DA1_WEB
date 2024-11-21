@@ -31,7 +31,7 @@ class dangkyController {
         
         require_once "models/dangkyModel.php";
         $dangkyModel = new dangkyModel();
-        $result = $dangkyModel->registerUser($hoTen, $sdt, $username, $email, $hashedPassword);
+        $result = $dangkyModel->registerUser($hoTen, $sdt, $username, $email, $matKhau);
 
         if ($result) {
             header("Location: index.php?act=login");

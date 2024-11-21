@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo bên trái -->
-            <a class="navbar-brand" href="index.php?act=index">Logo</a>
+            <a class="navbar-brand" href="index.php?act=index"><img src="public/img/IMG_DA1/logo/Book Store Logo.png" alt="" class="small_img"></a>
 
             <!-- Nút Toggle cho thiết bị di động -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,16 +29,12 @@
                 <!-- Các mục ở giữa khi ở màn hình lớn -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link home" href="index.php?act=index">Trang Chủ</a>
+                        <a class="nav-link" href="index.php?act=index">Trang Chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?act=product">Sản Phẩm <i class="fa-solid fa-angle-down arrow"></i> </a>
+                        <a class="nav-link" href="index.php?act=product">Sản Phẩm</a>
 
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Mới</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Bán Chạy</a></li>
-                            <li><a class="dropdown-item" href="#">Sản Phẩm Khuyến Mãi & Ưu Đãi</a></li>
-                        </ul>
+                    
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?act=about">Giới Thiệu</a>
@@ -68,16 +64,19 @@
                     <li class="nav-item dropdown ms-3">
                         <button onclick="window.location.href='index.php?act=acc';" class="btn btn-outline-secondary account-button dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php
-                                echo isset($_SESSION['user']) ?  $_SESSION['user'] :"Tài Khoản";
+                                echo isset($_SESSION['user']['username']) ?  $_SESSION['user']['username'] :"Tài Khoản";
                             ?>
                             <i class="fa-solid fa-user"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                            <li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>
-                            <li><a class="dropdown-item"  href="index.php?act=<?php echo trim(isset($_SESSION['user'])) ? 'logout' : 'login'; ?>">
 
                             <?php
-                                echo isset($_SESSION['user'])?  "Đăng Xuất":"Đăng Nhập";
+                                echo isset($_SESSION['user']['username'])?  "":'<li><a class="dropdown-item" href="index.php?act=register">Đăng Ký</a></li>';
+                            ?>
+                            <li><a class="dropdown-item"  href="index.php?act=<?php echo trim(isset($_SESSION['user']['username'])) ? 'logout' : 'login'; ?>">
+
+                            <?php
+                                echo isset($_SESSION['user']['username'])?  "Đăng Xuất":"Đăng Nhập";
                             ?>
                             </a></li>
                         </ul>
@@ -89,3 +88,4 @@
     </nav>
     <!-- MENU - END -->
 </header>
+

@@ -1,7 +1,7 @@
 
     <img class="banner" src="public/img/IMG_DA1/baner/ms_banner_img1.webp" alt="">
 
-<main class="container">
+<main class="container-xxl">
     <section>
         <div class="product-row ">
             <!-- chia cột sản phẩm thành bốn cột  -->

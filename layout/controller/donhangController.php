@@ -1,12 +1,9 @@
 <?php
 class donhangController {
-    public function __construct($id, $action,$dia_chi) {
+    public function __construct($id, $action) {
         include_once 'dangnhapController.php';
         include_once 'models/donhangmodel.php';
         $DonHangModel = new DonHangModel();
-
-        //lấy id từ id user đã đăng nhập
-        $userId = isset($userId) ? $userId : '';  
 
 
         if (isset($_SESSION['id'])) {
@@ -30,12 +27,32 @@ class donhangController {
                 include_once 'view/chitietdonhang.php';
                 $dia_chi = $_POST['dia_chi'];
                 $DonHangModel->capnhatdiachi($id, $dia_chi);
+
+                $_SESSION['thongbao'] = 'Đã đổi địa chỉ thành công';
                 header("location: ./index.php?act=lichsu&id=" . $userId);
                 exit();            
         }else{
             $DonHangModel->dsdh($userId);
             $dh = $DonHangModel->donhang;
+
+            $ttdh = [];
+            foreach ($dh as $key => $value) {
+                $ttdh[$value['donhang_id']]['tt'] = [
+                    'ngay_giao_hang' => $value['ngay_giao_hang'],
+                    'tt_donhang' => $value['tt_donhang']
+                ];
+
+                $ttdh[$value['donhang_id']]['sanpham'][] = [
+                    'ten_sach' => $value['ten_sach'],
+                    'so_luong' => $value['so_luong'],
+                    'gia' => $value['gia'],
+                    'hinh' => $value['hinh'],
+                ];
+            }
+
             include_once 'view/lichsumuahang.php';  
+            return $ttdh;
+
         }
     }
 }
