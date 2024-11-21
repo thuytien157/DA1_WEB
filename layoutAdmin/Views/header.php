@@ -6,13 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Header Redesign</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Set the background color of the navbar */
+    .navbar {
+      background-color: white !important;
+    }
+
+    /* Set the color of the text inside the navbar */
+    .navbar-nav .nav-link,
+    .navbar-brand span {
+      color: #D98C52 !important;
+    }
+
+    /* Optional: Adjust color on hover for nav items */
+    .navbar-nav .nav-link:hover {
+      color: #fff !important;
+    }
+    .container{
+    height: 8vh;
+    }
+  </style>
 </head>
-<style>
-  .navbar-brand span{
-    color: #D98C52 !important;
-    
-  }
-</style>
+
 <body>
   <!-- Header -->
   <header>
@@ -29,7 +44,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a style="color: #D98C52 !important;" class="nav-link" href=""> <?php
+              <a class="nav-link" href=""> <?php
       echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username']:"";
       ?></a>
             </li>

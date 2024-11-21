@@ -32,7 +32,7 @@
             </div>
             <div class="card-body px-4">
                 <form method="POST" action="index.php?page=update_category">
-                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($category['id']); ?>">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($categorie['id']); ?>">
                     <div class="mb-3">
                         <label for="tenTheLoai" class="form-label">Tên Thể Loại</label>
                         <input 
