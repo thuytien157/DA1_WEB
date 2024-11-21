@@ -72,14 +72,11 @@ switch ($act){
         $dathangController=new dathangController($action);
         break;
 
-<<<<<<< HEAD
-=======
     case 'thanhtoan':
         include_once 'controller/thanhtoanController.php';
         $dathangController=new thanhtoanController();      
         break;
     
->>>>>>> b7a3449f44ea99dfea6c10db9d635384bf677b29
 
     case 'lichsu':
         include_once 'controller/donhangController.php';

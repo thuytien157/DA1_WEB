@@ -23,7 +23,7 @@ switch ($page) {
 
     case 'logout':
         // Chuyển hướng người dùng về trang đăng nhập
-        header("Location: ../../layout/index.php");
+        header("Location: ../layout/index.php");
         exit();
         break;
     case 'category':
