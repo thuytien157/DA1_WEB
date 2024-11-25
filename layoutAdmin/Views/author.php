@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-
-  /* Sidebar */
   .bg-dark {
     background-color: #D98C52 !important;
   }
@@ -22,10 +20,9 @@
   }
 
   .nav-link:hover {
-    background-color: #B77D42 !important; /* Darker hover color */
+    background-color: #B77D42 !important; 
   }
 
-  /* Card Header */
   .card-header {
     background-color: #F8F9FA;
     border-bottom: 2px solid #D98C52;
@@ -34,8 +31,6 @@
   .card-header h6 {
     color: #D98C52 !important;
   }
-
-  /* Table */
   .table th,
   .table td {
     color: #333 !important;
@@ -55,10 +50,9 @@
   }
 
   tr:hover {
-    background-color: #f9e3d4; /* Subtle highlight */
+    background-color: #f9e3d4;
   }
 
-  /* Action Links */
   .action-link {
     padding: 0 10px;
     font-weight: bold;
@@ -72,7 +66,6 @@
     color: #F5110F !important;
   }
 
-  /* Modal */
   .modal-content {
     border-radius: 8px;
   }
@@ -97,7 +90,6 @@
     color: white;
   }
 
-  /* Create Button */
   .header-actions {
     position: absolute;
     right: 15px;
@@ -118,7 +110,6 @@
 </head>
 <body>
   <div class="container-fluid py-4 d-flex">
-   <!-- Content Area -->
     <div class="container-fluid py-4 content">
       <div class="row">
         <div class="col-12">
@@ -181,7 +172,6 @@
     </div>
   </div>
 
-  <!-- Modal for Adding Author -->
   <div class="modal fade" id="addAuthorModal" tabindex="-1" aria-labelledby="addAuthorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

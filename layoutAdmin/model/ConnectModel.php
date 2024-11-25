@@ -28,7 +28,7 @@ class ConnectModel {
         
         $stmt->execute();
         $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về tất cả dòng dữ liệu
-        $this->conn = null; // Đóng kết nối
+        $this->conn = null; 
         return $kq;
     }
     

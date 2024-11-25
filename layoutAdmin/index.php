@@ -28,7 +28,6 @@ switch ($page) {
         break;
 
     case 'logout':
-        // Chuyển hướng người dùng về trang đăng nhập
         header("Location: ../layout/index.php");
         exit();
         break;
@@ -39,7 +38,7 @@ switch ($page) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ten_theloai = $_POST['ten_theloai'];
             $result = $CategoryController->addCategory($ten_theloai);
-            header("Location: index.php?page=category"); // Chuyển hướng về trang danh sách
+            header("Location: index.php?page=category"); 
         }
         break;
     case 'edit_category':

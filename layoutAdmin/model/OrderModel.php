@@ -11,7 +11,6 @@ class orderModel
         $this->conn = $database->connect();
     }
 
-    // Lấy tất cả tác giả
     public function getAllOrders()
     {
         $stmt = $this->conn->prepare(" SELECT don_hang.*, user.ho_ten AS ten_khachhang FROM don_hang JOIN user ON don_hang.id_khachhang = user.id ");
