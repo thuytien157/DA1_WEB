@@ -55,15 +55,12 @@
 </head>
 
 <body>
-    <!-- Main Content -->
     <div class="container-fluid p-4 main-container">
       <h4 class="mb-4">Welcome
         <?php
           echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : "";
         ?> !
       </h4>
-
-      <!-- Statistics -->
       <div class="row">
         <div class="col-md-3 mb-3">
           <div class="card text-center">
@@ -98,8 +95,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Charts -->
       <div class="row">
         <div class="col-md-6 mb-4">
           <div class="chart-container">
@@ -116,39 +111,36 @@
       </div>
     </div>
   </div>
-
-  <!-- Scripts -->
   <script>
-    // Biểu đồ số lượng sách đã bán (Line Chart)
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
-      type: 'line', // Line chart for sales
+      type: 'line', 
       data: {
         labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'],
         datasets: [{
           label: 'Số sách đã bán',
           data: [12, 19, 10, 15, 22, 30, 25],
-          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Line fill color
-          borderColor: 'rgba(75, 192, 192, 1)', // Line border color
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', 
+          borderColor: 'rgba(75, 192, 192, 1)', 
           borderWidth: 2,
-          tension: 0.4 // Smooth the line curve
+          tension: 0.4 
         }]
       }
     });
 
-    // Biểu đồ thể loại sách bán chạy (Line Chart)
+ 
     const categoryCtx = document.getElementById('categoryChart').getContext('2d');
     new Chart(categoryCtx, {
-      type: 'line', // Line chart for category sales
+      type: 'line', 
       data: {
         labels: ['Văn học', 'Kinh tế', 'Khoa học', 'Trẻ em', 'Tiểu thuyết'],
         datasets: [{
           label: 'Số lượng sách',
           data: [30, 20, 15, 25, 10],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)', // Line fill color
-          borderColor: 'rgba(255, 99, 132, 1)', // Line border color
+          backgroundColor: 'rgba(255, 99, 132, 0.2)', 
+          borderColor: 'rgba(255, 99, 132, 1)', 
           borderWidth: 2,
-          tension: 0.4 // Smooth the line curve
+          tension: 0.4 
         }]
       }
     });

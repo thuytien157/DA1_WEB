@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
+
+  /* Sidebar */
   .bg-dark {
     background-color: #D98C52 !important;
   }
@@ -20,9 +22,10 @@
   }
 
   .nav-link:hover {
-    background-color: #B77D42 !important; 
+    background-color: #B77D42 !important; /* Darker hover color */
   }
 
+  /* Card Header */
   .card-header {
     background-color: #F8F9FA;
     border-bottom: 2px solid #D98C52;
@@ -31,6 +34,8 @@
   .card-header h6 {
     color: #D98C52 !important;
   }
+
+  /* Table */
   .table th,
   .table td {
     color: #333 !important;
@@ -50,9 +55,10 @@
   }
 
   tr:hover {
-    background-color: #f9e3d4;
+    background-color: #f9e3d4; /* Subtle highlight */
   }
 
+  /* Action Links */
   .action-link {
     padding: 0 10px;
     font-weight: bold;
@@ -66,6 +72,7 @@
     color: #F5110F !important;
   }
 
+  /* Modal */
   .modal-content {
     border-radius: 8px;
   }
@@ -90,6 +97,7 @@
     color: white;
   }
 
+  /* Create Button */
   .header-actions {
     position: absolute;
     right: 15px;
@@ -110,12 +118,13 @@
 </head>
 <body>
   <div class="container-fluid py-4 d-flex">
+   <!-- Content Area -->
     <div class="container-fluid py-4 content">
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0 position-relative">
-              <h6 class="d-inline-block">Authors Table</h6>
+              <h6 class="d-inline-block">Users Table</h6>
               <div class="header-actions">
                 <a href="#" style="color:  #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addAuthorModal">
                   Create
@@ -129,31 +138,47 @@
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Author Name</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Họ & Tên</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số Điện Thoại</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Password</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vai Trò</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php if (!empty($authors)): ?>
-                    <?php foreach ($authors as $author): ?>
+                    <?php if (!empty($users)): ?>
+                    <?php foreach ($users as $users): ?>
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($author['id']); ?></h6>
+                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['id']); ?></h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($author['ten_tacgia']); ?></h6>
+                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['ho_ten']); ?></h6>
+                      </td>
+                      <td>
+                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['sdt']); ?></h6>
+                      </td>
+                      <td>
+                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['username']); ?></h6>
+                      </td>
+                      <td>
+                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['mat_khau']); ?></h6>
+                      </td>
+                      <td>
+                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['email']); ?></h6>
+                      </td>
+                      <td>
+                      <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($users['vai_tro'] == 0 ? "User" : "Admin"); ?></h6>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="index.php?page=edit_author&id=<?php echo $author['id']; ?>" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">Edit</a>
-                        <a href="index.php?page=delete_author&id=<?php echo $author['id']; ?>" style="color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
+                        <a href="index.php?page=edit_users&id=<?php echo $users['id']; ?>" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">Edit</a>
+                        <a href="index.php?page=delete_users&id=<?php echo $users['id']; ?>" style="color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
                       </td>
                     </tr>
                     <?php endforeach; ?>
@@ -172,18 +197,42 @@
     </div>
   </div>
 
+  <!-- Modal for Adding Author -->
   <div class="modal fade" id="addAuthorModal" tabindex="-1" aria-labelledby="addAuthorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addAuthorModalLabel">Thêm Tác Giả</h5>
+          <h5 class="modal-title" id="addAuthorModalLabel">Thêm User</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form method="POST" action="index.php?page=add_author">
+          <form method="POST" action="index.php?page=add_users">
             <div class="mb-3">
-              <label for="tenTacGia" class="form-label">Tên Tác Giả</label>
-              <input type="text" class="form-control" name="ten_tacgia" required>
+              <label for="tenTacGia" class="form-label">Họ & Tên</label>
+              <input type="text" class="form-control" name="ho_ten" required>
+            </div>
+            <div class="mb-3">
+              <label for="tenTacGia" class="form-label">Số Điện Thoại</label>
+              <input type="text" class="form-control" name="sdt" required>
+            </div>
+            <div class="mb-3">
+              <label for="tenTacGia" class="form-label">Username</label>
+              <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="mb-3">
+              <label for="tenTacGia" class="form-label">Password</label>
+              <input type="text" class="form-control" name="mat_khau" required>
+            </div>
+            <div class="mb-3">
+              <label for="tenTacGia" class="form-label">Email</label>
+              <input type="text" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="vai_tro" class="form-label">Vai Trò</label>
+              <select class="form-control" name="vai_tro" id="vai_tro" required>
+                <option value="0">User</option>
+                <option value="1">Admin</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
           </form>

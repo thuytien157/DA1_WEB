@@ -6,35 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-  /* Sidebar */
   .bg-dark {
     background-color: #D98C52 !important;
   }
 
-  .sidebar {
-    background-color: #D98C52 !important;
-  }
+    .sidebar {
+      background-color: #D98C52 !important;
+    }
 
-  .nav-link {
-    color: #fff !important;
-    font-weight: bold;
-  }
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+    }
 
   .nav-link:hover {
-    background-color: #B77D42 !important; /* Darker hover color */
+    background-color: #B77D42 !important;
   }
 
-  /* Card Header */
   .card-header {
     background-color: #F8F9FA;
     border-bottom: 2px solid #D98C52;
   }
 
-  .card-header h6 {
-    color: #D98C52 !important;
-  }
+    .card-header h6 {
+      color: #D98C52 !important;
+    }
 
-  /* Table */
   .table th,
   .table td {
     color: #333 !important;
@@ -43,60 +40,57 @@
     border-color: #D98C52;
   }
 
-  .table thead {
-    background-color: #F4F1ED;
-    color: #D98C52;
-  }
+    .table thead {
+      background-color: #F4F1ED;
+      color: #D98C52;
+    }
 
-  .table-responsive {
-    max-height: 500px;
-    overflow-y: auto;
-  }
+    .table-responsive {
+      max-height: 500px;
+      overflow-y: auto;
+    }
 
   tr:hover {
-    background-color: #f9e3d4; /* Subtle highlight */
+    background-color: #f9e3d4; 
   }
 
-  /* Action Links */
   .action-link {
     padding: 0 10px;
     font-weight: bold;
   }
 
-  .action-link.edit {
-    color: #F5CA0F !important;
-  }
+    .action-link.edit {
+      color: #F5CA0F !important;
+    }
 
-  .action-link.delete {
-    color: #F5110F !important;
-  }
+    .action-link.delete {
+      color: #F5110F !important;
+    }
 
-  /* Modal */
   .modal-content {
     border-radius: 8px;
   }
 
-  .modal-header {
-    background-color: #D98C52;
-    color: white;
-  }
+    .modal-header {
+      background-color: #D98C52;
+      color: white;
+    }
 
-  .modal-footer .btn-primary {
-    background-color: #D98C52;
-    border: none;
-  }
+    .modal-footer .btn-primary {
+      background-color: #D98C52;
+      border: none;
+    }
 
-  .modal-footer .btn-secondary {
-    color: #D98C52;
-    border: 1px solid #D98C52;
-  }
+    .modal-footer .btn-secondary {
+      color: #D98C52;
+      border: 1px solid #D98C52;
+    }
 
-  .modal-footer .btn-secondary:hover {
-    background-color: #D98C52;
-    color: white;
-  }
+    .modal-footer .btn-secondary:hover {
+      background-color: #D98C52;
+      color: white;
+    }
 
-  /* Create Button */
   .header-actions {
     position: absolute;
     right: 15px;
@@ -104,15 +98,30 @@
     transform: translateY(-50%);
   }
 
-  .header-actions a {
-    color: #D98C52 !important;
-    font-weight: bold;
-  }
+    .header-actions a {
+      color: #D98C52 !important;
+      font-weight: bold;
+    }
 
-  .header-actions a:hover {
-    color: #B77D42 !important;
-  }
-</style>
+    .header-actions a:hover {
+      color: #B77D42 !important;
+    }
+
+    .icon-eye {
+      font-size: 1.5rem;
+      /* Tăng kích thước icon */
+      color: #D98C52;
+      /* Màu da cam */
+      display: inline-block;
+      vertical-align: middle;
+      transition: color 0.3s ease;
+    }
+
+    .icon-eye:hover {
+      color: darkorange;
+      /* Màu đậm hơn khi hover */
+    }
+  </style>
 
 </head>
 
@@ -147,7 +156,7 @@
                     <?php if (!empty($Orders)): ?>
                       <?php foreach ($Orders as $Order): ?>
                         <tr>
-                          <td>
+                          <td >
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id']); ?></h6>
                           </td>
                           <td>
@@ -160,25 +169,35 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['tt_thanhtoan']); ?></h6>
                           </td>
                           <td>
-                            <form method="POST" action="index.php?page=update_order_status">
-                              <input type="hidden" name="id" value="<?php echo $Order['id']; ?>">
-                              <select name="tt_donhang" class="form-select" onchange="this.form.submit()">
-                                <option value="Chờ xử lý" <?php if ($Order['tt_donhang'] == 'Chờ xử lý') echo 'selected'; ?>>Chờ xử lý</option>
-                                <option value="Đang giao" <?php if ($Order['tt_donhang'] == 'Đang giao') echo 'selected'; ?>>Đang giao</option>
-                                <option value="Đã huỷ" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Đã huỷ</option>
-                                <option value="Hoàn thành" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Hoàn thành</option>
+                            <?php if ($Order['tt_donhang'] == 'Đã huỷ'): ?>
+                              <select name="tt_donhang" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
+                                <option value="Đã huỷ" selected>Đã huỷ</option>
                               </select>
-                            </form>
+                            <?php else: ?>
+                              <form method="POST" action="index.php?page=update_order_status">
+                                <input type="hidden" name="id" value="<?php echo $Order['id']; ?>">
+                                <select name="tt_donhang" class="form-select" onchange="this.form.submit()">
+                                  <option value="Chờ xử lý" <?php if ($Order['tt_donhang'] == 'Chờ xử lý') echo 'selected'; ?>>Chờ xử lý</option>
+                                  <option value="Đang giao" <?php if ($Order['tt_donhang'] == 'Đang giao') echo 'selected'; ?>>Đang giao</option>
+                                  <option value="Đã huỷ" <?php if ($Order['tt_donhang'] == 'Đã huỷ') echo 'selected'; ?>>Đã huỷ</option>
+                                  <option value="Hoàn thành" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Hoàn thành</option>
+                                </select>
+                              </form>
+                            <?php endif; ?>
                           </td>
+
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['dia_chi']); ?></h6>
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ghi_chu']); ?></h6>
                           </td>
-                          <td>
-                           <a href="index.php?page=details&id=<?=$Order['id']?>">Con mắt</a> 
+                          <td class="text-center align-items-center">
+                            <a href="index.php?page=details&id=<?= $Order['id'] ?>">
+                              <i class="bi bi-eye-fill icon-eye"></i>
+                            </a>
                           </td>
+
                         </tr>
                       <?php endforeach; ?>
                     <?php else: ?>
