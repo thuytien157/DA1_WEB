@@ -32,7 +32,7 @@ class DonHangModel
         
         $sql = "SELECT 
                 don_hang.id AS donhang_id,
-                don_hang.ngay_giao_hang,
+                don_hang.ngay_mua_hang,
                 don_hang.dia_chi,
                 don_hang.tt_donhang,
                 don_hang.tt_thanhtoan,

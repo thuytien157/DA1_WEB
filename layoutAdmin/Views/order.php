@@ -163,7 +163,7 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id_khachhang'] . "-" . $Order['ten_khachhang']); ?></h6>
                           </td>
                           <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ngay_giao_hang']); ?></h6>
+                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ngay_mua_hang']); ?></h6>
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['tt_thanhtoan']); ?></h6>

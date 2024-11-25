@@ -152,7 +152,7 @@
                               <?php endforeach; ?>
                           </td>
                           <td>
-                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['ngay_giao_hang']); ?></h6>
+                              <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['ngay_mua_hang']); ?></h6>
                           </td>
                           <td>
                               <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($ctdh['tt_thanhtoan']); ?></h6>

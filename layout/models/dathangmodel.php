@@ -16,7 +16,7 @@ class DatHangModel {
         $data = new ConnectModel();
         $conn = $data->ketnoi();
     
-        $sql = "INSERT INTO don_hang (id_khachhang, dia_chi, tt_donhang, tt_thanhtoan, ghi_chu, ngay_giao_hang) 
+        $sql = "INSERT INTO don_hang (id_khachhang, dia_chi, tt_donhang, tt_thanhtoan, ghi_chu, ngay_mua_hang) 
         VALUES (:id_khachhang, :dia_chi, 'Chờ xử lý', 'Đã thanh toán', :ghi_chu, NOW())";
         
         $stmt = $conn->prepare($sql);

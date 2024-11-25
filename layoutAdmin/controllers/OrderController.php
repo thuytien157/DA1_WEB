@@ -57,7 +57,7 @@ class OrderController
                 $donhang_id = $item['donhang_id'];
                 if (!isset($nhomdulieu[$donhang_id])) {
                     $nhomdulieu[$donhang_id] = [
-                        'ngay_giao_hang' => $item['ngay_giao_hang'],
+                        'ngay_mua_hang' => $item['ngay_mua_hang'],
                         'dia_chi' => $item['dia_chi'],
                         'tt_donhang' => $item['tt_donhang'],
                         'tt_thanhtoan' => $item['tt_thanhtoan'],
