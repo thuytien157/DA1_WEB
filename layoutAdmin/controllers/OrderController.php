@@ -27,18 +27,23 @@ class OrderController
     }
     // Xử lý thêm tác giả
     public function updateOrderStatus() {
-        if (isset($_POST['id']) && isset($_POST['tt_donhang'])) {
-            $id = $_POST['id'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['tt_donhang'])) {
+            $orderModel = new orderModel();
+        
+            $id = intval($_POST['id']);
             $tt_donhang = $_POST['tt_donhang'];
-            
-            $result = $this->orderModel->updateOrderStatus($id, $tt_donhang);
-            
-            if ($result) {
-                header("Location: index.php?page=order");
+        
+            // Gọi phương thức updateOrderStatus
+            if ($orderModel->updateOrderStatus($id, $tt_donhang)) {
+                // Thành công, chuyển hướng hoặc hiển thị thông báo
+                header('Location: index.php?page=order');
             } else {
-                echo "Lỗi khi cập nhật trạng thái đơn hàng.";
+                // Thất bại, hiển thị thông báo lỗi
+                header('Location: index.php?page=order');
             }
+            exit;
         }
+        
     }
     public function xemchitiet($id){
             $ctdh = $this->orderModel->ctdh($id);
