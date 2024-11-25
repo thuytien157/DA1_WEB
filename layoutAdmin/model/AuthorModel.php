@@ -9,21 +9,18 @@ class AuthorModel {
         $this->conn = $database->connect();
     }
 
-    // Lấy tất cả tác giả
     public function getAllAuthors() {
         $stmt = $this->conn->prepare("SELECT * FROM tac_gia"); //prepare chuan bi cau lenh truy van tra ve cho $stmt
         $stmt->execute();//cau lenh thuc thi
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; //lay all du lieu theo cau lenh va tra ve dang keys&values
     }
 
-    // Thêm tác giả
     public function addAuthor($ten_tacgia) {
         $stmt = $this->conn->prepare("INSERT INTO tac_gia (ten_tacgia) VALUES (:ten_tacgia)");
         $stmt->bindParam(':ten_tacgia', $ten_tacgia);
         return $stmt->execute(); //tra ve true neu thanh cong va ngươc lai
     }
 
-    // Cập nhật tác giả
     public function updateAuthor($id, $ten_tacgia) {
         $stmt = $this->conn->prepare("UPDATE tac_gia SET ten_tacgia = :ten_tacgia WHERE id = :id");
         $stmt->bindParam(':id', $id);
@@ -31,7 +28,6 @@ class AuthorModel {
         return $stmt->execute(); 
     }
 
-    // Xóa tác giả
     public function deleteAuthor($id) {
         $stmt = $this->conn->prepare("DELETE FROM tac_gia WHERE id = :id");
         $stmt->bindParam(':id', $id);
