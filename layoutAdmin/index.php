@@ -7,6 +7,9 @@ require_once "controllers/CategoryController.php";
 require_once "controllers/PublishingHouseController.php";
 require_once "controllers/OrderController.php";
 require_once "controllers/UsersController.php";
+require_once "controllers/ThongkeController.php";
+$ThongkeController = new ThongkeController();
+$ThongkeModel = new ThongkeModel();
 $ConnectModel = new ConnectModel();
 $AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
@@ -19,12 +22,15 @@ $OrderModel = new OrderModel();
 $UsersController = new UsersController();
 $UsersModel = new UsersModel();
 
-
 $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
     case 'home':
         include 'Views/index.php';
+        break;
+    case 'thongke':
+        $tongSoSachDaBan = $ThongkeController->thongkesach();
+        include 'Views/thongke.php';
         break;
 
     case 'logout':
@@ -38,7 +44,7 @@ switch ($page) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ten_theloai = $_POST['ten_theloai'];
             $result = $CategoryController->addCategory($ten_theloai);
-            header("Location: index.php?page=category"); 
+            header("Location: index.php?page=category");
         }
         break;
     case 'edit_category':

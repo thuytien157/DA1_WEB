@@ -10,7 +10,7 @@ class DonHangModel
         $dulieu = new ConnectModel();
         
         $sql = 'SELECT don_hang.id AS donhang_id, 
-                        don_hang.ngay_giao_hang, 
+                        don_hang.ngay_mua_hang, 
                         don_hang.tt_donhang,  
                         chi_tiet_don_hang.so_luong,
                         chi_tiet_don_hang.id_donhang,

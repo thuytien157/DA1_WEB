@@ -62,83 +62,31 @@
         ?> !
       </h4>
       <div class="row">
-        <div class="col-md-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Sách đã bán</h5>
-              <p class="card-text fs-4">120</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Doanh thu hôm nay</h5>
-              <p class="card-text fs-4">2,000,000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-<div class="col-md-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Doanh thu tháng</h5>
-              <p class="card-text fs-4">45,000,000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Sách còn trong kho</h5>
-              <p class="card-text fs-4">10890</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
         <div class="col-md-6 mb-4">
           <div class="chart-container">
             <h5 class="chart-title">Số lượng sách đã bán</h5>
             <canvas id="salesChart"></canvas>
           </div>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="chart-container">
-            <h5 class="chart-title">Thể loại sách bán chạy</h5>
-            <canvas id="categoryChart"></canvas>
-          </div>
-        </div>
       </div>
     </div>
   </div>
   <script>
+    // Dữ liệu từ PHP truyền vào JavaScript
+    const data = <?php echo json_encode($data); ?>;
+    const labels = data.map(item => item.ngay);
+    const soLuong = data.map(item => item.so_luong);
+
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
       type: 'line', 
       data: {
-        labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'],
+        labels: labels,
         datasets: [{
           label: 'Số sách đã bán',
-          data: [12, 19, 10, 15, 22, 30, 25],
+          data: soLuong,
           backgroundColor: 'rgba(75, 192, 192, 0.2)', 
           borderColor: 'rgba(75, 192, 192, 1)', 
-          borderWidth: 2,
-          tension: 0.4 
-        }]
-      }
-    });
-
- 
-    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
-    new Chart(categoryCtx, {
-      type: 'line', 
-      data: {
-        labels: ['Văn học', 'Kinh tế', 'Khoa học', 'Trẻ em', 'Tiểu thuyết'],
-        datasets: [{
-          label: 'Số lượng sách',
-          data: [30, 20, 15, 25, 10],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)', 
-          borderColor: 'rgba(255, 99, 132, 1)', 
           borderWidth: 2,
           tension: 0.4 
         }]
