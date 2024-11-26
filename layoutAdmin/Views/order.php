@@ -169,18 +169,18 @@
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['tt_thanhtoan']); ?></h6>
                           </td>
                           <td>
-                            <?php if ($Order['tt_donhang'] == 'Đã huỷ'): ?>
+                            <?php if ($Order['tt_donhang'] == 'Đã hủy'): ?>
                               <select name="tt_donhang" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
-                                <option value="Đã huỷ" selected>Đã huỷ</option>
+                                <option value="Đã huỷ" selected>Đã hủy</option>
                               </select>
                             <?php else: ?>
                               <form method="POST" action="index.php?page=update_order_status">
                                 <input type="hidden" name="id" value="<?php echo $Order['id']; ?>">
                                 <select name="tt_donhang" class="form-select" onchange="this.form.submit()">
-                                  <option value="Chờ xử lý" <?php if ($Order['tt_donhang'] == 'Chờ xử lý') echo 'selected'; ?>>Chờ xử lý</option>
-                                  <option value="Đang giao" <?php if ($Order['tt_donhang'] == 'Đang giao') echo 'selected'; ?>>Đang giao</option>
-                                  <option value="Đã huỷ" <?php if ($Order['tt_donhang'] == 'Đã huỷ') echo 'selected'; ?>>Đã huỷ</option>
-                                  <option value="Hoàn thành" <?php if ($Order['tt_donhang'] == 'Hoàn thành') echo 'selected'; ?>>Hoàn thành</option>
+                                  <option value="Chờ xử lý" >Chờ xử lý</option>
+                                  <option value="Đang giao" >Đang giao</option>
+                                  <option value="Đã hủy">Đã hủy</option>
+                                  <option value="Hoàn thành" >Hoàn thành</option>
                                 </select>
                               </form>
                             <?php endif; ?>

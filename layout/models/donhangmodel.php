@@ -10,7 +10,7 @@ class DonHangModel
         $dulieu = new ConnectModel();
         
         $sql = 'SELECT don_hang.id AS donhang_id, 
-                        don_hang.ngay_giao_hang, 
+                        don_hang.ngay_mua_hang, 
                         don_hang.tt_donhang,  
                         chi_tiet_don_hang.so_luong,
                         chi_tiet_don_hang.id_donhang,
@@ -21,7 +21,8 @@ class DonHangModel
                 FROM don_hang
                 INNER JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
                 INNER JOIN sach ON sach.id = chi_tiet_don_hang.id_sach
-                WHERE don_hang.id_khachhang = :id';
+                WHERE don_hang.id_khachhang = :id
+                ORDER BY donhang_id DESC';
         
         $this->donhang = $dulieu->selectall($sql, [':id' => $id]);
     }

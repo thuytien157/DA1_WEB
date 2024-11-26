@@ -39,7 +39,7 @@
                         <td colspan="4"><strong>Trạng thái thanh toán:</strong> '.$ctdh[0]['tt_thanhtoan'].'</td>
                       </tr>
                       <tr>
-                        <td colspan="4"><strong>Ngày mua hàng:</strong> '.$ctdh[0]['ngay_giao_hang'].'</td>
+                        <td colspan="4"><strong>Ngày mua hàng:</strong> '.$ctdh[0]['ngay_mua_hang'].'</td>
                       </tr>
                       <tr>
                         <td colspan="4"><strong>Địa chỉ:</strong> '.$ctdh[0]['dia_chi'].'</td>
