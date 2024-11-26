@@ -56,6 +56,7 @@
     <div class="sidebar text-white p-3" style="width: 250px; min-height: 100vh;">
       <ul class="nav flex-column mt-4">
         <li class="nav-item"><a href="index.php?page=home" class="nav-link text-white">Tổng quan</a></li>
+        <li class="nav-item"><a href="index.php?page=book" class="nav-link text-white">Quản lý sách</a></li>
         <li class="nav-item"><a href="index.php?page=category" class="nav-link text-white">Quản lý thể loại</a></li>
         <li class="nav-item"><a href="index.php?page=author" class="nav-link text-white">Quản lý tác giả</a></li>
         <li class="nav-item"><a href="index.php?page=publishinghouse" class="nav-link text-white">Quản lý nhà xuất bản</a></li>

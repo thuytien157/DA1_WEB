@@ -2,6 +2,7 @@
 session_start();
 include 'Views/header.php';
 require_once 'model/ConnectModel.php';
+require_once "controllers/BookController.php";
 require_once "controllers/AuthorController.php";
 require_once "controllers/CategoryController.php";
 require_once "controllers/PublishingHouseController.php";
@@ -9,6 +10,8 @@ require_once "controllers/OrderController.php";
 require_once "controllers/UsersController.php";
 require_once "controllers/ThongkeController.php";
 $ConnectModel = new ConnectModel();
+$BookController = new BookController();
+$BookModel = new BookModel();
 $thongkeController = new thongkeController();
 $AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
@@ -30,6 +33,20 @@ switch ($page) {
     case 'logout':
         header("Location: ../layout/index.php");
         exit();
+        break;
+
+    case 'book':
+        $BookController->listBooks();
+        break;
+
+
+
+
+
+    case 'delete_book':
+        $id = $_GET['id'];
+        $result = $BookController->deleteBook($id);
+        header("Location: index.php?page=book");
         break;
     case 'category':
         $CategoryController->listCategorys();
