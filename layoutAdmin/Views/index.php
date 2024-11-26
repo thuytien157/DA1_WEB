@@ -62,37 +62,100 @@
         ?> !
       </h4>
       <div class="row">
+        <div class="col-md-3 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Sách đã bán</h5>
+              <p class="card-text fs-4"><?=$sp[0]['so_luong_sach_sale']?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Doanh thu hôm nay</h5>
+              <p class="card-text fs-4"><?=$dt_cur[0]['doanh_thu_hom_nay']*1000?> VNĐ</p>
+            </div>
+          </div>
+        </div>
+<div class="col-md-3 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Doanh thu tuần</h5>
+              <p class="card-text fs-4"><?=$dt_w[0]['doanh_thu_tuan']*1000?> VNĐ</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Doanh thu tháng</h5>
+              <p class="card-text fs-4"><?=$dt_m[0]['doanh_thu_thang']*1000?> VNĐ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-6 mb-4">
           <div class="chart-container">
             <h5 class="chart-title">Số lượng sách đã bán</h5>
             <canvas id="salesChart"></canvas>
           </div>
         </div>
+        <div class="col-md-6 mb-4">
+          <div class="chart-container">
+            <h5 class="chart-title">Thể loại sách bán chạy</h5>
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <script>
-    // Dữ liệu từ PHP truyền vào JavaScript
-    const data = <?php echo json_encode($data); ?>;
-    const labels = data.map(item => item.ngay);
-    const soLuong = data.map(item => item.so_luong);
+    //json_decode chuyển đổi mảng thành json để js có thể hiểu
+    const salesData = <?= json_encode(array_column($sl_sach, 'so_luong_ban')) ?>;
+    const daysOfWeek = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
 
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
-      type: 'line', 
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Số sách đã bán',
-          data: soLuong,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)', 
-          borderColor: 'rgba(75, 192, 192, 1)', 
-          borderWidth: 2,
-          tension: 0.4 
-        }]
-      }
+        type: 'line', 
+        data: {
+            labels: daysOfWeek,
+            datasets: [{
+                label: 'Số sách đã bán',
+                data: salesData, 
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', 
+                borderColor: 'rgba(75, 192, 192, 1)', 
+                borderWidth: 2,
+                tension: 0.4 
+            }]
+        }
     });
-  </script>
+
+ 
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+    const categories = <?= json_encode(array_column($loai_sach, 'ten_theloai')) ?>;
+    const sales = <?= json_encode(array_column($loai_sach, 'so_luong_ban')) ?>;
+    
+    console.log(categories);
+    console.log(sales);
+    
+    
+    new Chart(categoryCtx, {
+    type: 'bar',
+    data: {
+        labels: categories, 
+        datasets: [{
+            label: 'Số lượng sách bán ra',
+            data: sales,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 2
+        }]
+    }
+});
+ 
+      </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,16 +1,15 @@
 <?php
 session_start();
 include 'Views/header.php';
-include 'model/ConnectModel.php';
+require_once 'model/ConnectModel.php';
 require_once "controllers/AuthorController.php";
 require_once "controllers/CategoryController.php";
 require_once "controllers/PublishingHouseController.php";
 require_once "controllers/OrderController.php";
 require_once "controllers/UsersController.php";
 require_once "controllers/ThongkeController.php";
-$ThongkeController = new ThongkeController();
-$ThongkeModel = new ThongkeModel();
 $ConnectModel = new ConnectModel();
+$thongkeController = new thongkeController();
 $AuthorController = new AuthorController();
 $AuthorModel = new AuthorModel();
 $CategoryController = new CategoryController();
@@ -26,13 +25,8 @@ $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
     case 'home':
-        include 'Views/index.php';
+        $thongkeController->thongke();
         break;
-    case 'thongke':
-        $tongSoSachDaBan = $ThongkeController->thongkesach();
-        include 'Views/thongke.php';
-        break;
-
     case 'logout':
         header("Location: ../layout/index.php");
         exit();

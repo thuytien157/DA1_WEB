@@ -4,7 +4,6 @@ require_once "ConnectModel.php";
 class orderModel
 {
     private $conn;
-    public $ctdonhang;
     public function __construct()
     {
         $database = new ConnectModel();

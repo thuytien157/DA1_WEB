@@ -1,26 +1,31 @@
 <?php
-class ThongkeController
+require_once "model/ThongkeModel.php";
+class thongkeController
 {
-    public $thongke;
+    private $thongkeModel;
+
+
     public function __construct()
     {
-        $database = new connectModel();
-        $this->thongke = $database->ketnoi();
+        $this->thongkeModel = new thongkeModel();
     }
 
-    public function thongkesach()
+    public function thongke()
     {
-        $stmt = $this->thongke->prepare("
-            SELECT SUM(chi_tiet_don_hang.so_luong) AS tong_so_sach
-            FROM chi_tiet_don_hang
-            INNER JOIN don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
-        ");
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $sp = $this->thongkeModel->sachdaban();
+        $dt_cur = $this->thongkeModel->doanhthuhomnay();
+        $dt_m = $this->thongkeModel->doanhthuthang();
+        $dt_w = $this->thongkeModel->doanhthutuan();
+        $loai_sach = $this->thongkeModel->sachbanchaytheoloai();
+        $sl_sach = $this->thongkeModel->sachdaban7ngay();
 
-        return $result['tong_so_sach'] ?? 0; // Trả về 0 nếu không có kết quả
+        require 'Views/index.php';
+        //var_dump($sp);
+        //var_dump($dt_cur);
+        //var_dump($dt_m);
+        //var_dump($dt_w);
+        //var_dump($loai_sach);
+        //var_dump($sl_sach);
     }
+
 }
-
-
-
