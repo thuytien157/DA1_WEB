@@ -110,6 +110,8 @@
 
 </head>
 <body>
+
+
   <div class="container-fluid py-4 d-flex">
     <div class="container-fluid py-4 content">
       <div class="row">
@@ -254,10 +256,10 @@
   <label for="tenTheloai" class="form-label">Tên Thể Loại</label>
   <select class="form-select" name="ten_theloai_id" required>
     <option value="">Chọn Thể Loại</option>
-    <?php if (!empty($hamchuataonhaTien)): ?>
-      <?php foreach ($hamchuataonhaTien as $hamchuataonhaTien): ?>
-        <option value="<?= htmlspecialchars($hamchuataonhaTien['id']); ?>">
-          <?= htmlspecialchars($hamchuataonhaTien['ten_theloai']); ?>
+    <?php if (!empty($tl)): ?>
+      <?php foreach ($tl as $categories): ?>
+        <option value="<?= htmlspecialchars($categories['id']); ?>">
+          <?= htmlspecialchars($categories['ten_theloai']); ?>
         </option>
       <?php endforeach; ?>
     <?php else: ?>
@@ -271,10 +273,10 @@
   <label for="tenTacgia" class="form-label">Tên Tác Giả</label>
   <select class="form-select" name="ten_tacgia_id" required>
     <option value="">Chọn Tác Giả</option>
-    <?php if (!empty($hamchuataonhaTien)): ?>
-      <?php foreach ($hamchuataonhaTien as $hamchuataonhaTien): ?>
-        <option value="<?= htmlspecialchars($hamchuataonhaTien['id']); ?>">
-          <?= htmlspecialchars($hamchuataonhaTien['ten_tacgia']); ?>
+    <?php if (!empty($tg)): ?>
+      <?php foreach ($tg as $authors): ?>
+        <option value="<?= htmlspecialchars($authors['id']); ?>">
+          <?= htmlspecialchars($authors['ten_tacgia']); ?>
         </option>
       <?php endforeach; ?>
     <?php else: ?>
@@ -289,10 +291,10 @@
   <label for="tenNxb" class="form-label">Tên Nhà Xuất Bản</label>
   <select class="form-select" name="ten_nxb_id" required>
     <option value="">Chọn Nhà Xuất Bản</option>
-    <?php if (!empty($hamchuataonhaTien)): ?>
-      <?php foreach ($hamchuataonhaTien as $hamchuataonhaTien): ?>
-        <option value="<?= htmlspecialchars($hamchuataonhaTien['id']); ?>">
-          <?= htmlspecialchars($hamchuataonhaTien['ten_nxb']); ?>
+    <?php if (!empty($nxb)): ?>
+      <?php foreach ($nxb as $publishinghouse): ?>
+        <option value="<?= htmlspecialchars($publishinghouse['id']); ?>">
+          <?= htmlspecialchars($publishinghouse['ten_nxb']); ?>
         </option>
       <?php endforeach; ?>
     <?php else: ?>

@@ -17,6 +17,12 @@ class BookModel {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; }
 
+
+    // public function dstacgia() {
+    //     $stmt = $this->conn->prepare("SELECT * FROM tac_gia"); //prepare chuan bi cau lenh truy van tra ve cho $stmt
+    //     $stmt->execute();//cau lenh thuc thi
+    //     return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; //lay all du lieu theo cau lenh va tra ve dang keys&values
+    // }
     //
     // public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
     //     if (!is_int($id_theloai) || !is_int($id_tacgia) || !is_int($id_nxb)) {
