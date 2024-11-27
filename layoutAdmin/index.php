@@ -38,11 +38,34 @@ switch ($page) {
     case 'book':
         $BookController->listBooks();
         break;
-
-
-
-
-
+        case 'add_book':
+            try {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $id_theloai = $_POST['id_theloai'] ?? null;
+                $id_tacgia = $_POST['id_tacgia'] ?? null;
+                $id_nxb = $_POST['id_nxb'] ?? null;
+                $ten_sach = $_POST['ten_sach'] ?? '';
+                $hinh = $_FILES['hinh']['name'] ?? ''; 
+                $gia = $_POST['gia'] ?? 0;
+                $giam = $_POST['giam'] ?? 0;
+                $mo_ta = $_POST['mo_ta'] ?? '';
+                $nam_xb = $_POST['nam_xb'] ?? date('Y');
+                $so_luong_ban = $_POST['so_luong_ban'] ?? 0;
+                }
+                if (!empty($hinh)) {
+                    $target_dir = "../../layout/public/img/IMG_DA1/san pham/";
+                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                    if (!move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                        throw new Exception("Không thể upload file hình.");
+                    }
+                }
+                $result = $this->bookModel->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+                header("Location: index.php?page=book");
+        
+            } catch (Exception $e) {
+                echo "Lỗi khi thêm sách: " . $e->getMessage();
+            }
+            break;
     case 'delete_book':
         $id = $_GET['id'];
         $result = $BookController->deleteBook($id);

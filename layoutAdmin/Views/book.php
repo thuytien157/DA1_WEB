@@ -220,7 +220,6 @@
         </div>
       </div>
     </div>
-
   </div>
 <!--model full mota-->
   <?php foreach ($books as $book): ?>
@@ -254,7 +253,7 @@
         <!-- Tên Thể Loại -->
         <div class="mb-3">
   <label for="tenTheloai" class="form-label">Tên Thể Loại</label>
-  <select class="form-select" name="ten_theloai_id" required>
+  <select class="form-select" name="ten_theloai" required>
     <option value="">Chọn Thể Loại</option>
     <?php if (!empty($tl)): ?>
       <?php foreach ($tl as $categories): ?>
@@ -271,7 +270,7 @@
 <!-- Tên Tác Giả -->
 <div class="mb-3">
   <label for="tenTacgia" class="form-label">Tên Tác Giả</label>
-  <select class="form-select" name="ten_tacgia_id" required>
+  <select class="form-select" name="ten_tacgia" required>
     <option value="">Chọn Tác Giả</option>
     <?php if (!empty($tg)): ?>
       <?php foreach ($tg as $authors): ?>
@@ -289,7 +288,7 @@
 <!-- Tên Nhà Xuất Bản -->
 <div class="mb-3">
   <label for="tenNxb" class="form-label">Tên Nhà Xuất Bản</label>
-  <select class="form-select" name="ten_nxb_id" required>
+  <select class="form-select" name="ten_nxb" required>
     <option value="">Chọn Nhà Xuất Bản</option>
     <?php if (!empty($nxb)): ?>
       <?php foreach ($nxb as $publishinghouse): ?>

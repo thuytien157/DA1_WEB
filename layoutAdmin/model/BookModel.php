@@ -18,42 +18,24 @@ class BookModel {
     return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; }
 
 
-    // public function dstacgia() {
-    //     $stmt = $this->conn->prepare("SELECT * FROM tac_gia"); //prepare chuan bi cau lenh truy van tra ve cho $stmt
-    //     $stmt->execute();//cau lenh thuc thi
-    //     return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; //lay all du lieu theo cau lenh va tra ve dang keys&values
-    // }
-    //
-    // public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
-    //     if (!is_int($id_theloai) || !is_int($id_tacgia) || !is_int($id_nxb)) {
-    //         throw new Exception("id khong hop le"); //kiem tra so nguyen
-    //     }
-    //     if (!is_numeric($nam_xb) || strlen((string)$nam_xb) != 4) {
-    //         throw new Exception("nam khong hop le");
-    //     }
-    //     $stmt = $this->conn->prepare("INSERT INTO sach (id_theloai, id_tacgia, id_nxb, ten_sach, hinh, gia, giam, mo_ta, nam_xb, so_luong_ban, ngay_nhap) 
-    //                                    VALUES (:id_theloai, :id_tacgia, :id_nxb, :ten_sach, :hinh, :gia, :giam, :mo_ta, :nam_xb, :so_luong_ban, NOW())");
+
+    public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
+        $stmt = $this->conn->prepare("INSERT INTO sach (id_theloai, id_tacgia, id_nxb, ten_sach, hinh, gia, giam, mo_ta, nam_xb, so_luong_ban, ngay_nhap) 
+                                       VALUES (:id_theloai, :id_tacgia, :id_nxb, :ten_sach, :hinh, :gia, :giam, :mo_ta, :nam_xb, :so_luong_ban, NOW())");
+        $stmt->bindParam(':id_theloai', $id_theloai);
+        $stmt->bindParam(':id_tacgia', $id_tacgia);
+        $stmt->bindParam(':id_nxb', $id_nxb);
+        $stmt->bindParam(':ten_sach', $ten_sach);
+        $stmt->bindParam(':hinh', $hinh);
+        $stmt->bindParam(':gia', $gia);
+        $stmt->bindParam(':giam', $giam);
+        $stmt->bindParam(':mo_ta', $mo_ta);
+        $stmt->bindParam(':nam_xb', $nam_xb);
+        $stmt->bindParam(':so_luong_ban', $so_luong_ban);
+
+        return $stmt->execute();
+    }
     
-    //     if (!$stmt) {
-    //         throw new Exception("Prepare statement failed: " . implode(", ", $this->conn->errorInfo()));
-    //     }
-    //     $stmt->bindParam(':id_theloai', $id_theloai);
-    //     $stmt->bindParam(':id_tacgia', $id_tacgia);
-    //     $stmt->bindParam(':id_nxb', $id_nxb);
-    //     $stmt->bindParam(':ten_sach', $ten_sach);
-    //     $stmt->bindParam(':hinh', $hinh);
-    //     $stmt->bindParam(':gia', $gia);
-    //     $stmt->bindParam(':giam', $giam);
-    //     $stmt->bindParam(':mo_ta', $mo_ta);
-    //     $stmt->bindParam(':nam_xb', $nam_xb);
-    //     $stmt->bindParam(':so_luong_ban', $so_luong_ban);
-    
-    //     if ($stmt->execute()) {
-    //         return $this->conn->lastInsertId();
-    //     } else {
-    //         throw new Exception("Execute failed: " . implode(", ", $stmt->errorInfo()));
-    //     }
-    // }
 
     public function deleteBook($id) {
         $stmt = $this->conn->prepare("DELETE FROM sach WHERE id = :id");
