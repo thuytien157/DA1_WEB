@@ -217,7 +217,6 @@
         </div>
       </div>
     </div>
-
   </div>
 <!--model full mota-->
   <?php foreach ($books as $book): ?>
