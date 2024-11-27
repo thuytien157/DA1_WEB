@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,8 +109,6 @@
 
 </head>
 <body>
-
-
   <div class="container-fluid py-4 d-flex">
     <div class="container-fluid py-4 content">
       <div class="row">
@@ -197,7 +194,7 @@
 
 <td>
   <?php if (!empty($book['hinh'])): ?>
-    <img src="<?='../../layout/public/img/IMG_DA1/san pham/'. $book['hinh']; ?>" alt="Images" style="width: 50px; height: auto; margin-right: 10px;">
+    <img src="<?='../layout/public/img/IMG_DA1/san pham/'. $book['hinh']; ?>" alt="Images" style="width: 50px; height: auto; margin-right: 10px;">
   <?php endif; ?>
   
 </td>          
@@ -241,8 +238,11 @@
   </div>
 </div>
 <?php endforeach; ?>
+
+
+
   <!--model them sach -->
-<div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -250,58 +250,57 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="index.php?page=add_book">
-        <!-- Tên Thể Loại -->
-        <div class="mb-3">
-  <label for="tenTheloai" class="form-label">Tên Thể Loại</label>
-  <select class="form-select" name="ten_theloai_id" required>
-    <option value="">Chọn Thể Loại</option>
-    <?php if (!empty($tl)): ?>
-      <?php foreach ($tl as $categories): ?>
-        <option value="<?= htmlspecialchars($categories['id']); ?>">
-          <?= htmlspecialchars($categories['ten_theloai']); ?>
-        </option>
-      <?php endforeach; ?>
-    <?php else: ?>
-      <option value="">Không có thể loại</option>
-    <?php endif; ?>
-  </select>
-</div>
+        <form method="POST" action="index.php?page=add_book"  enctype="multipart/form-data">
+          <!-- Tên Thể Loại -->
+          <div class="mb-3">
+            <label for="tenTheloai" class="form-label">Tên Thể Loại</label>
+            <select class="form-select" name="ten_theloai_id" required>
+              <option value="">Chọn Thể Loại</option>
+              <?php if (!empty($tl)): ?>
+                <?php foreach ($tl as $categories): ?>
+                  <option value="<?= htmlspecialchars($categories['id']); ?>">
+                    <?= htmlspecialchars($categories['ten_theloai']); ?>
+                  </option>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <option value="">Không có thể loại</option>
+              <?php endif; ?>
+            </select>
+          </div>
 
-<!-- Tên Tác Giả -->
-<div class="mb-3">
-  <label for="tenTacgia" class="form-label">Tên Tác Giả</label>
-  <select class="form-select" name="ten_tacgia_id" required>
-    <option value="">Chọn Tác Giả</option>
-    <?php if (!empty($tg)): ?>
-      <?php foreach ($tg as $authors): ?>
-        <option value="<?= htmlspecialchars($authors['id']); ?>">
-          <?= htmlspecialchars($authors['ten_tacgia']); ?>
-        </option>
-      <?php endforeach; ?>
-    <?php else: ?>
-      <option value="">Không có tác giả</option>
-    <?php endif; ?>
-  </select>
-</div>
+          <!-- Tên Tác Giả -->
+          <div class="mb-3">
+            <label for="tenTacgia" class="form-label">Tên Tác Giả</label>
+            <select class="form-select" name="ten_tacgia_id" required>
+              <option value="">Chọn Tác Giả</option>
+              <?php if (!empty($tg)): ?>
+                <?php foreach ($tg as $authors): ?>
+                  <option value="<?= htmlspecialchars($authors['id']); ?>">
+                    <?= htmlspecialchars($authors['ten_tacgia']); ?>
+                  </option>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <option value="">Không có tác giả</option>
+              <?php endif; ?>
+            </select>
+          </div>
 
-
-<!-- Tên Nhà Xuất Bản -->
-<div class="mb-3">
-  <label for="tenNxb" class="form-label">Tên Nhà Xuất Bản</label>
-  <select class="form-select" name="ten_nxb_id" required>
-    <option value="">Chọn Nhà Xuất Bản</option>
-    <?php if (!empty($nxb)): ?>
-      <?php foreach ($nxb as $publishinghouse): ?>
-        <option value="<?= htmlspecialchars($publishinghouse['id']); ?>">
-          <?= htmlspecialchars($publishinghouse['ten_nxb']); ?>
-        </option>
-      <?php endforeach; ?>
-    <?php else: ?>
-      <option value="">Không có nhà xuất bản</option>
-    <?php endif; ?>
-  </select>
-</div>
+          <!-- Tên Nhà Xuất Bản -->
+          <div class="mb-3">
+            <label for="tenNxb" class="form-label">Tên Nhà Xuất Bản</label>
+            <select class="form-select" name="ten_nxb_id" required>
+              <option value="">Chọn Nhà Xuất Bản</option>
+              <?php if (!empty($nxb)): ?>
+                <?php foreach ($nxb as $publishinghouse): ?>
+                  <option value="<?= htmlspecialchars($publishinghouse['id']); ?>">
+                    <?= htmlspecialchars($publishinghouse['ten_nxb']); ?>
+                  </option>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <option value="">Không có nhà xuất bản</option>
+              <?php endif; ?>
+            </select>
+          </div>
 
           <!-- Các trường khác -->
           <div class="mb-3">
@@ -331,7 +330,7 @@
 
           <div class="mb-3">
             <label for="namXb" class="form-label">Năm Xuất Bản</label>
-            <input type="number" class="form-control" name="nam_xb" required>
+            <input type="date" class="form-control" name="nam_xb" required>
           </div>
 
           <div class="mb-3">
@@ -339,7 +338,7 @@
             <input type="number" class="form-control" name="so_luong_ban" required>
           </div>
 
-          <button type="submit" class="btn btn-primary">Lưu</button>
+          <button type="submit" class="btn btn-primary" name="them">Lưu</button>
         </form>
       </div>
     </div>

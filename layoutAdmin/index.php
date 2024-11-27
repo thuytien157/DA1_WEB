@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 include 'Views/header.php';
 require_once 'model/ConnectModel.php';
 require_once "controllers/BookController.php";
@@ -38,7 +40,37 @@ switch ($page) {
     case 'book':
         $BookController->listBooks();
         break;
-
+        case 'add_book':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['them'])) {
+                $ten_sach = trim($_POST['ten_sach']);
+                $id_theloai = (int)$_POST['ten_theloai_id'];
+                $id_tacgia = (int)$_POST['ten_tacgia_id'];
+                $id_nxb = (int)$_POST['ten_nxb_id'];
+                $gia = $_POST['gia'];
+                $giam = $_POST['giam'];
+                $mo_ta = trim($_POST['mo_ta']);
+                $nam_xb = $_POST['nam_xb'];
+                $so_luong_ban = $_POST['so_luong_ban'];
+        
+                if (isset($_FILES['hinh'])) {
+                    $targetFile = "../layout/public/img/IMG_DA1/san pham/".$_FILES['hinh']['name'];
+        
+                    if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
+                        $hinh = $_FILES['hinh']['name'];        
+                        $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+        
+                        header("Location: index.php?page=book");
+                        exit();
+                    } else {
+                        echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
+                        exit();
+                    }
+                } else {
+                    echo "Vui lòng chọn hình ảnh để tải lên.";
+                    exit();
+                }
+            }
+            break;
 
 
 
