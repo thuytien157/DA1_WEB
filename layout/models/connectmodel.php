@@ -22,19 +22,19 @@ class ConnectModel
     {
         $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
-        
+
         if (is_array($params)) {
             foreach ($params as $key => $value) {
                 $stmt->bindParam($key, $value);
             }
         }
-        
+
         $stmt->execute();
         $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về tất cả dòng dữ liệu
         $this->conn = null; // Đóng kết nối
         return $kq;
     }
-    
+
     public function selectone($sql,$id)
     {
         $this->ketnoi();
@@ -73,8 +73,18 @@ class ConnectModel
         $this->conn = null;  // Đóng kết nối
         return $kq;  // Trả về một kết quả duy nhất (mảng kết quả)
     }
-    
+
+    public function selectonemail($sql, $email) {
+        $this->ketnoi();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':email', $email); // Truyền tham số email trực tiếp
+        $stmt->execute();
+        $kq = $stmt->fetch(PDO::FETCH_ASSOC);  // Lấy một kết quả duy nhất
+        $this->conn = null;  // Đóng kết nối
+        return $kq;  // Trả về kết quả
     }
+
+}
 
 
 
