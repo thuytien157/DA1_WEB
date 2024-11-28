@@ -30,13 +30,29 @@ class BookController {
         return $result;
         require_once "Views/book.php";
     }
+    public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
+        $result = $this->bookModel->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+        
+        if ($result) {
+            return true; 
+        }
+        return false;
+    }
+
 
 
 
 
     public function deleteBook($id) {
         $result = $this->bookModel->deleteBook($id);
+        if ($result) {
+            header("Location: index.php?page=book");
+            exit();}
         
+    }
+
+    public function getBookById($id) {
+        return $this->bookModel->getBookById($id);
     }
 }  
     
