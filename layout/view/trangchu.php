@@ -1,5 +1,8 @@
-
-    <img class="banner" src="public/img/IMG_DA1/baner/ms_banner_img1.webp" alt="">
+<div class="slide">
+    <img class="banners" src="public/img/IMG_DA1/baner/ms_banner_img1.webp" alt="">
+    <img class="banners" src="public/img/IMG_DA1/baner/ms_banner_img2.webp" alt="">
+    <img class="banners" src="public/img/IMG_DA1/baner/ms_banner_img3.webp" alt="">
+</div>
 
 <main class="container-xxl">
     <section>
@@ -248,3 +251,34 @@
     </section>
     <!-- end tác giả  -->
 </main>
+<script>
+// JavaScript cho Banner Auto Slide
+const banners = document.querySelectorAll('.banners'); // Đảm bảo đúng class
+let currentIndex = 0;
+
+// Hàm hiển thị banner dựa trên index
+function showBanner(index) {
+    banners.forEach((banner, i) => {
+        if (i === index) {
+            banner.classList.add('active'); // Hiển thị ảnh hiện tại
+        } else {
+            banner.classList.remove('active'); // Ẩn các ảnh khác
+        }
+    });
+}
+
+// Hàm tự động chuyển ảnh
+function autoSlide() {
+    currentIndex++;
+    if (currentIndex >= banners.length) {
+        currentIndex = 0; // Quay lại ảnh đầu tiên
+    }
+    showBanner(currentIndex);
+}
+
+// Bắt đầu hiển thị ảnh đầu tiên
+showBanner(currentIndex);
+
+// Chạy autoSlide mỗi 3 giây
+setInterval(autoSlide, 3500);
+</script>

@@ -241,10 +241,17 @@ header {
 /* xong thanh nav  */
 
 /* banner  */
-.banner{
-    margin-top: 30px;
-    width: 100%;
+.banners {
+    display: none; /* Ẩn tất cả ảnh */
+    width: 100%; 
+    margin-top: 30px;  /* Đảm bảo ảnh full chiều ngang */
 }
+
+.banners.active {
+    display: block; /* Hiển thị ảnh đang active */
+    transition: opacity 1s ease-in-out; /* Thêm hiệu ứng mượt */
+}
+
 
 /* main */
 
