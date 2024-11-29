@@ -1,9 +1,9 @@
 <main class="mg-top60">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-6 form_dangnhap">
                 <h2 class="title-hot">Đăng Nhập</h2>
-                <form method="post" action="?act=login">
+                <form method="post" action="?act=login" >
                     <?php if (isset($error)): ?>
                         <div class="alert alert-danger"><?php echo $error; ?></div>
                     <?php endif; ?>
@@ -23,7 +23,9 @@
                             </span>
                         </div>
                     </div>
+                    <a href="index.php?act=register" class="me-2 link-login">Đăng ký</a>
                     <button type="submit" class="button btn-mid">Đăng Nhập</button>
+                    <a href="index.php?act=repass" class="btn-right link-login">quên mật khẩu</a>
                 </form>
             </div>
         </div>
