@@ -1,167 +1,145 @@
-<!-- MENU-END -->
 <main class="wrap">
-    <div class="dieuhuong">
-        <a href="index.html">Trang chủ</a> /
-        <a href="sanpham.html" id="back">Sản phẩm</a>
-    </div>
-    <!-- MAIN-PRODUCT -->
-    <div class="container-xxl">
-        <div class="trangsanpham">
-            <div class="filter border-end">
-                <!-- Filter Thể Loại -->
-                <div class="theloai">
-
-                    <h5>Thể loại</h5>
-                    <?php
-                    $ch = '';
-                    foreach ($sanphammodel->theloai as $key => $value) {
-                        
-                        // extract($value);
-                        $ch .= '
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <label class="form-check-label" for="literatureCheckbox">
-                                        <a href="index.php?act=product&idtl=' . $value['id'] . '" class="text-decoration-none text-black"> ' . $value['ten_theloai'] . '</a>
-                                    </label>
-                                </li>
-                            </ul>
-                            ';
-                        }
-                        echo $ch; 
-                    ?>
-                </div>
-                <!-- end div thể loại -->
-
-                <div class="tacgia pt-3">
-                    <section>
-                        <h5>Tác giả</h5>
-                        <?php
-                        $ch = '';
-                        foreach ($sanphammodel->tacgia as $key => $value) {
-                            
-                            // extract($value);
-                            $ch .= '
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <label class="form-check-label" for="author1Checkbox">
-                                        <a href="index.php?act=product&idtg=' . $value['id'] . '" class="text-decoration-none text-black"> ' . substr($value['ten_tacgia'],10). '</a>
-                                    </label>
-                                </li>
-                            </ul>
-                            ';
-                            
-                        }
-                        echo $ch;
-                        ?>
-
-                    </section>
-                </div>
-                <!-- end div tác giả -->
-
-                <div class="nhaxuatban pt-3">
-                <h5>Nhà xuất bản</h5>
-                    <section>
-                        <?php
-                        $ch='';
-                        foreach($sanphammodel->nxb as $key => $value) {
-                            $ch.= '
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <label class="form-check-label" for="publisher1Checkbox">
-                                    <a href="index.php?act=product&idnxb=' . $value['id'] . '" class="text-decoration-none text-black"> ' .substr($value['ten_nxb'],4). '</a>
-                                    </label>
-                                    
-                                </li>
-                            </ul>
-                            ';
-                            
-                        }
-                        echo $ch;
-                        ?>
-
-                        
-                    </section>
-                </div>
-                <!-- end div nhà xuất bản -->
-
-
+        <div class="container-xxl">
+            <div class="dieuhuong py-2">
+                <a href="index.html">Trang chủ</a> /
+                <a href="sanpham.html" id="back">Sản phẩm</a>
             </div>
-            <!-- end div filter -->
+            <div class="row">
+                <div class="col-12 col-md-3 filter">
 
-            <div class="sanpham">
-                <!-- box sản phẩm 3-->
-                <?php
-                $ch='';
-                if(!empty($kq)){
-                foreach ($kq as  $value) {
-                    $ch.= '
-                    <div class="col">
-                        <div class="product-img">
-                            <a href="index.php?act=index&id=' . $value['id'] . '&idtl=' . $value['id_theloai'] . '&idtg=' . $value['id_tacgia'] . '&idnxb=' . $value['id_nxb'] . '">
-                                <img class="img" src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" alt="">
-                            </a> 
+                    <!-- responsive -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Filters</h5>
+                        <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+                        <i class="fa-solid fa-list"></i>
+                        </button>
+                    </div>
+
+                    <div class="collapse d-md-block" id="filterCollapse">
+                        <!-- Filter Thể Loại -->
+                        <div class="theloai mb-3">
+                            <h6>Thể loại</h6>
+                            <?php
+                            $ch = '';
+                            foreach ($sanphammodel->theloai as $value) {
+                                $ch .= '
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <a href="index.php?act=product&idtl=' . $value['id'] . '" class="text-decoration-none text-black">
+                                            ' . $value['ten_theloai'] . '
+                                        </a>
+                                    </li>
+                                </ul>';
+                            }
+                            echo $ch; 
+                            ?>
                         </div>
-                        <div class="product-content">
-                            <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
-                            <div class="product-price">
-                                <h5 class="product-price-sale">' . $value['gia'] . '</h5>
-                                <h5 class="product-price-opacity">814.000đ</h5>
-                                <h5 class="product-price-percent">' . $value['giam'] . '%</h5>
-                            </div>
+                        <!-- Filter Tác Giả -->
+                        <div class="tacgia mb-3">
+                            <h6>Tác giả</h6>
+                            <?php
+                            $ch = '';
+                            foreach ($sanphammodel->tacgia as $value) {
+                                $ch .= '
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <a href="index.php?act=product&idtg=' . $value['id'] . '" class="text-decoration-none text-black">
+                                            ' . substr($value['ten_tacgia'], 10) . '
+                                        </a>
+                                    </li>
+                                </ul>';
+                            }
+                            echo $ch;
+                            ?>
                         </div>
-                        <div class="btn-group">
-                            <button class="buttonsp">Mua ngay</button>
-
-
-                             <!-- form này để thêm sản phẩm vào giỏ hàng -->
-                            <form action="index.php?act=cart&action=themvaogiohang&id='.$value['id'].'" method="post">
-                                <input type="hidden" name="ten" value="'.$value['ten_sach'].'">
-                                <input type="hidden" name="hinh" value="'.$value['hinh'].'">
-                                <input type="hidden" name="gia" value="'.$value['gia'].'">
-                                <input type="number" name="sl" class="visually-hidden" value="1" min="1">
-                                <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
-                            </form>
+                        <!-- Filter Nhà Xuất Bản -->
+                        <div class="nhaxuatban mb-3">
+                            <h6>Nhà xuất bản</h6>
+                            <?php
+                            $ch = '';
+                            foreach ($sanphammodel->nxb as $value) {
+                                $ch .= '
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <a href="index.php?act=product&idnxb=' . $value['id'] . '" class="text-decoration-none text-black">
+                                            ' . substr($value['ten_nxb'], 4) . '
+                                        </a>
+                                    </li>
+                                </ul>';
+                            }
+                            echo $ch;
+                            ?>
                         </div>
-                    </div>';
-                }
-             } elseif (isset($message)) {
-                // Hiển thị thông báo nếu không tìm thấy sản phẩm và có thông báo
-                echo $message;
-                
-             }else{
-                echo "Không tìm thấy sách";
-             }
-                echo $ch;
+                    </div>
+                </div>
 
-                ?>
+                <!-- Product Listing -->
+                <div class="col-12 col-md-9">
+                <div class="row">
+    <?php
+    $ch = '';
+    if (!empty($kq)) {
+        foreach ($kq as $value) {
+            $ch .= '
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a href="index.php?act=index&id=' . $value['id'] . '" class="text-decoration-none">
+                        <img src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" class="card-img-top sp_img" alt="' . $value['ten_sach'] . '">
+                    </a>
+                    <div class="card-body">
+                        <h6 class="card-title fw-bold">' . $value['ten_sach'] . '</h6>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <div class="">
+                            <span class="text-danger fs-5 fw-bold">' . $value['gia'] . 'đ </span>
+                            <span class="text-muted text-decoration-line-through fs-6">814.000đ</span>
+                            <span class="badge bg-danger">' . $value['giam'] . '%</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="button1 btn-sm">Mua ngay</button>
+
+
+
+                        <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post" class="d-inline">
+                            <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
+                            <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
+                            <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                            <input type="number" name="sl" class="visually-hidden" value="1" min="1">
+                            <button type="submit" name="themvaogiohang" class="button1 btn-sm">Thêm vào giỏ hàng</button>
+                        </form>
+                    </div>
+                </div>
+            </div>';
+        }
+    } else {
+        echo "<p class='text-center'>Không tìm thấy sản phẩm</p>";
+    }
+    echo $ch;
+    ?>
+</div>
+
+                </div>
             </div>
-            <!-- end box sản phẩm -->
-            <!-- end div chuyentrang -->
+
+            <!-- Pagination -->
+            <div class="chuyentrang mt-4">
+                <nav aria-label="Page navigation example" class="text-center">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-
-        <!-- end div trangsanpham -->
-    </div>
-             <div class="chuyentrang">
-             <nav aria-label="Page navigation example text-center">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-                </li>
-                <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-                </li>
-            </ul>
-            </nav>
-
-             </div>
-    <!-- end div container -->
-</main>
-<!-- end main -->
+    </main>

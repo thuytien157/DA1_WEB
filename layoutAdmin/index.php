@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 include 'Views/header.php';
 require_once 'model/ConnectModel.php';
 require_once "controllers/BookController.php";
