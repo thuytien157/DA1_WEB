@@ -5,109 +5,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-  .bg-dark {
-    background-color: #D98C52 !important;
-  }
+  <style>
+    .bg-dark {
+      background-color: #D98C52 !important;
+    }
 
-  .sidebar {
-    background-color: #D98C52 !important;
-  }
+    .sidebar {
+      background-color: #D98C52 !important;
+    }
 
-  .nav-link {
-    color: #fff !important;
-    font-weight: bold;
-  }
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+    }
 
-  .nav-link:hover {
-    background-color: #B77D42 !important; 
-  }
+    .nav-link:hover {
+      background-color: #B77D42 !important;
+    }
 
-  .card-header {
-    background-color: #F8F9FA;
-    border-bottom: 2px solid #D98C52;
-  }
+    .card-header {
+      background-color: #F8F9FA;
+      border-bottom: 2px solid #D98C52;
+    }
 
-  .card-header h6 {
-    color: #D98C52 !important;
-  }
-  .table th,
-  .table td {
-    color: #333 !important;
-    text-transform: uppercase;
-    font-size: 14px;
-    border-color: #D98C52;
-  }
+    .card-header h6 {
+      color: #D98C52 !important;
+    }
 
-  .table thead {
-    background-color: #F4F1ED;
-    color: #D98C52;
-  }
+    .table th,
+    .table td {
+      color: #333 !important;
+      text-transform: uppercase;
+      font-size: 14px;
+      border-color: #D98C52;
+    }
 
-  .table-responsive {
-    max-height: 500px;
-    overflow-y: auto;
-  }
+    .table thead {
+      background-color: #F4F1ED;
+      color: #D98C52;
+    }
 
-  tr:hover {
-    background-color: #f9e3d4;
-  }
+    .table-responsive {
+      max-height: 500px;
+      overflow-y: auto;
+    }
 
-  .action-link {
-    padding: 0 10px;
-    font-weight: bold;
-  }
+    tr:hover {
+      background-color: #f9e3d4;
+    }
 
-  .action-link.edit {
-    color: #F5CA0F !important;
-  }
+    .action-link {
+      padding: 0 10px;
+      font-weight: bold;
+    }
 
-  .action-link.delete {
-    color: #F5110F !important;
-  }
+    .action-link.edit {
+      color: #F5CA0F !important;
+    }
 
-  .modal-content {
-    border-radius: 8px;
-  }
+    .action-link.delete {
+      color: #F5110F !important;
+    }
 
-  .modal-header {
-    background-color: #D98C52;
-    color: white;
-  }
+    .modal-content {
+      border-radius: 8px;
+    }
 
-  .modal-footer .btn-primary {
-    background-color: #D98C52;
-    border: none;
-  }
+    .modal-header {
+      background-color: #D98C52;
+      color: white;
+    }
 
-  .modal-footer .btn-secondary {
-    color: #D98C52;
-    border: 1px solid #D98C52;
-  }
+    .modal-footer .btn-primary {
+      background-color: #D98C52;
+      border: none;
+    }
 
-  .modal-footer .btn-secondary:hover {
-    background-color: #D98C52;
-    color: white;
-  }
+    .modal-footer .btn-secondary {
+      color: #D98C52;
+      border: 1px solid #D98C52;
+    }
 
-  .header-actions {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+    .modal-footer .btn-secondary:hover {
+      background-color: #D98C52;
+      color: white;
+    }
 
-  .header-actions a {
-    color: #D98C52 !important;
-    font-weight: bold;
-  }
+    .header-actions {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-  .header-actions a:hover {
-    color: #B77D42 !important;
-  }
-</style>
+    .header-actions a {
+      color: #D98C52 !important;
+      font-weight: bold;
+    }
 
+    .header-actions a:hover {
+      color: #B77D42 !important;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container-fluid py-4 d-flex">
     <div class="container-fluid py-4 content">
@@ -117,7 +118,7 @@
             <div class="card-header pb-0 position-relative">
               <h6 class="d-inline-block">Book Table</h6>
               <div class="header-actions">
-                <a href="#" style="color:  #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addBookModal">
+                <a href="#" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addBookModal">
                   Create
                 </a>
               </div>
@@ -127,6 +128,7 @@
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
+                    <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category</th>
@@ -139,7 +141,6 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Describe</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Images</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-
                     </tr>
                   </thead>
                   <tbody>
@@ -178,35 +179,33 @@
                         <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($book['nam_xb']); ?></h6>
                       </td>
                       <td>
-  <h6 class="mb-0 text-sm">
-    <?php 
-      $mo_ta = htmlspecialchars($book['mo_ta']);
-      echo strlen($mo_ta) > 50 ? substr($mo_ta, 0, 50) . '...' : $mo_ta; 
-    ?>
-  </h6>
-  <?php if (strlen($mo_ta) > 50): ?>
-    <a href="#" class="action-link view-description" data-bs-toggle="modal" data-bs-target="#viewDescriptionModal-<?php echo $book['id']; ?>">
-      <i class="bi bi-eye"></i> <!-- Biểu tượng con mắt -->
-    </a>
-  <?php endif; ?>
-</td>
+                        <h6 class="mb-0 text-sm">
+                          <?php 
+                            $mo_ta = htmlspecialchars($book['mo_ta']);
+                            echo strlen($mo_ta) > 50 ? substr($mo_ta, 0, 50) . '...' : $mo_ta; 
+                          ?>
+                        </h6>
+                        <?php if (strlen($mo_ta) > 50): ?>
+                          <a href="#" class="action-link view-description" data-bs-toggle="modal" data-bs-target="#viewDescriptionModal-<?php echo $book['id']; ?>">
+                            <i class="bi bi-eye"></i> <!-- Biểu tượng con mắt -->
+                          </a>
+                        <?php endif; ?>
+                      </td>
 
-
-<td>
-  <?php if (!empty($book['hinh'])): ?>
-    <img src="<?='../layout/public/img/IMG_DA1/san pham/'. $book['hinh']; ?>" alt="Images" style="width: 50px; height: auto; margin-right: 10px;">
-  <?php endif; ?>
-  
-</td>          
+                      <td>
+                        <?php if (!empty($book['hinh'])): ?>
+                          <img src="<?='../layout/public/img/IMG_DA1/san pham/'. $book['hinh']; ?>" alt="Images" style="width: 50px; height: auto; margin-right: 10px;">
+                        <?php endif; ?>
+                      </td>          
                       <td class="align-middle text-center">
-                        <a href="index.php?page=edit_book&id=<?php echo $book['id']; ?>" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">Edit</a>
+                        <a href="#" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#editBookModal-<?php echo $book['id']; ?>">Edit</a>
                         <a href="index.php?page=delete_book&id=<?php echo $book['id']; ?>" style="color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
                       </td>
                     </tr>
                     <?php endforeach; ?>
                     <?php else: ?>
                     <tr>
-                      <td colspan="4" class="text-center">Không có tác giả nào.</td>
+                      <td colspan="11" class="text-center">No records found.</td>
                     </tr>
                     <?php endif; ?>
                   </tbody>
@@ -217,8 +216,8 @@
         </div>
       </div>
     </div>
-  </div>
-<!--model full mota-->
+
+   <!--model full mota-->
   <?php foreach ($books as $book): ?>
 <div class="modal fade" id="viewDescriptionModal-<?php echo $book['id']; ?>" tabindex="-1" aria-labelledby="viewDescriptionLabel-<?php echo $book['id']; ?>" aria-hidden="true">
   <div class="modal-dialog">
@@ -250,7 +249,7 @@
       </div>
       <div class="modal-body">
         <form method="POST" action="index.php?page=add_book"  enctype="multipart/form-data">
-          <!-- Tên Thể Loại -->
+         
           <div class="mb-3">
             <label for="tenTheloai" class="form-label">Tên Thể Loại</label>
             <select class="form-select" name="ten_theloai_id" required>
@@ -267,7 +266,7 @@
             </select>
           </div>
 
-          <!-- Tên Tác Giả -->
+         
           <div class="mb-3">
             <label for="tenTacgia" class="form-label">Tên Tác Giả</label>
             <select class="form-select" name="ten_tacgia_id" required>
@@ -284,7 +283,6 @@
             </select>
           </div>
 
-          <!-- Tên Nhà Xuất Bản -->
           <div class="mb-3">
             <label for="tenNxb" class="form-label">Tên Nhà Xuất Bản</label>
             <select class="form-select" name="ten_nxb_id" required>
@@ -301,7 +299,7 @@
             </select>
           </div>
 
-          <!-- Các trường khác -->
+        
           <div class="mb-3">
             <label for="tenSach" class="form-label">Tên Sách</label>
             <input type="text" class="form-control" name="ten_sach" required>
@@ -345,14 +343,128 @@
 </div>
 
 
+
+
+<?php foreach ($books as $book): ?>
+    <div class="modal fade" id="editBookModal-<?php echo $book['id']; ?>" tabindex="-1" aria-labelledby="editBookModalLabel-<?php echo $book['id']; ?>" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form action="index.php?page=update_book" method="POST" enctype="multipart/form-data">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editBookModalLabel-<?php echo $book['id']; ?>">Edit Book Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
+
+             
+              <div class="mb-3">
+                <label for="bookName" class="form-label">Book Name</label>
+                <input type="text" class="form-control" id="bookName" name="ten_sach" value="<?php echo htmlspecialchars($book['ten_sach']); ?>" required>
+              </div>
+
+          
+              <div class="mb-3">
+                <label for="bookCategory" class="form-label">Category</label>
+                <select class="form-select" id="bookCategory" name="ten_theloai_id" required>
+                  <option value="">Select Category</option>
+                  <?php if (!empty($tl)): ?>
+                    <?php foreach ($tl as $category): ?>
+                      <option value="<?= htmlspecialchars($category['id']); ?>" <?php echo ($book['ten_theloai'] == $category['ten_theloai']) ? 'selected' : ''; ?>>
+                        <?= htmlspecialchars($category['ten_theloai']); ?>
+                      </option>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <option value="">No categories available</option>
+                  <?php endif; ?>
+                </select>
+              </div>
+
+             
+              <div class="mb-3">
+                <label for="bookAuthor" class="form-label">Author</label>
+                <select class="form-select" id="bookAuthor" name="ten_tacgia_id" required>
+                  <option value="">Select Author</option>
+                  <?php if (!empty($tg)): ?>
+                    <?php foreach ($tg as $author): ?>
+                      <option value="<?= htmlspecialchars($author['id']); ?>" <?php echo ($book['ten_tacgia'] == $author['ten_tacgia']) ? 'selected' : ''; ?>>
+                        <?= htmlspecialchars($author['ten_tacgia']); ?>
+                      </option>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <option value="">No authors available</option>
+                  <?php endif; ?>
+                </select>
+              </div>
+
+             
+              <div class="mb-3">
+                <label for="bookPublisher" class="form-label">Publisher</label>
+                <select class="form-select" id="bookPublisher" name="ten_nxb_id" required>
+                  <option value="">Select Publisher</option>
+                  <?php if (!empty($nxb)): ?>
+                    <?php foreach ($nxb as $publisher): ?>
+                      <option value="<?= htmlspecialchars($publisher['id']); ?>" <?php echo ($book['ten_nxb'] == $publisher['ten_nxb']) ? 'selected' : ''; ?>>
+                        <?= htmlspecialchars($publisher['ten_nxb']); ?>
+                      </option>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <option value="">No publishers available</option>
+                  <?php endif; ?>
+                </select>
+              </div>
+
+              
+              <div class="mb-3">
+                <label for="bookPrice" class="form-label">Price</label>
+                <input type="number" class="form-control" id="bookPrice" name="gia" value="<?php echo htmlspecialchars($book['gia']); ?>" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="bookPrice" class="form-label">Discount</label>
+                <input type="number" class="form-control" id="bookPrice" name="giam" value="<?php echo htmlspecialchars($book['giam']); ?>" required>
+              </div>
+
+           
+              <div class="mb-3">
+                <label for="bookQuantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="bookQuantity" name="so_luong_ban" value="<?php echo htmlspecialchars($book['so_luong_ban']); ?>" required>
+              </div>
+
+            
+              <div class="mb-3">
+                <label for="bookYear" class="form-label">Year of Publication</label>
+                <input type="text" class="form-control" id="bookYear" name="nam_xb" value="<?php echo htmlspecialchars($book['nam_xb']); ?>" required>
+              </div>
+
+             
+              <div class="mb-3">
+                <label for="bookDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="bookDescription" name="mo_ta" rows="4"><?php echo htmlspecialchars($book['mo_ta']); ?></textarea>
+              </div>
+
+              
+              <div class="mb-3">
+                <label for="hinh" class="form-label">Image</label>
+                <input type="file" class="form-control" id="hinh" name="hinh">
+                <?php if ($book['hinh']): ?>
+                  <img src="../layout/public/img/IMG_DA1/san pham/<?php echo htmlspecialchars($book['hinh']); ?>" alt="Current Image" width="100" class="mt-2">
+                <?php endif; ?>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </div>
-  
+<?php endforeach; ?>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-

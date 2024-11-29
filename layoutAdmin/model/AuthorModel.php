@@ -32,6 +32,7 @@ class AuthorModel {
         $stmt = $this->conn->prepare("DELETE FROM tac_gia WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute(); 
+        
     }
     public function getAuthorById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM tac_gia WHERE id = :id");

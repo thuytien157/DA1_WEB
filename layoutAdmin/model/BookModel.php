@@ -43,12 +43,58 @@ class BookModel {
         $stmt->bindParam(':so_luong_ban', $so_luong_ban);
         $stmt->execute();
     }
+    public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
+        $stmt = $this->conn->prepare(
+            "UPDATE sach 
+            SET ten_sach = :ten_sach, 
+                id_theloai = :ten_theloai, 
+                id_tacgia = :ten_tacgia, 
+                id_nxb = :ten_nxb, 
+                gia = :gia, 
+                giam = :giam, 
+                mo_ta = :mo_ta, 
+                nam_xb = :nam_xb, 
+                so_luong_ban = :so_luong_ban,
+                hinh = :hinh
+            WHERE id = :id"
+        );
+        $stmt->bindParam(':ten_sach', $ten_sach);
+        $stmt->bindParam(':ten_theloai', $id_theloai);
+        $stmt->bindParam(':ten_tacgia', $id_tacgia);
+        $stmt->bindParam(':ten_nxb', $id_nxb);
+        $stmt->bindParam(':gia', $gia);
+        $stmt->bindParam(':giam', $giam);
+        $stmt->bindParam(':mo_ta', $mo_ta);
+        $stmt->bindParam(':nam_xb', $nam_xb);
+        $stmt->bindParam(':so_luong_ban', $so_luong_ban);
+        $stmt->bindParam(':hinh', $hinh);
+        $stmt->bindParam(':id', $id);
+    
+        return $stmt->execute();
+    }
 
     public function deleteBook($id) {
+        $stmt = $this->conn->prepare("SELECT hinh FROM sach WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $book = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($book && isset($book['hinh']) && file_exists($book['hinh'])) {
+            unlink($book['hinh']);
+        }
         $stmt = $this->conn->prepare("DELETE FROM sach WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute(); 
+        
     }
+
+
+    public function getBookById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM sach WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
+    }
+    
     
 }
 

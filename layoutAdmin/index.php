@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 include 'Views/header.php';
 require_once 'model/ConnectModel.php';
@@ -70,15 +72,66 @@ switch ($page) {
                 }
             }
             break;
-
-
-
-
-    case 'delete_book':
-        $id = $_GET['id'];
-        $result = $BookController->deleteBook($id);
-        header("Location: index.php?page=book");
-        break;
+            case 'edit_book':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $book = $BookController->getBookById($id);
+                    include 'Views/edit_book.php';
+                }
+                break;
+            case 'update_book':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $id = (int)$_POST['id'];
+                    $ten_sach = trim($_POST['ten_sach']);
+                    $id_theloai = (int)$_POST['ten_theloai_id'];
+                    $id_tacgia = (int)$_POST['ten_tacgia_id'];
+                    $id_nxb = (int)$_POST['ten_nxb_id'];
+                    $gia = $_POST['gia'];
+                    $giam = $_POST['giam'];
+                    $mo_ta = trim($_POST['mo_ta']);
+                    $nam_xb = $_POST['nam_xb'];
+                    $so_luong_ban = $_POST['so_luong_ban'];
+            
+                    if (isset($_FILES['hinh']) && $_FILES['hinh']['name'] != '') {
+                        $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $_FILES['hinh']['name'];
+            
+                        if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
+                            $hinh = $_FILES['hinh']['name'];
+                            $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+            
+                            header("Location: index.php?page=book");
+                            exit();
+                        } else {
+                            echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
+                            exit();
+                        }
+                    }}
+                break;
+            
+            
+            case 'delete_book':
+                if (isset($_GET['id'])) {
+                    $id = (int)$_GET['id'];
+                    $bookname = $BookController->getBookById($id); 
+                    if ($bookname) {
+                        $imagePath = "../layout/public/img/IMG_DA1/san pham/".$bookname['hinh']; 
+                        if (file_exists($imagePath)) {
+                            unlink($imagePath); 
+                        }
+                        $result = $BookController->deleteBook($id);
+            
+                        if ($result) {
+                            header("Location: index.php?page=book");
+                            exit();
+                        } else {
+                             "Lỗi khi xóa sách. Vui lòng thử lại.";
+                        }
+                    } else {
+                        echo "Không tìm thấy sách.";
+                    }
+                }
+                break;
+            
     case 'category':
         $CategoryController->listCategorys();
         break;

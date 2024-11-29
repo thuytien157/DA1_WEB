@@ -152,14 +152,36 @@
                         <span class="text-secondary text-xs font-weight-bold">2024</span>
                       </td>
                       <td class="align-middle text-center">
-                        <a href="index.php?page=edit_category&id=<?php echo $categorie['id']; ?>" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link">
-                          Edit
-                        </a>
+                        <!-- Trigger the modal for editing -->
+                        <a href="#" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#editCategoryModal<?php echo $categorie['id']; ?>" style="color: #F5CA0F !important">Edit</a>
                         <a href="index.php?page=delete_category&id=<?php echo $categorie['id']; ?>" style="color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">
                           Delete
                         </a>
                       </td>
                     </tr>
+
+                    <!-- Modal for editing this specific category -->
+                    <div class="modal fade" id="editCategoryModal<?php echo $categorie['id']; ?>" tabindex="-1" aria-labelledby="editCategoryModalLabel<?php echo $categorie['id']; ?>" aria-hidden="true" >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="editCategoryModalLabel<?php echo $categorie['id']; ?>">Sửa Thể Loại</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form method="POST" action="index.php?page=update_category">
+                              <input type="hidden" name="id" value="<?php echo $categorie['id']; ?>">
+                              <div class="mb-3">
+                                <label for="ten_theloai" class="form-label">Tên Thể Loại</label>
+                                <input type="text" class="form-control" id="ten_theloai" name="ten_theloai" value="<?php echo htmlspecialchars($categorie['ten_theloai']); ?>" required>
+                              </div>
+                              <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <?php endforeach; ?>
                     <?php else: ?>
                     <tr>
