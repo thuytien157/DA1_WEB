@@ -20,7 +20,6 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
 
 
 //thông báo cần phải đăng nhập
-
 if (isset($_SESSION['thongbao'])) {
     echo '<script >
             alert("' . $_SESSION['thongbao'] . '");
@@ -28,8 +27,6 @@ if (isset($_SESSION['thongbao'])) {
 
     unset($_SESSION['thongbao']);
 }
-
-
 
 switch ($act) {
     case 'index':

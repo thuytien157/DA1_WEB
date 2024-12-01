@@ -65,7 +65,7 @@
         <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Sách đã bán</h5>
+              <h5 class="card-title">Số lượng sách đã bán</h5>
               <p class="card-text fs-4"><?=$sp[0]['so_luong_sach_sale']?></p>
             </div>
           </div>

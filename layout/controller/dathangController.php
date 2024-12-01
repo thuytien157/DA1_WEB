@@ -17,13 +17,16 @@
                     $dia_chi = $_POST['dia_chi'];
                     $ghi_chu = $_POST['ghi_chu'];
                     $pt_thanhtoan = $_POST['pt_thanhtoan'];
-    
+
                     $DatHangModel->capnhat_user($userId, $ho_ten, $sdt);
+
                     $id_donhang = $DatHangModel->themdh($userId, $dia_chi, $ghi_chu);
     
                     if ($id_donhang) {
                         foreach ($_SESSION['cart'] as $key => $item) {
                             $DatHangModel->themctdh($id_donhang, $item['id'], $item['sl'], $pt_thanhtoan);
+                            $DatHangModel->capnhat_soluong_ban($item['id'], $item['sl']);
+
                         }
 
                     } else {

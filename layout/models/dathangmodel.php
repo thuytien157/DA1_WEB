@@ -2,6 +2,18 @@
 class DatHangModel {
     public $sanpham;
 
+
+        public function capnhat_soluong_ban($id_sach, $so_luong)
+    {
+        include_once 'models/connectmodel.php';
+        $data = new ConnectModel();
+
+        $sql = "UPDATE sach SET so_luong_ban = so_luong_ban + :so_luong WHERE id = :id_sach";
+
+        $params = array(':so_luong' => $so_luong, ':id_sach' => $id_sach);        
+        $data->modify($sql, $params);
+    }
+
     public function capnhat_user($id, $ho_ten, $sdt) {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
