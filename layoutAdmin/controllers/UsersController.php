@@ -9,8 +9,6 @@ class UsersController
     {
         $this->UsersModel = new UsersModel();
     }
-
-
     // Hiển thị danh sách tác giả
     public function listUsers()
     {
@@ -20,7 +18,6 @@ class UsersController
         if (!$users) {
             $users = []; // Gán mảng rỗng để tránh lỗi trong View
         }
-
         // Gửi dữ liệu sang View
         require_once "Views/users.php";
     }
@@ -33,12 +30,21 @@ class UsersController
         }
     }
     // Xử lý xóa tác giả
-    public function deleteUsers($id) {
-        $result = $this->UsersModel->deleteUsers($id);
-        if ($result) {
-            header("Location: index.php?page=users");
-        } else {
-            echo "Lỗi khi xóa người dùng.";
+    public function deleteUsers($id)
+    {
+        // Kiểm tra xem người dùng có đơn hàng không
+        $hasOrders = $this->UsersModel->checkUserOrders($id);
+
+        if ($hasOrders > 0) { // Nếu có đơn hàng, thông báo không thể xóa
+            echo "<script>alert('Người dùng này có đơn hàng và không thể xóa.'); window.location.href = 'index.php?page=users';</script>";
+            exit();
+        } else { // Nếu không có đơn hàng, thực hiện xóa
+            $result = $this->UsersModel->deleteUsers($id);
+            if ($result) {
+                header("Location: index.php?page=users");
+            } else {
+                echo "Lỗi khi xóa người dùng.";
+            }
         }
     }
     public function updateUsers($id,$ho_ten, $sdt, $username, $mat_khau, $email, $vai_tro) {
