@@ -42,7 +42,26 @@ class BookModel {
         $stmt->bindParam(':nam_xb', $nam_xb);
         $stmt->bindParam(':so_luong_ban', $so_luong_ban);
         $stmt->execute();
+        return $this->conn->lastInsertId();
+
     }
+
+    public function add_DetailBooks($id_sach, $nha_cung_cap, $ngon_ngu, $trong_luong, $kich_thuoc, $so_luong_trang, $hinh_thuc, $so_luong){
+        $stmt = $this->conn->prepare("INSERT INTO chi_tiet_sach (id_sach, nha_cung_cap, ngon_ngu, trong_luong, kich_thuoc, so_luong_trang, hinh_thuc, so_luong) 
+        VALUES (:id_sach, :nha_cung_cap, :ngon_ngu, :trong_luong, :kich_thuoc, :so_luong_trang, :hinh_thuc, :so_luong)"); 
+
+        $stmt->bindParam(':id_sach', $id_sach);
+        $stmt->bindParam(':nha_cung_cap', $nha_cung_cap);
+        $stmt->bindParam(':ngon_ngu', $ngon_ngu);
+        $stmt->bindParam(':trong_luong', $trong_luong);
+        $stmt->bindParam(':kich_thuoc', $kich_thuoc);
+        $stmt->bindParam(':so_luong_trang', $so_luong_trang);
+        $stmt->bindParam(':hinh_thuc', $hinh_thuc);
+        $stmt->bindParam(':so_luong', $so_luong);
+        
+        $stmt->execute();
+    }
+
     public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
         $stmt = $this->conn->prepare(
             "UPDATE sach 

@@ -139,7 +139,7 @@
 
                           <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
 
-                          <tr><td id="cotct">Số trang</td><td>' . $value['so_trang'] . '</td></tr>
+                          <tr><td id="cotct">Số trang</td><td>' . $value['so_luong_trang'] . '</td></tr>
 
                           <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
                         <tr>

@@ -43,29 +43,34 @@ switch ($page) {
         break;
         case 'add_book':
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['them'])) {
-                $ten_sach = trim($_POST['ten_sach']);
+                $ten_sach = $_POST['ten_sach'];
                 $id_theloai = (int)$_POST['ten_theloai_id'];
                 $id_tacgia = (int)$_POST['ten_tacgia_id'];
                 $id_nxb = (int)$_POST['ten_nxb_id'];
                 $gia = $_POST['gia'];
                 $giam = $_POST['giam'];
-                $mo_ta = trim($_POST['mo_ta']);
+                $mo_ta = $_POST['mo_ta'];
                 $nam_xb = $_POST['nam_xb'];
-                $so_luong_ban = $_POST['so_luong_ban'];
+                $so_luong_ban = (int)$_POST['so_luong_ban'];
+                $nha_cung_cap = $_POST['nha_cung_cap'];
+                $ngon_ngu = $_POST['ngon_ngu'];
+                $trong_luong = $_POST['trong_luong'];
+                $kich_thuoc = $_POST['kich_thuoc'];
+                $so_luong_trang = $_POST['so_luong_trang'];
+                $hinh_thuc = $_POST['hinh_thuc'];
+                $so_luong = (int)$_POST['so_luong'];
         
                 if (isset($_FILES['hinh'])) {
                     $targetFile = "../layout/public/img/IMG_DA1/san pham/".$_FILES['hinh']['name'];
         
                     if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
                         $hinh = $_FILES['hinh']['name'];        
-                        $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
-        
-                        header("Location: index.php?page=book");
-                        exit();
+                        $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban, $nha_cung_cap, $ngon_ngu, $trong_luong, $kich_thuoc, $so_luong_trang, $hinh_thuc, $so_luong);
                     } else {
                         echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
                         exit();
                     }
+
                 } else {
                     echo "Vui lòng chọn hình ảnh để tải lên.";
                     exit();
