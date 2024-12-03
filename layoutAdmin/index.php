@@ -133,6 +133,7 @@ switch ($page) {
                 if (isset($_GET['id'])) {
                     $id = (int)$_GET['id'];
                     $bookname = $BookController->getBookById($id); 
+                    if($id_)
                     if ($bookname) {
                         $imagePath = "../layout/public/img/IMG_DA1/san pham/".$bookname['hinh']; 
                         if (file_exists($imagePath)) {
@@ -180,9 +181,15 @@ switch ($page) {
     case 'delete_category':
         $id = $_GET['id'];
         $result = $CategoryController->deleteCategory($id);
-        header("Location: index.php?page=category");
+
+        if (!$result) {
+            echo "<script>
+                    alert('Bạn không thể xoá thể loại này vì có chứa sách!');
+                    window.location.href = 'index.php?page=category';
+                  </script>";
+        }
+        exit();        
         break;
-        //
     case 'author':
         $AuthorController->listAuthors(); //lay listauthor hien thi cho view
         break;
@@ -208,11 +215,19 @@ switch ($page) {
             header("Location: index.php?page=author");
         }
         break;
-    case 'delete_author':
-        $id = $_GET['id'];
-        $result = $AuthorController->deleteAuthor($id);
-        header("Location: index.php?page=author");
-        break;
+        case 'delete_author':
+            $id = $_GET['id']; 
+        
+            $result = $AuthorController->deleteAuthor($id);
+        
+            if (!$result) {
+                echo "<script>
+                        alert('Bạn không thể xoá tác giả này vì có chứa sách!');
+                        window.location.href = 'index.php?page=author';
+                      </script>";
+            }
+            exit();
+            break;
     case 'publishinghouse':
         $PublishingHouseController->listPublishingHouses();
         break;
@@ -246,7 +261,13 @@ switch ($page) {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $PublishingHouseController->deletePublishingHouse($id);
-            header("Location: index.php?page=publishinghouse");
+            if (!$result) {
+                echo "<script>
+                        alert('Bạn không thể xoá nhà xuất bản này vì có chứa sách!');
+                        window.location.href = 'index.php?page=publishinghouse';
+                      </script>";
+            }
+            exit();         
         }
         break;
     case 'order':

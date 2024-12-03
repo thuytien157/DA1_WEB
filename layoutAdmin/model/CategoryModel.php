@@ -29,6 +29,16 @@ class CategoryModel {
     }
 
     public function deleteCategory($id) {
+
+        $stmtCheck = $this->conn->prepare("SELECT COUNT(*) as book_count FROM sach WHERE id_theloai = :id");
+        $stmtCheck->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmtCheck->execute();
+        $result = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+    
+        if ($result['book_count'] > 0) {
+            return false;
+        }
+
         $stmt = $this->conn->prepare("DELETE FROM the_loai WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute(); 

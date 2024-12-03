@@ -125,9 +125,9 @@
             <div class="card-header pb-0 position-relative">
               <h6 class="d-inline-block">Users Table</h6>
               <div class="header-actions">
-                <a href="#" style="color: #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addAuthorModal">
+                <!-- <a href="#" style="color: #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addAuthorModal">
                   Create
-                </a>
+                </a> -->
               </div>
             </div>
 

@@ -59,7 +59,6 @@ class BookController {
         return $this->bookModel->getBookById($id);
     }
 }  
-    
 
 
 ?>
