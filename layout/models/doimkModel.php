@@ -10,16 +10,18 @@ class doimkModel {
         $result = $connect->selectonepass($sql, $params);  // Thực thi truy vấn và lấy kết quả
 
         // Nếu tìm thấy mật khẩu và mật khẩu hiện tại khớp với mật khẩu trong cơ sở dữ liệu
-        if ($result && $result['mat_khau'] === $currentPassword) {
-            $updateSql = "UPDATE user SET mat_khau = :newPassword WHERE id = :id";  // Truy vấn cập nhật mật khẩu
+        if ($result && password_verify($currentPassword, $result['mat_khau'])) {
+            $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT); // Mã hóa mật khẩu mới
+            $updateSql = "UPDATE user SET mat_khau = :newPassword WHERE id = :id";
             $updateParams = [
-                ':newPassword' => $newPassword,
-                ':id' => $userId  // ID người dùng cần cập nhật
+                ':newPassword' => $hashedPassword,
+                ':id' => $userId
             ];
-            $connect->modify($updateSql, $updateParams);  // Thực thi truy vấn cập nhật mật khẩu
-            return true;  // Trả về true khi mật khẩu đã được thay đổi thành công
+            $connect->modify($updateSql, $updateParams);
+            return true;
         }
-        return false;  // Nếu mật khẩu hiện tại không đúng, trả về false
+        return false;
+
     }
 }
 

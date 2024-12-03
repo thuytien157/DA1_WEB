@@ -1,11 +1,11 @@
+
+
+<main class="container no-mg">
+
 <div class="dieuhuong">
         <a href="index.html" >Trang chủ</a> /
         <a href="baiviet.html" id="back">Bài viết</a>
     </div>
-
-<main class="container-fluid no-mg">
-
-
     <!-- hàng các bài viết  -->
     <div class="row ">
         <div class="article col-290">
