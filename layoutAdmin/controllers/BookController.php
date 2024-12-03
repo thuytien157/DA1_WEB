@@ -18,13 +18,14 @@ class BookController {
     }
 
     public function listBooks() {
-        if (isset($_GET['action']) && $_GET['action'] == 'listhiddenbook') {
+        $status = isset($_GET['status']) ? $_GET['status'] : '';
+        if($status && $status == 1){
             $books = $this->bookModel->getHiddenBook();
-            // header('location: index.php?page=book');
-            // exit();
-        } else {
+        }else{
             $books = $this->bookModel->getAllBooks();
         }
+        // header('location: index.php?page=book');
+        // exit();
         $tg = $this->authorModel->getAllAuthors(); 
         $tl = $this->categoryModel->getAllCategory(); 
         $nxb = $this->publishinghouseModel->getAllPublishingHouses(); 

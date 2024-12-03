@@ -123,6 +123,13 @@
           <div class="card mb-4">
             <div class="card-header pb-0 position-relative">
               <div class="d-inline-block fw-bolder">Book Table</div>
+              <div>
+                <a href="index.php?page=book<?= isset($_GET['status']) && $_GET['status'] == 1 ? '' : '&status=1'; ?>" 
+                  class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                  <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'Tất cả sản phẩm' : 'Sản phẩm đã bị ẩn'; ?>
+                </a>
+              </div>
+
               <!-- <a style="color: #cb8e70;" href="index.php?page=book&action=listhiddenbook" class="d-block fw-bolder">List hidden book</a> -->
               <div class="header-actions">
                 <a href="#" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addBookModal">
