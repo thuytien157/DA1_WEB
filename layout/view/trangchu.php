@@ -27,7 +27,7 @@
                             </div>
                             <div class="product-content">
                                 <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                                <div class="rating2">⭐⭐⭐⭐⭐</div>
                                 <div class="product-price">
                                     <h5 class="product-price-sale">' . $value['gia'] . '</h5>
                                     <h5 class="product-price-opacity">814.000đ</h5>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="product-content">
                                 <h5 class="product-name">' . $value['ten_sach'] . '</h5>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                                <div class="rating2">⭐⭐⭐⭐⭐</div>
                                 <div class="product-price">
                                     <h5 class="product-price-sale">' . $value['gia'] . '</h5>
                                     <h5 class="product-price-opacity">814.000đ</h5>
@@ -148,7 +148,7 @@
                             </div>
                             <div class="product-content">
                                 <h5 class="product-name fs-6">' . $value['ten_sach'] . '</h5>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                                <div class="rating2">⭐⭐⭐⭐⭐</div>
                                 <div class="product-price">
                                     <h5 class="product-price-sale">' . $value['gia'] . '</h5>
                                     <h5 class="product-price-opacity">814.000đ</h5>

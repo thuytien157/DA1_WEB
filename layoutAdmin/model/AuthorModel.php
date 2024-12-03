@@ -29,10 +29,19 @@ class AuthorModel {
     }
 
     public function deleteAuthor($id) {
+
+        // kiểm tra xem tác giả có sách hay không
+        $stmtCheck = $this->conn->prepare("SELECT COUNT(*) as book_count FROM sach WHERE id_tacgia = :id");
+        $stmtCheck->bindParam(':id', $id);
+        $stmtCheck->execute();
+        $result = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+
+    if ($result['book_count'] > 0) {
+        return false;
+    }
         $stmt = $this->conn->prepare("DELETE FROM tac_gia WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute(); 
-        
     }
     public function getAuthorById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM tac_gia WHERE id = :id");

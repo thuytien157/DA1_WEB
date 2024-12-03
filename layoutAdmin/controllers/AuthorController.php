@@ -33,8 +33,8 @@ class AuthorController {
     // Xử lý xóa tác giả
     public function deleteAuthor($id) {
         $result = $this->authorModel->deleteAuthor($id);
-        
     }
+    
     public function getAuthorById($id) {
         return $this->authorModel->getAuthorById($id);
     }
