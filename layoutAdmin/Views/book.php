@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,9 +105,16 @@
     .header-actions a:hover {
       color: #B77D42 !important;
     }
+    .row.mb-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .row.mb-3 .col-md-4 {
+    margin-bottom: 0;
+    }
   </style>
 </head>
-
 <body>
   <div class="container-fluid py-4 d-flex">
     <div class="container-fluid py-4 content">
@@ -123,9 +129,9 @@
                 </a>
               </div>
             </div>
-
             <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
+            <div style="margin: 12px 5px 12px 5px;" class="row mb-10"></div>
+            <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
@@ -216,9 +222,8 @@
         </div>
       </div>
     </div>
-
    <!--model full mota-->
-  <?php foreach ($books as $book): ?>
+<?php foreach ($books as $book): ?>
 <div class="modal fade" id="viewDescriptionModal-<?php echo $book['id']; ?>" tabindex="-1" aria-labelledby="viewDescriptionLabel-<?php echo $book['id']; ?>" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -227,7 +232,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <?php echo nl2br(htmlspecialchars($book['mo_ta'])); ?>
+      <?php echo nl2br(htmlspecialchars($book['mo_ta'])); ?>
       </div>
       <div class="modal-footer">
       <button type="button" class="btn" style="background-color: #D98C52; color: white; border: none;" data-bs-dismiss="modal">Đóng</button>
@@ -236,20 +241,16 @@
   </div>
 </div>
 <?php endforeach; ?>
-
-
-
   <!--model them sach -->
   <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addBookModalLabel">Thêm Sách</h5>
+        <h5 class="modal-title" id="addBookModalLabel">Thêm Sách và Chi Tiết</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="index.php?page=add_book"  enctype="multipart/form-data">
-         
+        <form method="POST" action="index.php?page=add_book"enctype="multipart/form-data">
           <div class="mb-3">
             <label for="tenTheloai" class="form-label">Tên Thể Loại</label>
             <select class="form-select" name="ten_theloai_id" required>
@@ -265,8 +266,6 @@
               <?php endif; ?>
             </select>
           </div>
-
-         
           <div class="mb-3">
             <label for="tenTacgia" class="form-label">Tên Tác Giả</label>
             <select class="form-select" name="ten_tacgia_id" required>
@@ -282,7 +281,6 @@
               <?php endif; ?>
             </select>
           </div>
-
           <div class="mb-3">
             <label for="tenNxb" class="form-label">Tên Nhà Xuất Bản</label>
             <select class="form-select" name="ten_nxb_id" required>
@@ -298,8 +296,6 @@
               <?php endif; ?>
             </select>
           </div>
-
-        
           <div class="mb-3">
             <label for="tenSach" class="form-label">Tên Sách</label>
             <input type="text" class="form-control" name="ten_sach" required>
@@ -334,17 +330,41 @@
             <label for="soLuongBan" class="form-label">Số Lượng Bán</label>
             <input type="number" class="form-control" name="so_luong_ban" required>
           </div>
-
+              <!-- add chi tiet sach-->
+              <div class="mb-3">
+            <label for="nha_cung_cap" class="form-label">Nhà cung cấp</label>
+            <input type="text" class="form-control" name="nha_cung_cap" required>
+          </div>
+              <div class="mb-3">
+            <label for="ngon_ngu" class="form-label">Ngôn ngữ</label>
+            <input type="text" class="form-control" name="ngon_ngu" required>
+          </div>
+              <div class="mb-3">
+            <label for="trong_luong" class="form-label">Trọng lượng</label>
+            <input type="text" class="form-control" name="trong_luong" required>
+          </div>
+              <div class="mb-3">
+            <label for="kich_thuoc" class="form-label">Kích thước</label>
+            <input type="text" class="form-control" name="kich_thuoc" required>
+          </div>
+              <div class="mb-3">
+            <label for="so_luong_trang" class="form-label">Số lượng trang</label>
+            <input type="text" class="form-control" name="so_luong_trang" required>
+          </div>
+              <div class="mb-3">
+            <label for="hinh_thuc" class="form-label">Hình thức</label>
+            <input type="text" class="form-control" name="hinh_thuc" required>
+          </div>
+              <div class="mb-3">
+            <label for="so_luong" class="form-label">Số lượng</label>
+            <input type="text" class="form-control" name="so_luong" required>
+          </div> 
           <button type="submit" class="btn btn-primary" name="them">Lưu</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 <?php foreach ($books as $book): ?>
     <div class="modal fade" id="editBookModal-<?php echo $book['id']; ?>" tabindex="-1" aria-labelledby="editBookModalLabel-<?php echo $book['id']; ?>" aria-hidden="true">
       <div class="modal-dialog">
