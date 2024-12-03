@@ -14,6 +14,6 @@ class dangnhapModel {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về dữ liệu người dùng (gồm cả password mã hóa)
     }
-    
+
 
 }

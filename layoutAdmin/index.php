@@ -41,118 +41,117 @@ switch ($page) {
     case 'book':
         $BookController->listBooks();
         break;
-        case 'add_book':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['them'])) {
-                $ten_sach = $_POST['ten_sach'];
-                $id_theloai = (int)$_POST['ten_theloai_id'];
-                $id_tacgia = (int)$_POST['ten_tacgia_id'];
-                $id_nxb = (int)$_POST['ten_nxb_id'];
-                $gia = $_POST['gia'];
-                $giam = $_POST['giam'];
-                $mo_ta = $_POST['mo_ta'];
-                $nam_xb = $_POST['nam_xb'];
-                $so_luong_ban = (int)$_POST['so_luong_ban'];
-                $nha_cung_cap = $_POST['nha_cung_cap'];
-                $ngon_ngu = $_POST['ngon_ngu'];
-                $trong_luong = $_POST['trong_luong'];
-                $kich_thuoc = $_POST['kich_thuoc'];
-                $so_luong_trang = $_POST['so_luong_trang'];
-                $hinh_thuc = $_POST['hinh_thuc'];
-                $so_luong = (int)$_POST['so_luong'];
-        
-                if (isset($_FILES['hinh'])) {
-                    $targetFile = "../layout/public/img/IMG_DA1/san pham/".$_FILES['hinh']['name'];
-        
-                    if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
-                        $hinh = $_FILES['hinh']['name'];        
-                        $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban, $nha_cung_cap, $ngon_ngu, $trong_luong, $kich_thuoc, $so_luong_trang, $hinh_thuc, $so_luong);
-                    } else {
-                        echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
-                        exit();
-                    }
+    case 'add_book':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['them'])) {
+            $ten_sach = $_POST['ten_sach'];
+            $id_theloai = (int)$_POST['ten_theloai_id'];
+            $id_tacgia = (int)$_POST['ten_tacgia_id'];
+            $id_nxb = (int)$_POST['ten_nxb_id'];
+            $gia = $_POST['gia'];
+            $giam = $_POST['giam'];
+            $mo_ta = $_POST['mo_ta'];
+            $nam_xb = $_POST['nam_xb'];
+            $so_luong_ban = (int)$_POST['so_luong_ban'];
+            $nha_cung_cap = $_POST['nha_cung_cap'];
+            $ngon_ngu = $_POST['ngon_ngu'];
+            $trong_luong = $_POST['trong_luong'];
+            $kich_thuoc = $_POST['kich_thuoc'];
+            $so_luong_trang = $_POST['so_luong_trang'];
+            $hinh_thuc = $_POST['hinh_thuc'];
+            $so_luong = (int)$_POST['so_luong'];
 
+            if (isset($_FILES['hinh'])) {
+                $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $_FILES['hinh']['name'];
+
+                if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
+                    $hinh = $_FILES['hinh']['name'];
+                    $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban, $nha_cung_cap, $ngon_ngu, $trong_luong, $kich_thuoc, $so_luong_trang, $hinh_thuc, $so_luong);
                 } else {
-                    echo "Vui lòng chọn hình ảnh để tải lên.";
+                    echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
                     exit();
                 }
+            } else {
+                echo "Vui lòng chọn hình ảnh để tải lên.";
+                exit();
             }
-            break;
-            case 'edit_book':
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    $book = $BookController->getBookById($id);
-                    include 'Views/edit_book.php';
-                }
-                break;
-            case 'update_book':
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $id = (int)$_POST['id'];
-                    $ten_sach = trim($_POST['ten_sach']);
-                    $id_theloai = (int)$_POST['ten_theloai_id'];
-                    $id_tacgia = (int)$_POST['ten_tacgia_id'];
-                    $id_nxb = (int)$_POST['ten_nxb_id'];
-                    $gia = $_POST['gia'];
-                    $giam = $_POST['giam'];
-                    $mo_ta = trim($_POST['mo_ta']);
-                    $nam_xb = $_POST['nam_xb'];
-                    $so_luong_ban = $_POST['so_luong_ban'];
-                    
-                    $book = $BookController->getBookById($id);  
-                    $old_img = $book['hinh']; 
-                
-                    //nếu người dùng có upload một file
-                    if (isset($_FILES['hinh']) && $_FILES['hinh']['name'] != '') {
-                        $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $_FILES['hinh']['name'];
-                
-                        // nếu giá trị old_img true và có tồn tại old_img trong thư mục thì xoá
-                        if ($old_img && file_exists("../layout/public/img/IMG_DA1/san pham/" . $old_img)) {
-                            unlink("../layout/public/img/IMG_DA1/san pham/" . $old_img); 
-                        }
-                
-                        if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
-                            $hinh = $_FILES['hinh']['name'];
-                            $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
-                        } else {
-                            echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
-                            exit();
-                        }
+        }
+        break;
+    case 'edit_book':
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $book = $BookController->getBookById($id);
+            include 'Views/edit_book.php';
+        }
+        break;
+    case 'update_book':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = (int)$_POST['id'];
+            $ten_sach = trim($_POST['ten_sach']);
+            $id_theloai = (int)$_POST['ten_theloai_id'];
+            $id_tacgia = (int)$_POST['ten_tacgia_id'];
+            $id_nxb = (int)$_POST['ten_nxb_id'];
+            $gia = $_POST['gia'];
+            $giam = $_POST['giam'];
+            $mo_ta = trim($_POST['mo_ta']);
+            $nam_xb = $_POST['nam_xb'];
+            $so_luong_ban = $_POST['so_luong_ban'];
 
-                        //nếu người dùng không tải ảnh mới lên, giữ ảnh cũ
-                    } else {
-                        $hinh = $old_img;
-                        $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
-                    }
-                    
-                    header("Location: index.php?page=book");
+            $book = $BookController->getBookById($id);
+            $old_img = $book['hinh'];
+
+            //nếu người dùng có upload một file
+            if (isset($_FILES['hinh']) && $_FILES['hinh']['name'] != '') {
+                $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $_FILES['hinh']['name'];
+
+                // nếu giá trị old_img true và có tồn tại old_img trong thư mục thì xoá
+                if ($old_img && file_exists("../layout/public/img/IMG_DA1/san pham/" . $old_img)) {
+                    unlink("../layout/public/img/IMG_DA1/san pham/" . $old_img);
+                }
+
+                if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
+                    $hinh = $_FILES['hinh']['name'];
+                    $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+                } else {
+                    echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
                     exit();
                 }
-                break;
-            
-            
-            case 'delete_book':
-                if (isset($_GET['id'])) {
-                    $id = (int)$_GET['id'];
-                    $bookname = $BookController->getBookById($id); 
-                    if($id_)
-                    if ($bookname) {
-                        $imagePath = "../layout/public/img/IMG_DA1/san pham/".$bookname['hinh']; 
-                        if (file_exists($imagePath)) {
-                            unlink($imagePath); 
-                        }
-                        $result = $BookController->deleteBook($id);
-            
-                        if ($result) {
-                            header("Location: index.php?page=book");
-                            exit();
-                        } else {
-                             "Lỗi khi xóa sách. Vui lòng thử lại.";
-                        }
-                    } else {
-                        echo "Không tìm thấy sách.";
+
+                //nếu người dùng không tải ảnh mới lên, giữ ảnh cũ
+            } else {
+                $hinh = $old_img;
+                $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+            }
+
+            header("Location: index.php?page=book");
+            exit();
+        }
+        break;
+
+
+    case 'delete_book':
+        if (isset($_GET['id'])) {
+            $id = (int)$_GET['id'];
+            $bookname = $BookController->getBookById($id);
+            if ($id_)
+                if ($bookname) {
+                    $imagePath = "../layout/public/img/IMG_DA1/san pham/" . $bookname['hinh'];
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
                     }
+                    $result = $BookController->deleteBook($id);
+
+                    if ($result) {
+                        header("Location: index.php?page=book");
+                        exit();
+                    } else {
+                        "Lỗi khi xóa sách. Vui lòng thử lại.";
+                    }
+                } else {
+                    echo "Không tìm thấy sách.";
                 }
-                break;
-            
+        }
+        break;
+
     case 'category':
         $CategoryController->listCategorys();
         break;
@@ -188,7 +187,7 @@ switch ($page) {
                     window.location.href = 'index.php?page=category';
                   </script>";
         }
-        exit();        
+        exit();
         break;
     case 'author':
         $AuthorController->listAuthors(); //lay listauthor hien thi cho view
@@ -201,7 +200,7 @@ switch ($page) {
         }
         break;
     case 'edit_author':
-        if (isset($_GET['id'])) { //nếu có tham số id trong URL 
+        if (isset($_GET['id'])) { //nếu có tham số id trong URL
             $id = $_GET['id'];
             $author = $AuthorController->getAuthorById($id);
             include 'Views/edit_author.php';
@@ -215,19 +214,19 @@ switch ($page) {
             header("Location: index.php?page=author");
         }
         break;
-        case 'delete_author':
-            $id = $_GET['id']; 
-        
-            $result = $AuthorController->deleteAuthor($id);
-        
-            if (!$result) {
-                echo "<script>
+    case 'delete_author':
+        $id = $_GET['id'];
+
+        $result = $AuthorController->deleteAuthor($id);
+
+        if (!$result) {
+            echo "<script>
                         alert('Bạn không thể xoá tác giả này vì có chứa sách!');
                         window.location.href = 'index.php?page=author';
                       </script>";
-            }
-            exit();
-            break;
+        }
+        exit();
+        break;
     case 'publishinghouse':
         $PublishingHouseController->listPublishingHouses();
         break;
@@ -267,7 +266,7 @@ switch ($page) {
                         window.location.href = 'index.php?page=publishinghouse';
                       </script>";
             }
-            exit();         
+            exit();
         }
         break;
     case 'order':
@@ -313,7 +312,7 @@ switch ($page) {
         header("Location: index.php?page=users");
         break;
     case 'edit_users':
-        if (isset($_GET['id'])) { //nếu có tham số id trong URL 
+        if (isset($_GET['id'])) { //nếu có tham số id trong URL
             $id = $_GET['id'];
             $users = $UsersController->getUsersById($id);
             include 'Views/edit_users.php';
@@ -331,5 +330,12 @@ switch ($page) {
             $UsersController->updateUsers($id, $ho_ten, $sdt, $username, $mat_khau, $email, $vai_tro);
             header("Location: index.php?page=users");
         }
+        break;
+    case 'thoat':
+        unset($_SESSION['user']);
+
+        // Chuyển hướng người dùng về trang đăng nhập
+        header("Location: ../layout/index.php");
+        exit();
         break;
 }

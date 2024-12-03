@@ -22,8 +22,8 @@ class dangnhapController {
     private function handleLogin($user, $password) {
         // Lấy thông tin người dùng dựa trên tên đăng nhập
         $userData = $this->dangnhap->login($user);
-
-        if ($userData && password_verify($password, $userData['mat_khau'])) {
+        // var_dump(password_verify($password,$userData['mat_khau']));
+        if ($userData && $password==$userData['mat_khau']) {
             // Đăng nhập thành công, lưu thông tin vào session
             session_start();
             $_SESSION['user'] = [
@@ -48,6 +48,7 @@ class dangnhapController {
             // Đăng nhập thất bại
             $error = "Tên đăng nhập hoặc mật khẩu không đúng!";
             include "view/dangnhap.php";
+            echo password_verify($password,$userData['mat_khau']);
         }
     }
 

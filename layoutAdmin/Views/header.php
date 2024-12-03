@@ -46,12 +46,18 @@
               <a class="nav-link" href="index.php?page=logout"> <?php echo isset($_SESSION['user']['username']) ?"Chuyển lại trang web" : "";
 ?></a>
             </li>
+            <li><a class="nav-link"  href="index.php?act=<?php echo trim(isset($_SESSION['user']['username'])) ? 'thoat' : ''; ?>">
+
+                            <?php
+                                echo isset($_SESSION['user']['username'])?  "Đăng Xuất":"";
+                            ?>
+                            </a></li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
-  
+
    <div class="d-flex">
     <div class="sidebar text-white p-3" style="width: 250px; min-height: 100vh;">
       <ul class="nav flex-column mt-4">
@@ -66,7 +72,7 @@
     </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  
+
 </body>
 
 </html>

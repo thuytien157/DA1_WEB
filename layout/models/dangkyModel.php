@@ -10,7 +10,7 @@ class dangkyModel {
 
     public function registerUser($hoTen, $sdt, $username, $email, $hashedPassword) {
         try {
-            $hashedPassword = password_hash($hashedPassword, PASSWORD_BCRYPT);
+            // $hashedPassword = password_hash($hashedPassword, PASSWORD_DEFAULT);
             $sql = "INSERT INTO user (ho_ten, sdt, username, email, mat_khau, vai_tro)
                     VALUES (:ho_ten, :sdt, :username, :email, :mat_khau, 0)";
             $stmt = $this->db->prepare($sql);

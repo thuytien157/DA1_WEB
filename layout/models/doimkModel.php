@@ -11,10 +11,10 @@ class doimkModel {
 
         // Nếu tìm thấy mật khẩu và mật khẩu hiện tại khớp với mật khẩu trong cơ sở dữ liệu
         if ($result && password_verify($currentPassword, $result['mat_khau'])) {
-            $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT); // Mã hóa mật khẩu mới
+            // $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
             $updateSql = "UPDATE user SET mat_khau = :newPassword WHERE id = :id";
             $updateParams = [
-                ':newPassword' => $hashedPassword,
+                ':newPassword' => $newPassword,
                 ':id' => $userId
             ];
             $connect->modify($updateSql, $updateParams);
