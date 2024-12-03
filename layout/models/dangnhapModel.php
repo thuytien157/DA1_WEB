@@ -8,17 +8,12 @@ class dangnhapModel {
         $this->dangnhap= $database->ketnoi();
     }
 
-    public function login($user, $password) {
-        $stmt = $this->dangnhap->prepare("SELECT * FROM user WHERE username = :user AND mat_khau = :password ");
+    public function login($user) {
+        $stmt = $this->dangnhap->prepare("SELECT * FROM user WHERE username = :user");
         $stmt->bindParam(':user', $user);
-        $stmt->bindParam(':password', $password);
         $stmt->execute();
-        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($userData) {
-            return $userData; // Trả về dữ liệu người dùng
-        }
-        return false; // Trả về false nếu không tìm thấy
-}
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về dữ liệu người dùng (gồm cả password mã hóa)
+    }
+    
 
 }

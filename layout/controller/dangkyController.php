@@ -28,7 +28,7 @@ class dangkyController {
         // Hàm password_hash() trong PHP được sử dụng để mã hóa mật khẩu một cách an toàn. Kết hợp với thuật toán PASSWORD_BCRYPT, nó tạo ra một giá trị băm (hash) cho mật khẩu, đảm bảo tính bảo mật khi lưu trữ mật khẩu trong cơ sở dữ liệu.
 
 
-        
+
         require_once "models/dangkyModel.php";
         $dangkyModel = new dangkyModel();
         $result = $dangkyModel->registerUser($hoTen, $sdt, $username, $email, $matKhau);
@@ -52,6 +52,9 @@ class dangkyController {
         }
 
 
+        if ($dangkyModel->isEmailExists($email)) {
+            return "Email đã được sử dụng. Vui lòng chọn email khác.";
+        }
 
         if (!preg_match('/^[0-9]{10}$/', $sdt)) {
             return "Số điện thoại phải gồm 10 chữ số.";

@@ -20,10 +20,10 @@ class dangnhapController {
     }
 
     private function handleLogin($user, $password) {
-        // Kiểm tra thông tin đăng nhập
-        $userData = $this->dangnhap->login($user, $password);
+        // Lấy thông tin người dùng dựa trên tên đăng nhập
+        $userData = $this->dangnhap->login($user);
 
-        if ($userData) {
+        if ($userData && password_verify($password, $userData['mat_khau'])) {
             // Đăng nhập thành công, lưu thông tin vào session
             session_start();
             $_SESSION['user'] = [
@@ -39,18 +39,17 @@ class dangnhapController {
 
             // Chuyển hướng theo vai trò người dùng
             if ($userData['vai_tro'] == 1) {
-                // Chuyển đến giao diện admin
                 header("Location: ../layoutAdmin/index.php");
             } else {
-                // Chuyển đến giao diện người dùng
                 header("Location: index.php");
             }
             exit;
         } else {
             // Đăng nhập thất bại
             $error = "Tên đăng nhập hoặc mật khẩu không đúng!";
-            include "view/dangnhap.php"; // Hiển thị lại trang đăng nhập và thông báo lỗi
+            include "view/dangnhap.php";
         }
     }
+
 }
 
