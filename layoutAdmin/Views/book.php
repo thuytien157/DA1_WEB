@@ -122,7 +122,8 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0 position-relative">
-              <h6 class="d-inline-block">Book Table</h6>
+              <div class="d-inline-block fw-bolder">Book Table</div>
+              <!-- <a style="color: #cb8e70;" href="index.php?page=book&action=listhiddenbook" class="d-block fw-bolder">List hidden book</a> -->
               <div class="header-actions">
                 <a href="#" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addBookModal">
                   Create
@@ -152,7 +153,7 @@
                   <tbody>
                     <?php if (!empty($books)): ?>
                     <?php foreach ($books as $book): ?>
-                    <tr>
+                    <tr class="<?=$book['status'] == 1 ? 'bg-secondary' : ''?>">
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
@@ -205,7 +206,7 @@
                       </td>          
                       <td class="align-middle text-center">
                         <a href="#" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#editBookModal-<?php echo $book['id']; ?>">Edit</a>
-                        <a href="index.php?page=delete_book&id=<?php echo $book['id']; ?>" style="color:  #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
+                        <a href="index.php?page=<?=$book['status'] == 0 ? 'hidden_book' : 'show_book'?>&id=<?php echo $book['id']; ?>" style="color:  #F5110F !important" class="text-secondary font-weight-bold text-xs action-link"><?=$book['status'] == 1 ? 'Show' : 'Hide' ?> </a>
                       </td>
                     </tr>
                     <?php endforeach; ?>

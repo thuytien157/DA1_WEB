@@ -696,10 +696,12 @@ footer {
 }
 
 .cart-table-left{
-    width: 72%;
-    min-width: 200px;
+    /* min-width: 100%; */
+    min-width: 72%;
 }
-
+.cart_demo{
+    min-width: 100%;
+}
 .cart-table-right{
     width: 26%;
     min-width: 200px;

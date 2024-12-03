@@ -1,6 +1,4 @@
-
-
-<main class="container no-mg">
+<main class="container-xxl no-mg">
 
 <div class="dieuhuong">
         <a href="index.html" >Trang chủ</a> /

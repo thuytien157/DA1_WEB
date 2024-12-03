@@ -31,12 +31,28 @@ class sanphamModel {
     }
 
     // Lấy tất cả sản phẩm
-    public function dssp() {
+    // public function dssp() {
+    //     include_once 'models/connectmodel.php';
+    //     $dulieu = new ConnectModel();
+    //     $sql = 'SELECT * FROM sach';
+    //     $this->sp = $dulieu->selectall($sql);
+    // }
+
+    public function dssp($page = 1) {
         include_once 'models/connectmodel.php';
         $dulieu = new ConnectModel();
-        $sql = 'SELECT * FROM sach';
+        
+        // Số lượng sản phẩm mỗi trang
+        $perPage = 9;
+        
+        // Tính toán OFFSET dựa trên trang hiện tại
+        $offset = ($page - 1) * $perPage;
+        
+        // Truy vấn SQL với LIMIT và OFFSET
+        $sql = "SELECT * FROM sach LIMIT $perPage OFFSET $offset";
         $this->sp = $dulieu->selectall($sql);
     }
+    
 
     // Lọc sản phẩm theo tác giả
     public function spTheoTacGia($idtg) {

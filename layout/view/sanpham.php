@@ -79,14 +79,14 @@
     <?php
     $ch = '';
     if (!empty($kq)) {
-        foreach ($kq as $value) {
+        foreach (array_slice($kq, 0, 9) as $value) {
             $ch .= '
             <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="card">
                     <a href="index.php?act=index&id=' . $value['id'] . '" class="text-decoration-none">
                         <img src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" class="card-img-top sp_img" alt="' . $value['ten_sach'] . '">
                     </a>
-                    <div class="card-body">
+                        <div class="card-body">
                         <h6 class="card-title fw-bold">' . $value['ten_sach'] . '</h6>
                         <div class="rating">⭐⭐⭐⭐⭐</div>
                         <div class="">
@@ -94,12 +94,11 @@
                             <span class="text-muted text-decoration-line-through fs-6">814.000đ</span>
                             <span class="badge bg-danger">' . $value['giam'] . '%</span>
                         </div>
-                    </div>
+                    </div>';
+                if($value['status'] == 0){
+                    $ch .= '
                     <div class="card-footer">
                         <button class="button1 btn-sm">Mua ngay</button>
-
-
-
                         <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post" class="d-inline">
                             <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
                             <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
@@ -108,12 +107,18 @@
                             <button type="submit" name="themvaogiohang" class="button1 btn-sm">Thêm vào giỏ hàng</button>
                         </form>
                     </div>
+                    ';
+                }else{
+                    $ch .= '<div class="card-footer">Sản phẩm này hiện đang tạm dừng kinh doanh</div>';
+                }   
+                $ch.='
                 </div>
             </div>';
         }
     } else {
         echo "<p class='text-center'>Không tìm thấy sản phẩm</p>";
     }
+    
     echo $ch;
     ?>
 </div>
@@ -121,24 +126,26 @@
                 </div>
             </div>
 
-            <!-- Pagination -->
             <div class="chuyentrang mt-4">
                 <nav aria-label="Page navigation example" class="text-center">
+                    <form action="">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link text-black" href="index.php?act=product&page=1">1</a></li>
+                        <li class="page-item"><a class="page-link text-black" href="index.php?act=product&page=2">2</a></li>
+                        <li class="page-item"><a class="page-link text-black" href="index.php?act=product&page=3">3</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul>                    
+                </form>
+
                 </nav>
             </div>
         </div>

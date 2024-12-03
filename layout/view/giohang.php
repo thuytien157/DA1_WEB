@@ -7,8 +7,8 @@
     <!-- chức năng giỏ hàng  -->
     <section class="cart-section mt-0 me-3 ms-3">
         <!-- bảng sản phẩm trong giỏ hàng -->
-        <div class="cart-table-left">
-            <table class="cart-table">
+        <div class="cart-table-left <?= empty($_SESSION['cart']) ? 'cart_demo' : '' ?>">
+        <table class="cart-table">
                 <thead>
                     <tr>
                         <th>Sản phẩm</th>
@@ -30,7 +30,7 @@
                     <td>
                         <form action="index.php?act=cart&action=capnhatsoluong" method="POST">
                             <input type="hidden" name="id" value="'.$value['id'].'">
-                            <input type="number" name="sl" value="'.$value['sl'].'" min="1" class="cart-quantity">
+                            <input type="number" name="sl" value="'.$value['sl'].'" class="cart-quantity">
                             <button type="submit" style="display: none;">Cập nhật</button>
                         </form>
                     </td>
@@ -48,7 +48,8 @@
 
 
         <!-- bảng cộng giỏ hàng  -->
-        <table class="cart-table-sum ms-2">
+        <?php if (!empty($_SESSION['cart'])): ?>
+            <table class="cart-table-sum ms-2">
             <thead>
                 <tr>
                     <th>Cộng giỏ hàng</th>
@@ -72,6 +73,7 @@
         </tr>
     </tbody>
         </table>
+        <?php endif; ?>
     </section>
 </main>
 <script src="./assets/js/sldonhang.js"></script>

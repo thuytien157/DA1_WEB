@@ -36,7 +36,8 @@ class sanphamController {
 
         // Nếu không có tham số nào, lấy tất cả sản phẩm 
         if (empty($idtimkiem) && empty($idtl) && empty($idtg) && empty($idnxb)) {
-            $sanphammodel->dssp();
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $sanphammodel->dssp($page);
             $kq = $sanphammodel->sp; 
            include_once 'view/sanpham.php';
         }

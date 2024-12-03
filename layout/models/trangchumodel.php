@@ -16,21 +16,21 @@ class trangchuModel
     {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "SELECT * from sach where so_luong_ban order by so_luong_ban desc limit 8";
+        $sql = "SELECT * from sach where status = 0 order by so_luong_ban desc limit 8";
         $this->mangsp = $data->selectall($sql);
     }
     public function dsspMoi() 
     { 
         include_once 'models/connectmodel.php'; 
         $data = new ConnectModel(); 
-        $sql = "SELECT * FROM sach WHERE ngay_nhap ORDER BY ngay_nhap DESC limit 8";
+        $sql = "SELECT * FROM sach WHERE status = 0 ORDER BY ngay_nhap DESC limit 8";
         $this->mangspmoi = $data->selectall($sql);
     }
     public function dsspSale()
     {
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "SELECT * from sach where giam > 0 order by giam desc limit 8";
+        $sql = "SELECT * from sach where status = 0 and giam > 0 order by giam desc limit 8";
         $this->mangspsale = $data->selectall($sql);
     }
     
