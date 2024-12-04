@@ -89,37 +89,49 @@ switch ($page) {
             $mo_ta = trim($_POST['mo_ta']);
             $nam_xb = $_POST['nam_xb'];
             $so_luong_ban = $_POST['so_luong_ban'];
-
+    
             $book = $BookController->getBookById($id);
             $old_img = $book['hinh'];
-
-            //nếu người dùng có upload một file
+    
             if (isset($_FILES['hinh']) && $_FILES['hinh']['name'] != '') {
-                $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $_FILES['hinh']['name'];
-
-                // nếu giá trị old_img true và có tồn tại old_img trong thư mục thì xoá
+                $fileName = basename($_FILES['hinh']['name']);
+                $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $fileName;
+    
                 if ($old_img && file_exists("../layout/public/img/IMG_DA1/san pham/" . $old_img)) {
                     unlink("../layout/public/img/IMG_DA1/san pham/" . $old_img);
                 }
-
+    
+                // Check file type and size
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                $maxFileSize = 5 * 1024 * 1024; // 5MB
+                if (!in_array($_FILES['hinh']['type'], $allowedTypes)) {
+                    echo "Chỉ hỗ trợ tải lên hình ảnh JPEG, PNG, hoặc GIF.";
+                    exit();
+                }
+    
+                if ($_FILES['hinh']['size'] > $maxFileSize) {
+                    echo "Kích thước hình ảnh quá lớn. Vui lòng tải lên hình ảnh nhỏ hơn 5MB.";
+                    exit();
+                }
+    
                 if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
-                    $hinh = $_FILES['hinh']['name'];
+                    $hinh = $fileName;
                     $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
                 } else {
                     echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
                     exit();
                 }
-
-            //nếu người dùng không tải ảnh mới lên, giữ ảnh cũ
+    
             } else {
                 $hinh = $old_img;
                 $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
             }
-
+    
             header("Location: index.php?page=book");
             exit();
         }
         break;
+    
 
 
     case 'hidden_book':
