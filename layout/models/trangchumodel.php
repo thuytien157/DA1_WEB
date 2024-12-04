@@ -39,8 +39,7 @@ class trangchuModel
         include_once 'models/connectmodel.php';
         $data = new ConnectModel();
         
-        $sql = "SELECT sach.*, chi_tiet_sach.*, nha_xuat_ban.*, tac_gia.* FROM sach 
-        LEFT JOIN chi_tiet_sach ON sach.id = chi_tiet_sach.id_sach 
+        $sql = "SELECT sach.*, nha_xuat_ban.*, tac_gia.* FROM sach 
         LEFT JOIN nha_xuat_ban ON sach.id_nxb = nha_xuat_ban.id 
         LEFT JOIN tac_gia ON sach.id_tacgia = tac_gia.id 
         WHERE sach.id = :id";   

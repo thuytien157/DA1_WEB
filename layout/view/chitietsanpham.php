@@ -69,12 +69,10 @@
                 <h2 id="tenchitiet">' . $value['ten_sach'] . '</h2>
 
                     <div class="thongtinchitiet">
-                        <div>Nhà cung cấp: <span style="color: #8B4513;">' . $value['nha_cung_cap'] . '</span></div>
-                        <div class="tg">| Tác giả:' . $value['ten_tacgia'] . '</div>
+                        <div class="tg">Tác giả: ' . $value['ten_tacgia'] . '</div>
                     </div>
                     <div class="thongtinchitiet1">
-                        <div>Nhà xuất bản:' . $value['ten_nxb'] . '</span></div>
-                        <div class="tg">| Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
+                        <div class="tg">Nhà xuất bản: ' . $value['ten_nxb'] . '</span></div>
                     </div>
                     <div class="yeuthich">
             <i class="fa-regular fa-heart"></i>
@@ -123,9 +121,7 @@
                         $ch = '';
                         foreach ($trangchumodel->allsp as $key => $value) {
                             $ch .= '
-                          <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id_sach'] . '</td></tr>
-
-                          <tr><td id="cotct">Tên Nhà Cung Cấp</td><td>' . $value['nha_cung_cap'] . '</td></tr>
+                          <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id'] . '</td></tr>
 
                          <tr><td id="cotct">Tác giả</td><td>' . $value['ten_tacgia'] . '</td></tr>
 
@@ -133,15 +129,15 @@
 
                         <tr><td id="cotct">NXB</td><td>' . $value['ten_nxb'] . '</td></tr>
 
-                          <tr><td id="cotct">Ngôn Ngữ</td><td>' . $value['ngon_ngu'] . '</td></tr>
+                          <tr><td id="cotct">Ngôn Ngữ</td><td>Tiếng Việt</td></tr>
 
-                          <tr><td id="cotct">Trọng lượng (gr)</td><td>' . $value['trong_luong'] . 'g</td></tr>
+                          <tr><td id="cotct">Trọng lượng (gr)</td><td>645 g</td></tr>
 
-                          <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
+                          <tr><td id="cotct">Kích Thước Bao Bì</td><td>15 cm</td></tr>
 
-                          <tr><td id="cotct">Số trang</td><td>' . $value['so_luong_trang'] . '</td></tr>
+                          <tr><td id="cotct">Số trang</td><td>200</td></tr>
 
-                          <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
+                          <tr><td id="cotct">Hình thức</td><td>Bìa cứng</td></tr>
                         <tr>
                         <td id="cotct">Sản phẩm bán chạy nhất</td>
                         <td>Top 100 sản phẩm Tiểu thuyết bán chạy của tháng</td>
