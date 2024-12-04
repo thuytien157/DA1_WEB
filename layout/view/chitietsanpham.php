@@ -70,9 +70,8 @@
 
                     <div class="thongtinchitiet">
                         <div class="tg">Tác giả: ' . $value['ten_tacgia'] . '</div>
-                    </div>
-                    <div class="thongtinchitiet1">
-                        <div class="tg">Nhà xuất bản: ' . $value['ten_nxb'] . '</span></div>
+                         <div class="tg">Nhà xuất bản: ' . $value['ten_nxb'] . '</span></div>
+
                     </div>
                     <div class="yeuthich">
             <i class="fa-regular fa-heart"></i>
@@ -87,7 +86,7 @@
                 <div class="danhgia">0 đánh giá</div>
             </div>
             <div class="giachitiet">
-                <h5 class="gia">'.$value['gia'].'đ <del class="gia_sale">85.000đ</del></h5>
+                <h5 class="gia">'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.') . 'đ <del class="gia_sale">'.$value['gia'].'đ</del></h5>
                 <div class="chiase">
                     Chia sẽ
                     <i class="fa-brands fa-facebook f1"></i>
@@ -96,20 +95,28 @@
                     <i class="fa-brands fa-discord d1"></i>
                 </div>
             </div>
-            <hr>
-            <div class="sl-btn">
-                <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
-            </div>
+            <hr>';
 
-                <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
-                    <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
-                    <input type="hidden" name="gia" value="' . $value['gia'] . '">
-                    <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
-                    <input type="number" name="sl" class="visually-hidden" value="1" min="1">
-                    <button type="submit" name="themvaogiohang" class="mt-2 button1">Thêm vào giỏ hàng</button>
-                </form>
-
-                ';
+    
+                if($value['status'] == 0){
+                    $ch.='
+                        <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
+                            <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
+                            <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                            <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
+                            <div class="sl-btn">
+                            <input type="number" name="sl" value="1" class="quantity-input">
+                            </div>
+                            <button type="submit" name="themvaogiohang" class="mt-2 button1">Thêm vào giỏ hàng</button>
+                        </form>';
+            }else{
+                    $ch .= '
+                            <div class="alert alert-success" role="alert">
+                                <p>Sản phẩm này hiện đang tạm dừng kinh doanh.</p>
+                                <p>Vui lòng tham khảo các sản phẩm liên quan hoặc <a href="index.php?act=contact" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Liên hệ</a> với chúng tôi để biết thêm thông tin.</p>
+                            </div>                    
+                            ';
+                }
             }
         echo $ch;
             ?>
@@ -206,3 +213,4 @@
                         </div>
 
 </main>
+<script src="./assets/js/sldonhang.js"></script>

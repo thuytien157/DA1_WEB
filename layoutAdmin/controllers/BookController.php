@@ -79,6 +79,9 @@ class BookController {
     public function showBook($id) {
         return $this->bookModel->showBook($id);
     }
+    public function deleteBook($id) {
+        return $this->bookModel->deleteBook($id);
+    }
 }  
 
 ?>

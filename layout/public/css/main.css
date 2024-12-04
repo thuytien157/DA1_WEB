@@ -1166,23 +1166,19 @@ h5{
 .thongtinchitiet{
     margin-top: 20px;
     display: flex;
-    flex-direction: row;
     font-size: 16px;
+    gap: 50px;
 }
 .tg {
-    margin-left: 20px;
     text-align: right !important;
-}
-.thongtinchitiet1{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    font-size: 16px;
 }
 .fa-heart{
     font-size: 22px;
     color: var(--main-color);
 
+}
+.sp_ngungkd{
+    width: 95%;
 }
 .yeuthich{
     display: flex;
@@ -1234,7 +1230,7 @@ h5{
     gap: 360px;
 }
 .button1{
-    padding: 5px 10px;
+    padding: 5px 20px;
     color: white;
     text-decoration: none;
     background-color: var(--main-color);

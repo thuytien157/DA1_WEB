@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const sl = row.querySelector('.cart-quantity').value;
             total += gia * sl;
         });
-        tamtinh.innerText = total + 'đ';
-        tong.innerText = total + 'đ';
+        tamtinh.innerText = total.toLocaleString('vi-VN') + 'đ';
+        tong.innerText = total.toLocaleString('vi-VN') + 'đ';    
     }
 
     // ngăn nhập số 0 vào ô nhập số lượng

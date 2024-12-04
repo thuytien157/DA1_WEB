@@ -27,8 +27,8 @@
                                     <h5 class="product-name">' . $value['ten_sach'] . '</h5>
                                     <div class="rating2">⭐⭐⭐⭐⭐</div>
                                     <div class="product-price">
-                                        <h5 class="product-price-sale">' . $value['gia'] . '</h5>
-                                        <h5 class="product-price-opacity">814.000đ</h5>
+                                        <h5 class="product-price-sale">'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.') . 'đ</h5>
+                                        <h5 class="product-price-opacity">'.$value['gia'].'</h5>
                                         <h5 class="product-price-percent">' . $value['giam'] . '%</h5>
                                     </div>
                                 </div>';
@@ -40,7 +40,7 @@
                                     <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
                                         <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
                                         <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
-                                        <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                                        <input type="hidden" name="gia" value="' . floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)) . '">
                                         <input type="number" name="sl" class="visually-hidden" value="1" min="1">
                                         <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
                                     </form>
@@ -83,8 +83,8 @@
                                     <h5 class="product-name">' . $value['ten_sach'] . '</h5>
                                     <div class="rating2">⭐⭐⭐⭐⭐</div>
                                     <div class="product-price">
-                                        <h5 class="product-price-sale">' . $value['gia'] . '</h5>
-                                        <h5 class="product-price-opacity">814.000đ</h5>
+                                        <h5 class="product-price-sale">'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.') . 'đ</h5>
+                                        <h5 class="product-price-opacity">'.$value['gia'].'</h5>
                                         <h5 class="product-price-percent">' . $value['giam'] . '%</h5>
                                     </div>
                                 </div>';
@@ -95,7 +95,7 @@
                                     <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
                                         <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
                                         <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
-                                        <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                                        <input type="hidden" name="gia" value="' . floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)) . '">
                                         <input type="number" name="sl" class="visually-hidden" value="1" min="1">
                                         <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
                                     </form>
@@ -147,8 +147,8 @@
                                     <h5 class="product-name">' . $value['ten_sach'] . '</h5>
                                     <div class="rating2">⭐⭐⭐⭐⭐</div>
                                     <div class="product-price">
-                                        <h5 class="product-price-sale">' . $value['gia'] . '</h5>
-                                        <h5 class="product-price-opacity">814.000đ</h5>
+                                        <h5 class="product-price-sale">'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.') . 'đ</h5>
+                                        <h5 class="product-price-opacity">'.$value['gia'].'</h5>
                                         <h5 class="product-price-percent">' . $value['giam'] . '%</h5>
                                     </div>
                                 </div>';
@@ -161,7 +161,7 @@
                                     <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
                                         <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
                                         <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
-                                        <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                                        <input type="hidden" name="gia" value="' . floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)) . '">
                                         <input type="number" name="sl" class="visually-hidden" value="1" min="1">
                                         <button type="submit" name="themvaogiohang" class="button">Thêm vào giỏ hàng</button>
                                     </form>

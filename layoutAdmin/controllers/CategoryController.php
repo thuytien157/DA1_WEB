@@ -46,6 +46,16 @@ class CategoryController {
     // Xử lý xóa tác giả
     public function deleteCategory($id) {
         $result = $this->categoryModel->deleteCategory($id);
+        if ($result === false) {
+            echo "<script>
+                    alert('Bạn không thể xoá thể loại này vì có chứa sách!');
+                    window.location.href = 'index.php?page=category';
+                  </script>";
+        }else{
+            header('location: index.php?page=category');
+            exit();
+        }
+
         
     }
     public function getCategoryById($id) {

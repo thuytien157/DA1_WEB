@@ -26,12 +26,22 @@ class PublishingHouseController {
     // Xử lý cập nhật nhà xuất bản
     public function updatePublishingHouse($id, $ten_nhaxuatban) {
         $result = $this->publishinghouseModel->updatePublishingHouse($id, $ten_nhaxuatban);
-        
+        header('location: index.php?page=publishinghouse');
+        exit();
     }
 
     // Xử lý xóa nhà xuất bản
     public function deletePublishingHouse($id) {
         $result = $this->publishinghouseModel->deletePublishingHouse($id); 
+        if ($result === false) {
+            echo "<script>
+                    alert('Bạn không thể xoá nhà xuất bản này vì có chứa sách!');
+                    window.location.href = 'index.php?page=publishinghouse';
+                  </script>";
+        }else{
+            header('location: index.php?page=publishinghouse');
+            exit();
+        }
         
     }
 
