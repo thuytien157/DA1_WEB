@@ -38,7 +38,7 @@ class dangnhapController {
             $_SESSION['id'] = $userData['id'];
 
             // Chuyển hướng theo vai trò người dùng
-            if ($userData['vai_tro'] == 1) {
+            if ($userData['vai_tro'] == 1| $userData['vai_tro'] == 2)  {
                 header("Location: ../layoutAdmin/index.php");
             } else {
                 header("Location: index.php");
