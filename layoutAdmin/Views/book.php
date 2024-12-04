@@ -113,6 +113,15 @@
     .row.mb-3 .col-md-4 {
     margin-bottom: 0;
     }
+    .link-primary{
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size:medium;
+      color: red;
+    }
+    .link-primary:hover{
+      color:orange;
+    }
   </style>
 </head>
 <body>
@@ -338,35 +347,6 @@
             <label for="soLuongBan" class="form-label">Số Lượng Bán</label>
             <input type="number" class="form-control" name="so_luong_ban" required>
           </div>
-              <!-- add chi tiet sach-->
-              <div class="mb-3">
-            <label for="nha_cung_cap" class="form-label">Nhà cung cấp</label>
-            <input type="text" class="form-control" name="nha_cung_cap" required>
-          </div>
-              <div class="mb-3">
-            <label for="ngon_ngu" class="form-label">Ngôn ngữ</label>
-            <input type="text" class="form-control" name="ngon_ngu" required>
-          </div>
-              <div class="mb-3">
-            <label for="trong_luong" class="form-label">Trọng lượng</label>
-            <input type="text" class="form-control" name="trong_luong" required>
-          </div>
-              <div class="mb-3">
-            <label for="kich_thuoc" class="form-label">Kích thước</label>
-            <input type="text" class="form-control" name="kich_thuoc" required>
-          </div>
-              <div class="mb-3">
-            <label for="so_luong_trang" class="form-label">Số lượng trang</label>
-            <input type="text" class="form-control" name="so_luong_trang" required>
-          </div>
-              <div class="mb-3">
-            <label for="hinh_thuc" class="form-label">Hình thức</label>
-            <input type="text" class="form-control" name="hinh_thuc" required>
-          </div>
-              <div class="mb-3">
-            <label for="so_luong" class="form-label">Số lượng</label>
-            <input type="text" class="form-control" name="so_luong" required>
-          </div> 
           <button type="submit" class="btn btn-primary" name="them">Lưu</button>
         </form>
       </div>
@@ -491,7 +471,19 @@
     </div>
 <?php endforeach; ?>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      <?php if (isset($_SESSION['error_message'])): ?>
+          alert("<?php echo htmlspecialchars($_SESSION['error_message']); ?>");
+          <?php unset($_SESSION['error_message']); ?>
+      <?php endif; ?>
 
+      <?php if (isset($_SESSION['message'])): ?>
+          alert("<?php echo htmlspecialchars($_SESSION['message']); ?>");
+          <?php unset($_SESSION['message']); ?>
+      <?php endif; ?>
+  });
+</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

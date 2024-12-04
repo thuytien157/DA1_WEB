@@ -19,24 +19,31 @@ class BookModel {
 }
 
 
-    public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
-        $stmt = $this->conn->prepare("INSERT INTO sach (id_theloai, id_tacgia, id_nxb, ten_sach, hinh, gia, giam, mo_ta, nam_xb, so_luong_ban, ngay_nhap, status) 
-                                       VALUES (:id_theloai, :id_tacgia, :id_nxb, :ten_sach, :hinh, :gia, :giam, :mo_ta, :nam_xb, :so_luong_ban, NOW()),0");
-    
-        $stmt->bindParam(':id_theloai', $id_theloai);
-        $stmt->bindParam(':id_tacgia', $id_tacgia);
-        $stmt->bindParam(':id_nxb', $id_nxb);
-        $stmt->bindParam(':ten_sach', $ten_sach);
-        $stmt->bindParam(':hinh', $hinh);
-        $stmt->bindParam(':gia', $gia);
-        $stmt->bindParam(':giam', $giam);
-        $stmt->bindParam(':mo_ta', $mo_ta);
-        $stmt->bindParam(':nam_xb', $nam_xb);
-        $stmt->bindParam(':so_luong_ban', $so_luong_ban);
-
-        return $stmt->execute(); 
-
+public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
+    $stmt = $this->conn->prepare("SELECT COUNT(*) FROM sach WHERE ten_sach = :ten_sach");
+    $stmt->bindParam(':ten_sach', $ten_sach);
+    $stmt->execute();
+    $count = $stmt->fetchColumn();
+    if ($count > 0) {
+        return false;
     }
+    $stmt = $this->conn->prepare("INSERT INTO sach (id_theloai, id_tacgia, id_nxb, ten_sach, hinh, gia, giam, mo_ta, nam_xb, so_luong_ban, ngay_nhap, status) 
+                                   VALUES (:id_theloai, :id_tacgia, :id_nxb, :ten_sach, :hinh, :gia, :giam, :mo_ta, :nam_xb, :so_luong_ban, NOW(), 0)");
+    
+    $stmt->bindParam(':id_theloai', $id_theloai);
+    $stmt->bindParam(':id_tacgia', $id_tacgia);
+    $stmt->bindParam(':id_nxb', $id_nxb);
+    $stmt->bindParam(':ten_sach', $ten_sach);
+    $stmt->bindParam(':hinh', $hinh);
+    $stmt->bindParam(':gia', $gia);
+    $stmt->bindParam(':giam', $giam);
+    $stmt->bindParam(':mo_ta', $mo_ta);
+    $stmt->bindParam(':nam_xb', $nam_xb);
+    $stmt->bindParam(':so_luong_ban', $so_luong_ban);
+
+    return $stmt->execute(); 
+}
+
 
 
     public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {

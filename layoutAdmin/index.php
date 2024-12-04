@@ -41,41 +41,42 @@ switch ($page) {
     case 'book':
         $BookController->listBooks();
         break;
-    case 'add_book':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['them'])) {
-            $ten_sach = $_POST['ten_sach'];
-            $id_theloai = (int)$_POST['ten_theloai_id'];
-            $id_tacgia = (int)$_POST['ten_tacgia_id'];
-            $id_nxb = (int)$_POST['ten_nxb_id'];
-            $gia = $_POST['gia'];
-            $giam = $_POST['giam'];
-            $mo_ta = $_POST['mo_ta'];
-            $nam_xb = $_POST['nam_xb'];
-            $so_luong_ban = (int)$_POST['so_luong_ban'];
+        case 'add_book':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['them'])) {
+                $id_theloai = (int)$_POST['ten_theloai_id'];
+                $id_tacgia = (int)$_POST['ten_tacgia_id'];
+                $id_nxb = (int)$_POST['ten_nxb_id'];
+                $ten_sach = $_POST['ten_sach'];
+                $gia = (float)$_POST['gia'];
+                $giam = (float)$_POST['giam'];
+                $mo_ta = $_POST['mo_ta'];
+                $nam_xb = $_POST['nam_xb'];
+                $so_luong_ban = (int)$_POST['so_luong_ban'];
+        
+                if (isset($_FILES['hinh']) && $_FILES['hinh']['error'] === UPLOAD_ERR_OK) {
+                    $targetFile = "../layout/public/img/IMG_DA1/san pham/" . basename($_FILES['hinh']['name']);
+        
+                    if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
+                        $hinh = basename($_FILES['hinh']['name']);
 
-            if (isset($_FILES['hinh'])) {
-                $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $_FILES['hinh']['name'];
-
-                if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
-                    $hinh = $_FILES['hinh']['name'];
-                    $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+                        $BookController->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+                    } else {
+                        echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
+                        exit();
+                    }
                 } else {
-                    echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
+                    echo "Vui lòng chọn hình ảnh để tải lên.";
                     exit();
                 }
-            } else {
-                echo "Vui lòng chọn hình ảnh để tải lên.";
-                exit();
             }
-        }
-        break;
-    case 'edit_book':
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $book = $BookController->getBookById($id);
-            include 'Views/edit_book.php';
-        }
-        break;
+            break;
+    // case 'edit_book':
+    //     if (isset($_GET['id'])) {
+    //         $id = $_GET['id'];
+    //         $book = $BookController->getBookById($id);
+    //         include 'Views/edit_book.php';
+    //     }
+    //     break;
     case 'update_book':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = (int)$_POST['id'];
@@ -141,28 +142,30 @@ switch ($page) {
     case 'category':
         $CategoryController->listCategorys();
         break;
-    case 'add_category':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $ten_theloai = $_POST['ten_theloai'];
-            $result = $CategoryController->addCategory($ten_theloai);
-            header("Location: index.php?page=category");
-        }
-        break;
-    case 'edit_category':
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $categorie = $CategoryController->getCategoryById($id);
-            include 'Views/edit_category.php';
-        }
-        break;
-    case 'update_category':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $ten_theloai = $_POST['ten_theloai'];
-            $CategoryController->updateCategory($id, $ten_theloai);
-            header("Location: index.php?page=category");
-        }
-        break;
+        case 'add_category':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $ten_theloai = $_POST['ten_theloai']; 
+                $result = $CategoryController->addCategory($ten_theloai);
+                if ($result) {
+                    header("Location: index.php?page=category");
+                    exit;
+                }
+            }
+            break;
+    // case 'edit_category':
+    //     if (isset($_GET['id'])) {
+    //         $id = $_GET['id'];
+    //         $categorie = $CategoryController->getCategoryById($id);
+    //         include 'Views/edit_category.php';
+    //     }
+    //     break;
+        case 'update_category':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $id = (int)$_POST['id'];
+                $ten_tacgia = trim($_POST['ten_theloai']);
+                $CategoryController->updateCategory($id, $ten_theloai);
+            }
+            break;
     case 'delete_category':
         $id = $_GET['id'];
         $result = $CategoryController->deleteCategory($id);
@@ -178,28 +181,31 @@ switch ($page) {
     case 'author':
         $AuthorController->listAuthors(); //lay listauthor hien thi cho view
         break;
-    case 'add_author':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') { //neu nguoidung gui form
-            $ten_tacgia = $_POST['ten_tacgia']; //ley ten tac gia tu form
-            $result = $AuthorController->addAuthor($ten_tacgia); //neu them thanh cong chuyen huong ve trang ds
-            header("Location: index.php?page=author");
-        }
-        break;
-    case 'edit_author':
-        if (isset($_GET['id'])) { //nếu có tham số id trong URL
-            $id = $_GET['id'];
-            $author = $AuthorController->getAuthorById($id);
-            include 'Views/edit_author.php';
-        }
-        break;
+        case 'add_author':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $ten_tacgia = $_POST['ten_tacgia']; 
+                $result = $AuthorController->addAuthor($ten_tacgia);
+                if ($result) {
+                    header("Location: index.php?page=author");
+                    exit;
+                }
+            }
+            break;
+    // case 'edit_author':
+    //     if (isset($_GET['id'])) { //nếu có tham số id trong URL
+    //         $id = $_GET['id'];
+    //         $author = $AuthorController->getAuthorById($id);
+    //         include 'Views/edit_author.php';
+    //     }
+    //     break;
     case 'update_author':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $ten_tacgia = $_POST['ten_tacgia'];
+            $id = (int)$_POST['id'];
+            $ten_tacgia = trim($_POST['ten_tacgia']);
             $AuthorController->updateAuthor($id, $ten_tacgia);
-            header("Location: index.php?page=author");
         }
         break;
+    
     case 'delete_author':
         $id = $_GET['id'];
 
@@ -216,31 +222,31 @@ switch ($page) {
     case 'publishinghouse':
         $PublishingHouseController->listPublishingHouses();
         break;
+        case 'add_publishinghouse':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $ten_nxb = $_POST['ten_nxb']; 
+                $result = $PublishingHouseController->addPublishingHouse($ten_nxb);
+                if ($result) {
+                    header("Location: index.php?page=publishinghouse");
+                    exit;
+                }
+            }
+            break;
 
-    case 'add_publishinghouse':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $ten_nxb = $_POST['ten_nxb'];
-            $PublishingHouseController->addPublishingHouse($ten_nxb);
-            header("Location: index.php?page=publishinghouse");
-        }
-        break;
-
-    case 'edit_publishinghouse':
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $publishinghouse = $PublishingHouseController->getPublishingHouseById($id);
-            include 'Views/edit_publishinghouse.php';
-        }
-        break;
-
-    case 'update_publishinghouse':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $ten_nxb = $_POST['ten_nxb'];
-            $PublishingHouseController->updatePublishingHouse($id, $ten_nxb);
-            header("Location: index.php?page=publishinghouse");
-        }
-        break;
+    // case 'edit_publishinghouse':
+    //     if (isset($_GET['id'])) {
+    //         $id = $_GET['id'];
+    //         $publishinghouse = $PublishingHouseController->getPublishingHouseById($id);
+    //         include 'Views/edit_publishinghouse.php';
+    //     }
+    //     break;
+          case 'update_publishinghouse':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $id = (int)$_POST['id'];
+                $ten_nxb = trim($_POST['ten_nxb']);
+                $PublishingHouseController->updatePublishingHouse($id, $ten_nxb);
+            }
+            break;
 
     case 'delete_publishinghouse':
         if (isset($_GET['id'])) {

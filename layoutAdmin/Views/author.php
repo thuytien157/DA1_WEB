@@ -105,10 +105,10 @@
 
     .header-actions a:hover {
       color: #B77D42 !important;
+
     }
   </style>
 </head>
-
 <body>
   <div class="container-fluid py-4 d-flex">
     <div class="container-fluid py-4 content">
@@ -121,9 +121,9 @@
                 <a href="#" style="color: #D98C52 !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addAuthorModal">
                   Create
                 </a>
+                
               </div>
             </div>
-
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
@@ -195,7 +195,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- them tac gia -->
   <div class="modal fade" id="addAuthorModal" tabindex="-1" aria-labelledby="addAuthorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -216,6 +216,19 @@
       </div>
     </div>
   </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+      <?php if (isset($_SESSION['error_message'])): ?>
+          alert("<?php echo htmlspecialchars($_SESSION['error_message']); ?>");
+          <?php unset($_SESSION['error_message']); ?>
+      <?php endif; ?>
+
+      <?php if (isset($_SESSION['message'])): ?>
+          alert("<?php echo htmlspecialchars($_SESSION['message']); ?>");
+          <?php unset($_SESSION['message']); ?>
+      <?php endif; ?>
+  });
+</script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -33,9 +33,27 @@ class BookController {
     }
 
     public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
-        $id_sach = $this->bookModel->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
-        header('location: index.php?page=book');
-        exit();    
+        $result = $this->bookModel->addBooks(
+            $id_theloai, 
+            $id_tacgia, 
+            $id_nxb, 
+            $ten_sach, 
+            $hinh, 
+            $gia, 
+            $giam, 
+            $mo_ta, 
+            $nam_xb, 
+            $so_luong_ban
+        );
+    
+        if ($result === false) {
+            $_SESSION['error_message'] = "Tên sách đã tồn tại! Vui lòng thử lại.";
+        } else {
+            $_SESSION['message'] = "Thêm sách thành công!";
+        }
+    
+        header("Location: index.php?page=book");
+        exit;
     }
     
     public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
