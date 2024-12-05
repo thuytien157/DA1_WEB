@@ -50,15 +50,21 @@ class dangkyController {
         if ($dangkyModel->isUsernameExists($username)) {
             return "Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.";
         }
-
+        if (!preg_match('/^(?!.*[_.]{2})[a-zA-Z0-9](?:[a-zA-Z0-9._]{4,18})[a-zA-Z0-9]$/', $username)) {
+            return "Tên đăng nhập không hợp lệ. Vui lòng sử dụng 6-20 ký tự bao gồm chữ, số, dấu chấm hoặc gạch dưới.";
+        }
 
         if ($dangkyModel->isEmailExists($email)) {
             return "Email đã được sử dụng. Vui lòng chọn email khác.";
+        }
+        if ($dangkyModel->isPhoneExists($sdt)) {
+            return "Số điện thoại đã được sử dụng. Vui lòng chọn Số điện thoại khác.";
         }
 
         if (!preg_match('/^[0-9]{10}$/', $sdt)) {
             return "Số điện thoại phải gồm 10 chữ số.";
         }
+
         // FILTER_VALIDATE_EMAIL là một hằng số trong PHP được sử dụng với hàm filter_var() để kiểm tra xem một chuỗi có phải là địa chỉ email hợp lệ hay không.
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return "Email không hợp lệ.";

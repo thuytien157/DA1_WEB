@@ -53,4 +53,17 @@ class dangkyModel {
             return true; // Mặc định trả về true nếu có lỗi
         }
     }
+    public function isPhoneExists($sdt) {
+        try {
+            $sql = "SELECT COUNT(*) FROM user WHERE sdt = :sdt";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':sdt', $sdt);
+            $stmt->execute();
+            $count = $stmt->fetchColumn();
+            return $count > 0; // Trả về true nếu email tồn tại
+        } catch (PDOException $e) {
+            error_log("Lỗi kiểm tra email: " . $e->getMessage());
+            return true; // Mặc định trả về true nếu có lỗi
+        }
+    }
 }
