@@ -64,7 +64,7 @@ CREATE TABLE `user` (
   `ho_ten` varchar(100) NOT NULL,
   `sdt` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `mat_khau` varchar(20) NOT NULL,
+  `mat_khau` varchar(60) NOT NULL,
   `email` varchar(50) NOT NULL,
   `vai_tro` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
