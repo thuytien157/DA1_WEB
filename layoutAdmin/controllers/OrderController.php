@@ -26,25 +26,32 @@ class OrderController
         require_once "Views/Order.php";
     }
     // Xử lý thêm tác giả
-    public function updateOrderStatus() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['tt_donhang'])) {
-            $orderModel = new orderModel();
-        
-            $id = intval($_POST['id']);
-            $tt_donhang = $_POST['tt_donhang'];
-        
-            // Gọi phương thức updateOrderStatus
-            if ($orderModel->updateOrderStatus($id, $tt_donhang)) {
-                // Thành công, chuyển hướng hoặc hiển thị thông báo
-                header('Location: index.php?page=order');
-            } else {
-                // Thất bại, hiển thị thông báo lỗi
-                header('Location: index.php?page=order');
-            }
-            exit;
+    public function updateOrderStatus()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['tt_donhang'])) {
+        // Lấy dữ liệu từ form
+        $id = intval($_POST['id']);
+        $tt_donhang = $_POST['tt_donhang'];
+
+        // Debug dữ liệu để kiểm tra
+        // var_dump($id, $tt_donhang); die();
+
+        // Gọi phương thức từ model để cập nhật
+        if ($this->orderModel->updateOrderStatus($id, $tt_donhang)) {
+            // Cập nhật thành công
+            header('Location: index.php?page=order&status=success');
+        } else {
+            // Cập nhật thất bại
+            header('Location: index.php?page=order&status=error');
         }
-        
+        exit;
+    } else {
+        // Không nhận được dữ liệu hợp lệ
+        header('Location: index.php?page=order&status=invalid');
+        exit;
     }
+}
+
     public function xemchitiet($id){
             $ctdh = $this->orderModel->ctdh($id);
 

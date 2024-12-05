@@ -170,20 +170,17 @@
                               <h6 class="mb-0 text-sm text-center"><?php echo htmlspecialchars($user['email']); ?></h6>
                             </td>
                             <td>
-                              <?php if ($_SESSION['vai_tro'] == '1'): // Kiểm tra nếu người dùng đăng nhập là admin 
+                              <?php if ($_SESSION['vai_tro'] == '1'): // Check if the logged-in user is an admin 
                               ?>
                                 <?php if ($user['vai_tro'] == '1'): ?>
                                   <select name="vai_tro" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
                                     <option value="1" selected>Admin</option>
                                   </select>
                                 <?php else: ?>
-                                  <form method="POST" action="index.php?page=update_users_status">
-                                    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                    <select name="vai_tro" class="form-select" onchange="this.form.submit()">
-                                      <option value="0" <?php if ($user['vai_tro'] == '0') echo 'selected'; ?>>User</option>
-                                      <option value="1" <?php if ($user['vai_tro'] == '1') echo 'selected'; ?>>Admin</option>
-                                    </select>
-                                  </form>
+                                  <select name="vai_tro" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
+                                    <option value="0" <?php if ($user['vai_tro'] == '0') echo 'selected'; ?>>User</option>
+                                    <option value="1" <?php if ($user['vai_tro'] == '1') echo 'selected'; ?>>Admin</option>
+                                  </select>
                                 <?php endif; ?>
                               <?php else: ?>
                                 <form method="POST" action="index.php?page=update_users_status">
@@ -196,8 +193,17 @@
                               <?php endif; ?>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="index.php?page=delete_users&id=<?php echo $user['id']; ?>" style="color: #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
+                              <?php if ($_SESSION['vai_tro'] == '2'): // Kiểm tra nếu người đăng nhập là Super Admin 
+                              ?>
+                                <a href="index.php?page=delete_users&id=<?php echo $user['id']; ?>" style="color: #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">DELETE</a>
+                              <?php elseif ($user['vai_tro'] == '1'): // Kiểm tra nếu vai trò của người dùng là Admin 
+                              ?>
+                                <button class="btn btn-danger" disabled>DELETE</button>
+                              <?php else: ?>
+                                <a href="index.php?page=delete_users&id=<?php echo $user['id']; ?>" style="color: #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">DELETE</a>
+                              <?php endif; ?>
                             </td>
+
                           </tr>
                         <?php endif; ?>
                       <?php endforeach; ?>

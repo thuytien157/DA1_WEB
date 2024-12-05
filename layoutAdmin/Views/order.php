@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-  .bg-dark {
-    background-color: #D98C52 !important;
-  }
+    .bg-dark {
+      background-color: #D98C52 !important;
+    }
 
     .sidebar {
       background-color: #D98C52 !important;
@@ -19,26 +19,26 @@
       font-weight: bold;
     }
 
-  .nav-link:hover {
-    background-color: #B77D42 !important;
-  }
+    .nav-link:hover {
+      background-color: #B77D42 !important;
+    }
 
-  .card-header {
-    background-color: #F8F9FA;
-    border-bottom: 2px solid #D98C52;
-  }
+    .card-header {
+      background-color: #F8F9FA;
+      border-bottom: 2px solid #D98C52;
+    }
 
     .card-header h6 {
       color: #D98C52 !important;
     }
 
-  .table th,
-  .table td {
-    color: #333 !important;
-    text-transform: uppercase;
-    font-size: 14px;
-    border-color: #D98C52;
-  }
+    .table th,
+    .table td {
+      color: #333 !important;
+      text-transform: uppercase;
+      font-size: 14px;
+      border-color: #D98C52;
+    }
 
     .table thead {
       background-color: #F4F1ED;
@@ -50,14 +50,14 @@
       overflow-y: auto;
     }
 
-  tr:hover {
-    background-color: #f9e3d4; 
-  }
+    tr:hover {
+      background-color: #f9e3d4;
+    }
 
-  .action-link {
-    padding: 0 10px;
-    font-weight: bold;
-  }
+    .action-link {
+      padding: 0 10px;
+      font-weight: bold;
+    }
 
     .action-link.edit {
       color: #F5CA0F !important;
@@ -67,9 +67,9 @@
       color: #F5110F !important;
     }
 
-  .modal-content {
-    border-radius: 8px;
-  }
+    .modal-content {
+      border-radius: 8px;
+    }
 
     .modal-header {
       background-color: #D98C52;
@@ -91,12 +91,12 @@
       color: white;
     }
 
-  .header-actions {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+    .header-actions {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
     .header-actions a {
       color: #D98C52 !important;
@@ -152,46 +152,58 @@
                     </tr>
                   </thead>
                   <tbody>
+
                     <?php if (!empty($Orders)): ?>
                       <?php foreach ($Orders as $Order): ?>
                         <tr>
                           <td >
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id']); ?></h6>
                           </td>
-                          <td>
+                          <td >
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id_khachhang'] . "-" . $Order['ten_khachhang']); ?></h6>
                           </td>
-                          <td>
+                          <td class="text-center">
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['sdt']); ?></h6>
                           </td>
-                          <td>
+                          <td class="text-center">
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ngay_mua_hang']); ?></h6>
                           </td>
-                          <td>
+                          <td class="text-center">
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['tt_thanhtoan']); ?></h6>
                           </td>
-                          <td>
-                            <?php if ($Order['tt_donhang'] == 'Đã hủy'): ?>
-                              <select name="tt_donhang" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
-                                <option value="Đã huỷ" selected>Đã hủy</option>
-                              </select>
-                            <?php else: ?>
-                              <form method="POST" action="index.php?page=update_order_status">
-                                <input type="hidden" name="id" value="<?php echo $Order['id']; ?>">
-                                <select name="tt_donhang" class="form-select" onchange="this.form.submit()">
-                                  <option value="Chờ xử lý" >Chờ xử lý</option>
-                                  <option value="Đang giao" >Đang giao</option>
-                                  <option value="Đã hủy">Đã hủy</option>
-                                  <option value="Hoàn thành" >Hoàn thành</option>
+                          <td class="text-center">
+                            <form method="POST"  action="index.php?page=update_order_status">
+                              <input type="hidden" name="id" value="<?php echo htmlspecialchars($Order['id'], ENT_QUOTES); ?>">
+
+                              <?php if ($Order['tt_donhang'] == 'Đã hủy'): ?>
+                                <button class="form-select d-inline-block w-auto " type="button" disabled style="background-color: #f5f5f5; color: #a0a0a0;">Đã hủy</button>
+                              <?php else: ?>
+                                <select name="tt_donhang" class="form-select d-inline-block w-auto" onchange="this.form.submit()">
+                                  <option value="Chờ xử lý"
+                                    <?php echo $Order['tt_donhang'] == 'Chờ xử lý' ? 'selected' : ''; ?>
+                                    <?php echo in_array($Order['tt_donhang'], ['Đang giao', 'Hoàn thành']) ? 'disabled' : ''; ?>>Chờ xử lý</option>
+
+                                  <option value="Đang giao"
+                                    <?php echo $Order['tt_donhang'] == 'Đang giao' ? 'selected' : ''; ?>
+                                    <?php echo $Order['tt_donhang'] == 'Hoàn thành' ? 'disabled' : ''; ?>>Đang giao</option>
+
+                                  <option value="Hoàn thành"
+                                    <?php echo $Order['tt_donhang'] == 'Hoàn thành' ? 'selected' : ''; ?>>Hoàn thành</option>
                                 </select>
-                              </form>
-                            <?php endif; ?>
+                              <?php endif; ?>
+                            </form>
                           </td>
                           <td class="text-center align-items-center">
+                            <form method="POST" action="index.php?page=update_order_status" style="display:inline;">
+                              <input type="hidden" name="id" value="<?php echo htmlspecialchars($Order['id'], ENT_QUOTES); ?>">
+                              <input type="hidden" name="tt_donhang" value="Đã hủy">
+                              <button class="btn btn-warning me-2" type="submit" <?php echo $Order['tt_donhang'] == 'Đã hủy' ? 'disabled' : ''; ?>>Hủy đơn hàng</button>
+                            </form>
                             <a href="index.php?page=details&id=<?= $Order['id'] ?>">
                               <i class="bi bi-eye-fill icon-eye"></i>
                             </a>
                           </td>
+
 
                         </tr>
                       <?php endforeach; ?>
