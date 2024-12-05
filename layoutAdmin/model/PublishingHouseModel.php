@@ -37,7 +37,7 @@ class PublishingHouseModel {
         exit;
     }
 
-    public function updateAuthor($id, $ten_nxb) {
+    public function updatePublishingHouse($id, $ten_nxb) {
         $checkStmt = $this->conn->prepare("SELECT COUNT(*) FROM nha_xuat_ban WHERE ten_nxb = :ten_nxb AND id != :id");
         $checkStmt->bindParam(':ten_nxb', $ten_nxb);
         $checkStmt->bindParam(':id', $id);

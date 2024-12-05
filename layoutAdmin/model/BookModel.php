@@ -125,14 +125,20 @@ public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hi
     }
     
     public function getHiddenBook(){
-        $stmt = $this->conn->prepare("SELECT *
-                                    FROM sach
-                                    INNER JOIN the_loai ON sach.id_theloai = the_loai.id
-                                    INNER JOIN nha_xuat_ban ON sach.id_nxb = nha_xuat_ban.id
-                                    INNER JOIN tac_gia ON sach.id_tacgia = tac_gia.id
-                                    WHERE sach.status = 1;");
-        $stmt->execute(); 
+        $stmt = $this->conn->prepare("SELECT b.*, t.ten_theloai, tg.ten_tacgia, n.ten_nxb
+                FROM sach b
+                LEFT JOIN the_loai t ON b.id_theloai = t.id
+                LEFT JOIN tac_gia tg ON b.id_tacgia = tg.id
+                LEFT JOIN nha_xuat_ban n ON b.id_nxb = n.id
+                WHERE b.status = 1;");
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; 
+    }
+
+    public function deleteBook($id) {
+        $stmt = $this->conn->prepare("DELETE FROM sach WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute(); 
     }
 }
 ?>

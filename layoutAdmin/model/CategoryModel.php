@@ -67,7 +67,6 @@ class CategoryModel {
         }
     }
     public function deleteCategory($id) {
-
         $stmtCheck = $this->conn->prepare("SELECT COUNT(*) as book_count FROM sach WHERE id_theloai = :id");
         $stmtCheck->bindParam(':id', $id, PDO::PARAM_INT);
         $stmtCheck->execute();
@@ -76,12 +75,13 @@ class CategoryModel {
         if ($result['book_count'] > 0) {
             return false;
         }
-
+    
+        // Nếu không có sách, thực hiện xóa thể loại
         $stmt = $this->conn->prepare("DELETE FROM the_loai WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute(); 
     }
-    public function getCategoryById($id) {
+        public function getCategoryById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM the_loai WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

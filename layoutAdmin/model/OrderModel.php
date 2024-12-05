@@ -12,17 +12,18 @@ class orderModel
 
     public function getAllOrders()
     {
-        $stmt = $this->conn->prepare(" SELECT don_hang.*, user.ho_ten AS ten_khachhang FROM don_hang JOIN user ON don_hang.id_khachhang = user.id Order by id DESC");
+        $stmt = $this->conn->prepare(" SELECT don_hang.*, user.ho_ten AS ten_khachhang, user.sdt FROM don_hang JOIN user ON don_hang.id_khachhang = user.id ORDER BY don_hang.id DESC;");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
-    public function updateOrderStatus($id, $tt_donhang) {
+    public function updateOrderStatus($id, $tt_donhang)
+    {
         $stmt = $this->conn->prepare("UPDATE don_hang SET tt_donhang = :tt_donhang WHERE id = :id");
         $stmt->bindParam(':tt_donhang', $tt_donhang);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
-        public function ctdh($id)
+    public function ctdh($id)
     {
         $stmt = $this->conn->prepare("SELECT 
                                     don_hang.id AS donhang_id,

@@ -151,6 +151,27 @@ switch ($page) {
         }
         break;
 
+        case 'delete_book':
+            $id = (int)$_GET['id'];
+            $bookname = $BookController->getBookById($id); 
+            if ($bookname) {
+                $imagePath = "../layout/public/img/IMG_DA1/san pham/" . $bookname['hinh']; 
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); 
+                }
+                
+                if ($id) {
+                    $BookController->deleteBook($id); 
+                    header('location: index.php?page=book');
+                    exit();  
+                } else {
+                    echo "Lỗi: ID sách không hợp lệ!";
+                }
+            } else {
+                echo "Không tìm thấy sách với ID này!";
+            }
+            break;
+        
     case 'category':
         $CategoryController->listCategorys();
         break;
@@ -191,14 +212,6 @@ switch ($page) {
     case 'delete_category':
         $id = $_GET['id'];
         $result = $CategoryController->deleteCategory($id);
-
-        if (!$result) {
-            echo "<script>
-                    alert('Bạn không thể xoá thể loại này vì có chứa sách!');
-                    window.location.href = 'index.php?page=category';
-                  </script>";
-        }
-        exit();
         break;
     case 'author':
         $AuthorController->listAuthors(); //lay listauthor hien thi cho view
@@ -342,6 +355,14 @@ switch ($page) {
             $email = $_POST['email'];
             $vai_tro = $_POST['vai_tro'];
             $UsersController->updateUsers($id, $ho_ten, $sdt, $username, $mat_khau, $email, $vai_tro);
+            header("Location: index.php?page=users");
+        }
+        break;
+    case 'update_users_status':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $vai_tro = $_POST['vai_tro'];
+            $result = $UsersController->updateUsersStatus($id, $vai_tro);
             header("Location: index.php?page=users");
         }
         break;

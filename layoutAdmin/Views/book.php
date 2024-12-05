@@ -133,13 +133,10 @@
             <div class="card-header pb-0 position-relative">
               <div class="d-inline-block fw-bolder">Book Table</div>
               <div>
-                <a href="index.php?page=book<?= isset($_GET['status']) && $_GET['status'] == 1 ? '' : '&status=1'; ?>" 
-                  class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                  <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'Tất cả sản phẩm' : 'Sản phẩm đã bị ẩn'; ?>
+                <a href="index.php?page=book&status=<?= isset($_GET['status']) && $_GET['status'] == '1' ? '0' : '1'; ?>">
+                    <?= isset($_GET['status']) && $_GET['status'] == '1' ? 'Tất cả sản phẩm' : 'Sản phẩm đã bị ẩn'; ?>
                 </a>
-              </div>
-
-              <!-- <a style="color: #cb8e70;" href="index.php?page=book&action=listhiddenbook" class="d-block fw-bolder">List hidden book</a> -->
+            </div>
               <div class="header-actions">
                 <a href="#" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#addBookModal">
                   Create
@@ -222,7 +219,12 @@
                       </td>          
                       <td class="align-middle text-center">
                         <a href="#" style="color:  #F5CA0F !important" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#editBookModal-<?php echo $book['id']; ?>">Edit</a>
-                        <a href="index.php?page=<?=$book['status'] == 0 ? 'hidden_book' : 'show_book'?>&id=<?php echo $book['id']; ?>" style="color:  #F5110F !important" class="text-secondary font-weight-bold text-xs action-link"><?=$book['status'] == 1 ? 'Show' : 'Hide' ?> </a>
+                        <a href="<?=$book['status'] == 1 ? 'index.php?page=show_book&id='.$book['id'] : ''?>" 
+                          style="color: #F5110F !important" 
+                          class="text-secondary font-weight-bold text-xs action-link" 
+                          <?=$book['status'] == 1 ? '' : 'data-bs-toggle="modal" data-bs-target="#exampleModal'.$book['id'].'"'?>>
+                          <?=$book['status'] == 1 ? 'SHOW' : 'DELETE'?> 
+                        </a>
                       </td>
                     </tr>
                     <?php endforeach; ?>
@@ -239,6 +241,37 @@
         </div>
       </div>
     </div>
+
+
+    <!-- modal - ẩn, xoá -->
+    <?php foreach ($books as $book): ?>
+    <div class="modal fade" id="exampleModal<?php echo $book['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel<?php echo $book['id']; ?>" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <?=
+              $book['status'] == 1 ?
+              'Sản phẩm này hiện đang có lượt mua, không thể xóa. Bạn có thể ẩn sản phẩm nếu cần' :
+              'Bạn có chắc muốn xoá sản phẩm này. Bạn cũng có thể tạm ẩn sản phẩm để bảo toàn dữ liệu';
+            ?>
+        </div>
+        <div class="modal-footer">
+        <?php
+            echo $book['status'] == 0 ? 
+            '<a href="index.php?page=hidden_book' . '&id=' . $book['id'] . '" class="btn btn-primary">Ẩn</a>
+             <a href="index.php?page=delete_book' . '&id=' . $book['id'] . '" class="btn btn-primary">Xoá</a>' : 
+            '<a href="index.php?page=hidden_book' . '&id=' . $book['id'] . '" class="btn btn-primary">Ẩn</a>';
+          ?>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php endforeach; ?>
+
    <!--model full mota-->
 <?php foreach ($books as $book): ?>
 <div class="modal fade" id="viewDescriptionModal-<?php echo $book['id']; ?>" tabindex="-1" aria-labelledby="viewDescriptionLabel-<?php echo $book['id']; ?>" aria-hidden="true">
@@ -258,6 +291,8 @@
   </div>
 </div>
 <?php endforeach; ?>
+
+
   <!--model them sach -->
   <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
   <div class="modal-dialog">

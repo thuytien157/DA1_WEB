@@ -143,6 +143,7 @@
                     <tr>
                       <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mã Đơn Hàng</th>
                       <th style="color: black !important;" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Khách Hàng</th>
+                      <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SĐT</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày Mua Hàng</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Thanh Toán</th>
                       <th style="color: black !important;" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái Đơn Hàng</th>
@@ -161,6 +162,9 @@
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['id_khachhang'] . "-" . $Order['ten_khachhang']); ?></h6>
+                          </td>
+                          <td>
+                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['sdt']); ?></h6>
                           </td>
                           <td>
                             <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($Order['ngay_mua_hang']); ?></h6>

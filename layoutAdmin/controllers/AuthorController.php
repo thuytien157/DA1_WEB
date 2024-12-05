@@ -49,6 +49,16 @@ class AuthorController {
     // Xử lý xóa tác giả
     public function deleteAuthor($id) {
         $result = $this->authorModel->deleteAuthor($id);
+        if ($result === false) {
+            echo "<script>
+                    alert('Bạn không thể xoá tác giả này vì có chứa sách!');
+                    window.location.href = 'index.php?page=author';
+                  </script>";
+        }else{
+            header('location: index.php?page=author');
+            exit();
+        }
+
     }
     
     public function getAuthorById($id) {
