@@ -40,7 +40,13 @@ class UsersModel
         $stmt->bindParam(':id', $id);
         return $stmt->execute(); // Trả về true nếu thành công
     }
-    
+    public function updateUsersStatus($id, $vai_tro)
+    {
+        $stmt = $this->conn->prepare("UPDATE user SET vai_tro = :vai_tro WHERE id = :id");
+        $stmt->bindParam(':vai_tro', $vai_tro);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
     public function checkUserOrders($userId)
     {
         // Truy vấn để đếm số đơn hàng của người dùng

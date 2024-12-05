@@ -140,7 +140,6 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Họ & Tên</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số Điện Thoại</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Password</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vai Trò</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
@@ -149,44 +148,60 @@
                   <tbody>
                     <?php if (!empty($users)): ?>
                       <?php foreach ($users as $user): ?>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['id']); ?></h6>
+                        <?php if ($user['vai_tro'] != '2'): ?>
+                          <tr>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['id']); ?></h6>
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['ho_ten']); ?></h6>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['sdt']); ?></h6>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['username']); ?></h6>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['mat_khau']); ?></h6>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['email']); ?></h6>
-                          </td>
-                          <td>
-                            <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($user['vai_tro'] == 0 ? "User" : "Admin"); ?></h6>
-                          </td>
-                          <td class="align-middle text-center">
-                            <a href="#" class="text-secondary font-weight-bold text-xs action-link" data-bs-toggle="modal" data-bs-target="#editUserModal<?php echo $user['id']; ?>" style="color: #F5CA0F !important">Edit</a>
-                            <a href="index.php?page=delete_users&id=<?php echo $user['id']; ?>" style="color: #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
-                          </td>
-                        </tr>
+                            </td>
+                            <td>
+                              <h6 class="mb-0 text-sm text-center"><?php echo htmlspecialchars($user['ho_ten']); ?></h6>
+                            </td>
+                            <td>
+                              <h6 class="mb-0 text-sm text-center"><?php echo htmlspecialchars($user['sdt']); ?></h6>
+                            </td>
+                            <td>
+                              <h6 class="mb-0 text-sm text-center"><?php echo htmlspecialchars($user['username']); ?></h6>
+                            </td>
+                            <td>
+                              <h6 class="mb-0 text-sm text-center"><?php echo htmlspecialchars($user['email']); ?></h6>
+                            </td>
+                            <td>
+                              <?php if ($_SESSION['vai_tro'] == '1'): // Check if the logged-in user is an admin 
+                              ?>
+                                <?php if ($user['vai_tro'] == '1'): ?>
+                                  <select name="vai_tro" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
+                                    <option value="1" selected>Admin</option>
+                                  </select>
+                                <?php else: ?>
+                                  <select name="vai_tro" class="form-select" disabled style="background-color: #f5f5f5; color: #a0a0a0;">
+                                    <option value="0" <?php if ($user['vai_tro'] == '0') echo 'selected'; ?>>User</option>
+                                    <option value="1" <?php if ($user['vai_tro'] == '1') echo 'selected'; ?>>Admin</option>
+                                  </select>
+                                <?php endif; ?>
+                              <?php else: ?>
+                                <form method="POST" action="index.php?page=update_users_status">
+                                  <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                                  <select name="vai_tro" class="form-select" onchange="this.form.submit()">
+                                    <option value="0" <?php if ($user['vai_tro'] == '0') echo 'selected'; ?>>User</option>
+                                    <option value="1" <?php if ($user['vai_tro'] == '1') echo 'selected'; ?>>Admin</option>
+                                  </select>
+                                </form>
+                              <?php endif; ?>
+                            </td>
+
+                            <td class="align-middle text-center">
+                                <a href="index.php?page=delete_users&id=<?php echo $user['id']; ?>" style="color: #F5110F !important" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="text-secondary font-weight-bold text-xs action-link">Delete</a>
+                            </td>
+                          </tr>
+                        <?php endif; ?>
                       <?php endforeach; ?>
-                    <?php else: ?>
-                      <tr>
-                        <td colspan="4" class="text-center">Không có tác giả nào.</td>
-                      </tr>
                     <?php endif; ?>
                   </tbody>
+
                 </table>
               </div>
             </div>
@@ -252,7 +267,7 @@
           <div class="modal-body">
             <form method="POST" action="index.php?page=update_users">
               <input type="hidden" name="id" value="<?php echo htmlspecialchars($user['id']); ?>">
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="ho_ten<?php echo $user['id']; ?>" class="form-label">Họ & Tên</label>
                 <input type="text" class="form-control" name="ho_ten" value="<?php echo htmlspecialchars($user['ho_ten']); ?>" required>
               </div>
@@ -271,7 +286,7 @@
               <div class="mb-3">
                 <label for="email<?php echo $user['id']; ?>" class="form-label">Email</label>
                 <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
-              </div>
+              </div> -->
               <div class="mb-3">
                 <label for="vai_tro<?php echo $user['id']; ?>" class="form-label">Vai Trò</label>
                 <select class="form-control" name="vai_tro" id="vai_tro<?php echo $user['id']; ?>" required>

@@ -1,6 +1,6 @@
 <?php
 class ConnectModel {
-    private $host = "localhost:4306";
+    private $host = "localhost";
     private $dbname = "da1";
     private $username = "root";
     private $password = "";

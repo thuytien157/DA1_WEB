@@ -317,6 +317,14 @@ switch ($page) {
             header("Location: index.php?page=users");
         }
         break;
+    case 'update_users_status':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $vai_tro = $_POST['vai_tro'];
+            $result = $UsersController->updateUsersStatus($id, $vai_tro);
+            header("Location: index.php?page=users");
+        }
+        break;
     case 'thoat':
         unset($_SESSION['user']);
 

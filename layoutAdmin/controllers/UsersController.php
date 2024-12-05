@@ -58,5 +58,23 @@ class UsersController
     public function getUsersById($id) {
         return $this->UsersModel->getUsersById($id);
     }
-    
+    public function updateUsersStatus() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['vai_tro'])) {
+            $usersModel = new usersModel();
+        
+            $id = intval($_POST['id']);
+            $vai_tro = $_POST['vai_tro'];
+        
+            // Gọi phương thức updateOrderStatus
+            if ($usersModel->updateUsersStatus($id, $vai_tro)) {
+                // Thành công, chuyển hướng hoặc hiển thị thông báo
+                header('Location: index.php?page=users');
+            } else {
+                // Thất bại, hiển thị thông báo lỗi
+                header('Location: index.php?page=users');
+            }
+            exit;
+        }
+        
+    }
 }
