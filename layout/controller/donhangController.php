@@ -48,6 +48,7 @@ class donhangController {
                     'so_luong' => $value['so_luong'],
                     'gia' => $value['gia'],
                     'hinh' => $value['hinh'],
+                    'giam' => $value['giam'],
                 ];
             }
 

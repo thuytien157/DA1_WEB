@@ -16,6 +16,7 @@ class DonHangModel
                         chi_tiet_don_hang.id_donhang,
                         chi_tiet_don_hang.pt_thanhtoan,
                         sach.gia,
+                        sach.giam,
                         sach.ten_sach,
                         sach.hinh
                 FROM don_hang
@@ -42,7 +43,8 @@ class DonHangModel
                 chi_tiet_don_hang.pt_thanhtoan,
                 sach.id AS sach_id,
                 sach.ten_sach,
-                sach.gia
+                sach.gia,
+                sach.giam
                 FROM don_hang
                 INNER JOIN chi_tiet_don_hang 
                 ON don_hang.id = chi_tiet_don_hang.id_donhang

@@ -16,7 +16,7 @@
                     <img src="public/img/IMG_DA1/san pham/'.$sanpham['hinh'].'" class="img-thumbnail img_dh" alt="...">
                     <div class="ten-sach">'.$sanpham['ten_sach'].'</div>
                     <div class="sl">Số lượng: '.$sanpham['so_luong'].'</div>
-                    <div class="gials">Giá: '.$sanpham['gia'].'đ</div>
+                    <div class="gials">Giá: '.number_format(intval(str_replace('.', '', $sanpham['gia'])) * (1 - ($sanpham['giam']/100)), 0, '.', '.').'đ</div>
                 </div>';
             }
 
@@ -28,9 +28,10 @@
 
             $tongtien = 0;
             foreach ($donhang['sanpham'] as $sanpham) {
-                $tongtien += $sanpham['gia'] * $sanpham['so_luong'];
+                $tongtien += intval(str_replace('.', '', $sanpham['gia'])) * (1 - ($sanpham['giam'] / 100)) * $sanpham['so_luong'];
             }
-            echo 'Tổng tiền: '.$tongtien.'.000đ</div>
+            $tongtien_lam_tron = ceil($tongtien / 1000) * 1000;    
+            echo 'Tổng tiền: ' . number_format($tongtien_lam_tron, 0, '.', '.') . '.đ</div>
                     </div>
             <div class="thoigiangiaohang">Ngày mua hàng: <strong>'.$donhang['tt']['ngay_mua_hang'].'</strong></div>
              <button class="xemchitiet">

@@ -19,12 +19,14 @@
         <?php
         $tong_tien = 0;
         foreach ($ctdh as $key => $value) {
-          $tong_tien += $value['gia'] * $value['so_luong'];
-            echo '<tr>
+          $tong_tien += floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam'] / 100)) * $value['so_luong'];
+          $tongtien_lam_tron = ceil($tong_tien / 1000) * 1000;    
+
+          echo '<tr>
                     <td>'.$value['ten_sach'].'</td>
                     <td>x'.$value['so_luong'].'</td>
-                    <td>'.$value['gia'].' đ</td>
-                    <td>'.$value['gia']*$value['so_luong'].'.000đ</td>
+                    <td>'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.').' đ</td>
+                    <td>'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam'] / 100)) * $value['so_luong'],0,'.','.').'.đ</td>
                   </tr>';
         }
 
@@ -49,7 +51,7 @@
                       </tr>
                       <tr>
                         <td colspan="3" class="fs-5" style="color: red;"><strong>Tổng thanh toán:</strong></td>
-                        <td colspan="" class="fs-5" style="color: red;"><strong>' .$tong_tien. '.000đ</strong></td>
+                        <td colspan="" class="fs-5" style="color: red;"><strong>' .number_format($tongtien_lam_tron, 0, '.', '.'). 'đ</strong></td>
                       </tr>';
             
         

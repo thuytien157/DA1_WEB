@@ -69,7 +69,9 @@ class OrderController
                 $nhomdulieu[$donhang_id]['san_pham'][] = [
                     'ten_sach' => $item['ten_sach'],
                     'so_luong' => $item['so_luong'],
-                    'gia' => $item['gia']
+                    'gia' => $item['gia'],
+                    'giam' => $item['giam'],
+                    'hinh' => $item['hinh']
                 ];
                 $nhomdulieu[$donhang_id]['tong_tien'] += $item['so_luong'] * $item['gia'];
             }

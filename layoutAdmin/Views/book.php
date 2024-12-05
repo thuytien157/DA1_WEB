@@ -253,24 +253,23 @@
         </div>
         <div class="modal-body">
             <?=
-              $book['status'] == 1 ?
+              (!empty($book['so_luong_ban']) || $book['so_luong_ban'] != 0) ?
               'Sản phẩm này hiện đang có lượt mua, không thể xóa. Bạn có thể ẩn sản phẩm nếu cần' :
               'Bạn có chắc muốn xoá sản phẩm này. Bạn cũng có thể tạm ẩn sản phẩm để bảo toàn dữ liệu';
             ?>
         </div>
         <div class="modal-footer">
         <?php
-            echo $book['status'] == 0 ? 
+            echo (empty($book['so_luong_ban']) || $book['so_luong_ban'] == 0) ? 
             '<a href="index.php?page=hidden_book' . '&id=' . $book['id'] . '" class="btn btn-primary">Ẩn</a>
              <a href="index.php?page=delete_book' . '&id=' . $book['id'] . '" class="btn btn-primary">Xoá</a>' : 
             '<a href="index.php?page=hidden_book' . '&id=' . $book['id'] . '" class="btn btn-primary">Ẩn</a>';
           ?>
-
         </div>
       </div>
     </div>
   </div>
-  <?php endforeach; ?>
+  <?php endforeach?>; 
 
    <!--model full mota-->
 <?php foreach ($books as $book): ?>

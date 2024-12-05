@@ -43,10 +43,10 @@
       ?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?page=logout"> <?php echo isset($_SESSION['user']['username']) ?"Chuyển lại trang web" : "";
+              <a class="nav-link" href="index.php?page=thoat"> <?php echo isset($_SESSION['user']['username']) ?"Chuyển lại trang web" : "";
 ?></a>
             </li>
-            <li><a class="nav-link"  href="index.php?act=<?php echo trim(isset($_SESSION['user']['username'])) ? 'thoat' : ''; ?>">
+            <li><a class="nav-link"  href="index.php?page=<?php echo trim(isset($_SESSION['user']['username'])) ? 'logout' : ''; ?>">
 
                             <?php
                                 echo isset($_SESSION['user']['username'])?  "Đăng Xuất":"";

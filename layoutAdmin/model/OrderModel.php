@@ -12,7 +12,9 @@ class orderModel
 
     public function getAllOrders()
     {
-        $stmt = $this->conn->prepare(" SELECT don_hang.*, user.ho_ten AS ten_khachhang, user.sdt FROM don_hang JOIN user ON don_hang.id_khachhang = user.id ORDER BY don_hang.id DESC;");
+        $stmt = $this->conn->prepare(" SELECT don_hang.*, user.ho_ten AS ten_khachhang, user.sdt 
+                                       FROM don_hang JOIN user ON don_hang.id_khachhang = user.id
+                                       ORDER BY don_hang.id DESC;");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
@@ -26,23 +28,26 @@ class orderModel
     public function ctdh($id)
     {
         $stmt = $this->conn->prepare("SELECT 
-                                    don_hang.id AS donhang_id,
-                                    don_hang.ngay_mua_hang,
-                                    don_hang.dia_chi,
-                                    don_hang.tt_donhang,
-                                    don_hang.tt_thanhtoan,
-                                    don_hang.ghi_chu,
-                                    chi_tiet_don_hang.so_luong,
-                                    chi_tiet_don_hang.pt_thanhtoan,
-                                    sach.id AS sach_id,
-                                    sach.ten_sach,
-                                    sach.gia
-                                    FROM don_hang
-                                    INNER JOIN chi_tiet_don_hang 
-                                    ON don_hang.id = chi_tiet_don_hang.id_donhang
-                                    INNER JOIN sach
-                                    ON sach.id = chi_tiet_don_hang.id_sach
-                                    WHERE don_hang.id = :id");
+                                        don_hang.id AS donhang_id,
+                                        don_hang.ngay_mua_hang,
+                                        don_hang.dia_chi,
+                                        don_hang.tt_donhang,
+                                        don_hang.tt_thanhtoan,
+                                        don_hang.ghi_chu,
+                                        chi_tiet_don_hang.so_luong,
+                                        chi_tiet_don_hang.pt_thanhtoan,
+                                        sach.id AS sach_id,
+                                        sach.ten_sach,
+                                        sach.gia,
+                                        sach.giam,
+                                        sach.hinh
+                                        FROM don_hang
+                                        INNER JOIN chi_tiet_don_hang 
+                                        ON don_hang.id = chi_tiet_don_hang.id_donhang
+                                        INNER JOIN sach
+                                        ON sach.id = chi_tiet_don_hang.id_sach
+                                        WHERE don_hang.id = :id
+                                        ORDER BY don_hang.id DESC");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];

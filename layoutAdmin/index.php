@@ -34,7 +34,8 @@ switch ($page) {
         $thongkeController->thongke();
         break;
     case 'logout':
-        header("Location: ../layout/index.php");
+        unset($_SESSION['user']);
+        header("Location: ../layout/index.php?act=login");
         exit();
         break;
 
@@ -297,6 +298,7 @@ switch ($page) {
         }
         break;
     case 'order':
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
         $OrderController->listOrders();
         break;
     case 'update_order_status':
@@ -367,9 +369,7 @@ switch ($page) {
         }
         break;
     case 'thoat':
-        unset($_SESSION['user']);
 
-        // Chuyển hướng người dùng về trang đăng nhập
         header("Location: ../layout/index.php");
         exit();
         break;
