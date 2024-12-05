@@ -171,13 +171,23 @@ switch ($page) {
     //         include 'Views/edit_category.php';
     //     }
     //     break;
-        case 'update_category':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $id = (int)$_POST['id'];
-                $ten_tacgia = trim($_POST['ten_theloai']);
-                $CategoryController->updateCategory($id, $ten_theloai);
+    case 'update_category':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
+            $ten_theloai = isset($_POST['ten_theloai']) ? trim($_POST['ten_theloai']) : '';
+            if ($id <= 0 || empty($ten_theloai)) {
+                $_SESSION['error_message'] = "Dữ liệu không hợp lệ. Vui lòng thử lại.";
+                header("Location: index.php?page=category");
+                exit;
             }
-            break;
+            $CategoryController->updateCategory($id, $ten_theloai);
+        } else {
+            $_SESSION['error_message'] = "Phương thức yêu cầu không hợp lệ.";
+            header("Location: index.php?page=category");
+            exit;
+        }
+        break;
+    
     case 'delete_category':
         $id = $_GET['id'];
         $result = $CategoryController->deleteCategory($id);
