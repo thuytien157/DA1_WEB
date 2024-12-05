@@ -1,7 +1,7 @@
 <?php
 class ConnectModel
 {
-    public $servername = "localhost:4306";
+    public $servername = "localhost";
     public $username = "root";
     public $password = "";
     public $conn;

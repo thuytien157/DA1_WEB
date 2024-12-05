@@ -1,6 +1,6 @@
 <?php
 class ConnectModel {
-    private $host = "localhost:4306";
+    private $host = "localhost";
     private $dbname = "da1";
     private $username = "root";
     private $password = "";
@@ -19,18 +19,18 @@ class ConnectModel {
     {
         $this->ketnoi();
         $stmt = $this->conn->prepare($sql);
-        
+
         if (is_array($params)) {
             foreach ($params as $key => $value) {
                 $stmt->bindParam($key, $value);
             }
         }
-        
+
         $stmt->execute();
         $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về tất cả dòng dữ liệu
-        $this->conn = null; 
+        $this->conn = null;
         return $kq;
     }
-    
+
 }
 ?>

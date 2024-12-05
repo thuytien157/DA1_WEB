@@ -2,7 +2,10 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+if( !isset($_SESSION['user']) || $_SESSION['vai_tro'] == 0){
+    header('Location: ../layout/index.php');
 
+}
 include 'Views/header.php';
 require_once 'model/ConnectModel.php';
 require_once "controllers/BookController.php";
@@ -31,6 +34,7 @@ $ConnectModel->connect();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
     case 'home':
+
         $thongkeController->thongke();
         break;
     case 'logout':
@@ -40,6 +44,7 @@ switch ($page) {
         break;
 
     case 'book':
+
         $BookController->listBooks();
         break;
         case 'add_book':
@@ -53,10 +58,10 @@ switch ($page) {
                 $mo_ta = $_POST['mo_ta'];
                 $nam_xb = $_POST['nam_xb'];
                 $so_luong_ban = (int)$_POST['so_luong_ban'];
-        
+
                 if (isset($_FILES['hinh']) && $_FILES['hinh']['error'] === UPLOAD_ERR_OK) {
                     $targetFile = "../layout/public/img/IMG_DA1/san pham/" . basename($_FILES['hinh']['name']);
-        
+
                     if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
                         $hinh = basename($_FILES['hinh']['name']);
 
@@ -90,18 +95,18 @@ switch ($page) {
             $mo_ta = trim($_POST['mo_ta']);
             $nam_xb = $_POST['nam_xb'];
             $so_luong_ban = $_POST['so_luong_ban'];
-    
+
             $book = $BookController->getBookById($id);
             $old_img = $book['hinh'];
-    
+
             if (isset($_FILES['hinh']) && $_FILES['hinh']['name'] != '') {
                 $fileName = basename($_FILES['hinh']['name']);
                 $targetFile = "../layout/public/img/IMG_DA1/san pham/" . $fileName;
-    
+
                 if ($old_img && file_exists("../layout/public/img/IMG_DA1/san pham/" . $old_img)) {
                     unlink("../layout/public/img/IMG_DA1/san pham/" . $old_img);
                 }
-    
+
                 // Check file type and size
                 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 $maxFileSize = 5 * 1024 * 1024; // 5MB
@@ -109,12 +114,12 @@ switch ($page) {
                     echo "Chỉ hỗ trợ tải lên hình ảnh JPEG, PNG, hoặc GIF.";
                     exit();
                 }
-    
+
                 if ($_FILES['hinh']['size'] > $maxFileSize) {
                     echo "Kích thước hình ảnh quá lớn. Vui lòng tải lên hình ảnh nhỏ hơn 5MB.";
                     exit();
                 }
-    
+
                 if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
                     $hinh = $fileName;
                     $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
@@ -122,17 +127,17 @@ switch ($page) {
                     echo "Lỗi khi tải hình ảnh lên. Vui lòng thử lại.";
                     exit();
                 }
-    
+
             } else {
                 $hinh = $old_img;
                 $BookController->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
             }
-    
+
             header("Location: index.php?page=book");
             exit();
         }
         break;
-    
+
 
 
     case 'hidden_book':
@@ -140,7 +145,7 @@ switch ($page) {
         if ($id) {
             $BookController->hiddenBook($id);
             header('location: index.php?page=book');
-            exit();  
+            exit();
         }
         break;
     case 'show_book':
@@ -148,23 +153,23 @@ switch ($page) {
         if ($id) {
             $BookController->showBook($id);
             header('location: index.php?page=book');
-            exit();  
+            exit();
         }
         break;
 
         case 'delete_book':
             $id = (int)$_GET['id'];
-            $bookname = $BookController->getBookById($id); 
+            $bookname = $BookController->getBookById($id);
             if ($bookname) {
-                $imagePath = "../layout/public/img/IMG_DA1/san pham/" . $bookname['hinh']; 
+                $imagePath = "../layout/public/img/IMG_DA1/san pham/" . $bookname['hinh'];
                 if (file_exists($imagePath)) {
-                    unlink($imagePath); 
+                    unlink($imagePath);
                 }
-                
+
                 if ($id) {
-                    $BookController->deleteBook($id); 
+                    $BookController->deleteBook($id);
                     header('location: index.php?page=book');
-                    exit();  
+                    exit();
                 } else {
                     echo "Lỗi: ID sách không hợp lệ!";
                 }
@@ -172,13 +177,13 @@ switch ($page) {
                 echo "Không tìm thấy sách với ID này!";
             }
             break;
-        
+
     case 'category':
         $CategoryController->listCategorys();
         break;
         case 'add_category':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $ten_theloai = $_POST['ten_theloai']; 
+                $ten_theloai = $_POST['ten_theloai'];
                 $result = $CategoryController->addCategory($ten_theloai);
                 if ($result) {
                     header("Location: index.php?page=category");
@@ -209,7 +214,7 @@ switch ($page) {
             exit;
         }
         break;
-    
+
     case 'delete_category':
         $id = $_GET['id'];
         $result = $CategoryController->deleteCategory($id);
@@ -219,7 +224,7 @@ switch ($page) {
         break;
         case 'add_author':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $ten_tacgia = $_POST['ten_tacgia']; 
+                $ten_tacgia = $_POST['ten_tacgia'];
                 $result = $AuthorController->addAuthor($ten_tacgia);
                 if ($result) {
                     header("Location: index.php?page=author");
@@ -241,7 +246,7 @@ switch ($page) {
             $AuthorController->updateAuthor($id, $ten_tacgia);
         }
         break;
-    
+
     case 'delete_author':
         $id = $_GET['id'];
 
@@ -260,7 +265,7 @@ switch ($page) {
         break;
         case 'add_publishinghouse':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $ten_nxb = $_POST['ten_nxb']; 
+                $ten_nxb = $_POST['ten_nxb'];
                 $result = $PublishingHouseController->addPublishingHouse($ten_nxb);
                 if ($result) {
                     header("Location: index.php?page=publishinghouse");
