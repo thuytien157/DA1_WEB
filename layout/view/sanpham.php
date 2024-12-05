@@ -83,33 +83,37 @@
             $ch .= '
             <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="card">
-                    <a href="index.php?act=index&id=' . $value['id'] . '" class="text-decoration-none">
-                        <img src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" class="card-img-top sp_img" alt="' . $value['ten_sach'] . '">
+                    <a href="index.php?act=index&id=' . $value['id'] . '&idtl='.$value['id_theloai'].'" class="text-decoration-none">
+                        <img src="public/img/IMG_DA1/san pham/' . $value['hinh'] . '" class="card-img-top sp_img ' . ($value['status'] == 1 ? 'opacity-50' : '') . '" alt="' . $value['ten_sach'] . '">
                     </a>
-                        <div class="card-body">
+                        <div class="card-body ' . ($value['status'] == 1 ? 'opacity-50' : '') . '">
                         <h6 class="card-title fw-bold">' . $value['ten_sach'] . '</h6>
                         <div class="rating">⭐⭐⭐⭐⭐</div>
                         <div class="">
-                            <span class="text-danger fs-5 fw-bold">' . $value['gia'] . 'đ </span>
-                            <span class="text-muted text-decoration-line-through fs-6">814.000đ</span>
+                            <span class="text-danger fs-5 fw-bold">
+                                '.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.') . 'đ
+                            </span>
+                            <span class="text-muted text-decoration-line-through fs-6">
+                                '.number_format(($value['gia']*1000), 0, '.', '.').'đ
+                            </span>
                             <span class="badge bg-danger">' . $value['giam'] . '%</span>
                         </div>
                     </div>';
                 if($value['status'] == 0){
                     $ch .= '
-                    <div class="card-footer">
-                        <button class="button1 btn-sm">Mua ngay</button>
+                    <div class="card-footer bg-body border border-0 z-1">
+                        <button class="button1">Mua ngay</button>
                         <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post" class="d-inline">
                             <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
                             <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
-                            <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                            <input type="hidden" name="gia" value="' . floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)) . '">
                             <input type="number" name="sl" class="visually-hidden" value="1" min="1">
                             <button type="submit" name="themvaogiohang" class="button1 btn-sm">Thêm vào giỏ hàng</button>
                         </form>
                     </div>
                     ';
                 }else{
-                    $ch .= '<div class="card-footer">Sản phẩm này hiện đang tạm dừng kinh doanh</div>';
+                    $ch .= '<div class="card-footer fw-bold">Sản phẩm này hiện đang tạm dừng kinh doanh</div>';
                 }   
                 $ch.='
                 </div>
@@ -121,9 +125,8 @@
     
     echo $ch;
     ?>
-</div>
-
-                </div>
+    </div>
+          </div>
             </div>
 
             <div class="chuyentrang mt-4">

@@ -221,7 +221,19 @@
       </div>
     </div>
   </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      <?php if (isset($_SESSION['error_message'])): ?>
+          alert("<?php echo htmlspecialchars($_SESSION['error_message']); ?>");
+          <?php unset($_SESSION['error_message']); ?>
+      <?php endif; ?>
 
+      <?php if (isset($_SESSION['message'])): ?>
+          alert("<?php echo htmlspecialchars($_SESSION['message']); ?>");
+          <?php unset($_SESSION['message']); ?>
+      <?php endif; ?>
+  });
+</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

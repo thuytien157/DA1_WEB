@@ -33,19 +33,40 @@ class BookController {
     }
 
     public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
-        $id_sach = $this->bookModel->addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
-        header('location: index.php?page=book');
-        exit();    
+        $result = $this->bookModel->addBooks(
+            $id_theloai, 
+            $id_tacgia, 
+            $id_nxb, 
+            $ten_sach, 
+            $hinh, 
+            $gia, 
+            $giam, 
+            $mo_ta, 
+            $nam_xb, 
+            $so_luong_ban
+        );
+    
+        if ($result === false) {
+            $_SESSION['error_message'] = "Tên sách đã tồn tại! Vui lòng thử lại.";
+        } else {
+            $_SESSION['message'] = "Thêm sách thành công!";
+        }
+    
+        header("Location: index.php?page=book");
+        exit;
     }
     
     public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
         $result = $this->bookModel->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
-        
-        if ($result) {
-            return true; 
+        if ($result['success']) {
+            $_SESSION['message'] = $result['message'];
+        } else {
+            $_SESSION['error_message'] = $result['message']; 
         }
-        return false;
+        header("Location: index.php?page=book");
+        exit;
     }
+    
 
 
     public function getBookById($id) {
@@ -57,6 +78,9 @@ class BookController {
     }
     public function showBook($id) {
         return $this->bookModel->showBook($id);
+    }
+    public function deleteBook($id) {
+        return $this->bookModel->deleteBook($id);
     }
 }  
 

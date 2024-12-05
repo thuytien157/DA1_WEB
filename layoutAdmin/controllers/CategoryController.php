@@ -18,19 +18,44 @@ class CategoryController {
         require_once "Views/category.php";
     }
        // Xử lý thêm tác giả
-       public function addCategory($ten_tacgia) {
-        $result = $this->categoryModel->addCategory($ten_tacgia);
-        
+    public function addCategory($ten_theloai) {
+        $result = $this->categoryModel->addCategory($ten_theloai);
+    
+        if ($result) {
+            $_SESSION['message'] = "Thêm tác giả thành công!";
+            header("Location: index.php?page=category");
+        } else {
+            $_SESSION['error_message'] = "Tác giả đã tồn tại!";
+            header("Location: index.php?page=category");
+        }
+        exit;
     }
-    // Xử lý cập nhật tác giả
-    public function updateCategory($id, $ten_tacgia) {
-        $result = $this->categoryModel->updateCategory($id, $ten_tacgia);
-        
-    }
+    public function updateCategory($id, $ten_theloai) {
+        $result = $this->categoryModel->updateCategory($id, $ten_theloai);
+          
+              if ($result['success']) {
+                  $_SESSION['message'] = $result['message'];
+              } else {
+                  $_SESSION['error_message'] = $result['message'];
+              }
+              header("Location: index.php?page=category");
+              exit;
+          }
+          
 
     // Xử lý xóa tác giả
     public function deleteCategory($id) {
         $result = $this->categoryModel->deleteCategory($id);
+        if ($result === false) {
+            echo "<script>
+                    alert('Bạn không thể xoá thể loại này vì có chứa sách!');
+                    window.location.href = 'index.php?page=category';
+                  </script>";
+        }else{
+            header('location: index.php?page=category');
+            exit();
+        }
+
         
     }
     public function getCategoryById($id) {

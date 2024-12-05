@@ -69,12 +69,9 @@
                 <h2 id="tenchitiet">' . $value['ten_sach'] . '</h2>
 
                     <div class="thongtinchitiet">
-                        <div>Nhà cung cấp: <span style="color: #8B4513;">' . $value['nha_cung_cap'] . '</span></div>
-                        <div class="tg">| Tác giả:' . $value['ten_tacgia'] . '</div>
-                    </div>
-                    <div class="thongtinchitiet1">
-                        <div>Nhà xuất bản:' . $value['ten_nxb'] . '</span></div>
-                        <div class="tg">| Hình thức bìa: ' . $value['hinh_thuc'] . '</div>
+                        <div class="tg">Tác giả: ' . $value['ten_tacgia'] . '</div>
+                         <div class="tg">Nhà xuất bản: ' . $value['ten_nxb'] . '</span></div>
+
                     </div>
                     <div class="yeuthich">
             <i class="fa-regular fa-heart"></i>
@@ -89,7 +86,7 @@
                 <div class="danhgia">0 đánh giá</div>
             </div>
             <div class="giachitiet">
-                <h5 class="gia">'.$value['gia'].'đ <del class="gia_sale">85.000đ</del></h5>
+                <h5 class="gia">'.number_format(floatval(str_replace('.', '', $value['gia'])) * (1 - ($value['giam']/100)), 0, '.', '.') . 'đ <del class="gia_sale">'.$value['gia'].'đ</del></h5>
                 <div class="chiase">
                     Chia sẽ
                     <i class="fa-brands fa-facebook f1"></i>
@@ -98,20 +95,28 @@
                     <i class="fa-brands fa-discord d1"></i>
                 </div>
             </div>
-            <hr>
-            <div class="sl-btn">
-                <input type="number" id="quantity" name="quantity" min="1" value="1" step="1" class="quantity-input">
-            </div>
+            <hr>';
 
-                <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
-                    <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
-                    <input type="hidden" name="gia" value="' . $value['gia'] . '">
-                    <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
-                    <input type="number" name="sl" class="visually-hidden" value="1" min="1">
-                    <button type="submit" name="themvaogiohang" class="mt-2 button1">Thêm vào giỏ hàng</button>
-                </form>
-
-                ';
+    
+                if($value['status'] == 0){
+                    $ch.='
+                        <form action="index.php?act=cart&action=themvaogiohang&id=' . $value['id'] . '" method="post">
+                            <input type="hidden" name="ten" value="' . $value['ten_sach'] . '">
+                            <input type="hidden" name="gia" value="' . $value['gia'] . '">
+                            <input type="hidden" name="hinh" value="' . $value['hinh'] . '">
+                            <div class="sl-btn">
+                            <input type="number" name="sl" value="1" class="quantity-input">
+                            </div>
+                            <button type="submit" name="themvaogiohang" class="mt-2 button1">Thêm vào giỏ hàng</button>
+                        </form>';
+            }else{
+                    $ch .= '
+                            <div class="alert alert-success" role="alert">
+                                <p>Sản phẩm này hiện đang tạm dừng kinh doanh.</p>
+                                <p>Vui lòng tham khảo các sản phẩm liên quan hoặc <a href="index.php?act=contact" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Liên hệ</a> với chúng tôi để biết thêm thông tin.</p>
+                            </div>                    
+                            ';
+                }
             }
         echo $ch;
             ?>
@@ -123,9 +128,7 @@
                         $ch = '';
                         foreach ($trangchumodel->allsp as $key => $value) {
                             $ch .= '
-                          <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id_sach'] . '</td></tr>
-
-                          <tr><td id="cotct">Tên Nhà Cung Cấp</td><td>' . $value['nha_cung_cap'] . '</td></tr>
+                          <tr><td scope="col" id="cotct">Mã hàng</td><td scope="col">' . $value['id'] . '</td></tr>
 
                          <tr><td id="cotct">Tác giả</td><td>' . $value['ten_tacgia'] . '</td></tr>
 
@@ -133,15 +136,15 @@
 
                         <tr><td id="cotct">NXB</td><td>' . $value['ten_nxb'] . '</td></tr>
 
-                          <tr><td id="cotct">Ngôn Ngữ</td><td>' . $value['ngon_ngu'] . '</td></tr>
+                          <tr><td id="cotct">Ngôn Ngữ</td><td>Tiếng Việt</td></tr>
 
-                          <tr><td id="cotct">Trọng lượng (gr)</td><td>' . $value['trong_luong'] . 'g</td></tr>
+                          <tr><td id="cotct">Trọng lượng (gr)</td><td>645 g</td></tr>
 
-                          <tr><td id="cotct">Kích Thước Bao Bì</td><td>' . $value['kich_thuoc'] . '</td></tr>
+                          <tr><td id="cotct">Kích Thước Bao Bì</td><td>15 cm</td></tr>
 
-                          <tr><td id="cotct">Số trang</td><td>' . $value['so_luong_trang'] . '</td></tr>
+                          <tr><td id="cotct">Số trang</td><td>200</td></tr>
 
-                          <tr><td id="cotct">Hình thức</td><td>' . $value['hinh_thuc'] . '</td></tr>
+                          <tr><td id="cotct">Hình thức</td><td>Bìa cứng</td></tr>
                         <tr>
                         <td id="cotct">Sản phẩm bán chạy nhất</td>
                         <td>Top 100 sản phẩm Tiểu thuyết bán chạy của tháng</td>
@@ -210,3 +213,4 @@
                         </div>
 
 </main>
+<script src="./assets/js/sldonhang.js"></script>

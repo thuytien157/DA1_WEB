@@ -26,7 +26,7 @@
                         <img class="cart-img" src="public/img/IMG_DA1/san pham/'.$value['hinh'].'" alt="">
                         <div class="cart-product-name">'.$value['ten'].'</div>
                     </td>
-                    <td class="cart-table-price">'.$value['gia'].'đ</td>
+                    <td class="cart-table-price">'.number_format($value['gia'], 0, '.', '.') .'đ</td>
                     <td>
                         <form action="index.php?act=cart&action=capnhatsoluong" method="POST">
                             <input type="hidden" name="id" value="'.$value['id'].'">
