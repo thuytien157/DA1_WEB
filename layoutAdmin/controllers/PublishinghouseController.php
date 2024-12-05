@@ -19,17 +19,28 @@ class PublishingHouseController {
 
     // Xử lý thêm nhà xuất bản
     public function addPublishingHouse($ten_nhaxuatban) {
-        $result = $this->publishinghouseModel->addPublishingHouse($ten_nhaxuatban); 
-        
+        $result = $this->publishinghouseModel->addPublishingHouse($ten_nhaxuatban);
+    
+        if ($result) {
+            $_SESSION['message'] = "Thêm nhà xuất bản thành công!";
+            header("Location: index.php?page=publishinghouse");
+        } else {
+            $_SESSION['error_message'] = "Nhà xuất bản đã tồn tại!";
+            header("Location: index.php?page=publishinghouse");
+        }
+        exit;
     }
-
-    // Xử lý cập nhật nhà xuất bản
     public function updatePublishingHouse($id, $ten_nhaxuatban) {
         $result = $this->publishinghouseModel->updatePublishingHouse($id, $ten_nhaxuatban);
-        header('location: index.php?page=publishinghouse');
-        exit();
-    }
-
+          
+              if ($result['success']) {
+                  $_SESSION['message'] = $result['message'];
+              } else {
+                  $_SESSION['error_message'] = $result['message'];
+              }
+              header("Location: index.php?page=publishinghouse");
+              exit;
+          }
     // Xử lý xóa nhà xuất bản
     public function deletePublishingHouse($id) {
         $result = $this->publishinghouseModel->deletePublishingHouse($id); 
