@@ -7,9 +7,9 @@ class dangnhapController {
         $this->dangnhap = new dangnhapModel();
 
         // Hiển thị trang đăng nhập khi GET request
-
-        
-
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            include_once "view/dangnhap.php";
+        }
 
         // Xử lý đăng nhập khi POST request
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dn'])) {
@@ -54,7 +54,7 @@ class dangnhapController {
             // Đăng nhập thất bại
             $error = "Tên đăng nhập hoặc mật khẩu không đúng!";
             include "view/dangnhap.php";
-            echo password_verify($password,$userData['mat_khau']);
+            // echo password_verify($password,$userData['mat_khau']);
         }
     }
 
