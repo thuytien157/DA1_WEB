@@ -17,7 +17,7 @@ class thongkeModel
 
     public function doanhthuhomnay()
     {
-        $stmt = $this->conn->prepare("SELECT  SUM(sach.gia * chi_tiet_don_hang.so_luong) AS doanh_thu_hom_nay
+        $stmt = $this->conn->prepare("SELECT  SUM((sach.gia * (1 - (sach.giam / 100))) * chi_tiet_don_hang.so_luong) AS doanh_thu_hom_nay
                                     FROM don_hang
                                     INNER JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
                                     INNER JOIN sach ON chi_tiet_don_hang.id_sach = sach.id
@@ -28,22 +28,34 @@ class thongkeModel
 
     public function doanhthuthang()
     {
-        $stmt = $this->conn->prepare("SELECT SUM(sach.gia * chi_tiet_don_hang.so_luong) AS doanh_thu_thang
-                                      FROM don_hang
-                                      INNER JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
-                                      INNER JOIN sach ON chi_tiet_don_hang.id_sach = sach.id
-                                      WHERE MONTH(ngay_mua_hang) = MONTH(CURDATE())");
+        $stmt = $this->conn->prepare("SELECT 
+                                            SUM((sach.gia * (1 - (sach.giam / 100))) * chi_tiet_don_hang.so_luong) AS doanh_thu_thang
+                                        FROM 
+                                            don_hang
+                                        INNER JOIN 
+                                            chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
+                                        INNER JOIN 
+                                            sach ON chi_tiet_don_hang.id_sach = sach.id
+                                        WHERE 
+                                            DATE_FORMAT(don_hang.ngay_mua_hang, '%Y-%m') = DATE_FORMAT(CURDATE(), '%Y-%m');");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
 
     public function doanhthutuan()
     {
-        $stmt = $this->conn->prepare("SELECT SUM(sach.gia * chi_tiet_don_hang.so_luong) AS doanh_thu_tuan
-                                     FROM don_hang
-                                     INNER JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
-                                     INNER JOIN sach ON chi_tiet_don_hang.id_sach = sach.id
-                                     WHERE WEEK(ngay_mua_hang) = WEEK(CURDATE())");
+        $stmt = $this->conn->prepare("SELECT 
+                                            SUM((sach.gia * (1 - (sach.giam / 100))) * chi_tiet_don_hang.so_luong) AS doanh_thu_tuan
+                                        FROM 
+                                            don_hang
+                                        INNER JOIN 
+                                            chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_donhang
+                                        INNER JOIN 
+                                            sach ON chi_tiet_don_hang.id_sach = sach.id
+                                        WHERE 
+                                            WEEK(don_hang.ngay_mua_hang, 1) = WEEK(CURDATE(), 1)
+                                            AND YEAR(don_hang.ngay_mua_hang) = YEAR(CURDATE());
+                                        ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
@@ -78,6 +90,6 @@ class thongkeModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
-    
+        
 
 }

@@ -214,7 +214,8 @@ INSERT INTO `user` (`id`, `ho_ten`, `sdt`, `username`, `mat_khau`, `email`, `vai
 (7, 'Dang Lam', '0907890123', 'danglam', 'password7', 'lam.dang@example.com', '0'),
 (8, 'Ngo Minh', '0908901234', 'ngominh', 'password8', 'minh.ngo@example.com', '0'),
 (9, 'Do Ngan', '0909012345', 'dongan', 'password9', 'ngan.do@example.com', '0'),
-(10, 'Ly Quynh', '0909123456', 'lyquynh', 'password10', 'quynh.ly@example.com', '0');
+(22, 'Thủy Tiên', '0389330758', 'tieenz', '$2y$10$LHcahQ5.3DFgma0pYxWvueofn/niC3MHg9MrmFYR68wBz8cyvuyO.', 'hiu800hu@gmail.com', '2'),
+(23, 'Nguyễn Minh Quá', '0389330759', 'MQuas1', '$2y$10$YtYr3X5iFnNMOTbOS2jUIeTnX0ZC5yvpenfXamgFf.23HhH9Kcu7y', 'thuytien.hoctap@gmail.com', '2');
 
 INSERT INTO `don_hang` (`id`, `id_khachhang`, `ngay_mua_hang`, `tt_thanhtoan`, `tt_donhang`, `dia_chi`, `ghi_chu`) VALUES
 (1, 1, '2024-11-10', 'Đã thanh toán', 'Đang giao', '123 Đường ABC, Quận 1, TP. HCM', 'Giao trong giờ hành chính'),

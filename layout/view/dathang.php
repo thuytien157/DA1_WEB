@@ -63,13 +63,13 @@
                             <tr>
                                 <td>'.$value['ten'].'</td>
                                 <td colspan="2">x'.$value['sl'].'</td>
-                                <td>'.$tamTinh.'.000đ</td>
+                                <td>'.number_format($tamTinh,0,'.','.').'.đ</td>
                             </tr>';
                         }
                         ?>
                         <tr>
                             <th colspan="3">Tổng</th>
-                            <td><?=$tongTien; ?>.000đ</td>
+                            <td><?=number_format($tongTien,0,'.','.') ?>.đ</td>
                         </tr>
                     </tbody>
                 </table>

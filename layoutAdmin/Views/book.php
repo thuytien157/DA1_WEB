@@ -155,7 +155,6 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Publishinghouse</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Quantity</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Entry date</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Year of publication</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Describe</th>
@@ -188,9 +187,6 @@
                       </td>
                       <td>
                         <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($book['gia']); ?></h6>
-                      </td>
-                      <td>
-                        <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($book['so_luong_ban']); ?></h6>
                       </td>
                       <td>
                         <h6 class="mb-0 text-sm"><?php echo htmlspecialchars($book['ngay_nhap']); ?></h6>
@@ -377,10 +373,6 @@
             <input type="date" class="form-control" name="nam_xb" required>
           </div>
 
-          <div class="mb-3">
-            <label for="soLuongBan" class="form-label">Số Lượng Bán</label>
-            <input type="number" class="form-control" name="so_luong_ban" required>
-          </div>
           <button type="submit" class="btn btn-primary" name="them">Lưu</button>
         </form>
       </div>
@@ -467,12 +459,7 @@
                 <input type="number" class="form-control" id="bookPrice" name="giam" value="<?php echo htmlspecialchars($book['giam']); ?>" required>
               </div>
 
-           
-              <div class="mb-3">
-                <label for="bookQuantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="bookQuantity" name="so_luong_ban" value="<?php echo htmlspecialchars($book['so_luong_ban']); ?>" required>
-              </div>
-
+          
             
               <div class="mb-3">
                 <label for="bookYear" class="form-label">Year of Publication</label>

@@ -32,7 +32,7 @@ class BookController {
         require_once "Views/book.php";
     }
 
-    public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
+    public function addBooks($id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb) {
         $result = $this->bookModel->addBooks(
             $id_theloai, 
             $id_tacgia, 
@@ -42,8 +42,7 @@ class BookController {
             $gia, 
             $giam, 
             $mo_ta, 
-            $nam_xb, 
-            $so_luong_ban
+            $nam_xb
         );
     
         if ($result === false) {
@@ -56,8 +55,8 @@ class BookController {
         exit;
     }
     
-    public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban) {
-        $result = $this->bookModel->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb, $so_luong_ban);
+    public function updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb) {
+        $result = $this->bookModel->updateBook($id, $id_theloai, $id_tacgia, $id_nxb, $ten_sach, $hinh, $gia, $giam, $mo_ta, $nam_xb);
         if ($result['success']) {
             $_SESSION['message'] = $result['message'];
         } else {

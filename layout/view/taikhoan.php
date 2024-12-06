@@ -17,7 +17,9 @@
                      <li class="list-group-item"><i class="fa-solid fa-heart icon"></i> Yêu thích</li>
                      <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Mã giảm giá</li>
                      <li class="list-group-item"><i class="fa-solid fa-gift icon"></i> Thông báo</li>
-                     <li class="list-group-item"><i class="fa-solid fa-user-minus icon"></i>Đăng xuất</li>
+                     <li class="list-group-item"><i class="fa-solid fa-user-minus icon"></i>
+                     <a href="index.php?act=logout" class="text-decoration-none text-black me-5">Đăng xuất</a>
+                    </li>
                  </ul>
              </div>
 

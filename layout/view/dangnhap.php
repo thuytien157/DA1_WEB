@@ -25,7 +25,7 @@
                     </div>
                     <a href="index.php?act=register" class="me-2 link-login">Đăng ký</a>
                     <button type="submit" class="button btn-mid" name="dn">Đăng Nhập</button>
-                    <a href="index.php?act=repass" class="btn-right link-login">quên mật khẩu</a>
+                    <a href="index.php?act=repass" class="btn-right link-login">Quên mật khẩu</a>
                 </form>
             </div>
         </div>

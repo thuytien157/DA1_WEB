@@ -74,24 +74,24 @@
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Doanh thu hôm nay</h5>
-              <p class="card-text fs-4"><?=$dt_cur[0]['doanh_thu_hom_nay']*1000?> VNĐ</p>
-            </div>
+              <p class="card-text fs-4"><?= number_format(ceil($dt_cur[0]['doanh_thu_hom_nay'] * 1000), 0, '.', '.') ?> VNĐ</p>
+              </div>
           </div>
         </div>
-<div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Doanh thu tuần</h5>
-              <p class="card-text fs-4"><?=$dt_w[0]['doanh_thu_tuan']*1000?> VNĐ</p>
-            </div>
+              <p class="card-text fs-4"><?= number_format(ceil($dt_w[0]['doanh_thu_tuan'] * 1000), 0, '.', '.') ?> VNĐ</p>
+              </div>
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Doanh thu tháng</h5>
-              <p class="card-text fs-4"><?=$dt_m[0]['doanh_thu_thang']*1000?> VNĐ</p>
-            </div>
+              <p class="card-text fs-4"><?= number_format(ceil($dt_m[0]['doanh_thu_thang'] * 1000), 0, '.', '.') ?> VNĐ</p>
+              </div>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@
 
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
-        type: 'line', 
+        type: 'bar', 
         data: {
             labels: daysOfWeek,
             datasets: [{

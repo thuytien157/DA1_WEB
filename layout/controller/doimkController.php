@@ -41,8 +41,9 @@ class doimkController {
         // Gọi đến model để thay đổi mật khẩu
         include "models/doimkModel.php";
         $doimkModel = new doimkModel();
-        $result = $doimkModel->changePassword($_SESSION['user']['id'], $currentPassword, $newPassword);
-
+        $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $result = $doimkModel->changePassword($_SESSION['user']['id'], $currentPassword, $hashedNewPassword);
+    
         // Nếu mật khẩu thay đổi thành công
         if ($result) {
             $_SESSION['thongbao'] = 'Đổi mật khẩu thành công!';

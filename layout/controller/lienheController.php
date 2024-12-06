@@ -9,7 +9,9 @@ class lienheController {
                 $mess = $_POST['message'] ?? "";
 
                 if (empty($address) || empty($name) || empty($mess)) {
-                    echo "Vui lòng nhập đủ thông tin";
+                    $_SESSION['thongbao'] = 'Vui long nhập đủ thông tin!';
+                    header('location: ./index.php?act=contact');
+                    exit();
                 } else {
                     $sendResult = $this->sendmail($address, $name, $mess);
                     if ($sendResult === true) {

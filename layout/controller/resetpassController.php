@@ -32,12 +32,12 @@ class resetpassController {
             // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành cập nhật mật khẩu
             require "models/connectmodel.php";
             $conn = new ConnectModel();
-
+            $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
             // $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
             // Cập nhật mật khẩu trong cơ sở dữ liệu
             $sql = "UPDATE user SET mat_khau = :password WHERE email = :email";
             $params = [
-                ':password' =>$newPassword,// Mã hóa mật khẩu
+                ':password' =>$hashedPassword,// Mã hóa mật khẩu
                 ':email' => $_SESSION['email']
             ];
 

@@ -15,11 +15,11 @@
     <form action="index.php?act=contact&action=guimail" method="post">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Username</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="name">
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="name" require>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label" >Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" name="email">
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" name="email" require>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>

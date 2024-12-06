@@ -178,6 +178,10 @@
                               <?php if ($Order['tt_donhang'] == 'Đã hủy'): ?>
                                 <button class="form-select d-inline-block w-auto " type="button" disabled style="background-color: #f5f5f5; color: #a0a0a0;">Đã hủy</button>
                               <?php else: ?>
+                              
+
+                                
+                                
                                 <select name="tt_donhang" class="form-select d-inline-block w-auto" onchange="this.form.submit()">
                                   <option value="Chờ xử lý"
                                     <?php echo $Order['tt_donhang'] == 'Chờ xử lý' ? 'selected' : ''; ?>
@@ -197,7 +201,10 @@
                             <form method="POST" action="index.php?page=update_order_status" style="display:inline;">
                               <input type="hidden" name="id" value="<?php echo htmlspecialchars($Order['id'], ENT_QUOTES); ?>">
                               <input type="hidden" name="tt_donhang" value="Đã hủy">
-                              <button class="btn btn-warning me-2" type="submit" <?php echo $Order['tt_donhang'] == 'Đã hủy' ? 'disabled' : ''; ?>>Hủy đơn hàng</button>
+                              <button class="btn btn-warning me-2" type="submit" 
+                                  <?php echo in_array($Order['tt_donhang'], ['Đã hủy', 'Hoàn thành']) ? 'disabled' : ''; ?>>
+                                  Hủy đơn hàng
+                                </button>
                             </form>
                             <a href="index.php?page=details&id=<?= $Order['id'] ?>">
                               <i class="bi bi-eye-fill icon-eye"></i>
