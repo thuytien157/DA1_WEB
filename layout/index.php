@@ -103,6 +103,7 @@ switch ($act) {
     case 'login':
         include_once 'controller/dangnhapController.php';
         $dangnhapController = new dangnhapController($user, $password);
+        include_once "view/dangnhap.php";gi
         break;
 
     case 'logout':

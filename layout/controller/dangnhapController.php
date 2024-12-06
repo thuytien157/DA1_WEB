@@ -7,8 +7,8 @@ class dangnhapController {
         $this->dangnhap = new dangnhapModel();
 
         // Hiển thị trang đăng nhập khi GET request
-       
-        include_once "view/dangnhap.php";
+
+        
 
 
         // Xử lý đăng nhập khi POST request
