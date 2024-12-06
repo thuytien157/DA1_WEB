@@ -7,9 +7,9 @@ class dangnhapController {
         $this->dangnhap = new dangnhapModel();
 
         // Hiển thị trang đăng nhập khi GET request
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            include_once "view/dangnhap.php";
-        }
+       
+        include_once "view/dangnhap.php";
+
 
         // Xử lý đăng nhập khi POST request
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dn'])) {
@@ -23,9 +23,9 @@ class dangnhapController {
         // Lấy thông tin người dùng dựa trên tên đăng nhập
         $userData = $this->dangnhap->login($user);
 
-         var_dump(password_verify($password,$userData['mat_khau']));
-         var_dump(password_hash("Thuytien965002@", PASSWORD_BCRYPT));
-         var_dump($userData['mat_khau']);
+        //  var_dump(password_verify($password,$userData['mat_khau']));
+        //  var_dump(password_hash("Thuytien965002@", PASSWORD_BCRYPT));
+        //  var_dump($userData['mat_khau']);
         $password = $_POST['password'];
         if ($userData && password_verify($password, $userData['mat_khau'])) {
             // Đăng nhập thành công, lưu thông tin vào session
