@@ -23,7 +23,10 @@ class dangnhapController {
         // Lấy thông tin người dùng dựa trên tên đăng nhập
         $userData = $this->dangnhap->login($user);
 
-
+         var_dump(password_verify($password,$userData['mat_khau']));
+         var_dump(password_hash("Thuytien965002@", PASSWORD_BCRYPT));
+         var_dump($userData['mat_khau']);
+        $password = $_POST['password'];
         if ($userData && password_verify($password, $userData['mat_khau'])) {
             // Đăng nhập thành công, lưu thông tin vào session
             session_start();
@@ -40,8 +43,10 @@ class dangnhapController {
 
             // Chuyển hướng theo vai trò người dùng
             if ($userData['vai_tro'] == 1 || $userData['vai_tro'] == 2)  {
+                $_SESSION['thongbao']="Đăng nhập thành công ";
                 header("Location: ../layoutAdmin/index.php");
             } else {
+                $_SESSION['thongbao']="Đăng nhập thành công ";
                 header("Location: index.php");
             }
             exit;

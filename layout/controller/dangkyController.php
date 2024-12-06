@@ -25,7 +25,7 @@ class dangkyController {
         }
 
         // Lưu thông tin người dùng
-        
+
         $mkmahoa = password_hash($matKhau, PASSWORD_BCRYPT);
 
         require_once "models/dangkyModel.php";
@@ -33,8 +33,10 @@ class dangkyController {
         $result = $dangkyModel->registerUser($hoTen, $sdt, $username, $email, $mkmahoa);
 
         if ($result) {
+            $_SESSION['thongbao']="Đăng ký thành công ";
             header("Location: index.php?act=login");
         } else {
+
             $error = "Đăng ký thất bại. Vui lòng thử lại!";
             include_once "view/dangky.php";
         }
