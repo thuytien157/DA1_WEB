@@ -14,7 +14,7 @@ class quenmkController {
                 exit;
             }
 
-            require "models/quenmkModel.php";
+            require "models/quenmkmodel.php";
             $model = new quenmkModel();
             $check = $model->checkmail($email);
 
